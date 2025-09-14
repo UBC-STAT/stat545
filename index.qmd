@@ -17,16 +17,20 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday September 9th: RMarkdown and Reproducibility
+-   Tuesday September 16th: Data Manipulation with dplyr
 
--   Thursday September 11th: GitHub and Version Control (HIGHLY recommend attending)
+-   Thursday September 18th: dplyr tutorial (with TAs): Work on worksheet A2
 
 **To Do this Week:**
 
--   Ensure you have completed all [installation instructions](webpages/lectures_i/lec1a_installation.qmd)! Please contact the teaching team if you are having issues
--   Join the Slack (see Canvas)
+-   Work on Collaborative Project
+-   Work on Worksheet A2
 
-**Upcoming Deadlines** - Nothing! You can start working on the Collaborative Project after Thursday's lecture.
+**Upcoming Deadlines**
+
+-   Collaborative Project Milestone 1: Friday September 19, 11:59pm
+
+-   Worksheet A2: September 22nd, 11:59pm
 :::
 ::::
 :::::::

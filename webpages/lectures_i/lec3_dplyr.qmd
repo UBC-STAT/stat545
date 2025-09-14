@@ -22,7 +22,7 @@ We will spend two classes on this topic.
 
 -   Intro to `dplyr` (Part 1) : <https://www.youtube.com/watch?v=ZYAVQ14IaTs>
 
-    -    `select()`, `filter()`, `mutate`, and piping (`%>%`)
+    -   `select()`, `filter()`, `mutate`, and piping (`%>%`)
 
 -   Leveling up with `dplyr`:
 
