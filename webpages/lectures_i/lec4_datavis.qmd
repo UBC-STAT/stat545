@@ -174,7 +174,14 @@ mtcars %>%
 ```
 
 
-We now have created a scatterplot! It's *fine*, but we can elevate this. Let's colour the points by the number of cylinders! Here, `cyl` is written a number, and R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable! We can do this with `mutate`, where we overwrite the `cyl` variable as a factor. Then, we use `color = cyl` in the `aes()` function to tell ggplot to colour by this category!
+We now have created a scatterplot! It's *fine*, but we can elevate this. Let's colour the points by the number of cylinders! 
+```{r}
+mtcars %>% 
+  ggplot(aes(x = hp, y = mpg, color = cyl)) + 
+    geom_point()
+```
+
+Hmmm. That's not quite right! There are only 3 types of cylinders in our data set! (Don't believe me? Try running `unique(mtcars$cyl))`. Because `cyl` is written as a number, R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable! We can do this with `mutate`, where we overwrite the `cyl` variable as a factor. Then, we use `color = cyl` in the `aes()` function to tell ggplot to colour by this category!
 
 
 ```{r}
