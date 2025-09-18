@@ -1,6 +1,6 @@
 ---
 title: "Assignment B1: Making a Function in R"
-subtitle: "Due: October 27, 11:59pm"
+subtitle: "Due: Tuesday November 4th, 2025 at 11:59pm"
 date-modified: last-modified
 ---
 

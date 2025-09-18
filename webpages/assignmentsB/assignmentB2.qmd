@@ -1,6 +1,6 @@
 ---
 title: "Assignment B2: Making an R Package"
-subtitle: "Due: November 7, 11:59pm"
+subtitle: "Due: Tuesday November 18, 2025 at 11:59pm"
 date-modified: last-modified
 ---
 

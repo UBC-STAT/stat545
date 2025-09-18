@@ -119,7 +119,7 @@ To submit this Deliverable, you’ll be tagging a release on your GitHub reposit
 
 4.  Click “Publish Release”.
 
-5.  Put a link to that release as a submission on the Collaborative Project Deliverable 2
+5.  Put a link to that release as a submission on the Collaborative Project Deliverable 2 (only one person per team needs to do this)
 
     -   You won’t lose marks for *not* submitting your link to canvas, but it would really help us out if you do this! Thank you!
 

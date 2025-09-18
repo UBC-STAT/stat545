@@ -4,6 +4,8 @@ subtitle: "Due: December 4, 11:59pm"
 date-modified: last-modified
 ---
 
+(not using for 2025 offering)
+
 **Total Points**: 100
 
 For this assignment, you will pick one of three options described below.
