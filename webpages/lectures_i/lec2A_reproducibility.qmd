@@ -24,7 +24,9 @@ From today’s class, students are anticipated to be able to:
 
 ## Video Lecture
 
--   [RMarkdown and Reproducibility](https://youtu.be/tS0nXW6Hfbk)
+{{< video https://youtu.be/tS0nXW6Hfbk >}}
+
+
 
 ## Reproducibility
 

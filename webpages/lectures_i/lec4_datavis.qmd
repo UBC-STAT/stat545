@@ -18,9 +18,10 @@ From this topic, students are anticipated to be able to:
 
 -   Choose an appropriate plot type for analysis, based on an understanding of what makes a graph effective.
 
+## Lecture Video
+{{< video https://youtu.be/vltlWkDoToo >}}
 
-
-We will be using the following packages for this lecture: 
+We will be using the following packages for this lecture:
 
 ```{r, warning = F, message = F}
 library(dplyr)
@@ -29,13 +30,11 @@ library(ggplot2)
 library(RColorBrewer)
 ```
 
-
 ## Motivating Example
 
-Tables are a convenient way to display information. Oftentimes, we are tempted to include tables in papers and presentations to emphasize relationships between variables in a data set as tables are relatively simple to create. 
+Tables are a convenient way to display information. Oftentimes, we are tempted to include tables in papers and presentations to emphasize relationships between variables in a data set as tables are relatively simple to create.
 
 Let's look at a table that one could create to show the relationship between the number of cylinders, miles per gallon, and horsepower in the `mtcars` data set:
-
 
 ```{r, echo = F, warning=F, message = F}
 library(kableExtra)
@@ -52,7 +51,6 @@ mtcars %>% select(cyl, mpg, hp) %>%
 
 ```
 
-
 Was it easy to figure out the relationship I was trying to convey? I'm sure you would eventually be able to figure it out, but I'd bet it took some time. What about now?:
 
 ```{r, echo = F, fig.align="center"}
@@ -68,8 +66,7 @@ mtcars %>% select(cyl, mpg, hp) %>%
   theme_minimal()
 ```
 
-We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon). Cars with higher horsepower also tend to have a higher number of cylinders. That was a lot easier to deduce than when we were reading numbers off of a large table.  We will show how to build this exact plot in this lecture!
-
+We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon). Cars with higher horsepower also tend to have a higher number of cylinders. That was a lot easier to deduce than when we were reading numbers off of a large table. We will show how to build this exact plot in this lecture!
 
 ## Effective Data Visualization
 
@@ -149,12 +146,11 @@ library(ggplot2)
 
     -   a specification of data variables that partition the data into smaller "sub plots" or panels
 
-It's okay if you don't quite understand all of these components yet. We will walk through examples of commonly used plots and discuss which components are necessary! 
+It's okay if you don't quite understand all of these components yet. We will walk through examples of commonly used plots and discuss which components are necessary!
 
 ### Example 1: Scatterplot on `mtcars`
 
-Let's say you'd like to see if there is a relationship between miles per gallon and horsepower of cars in the `mtcars` data set. As both of these variables are numeric, we could build a scatterplot. 
-
+Let's say you'd like to see if there is a relationship between miles per gallon and horsepower of cars in the `mtcars` data set. As both of these variables are numeric, we could build a scatterplot.
 
 The `ggplot()` function takes two arguments: `data` (the data frame or tibble containing your data that you'd like to plot) and `mapping` (aesthetic mappings applied to the entire plot. We use the `aes()` function inside of this argument.).
 
@@ -173,8 +169,8 @@ mtcars %>%
   geom_point()
 ```
 
+We now have created a scatterplot! It's *fine*, but we can elevate this. Let's colour the points by the number of cylinders!
 
-We now have created a scatterplot! It's *fine*, but we can elevate this. Let's colour the points by the number of cylinders! 
 ```{r}
 mtcars %>% 
   ggplot(aes(x = hp, y = mpg, color = cyl)) + 
@@ -182,7 +178,6 @@ mtcars %>%
 ```
 
 Hmmm. That's not quite right! There are only 3 types of cylinders in our data set! (Don't believe me? Try running `unique(mtcars$cyl))`. Because `cyl` is written as a number, R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable! We can do this with `mutate`, where we overwrite the `cyl` variable as a factor. Then, we use `color = cyl` in the `aes()` function to tell ggplot to colour by this category!
-
 
 ```{r}
 mtcars %>% 
@@ -202,7 +197,7 @@ mtcars %>%
 
 ```
 
-To be even more accessible, let's change the shape of the points by cylinder type by adding `shape = cyl` to the `aes()`! 
+To be even more accessible, let's change the shape of the points by cylinder type by adding `shape = cyl` to the `aes()`!
 
 ```{r}
 mtcars %>% 
@@ -254,6 +249,7 @@ mtcars %>%
 ```
 
 And finally, let's add a descriptive title!
+
 ```{r}
 mtcars %>% 
   mutate(cyl = as.factor(cyl)) %>%
@@ -267,11 +263,9 @@ mtcars %>%
     ggtitle("Relationship between Number of Cylinders, Miles per Gallon, \nand Horsepower on the mtcars Dataset")
 ```
 
-The `\n` in the title is a special character that allows the line to break and fit on this size of plot. 
+The `\n` in the title is a special character that allows the line to break and fit on this size of plot.
 
-Now, this is a nice visualization! We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon). Cars with higher horsepower also tend to have a higher number of cylinders. 
-
-
+Now, this is a nice visualization! We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon). Cars with higher horsepower also tend to have a higher number of cylinders.
 
 ::: callout-tip
 Names of axes should have quotations "" around them.
@@ -344,5 +338,3 @@ Video lectures for this topic (ignore the episode numbering):
         -   Vincenzo’s [“Communicating data” slides](https://vincenzocoia.com/communicating_data/#1) provide some rules of thumb.
 
         -   [Callingbull.org’s entry on visualizations](https://www.callingbull.org/tools/tools_misleading_axes.html), by Carl T. Bergstrom and Jevin West, goes over several examples of improving ineffective visuals.
-
-

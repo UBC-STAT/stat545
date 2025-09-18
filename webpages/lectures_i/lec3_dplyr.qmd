@@ -20,13 +20,14 @@ We will spend two classes on this topic.
 
 ## Video Lectures:
 
--   Intro to `dplyr` (Part 1) : <https://www.youtube.com/watch?v=ZYAVQ14IaTs>
+-   Intro to `dplyr` (Part 1) : `select()`, `filter()`, `mutate`, and piping (`%>%`)
+    
+    
+{{< video https://www.youtube.com/watch?v=ZYAVQ14IaTs>}}
 
-    -   `select()`, `filter()`, `mutate`, and piping (`%>%`)
+-   Leveling up with `dplyr` (Part 2): `tidyselect`, `arrange()`
 
--   Leveling up with `dplyr`:
-
-    -   `tidyselect`, `arrange()`
+(coming soon!)
 
 ## Why Data Manipulation?
 
