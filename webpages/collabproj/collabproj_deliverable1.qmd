@@ -21,6 +21,10 @@ By completing this project, students are expected to be able to:
 
 This is the first of two milestones for completing this project.
 
+::: callout-important
+**Read through the project in its entirety** to ensure you've made a plan for all of the components to be completed! Many tasks are not "standalone". For example, we require at least one pull request per person that is relevant to the project. You'll need to decide in advance who does what!
+:::
+
 ## Exercise 1: Getting Setup
 
 **5 points**
@@ -79,7 +83,7 @@ Between your `README.md` and `TEAMWORK.md` files, showcase at least five functio
 
 **30 points**
 
-**Every teammate should submit at least one pull request for this milestone, and have a different teammate merge the pull request after reviewing the contents of the pull request**.
+**Every teammate should submit at least one pull request for this milestone, and have a different teammate merge the pull request after reviewing the contents of the pull request**. **Each pull request will require a number of components (listed below). TAs will grade one pull request per person, and it's up to you to ensure you've indicated which one is to be graded by adding "(GRADED)" to your pull request name.**
 
 So, like the previous exercise on Markdown Formatting, this exercise is not stand-alone. You’ll need to decide who will work on what (more on this when you make your teamwork document).
 
@@ -88,12 +92,9 @@ As a reminder, in order to make a pull request, you’ll need to:
 1.  Make a new branch, *before you start working on your tasks!* (So that you capture your work within the branch.)
     -   You can do this either on GitHub, or on your own computer using RStudio.
 
-<!-- -->
-
 2.  Make changes to some files on the new branch.
-    -   You can do this either on GitHub or on your own computer (locally), but if you do this locally, you’ll need to remember to push your work (on the branch) to GitHub.
 
-<!-- -->
+    -   You can do this either on GitHub or on your own computer (locally), but if you do this locally, you’ll need to remember to push your work (on the branch) to GitHub.
 
 3.  Start a pull request on GitHub, by going to “Pull Requests” -\> “New Pull Request”, and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.
 
@@ -116,7 +117,7 @@ Here are some ideas of things you can merge:
 
 **Note 1**: Work together as a team to get this done. If one of your teammates is having trouble with this procedure, help them out! Sometimes a merge conflict will happen, and it’s best to work as a team to figure out how to resolve these issues.
 
-**Note 2:** Please indicate to the TAs which Pull Requests you would like to be graded by adding “(GRADED)” to the PR name.
+**Note 2:** Please indicate to the TAs which Pull Requests you would like to be graded by adding “(GRADED)” to the PR name. Every team member should have exactly one pull request labelled "(GRADED)".
 
 **Grading**:
 

@@ -3,7 +3,48 @@ title: "Mini Data Analysis: Deliverable 1"
 date-modified: last-modified
 ---
 
-## Deliverable 1 will be posted on Friday September 26th, 2025
 ## Deliverable 1 will be due on Friday October 3rd, 2025 at 11:59pm PT.
 
-There is ZERO tolerance for late project submissions. Please contact the instructor for extenuating circumstances. 
+This project includes two deliverables, each with explicit tasks. Tasks that are more challenging will often be allocated more points.
+
+Each deliverable will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. While the two deliverables will be submitted as independent assessments, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
+
+# Learning Objectives
+
+By the end of this deliverable, you should:
+
+-   Become familiar with your dataset of choosing
+
+-   Select 4 questions that you would like to answer with your data
+
+-   Generate a reproducible and clear report using R Markdown
+
+-   Become familiar with manipulating and summarizing your data in tibbles using `dplyr`, with a research question in mind.
+
+# Instructions
+
+### Download Datasets
+
+1.  In RStudio, install the [`datateachr`](https://github.com/UBC-MDS/datateachr) package by typing the following into your **R terminal**:
+
+```         
+install.packages("devtools")
+devtools::install_github("UBC-MDS/datateachr")
+```
+
+2.  Load the packages below.
+
+```{r, eval = F}
+library(datateachr)
+library(tidyverse)
+```
+
+3.  Make a repository in our GitHub classroom. You can do this by following the steps found on canvas in the entry called [MDA: Create a repository](https://canvas.ubc.ca/courses/169555/pages/mda-create-a-repository). One completed, your repository should automatically be listed as part of the stat545ubc-2025 Organization.
+
+### Download RMarkdown Report
+
+**To complete this deliverable**, download and edit the [mini-project-1.Rmd](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/mini-data-analysis/mini-project-1.Rmd) directly. Follow the instructions given in the .Rmd file. Fill in the sections that are tagged with `<!--- start your work below --->`.
+
+**To submit this deliverable**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.
+
+**Points**: This deliverable is worth 36 points: 30 for your analysis, and 6 for overall reproducibility, cleanliness, and coherence of the Github submission.

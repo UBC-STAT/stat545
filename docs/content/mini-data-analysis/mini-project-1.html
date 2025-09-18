@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Collaborative Project: Deliverable 2 – STAT545</title>
+<title>Mini Data-Analysis Deliverable 1 – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -219,51 +253,37 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/collabproj/collabproj_deliverable2.html">Collaborative Project: Deliverable 2</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../webpages/collabproj/collabproj_deliverable1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Collaborative Project: Deliverable 1</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../webpages/collabproj/collabproj_deliverable2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Collaborative Project: Deliverable 2</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#stat-545a-collaborative-project-milestone-2" id="toc-stat-545a-collaborative-project-milestone-2" class="nav-link active" data-scroll-target="#stat-545a-collaborative-project-milestone-2">STAT 545A Collaborative Project: Milestone 2</a>
+  <li><a href="#welcome-to-your-maybe-first-ever-data-analysis-project" id="toc-welcome-to-your-maybe-first-ever-data-analysis-project" class="nav-link active" data-scroll-target="#welcome-to-your-maybe-first-ever-data-analysis-project">Welcome to your (maybe) first-ever data analysis project!</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a>
   <ul class="collapse">
-  <li><a href="#exercise-0-merge-one-pull-request-per-teammate" id="toc-exercise-0-merge-one-pull-request-per-teammate" class="nav-link" data-scroll-target="#exercise-0-merge-one-pull-request-per-teammate">Exercise 0: Merge one Pull Request per teammate</a></li>
-  <li><a href="#exercise-1-troubleshooting-document" id="toc-exercise-1-troubleshooting-document" class="nav-link" data-scroll-target="#exercise-1-troubleshooting-document">Exercise 1: Troubleshooting document</a></li>
-  <li><a href="#exercise-2-readme-file-and-tidy-submission" id="toc-exercise-2-readme-file-and-tidy-submission" class="nav-link" data-scroll-target="#exercise-2-readme-file-and-tidy-submission">Exercise 2: README file and tidy submission</a></li>
-  <li><a href="#exercise-3-submitting-this-deliverable" id="toc-exercise-3-submitting-this-deliverable" class="nav-link" data-scroll-target="#exercise-3-submitting-this-deliverable">Exercise 3: Submitting this Deliverable</a></li>
+  <li><a href="#for-both-milestones" id="toc-for-both-milestones" class="nav-link" data-scroll-target="#for-both-milestones">For Both Milestones</a></li>
+  <li><a href="#for-milestone-1" id="toc-for-milestone-1" class="nav-link" data-scroll-target="#for-milestone-1">For Milestone 1</a></li>
+  </ul></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#task-1-choose-your-favorite-dataset" id="toc-task-1-choose-your-favorite-dataset" class="nav-link" data-scroll-target="#task-1-choose-your-favorite-dataset">Task 1: Choose your favorite dataset</a></li>
+  <li><a href="#important-note" id="toc-important-note" class="nav-link" data-scroll-target="#important-note">Important note</a></li>
+  <li><a href="#task-2-exploring-your-dataset" id="toc-task-2-exploring-your-dataset" class="nav-link" data-scroll-target="#task-2-exploring-your-dataset">Task 2: Exploring your dataset</a></li>
+  <li><a href="#task-3-choose-research-questions" id="toc-task-3-choose-research-questions" class="nav-link" data-scroll-target="#task-3-choose-research-questions">Task 3: Choose research questions</a></li>
+  <li><a href="#overall-reproducibilitycleanlinesscoherence-checklist" id="toc-overall-reproducibilitycleanlinesscoherence-checklist" class="nav-link" data-scroll-target="#overall-reproducibilitycleanlinesscoherence-checklist">Overall reproducibility/Cleanliness/Coherence Checklist</a>
+  <ul class="collapse">
+  <li><a href="#coherence-0.5-points" id="toc-coherence-0.5-points" class="nav-link" data-scroll-target="#coherence-0.5-points">Coherence (0.5 points)</a></li>
+  <li><a href="#error-free-code-3-points" id="toc-error-free-code-3-points" class="nav-link" data-scroll-target="#error-free-code-3-points">Error-free code (3 points)</a></li>
+  <li><a href="#main-readme-1-point" id="toc-main-readme-1-point" class="nav-link" data-scroll-target="#main-readme-1-point">Main README (1 point)</a></li>
+  <li><a href="#output-1-point" id="toc-output-1-point" class="nav-link" data-scroll-target="#output-1-point">Output (1 point)</a></li>
+  <li><a href="#tagged-release-0.5-points" id="toc-tagged-release-0.5-points" class="nav-link" data-scroll-target="#tagged-release-0.5-points">Tagged release (0.5 points)</a>
+  <ul class="collapse">
+  <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -273,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Collaborative Project: Deliverable 2</h1>
+<h1 class="title">Mini Data-Analysis Deliverable 1</h1>
 </div>
 
 
@@ -282,12 +302,6 @@ ul.task-list li input[type="checkbox"] {
 
     
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 18, 2025</p>
-    </div>
-  </div>
     
   </div>
   
@@ -296,119 +310,198 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><u><strong>Due September 26th, 2025 at 11:59pm PT</strong></u></p>
-<p>There is ZERO tolerance for late project submissions. Please contact the instructor for extenuating circumstances.</p>
-<section id="stat-545a-collaborative-project-milestone-2" class="level1">
-<h1>STAT 545A Collaborative Project: Milestone 2</h1>
-<p><strong>Points</strong>: 78</p>
-<p>By completing this project, students are expected to be able to:</p>
+<section id="welcome-to-your-maybe-first-ever-data-analysis-project" class="level1">
+<h1>Welcome to your (maybe) first-ever data analysis project!</h1>
+<p>And hopefully the first of many. Let’s get started:</p>
 <ol type="1">
-<li><p>Collaborate on a project with a partner using the git + GitHub workflow.</p></li>
-<li><p>Troubleshoot broken R code.</p></li>
-<li><p>Rewrite code to address instructions.</p></li>
+<li>Install the <a href="https://github.com/UBC-MDS/datateachr"><code>datateachr</code></a> package by typing the following into your <strong>R terminal</strong>:</li>
 </ol>
-<p>This is the second of two deliverables for completing this project.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Read through the project in its entirety</strong> to ensure you’ve made a plan for all of the components to be completed! Many tasks are not “standalone”. For example, we require at least one pull request per person that is relevant to the project. You’ll need to decide in advance who does what!</p>
-</div>
-</div>
-<section id="exercise-0-merge-one-pull-request-per-teammate" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-0-merge-one-pull-request-per-teammate">Exercise 0: Merge one Pull Request per teammate</h2>
-<p><strong>30 points</strong></p>
-<p><em>This exercise is identical to the one in Deliverable 1.</em></p>
-<p><strong>Each pull request will require a number of components (listed below). TAs will grade one pull request per person, and it’s up to you to ensure you’ve indicated which one is to be graded by adding “(GRADED)” to your pull request name.</strong></p>
-<p>Every teammate should submit at least one pull request for this deliverable, and have a <strong>different</strong> teammate merge the pull request after reviewing the contents of the pull request. So, like the previous exercise on Markdown Formatting, this exercise is not stand-alone. You’ll need to decide who will work on what.</p>
-<p>As a reminder, in order to make a pull request, you’ll need to:</p>
-<ol type="1">
-<li><p>Make a new branch, <em>before you start working on your tasks!</em> (So that you capture your work within the branch.)</p>
-<ul>
-<li>You can do this either on GitHub, or on your own computer using RStudio.</li>
-</ul></li>
-<li><p>Make changes to some files on the new branch.</p>
-<ul>
-<li>You can do this either on GitHub or on your own computer (locally), but if you do this locally, you’ll need to remember to push your work (on the branch) to GitHub.</li>
-</ul></li>
-<li><p>Start a pull request on GitHub, by going to “Pull Requests” -&gt; “New Pull Request”, and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.</p></li>
+<!-- -->
+<pre><code>install.packages("devtools")
+devtools::install_github("UBC-MDS/datateachr")</code></pre>
+<ol start="2" type="1">
+<li>Load the packages below.</li>
 </ol>
-<ul>
-<li><p>In the comments, include some indication as to which teammate will be responsible for checking and merging the new work contained in the pull request.</p>
-<ul>
-<li><p>Perhaps you’ve already decided up front who will be reviewing who’s work.</p></li>
-<li><p>Or perhaps (and more realistically), in your comment, you may ask the group at large who would like to volunteer, and then someone will respond.</p></li>
-<li><p>How you work this out should go in your teamwork document (as described in another exercise).</p></li>
-</ul></li>
-<li><p>The teammate responsible for reviewing and merging the pull request does so, being sure to add to the discussion happening in the pull request by adding a comment.</p>
-<ul>
-<li>The comment could be as simple as something like “I’ve reviewed these changes, and everything looks great.” Or, it could highlight some issues that were found, in which case the team should work towards resolving the issue.</li>
-</ul></li>
-</ul>
-<p><strong>Note 1</strong>: Work together as a team to get this done. If one of your teammates is having trouble with this procedure, help them out! Sometimes a merge conflict will happen, and it’s best to work as a team to figure out how to resolve these issues.</p>
-<p><strong>Note 2:</strong> Please indicate to the TAs which PRs you would like to be graded by adding “(GRADED)” to the PR name. Every team member should have exactly one pull request labelled “(GRADED)”.</p>
-<p><strong>Grading</strong>:</p>
-<ul>
-<li><p>4 points awarded for the creation of a complete set of pull requests (i.e., one pull request per teammate).</p></li>
-<li><p>14 points awarded for the successful merging of a complete set of pull requests.</p></li>
-<li><p>4 points awarded for the comment(s) kicking off the pull request.</p></li>
-<li><p>4 points awarded for the follow-up comment(s) from a reviewer.</p></li>
-<li><p>4 points awarded if each teammate gets the chance to act as a reviewer/merger of someone else’s pull request.</p></li>
-<li><p><em>Penalty</em> of up to 4 points if the total amount of work contained in pull requests does not amount to much. We just want to make sure that, when you’re working on this project, you’re largely working on branches. It’s OK to commit directly to the main branch without a pull request, but this should be the exception, not the norm.</p></li>
-<li><p><em>Penalty</em> of 1 point if you have not indicated to the TAs which PRs you would like to be graded by adding “(GRADED)” to the PR name.<br>
-</p></li>
-</ul>
-</section>
-<section id="exercise-1-troubleshooting-document" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1-troubleshooting-document">Exercise 1: Troubleshooting document</h2>
-<p><strong>58 points</strong></p>
-<ol type="1">
-<li><p>Put the <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/collaborative-project/milestone2/troubleshooting-2.Rmd"><code>troubleshooting-2.Rmd</code></a> document in your repository. (You can either download this file, or just copy and paste its contents into a new file that you call <code>troubleshooting-2.Rmd</code>.)</p></li>
-<li><p>Fix all the errors in the <code>troubleshooting-2.Rmd</code> document, as outlined in the document. (<strong>55 points, errors are equally weighed</strong>)</p></li>
-<li><p>Knit the document to an md file (just click “knit” in RStudio). (<strong>3 points; only 1 point if the document is not up-to-date with its Rmd source.</strong>)</p></li>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datateachr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Make a repository in the <a href="https://github.com/stat545ubc-2024" class="uri">https://github.com/stat545ubc-2024</a> Organization. You can do this by following the steps found on canvas in the entry called <a href="https://canvas.ubc.ca/courses/158528/pages/mda-create-a-repository">MDA: Create a repository</a>. One completed, your repository should automatically be listed as part of the stat545ubc-2024 Organization.</li>
 </ol>
 </section>
-<section id="exercise-2-readme-file-and-tidy-submission" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-readme-file-and-tidy-submission">Exercise 2: README file and tidy submission</h2>
-<p><strong>10 points</strong></p>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<section id="for-both-milestones" class="level2">
+<h2 class="anchored" data-anchor-id="for-both-milestones">For Both Milestones</h2>
 <ul>
-<li><p>Update your README file to reflect any changes that have happened in your repository. This will probably only be a very small change, and that’s OK. (<strong>5 points for all changes reflected in the README; 4 points if at least one change is not reflected in the README; 0 points if there are changes and none of them are reflected in the README.</strong>)</p></li>
-<li><p>Your repository is clean and organized. For example, there aren’t any “old” files, and there are no relics (such as, if you once output to html, but no longer, then if present, that html file is an unnecessary relic). (<strong>5 points total: 1 point for general organization, 2 points for no relic files, 2 points for all output files being up to date.</strong>)</p></li>
+<li><p>Each milestone has explicit tasks. Tasks that are more challenging will often be allocated more points.</p></li>
+<li><p>Each milestone will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission.</p></li>
+<li><p>While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html">Here</a> is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!</p></li>
+<li><p>The milestones will be equally weighted.</p></li>
 </ul>
 </section>
-<section id="exercise-3-submitting-this-deliverable" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-submitting-this-deliverable">Exercise 3: Submitting this Deliverable</h2>
-<p><strong>2 points</strong></p>
-<p>To submit this Deliverable, you’ll be tagging a release on your GitHub repository, and adding a link to the release on canvas.</p>
-<p><em>How to tag a release</em>:</p>
-<ol type="1">
-<li><p>Navigate to the main page (root) of your collaborative GitHub repository.</p></li>
-<li><p>There should be a small link on the right-hand-side of your page that says “Create a new release”. Click that.</p></li>
-</ol>
+<section id="for-milestone-1" class="level2">
+<h2 class="anchored" data-anchor-id="for-milestone-1">For Milestone 1</h2>
+<p><strong>To complete this milestone</strong>, edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
+<p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
+<p><strong>Points</strong>: This milestone is worth 36 points: 30 for your analysis, and 6 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
+</section>
+</section>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<p>By the end of this milestone, you should:</p>
 <ul>
-<li>You might also be able to get to the same place by clicking on the “tags” link beside where your branches are listed.</li>
+<li>Become familiar with your dataset of choosing</li>
+<li>Select 4 questions that you would like to answer with your data</li>
+<li>Generate a reproducible and clear report using R Markdown</li>
+<li>Become familiar with manipulating and summarizing your data in tibbles using <code>dplyr</code>, with a research question in mind.</li>
 </ul>
-<ol type="1">
-<li><p>For the tag version, put <code>m2.0</code> (for “milestone 2.0”).</p></li>
-<li><p>Choose a release title and description (this is less important).</p></li>
-<li><p>Do <strong>not</strong> check off “This is a pre-release”.</p></li>
-<li><p>Click “Publish Release”.</p></li>
-<li><p>Put a link to that release as a submission on the Collaborative Project Deliverable 2</p>
+</section>
+<section id="task-1-choose-your-favorite-dataset" class="level1">
+<h1>Task 1: Choose your favorite dataset</h1>
+<p>The <code>datateachr</code> package by Hayley Boyce and Jordan Bourak currently composed of 7 semi-tidy datasets for educational purposes. Here is a brief description of each dataset:</p>
 <ul>
-<li>You won’t lose marks for <em>not</em> submitting your link to canvas, but it would really help us out if you do this! Thank you!</li>
-</ul></li>
+<li><p><em>apt_buildings</em>: Acquired courtesy of The City of Toronto’s Open Data Portal. It currently has 3455 rows and 37 columns.</p></li>
+<li><p><em>building_permits</em>: Acquired courtesy of The City of Vancouver’s Open Data Portal. It currently has 20680 rows and 14 columns.</p></li>
+<li><p><em>cancer_sample</em>: Acquired courtesy of UCI Machine Learning Repository. It currently has 569 rows and 32 columns.</p></li>
+<li><p><em>flow_sample</em>: Acquired courtesy of The Government of Canada’s Historical Hydrometric Database. It currently has 218 rows and 7 columns.</p></li>
+<li><p><em>parking_meters</em>: Acquired courtesy of The City of Vancouver’s Open Data Portal. It currently has 10032 rows and 22 columns.</p></li>
+<li><p><em>steam_games</em>: Acquired courtesy of Kaggle. It currently has 40833 rows and 21 columns.</p></li>
+<li><p><em>vancouver_trees</em>: Acquired courtesy of The City of Vancouver’s Open Data Portal. It currently has 146611 rows and 20 columns.</p></li>
+</ul>
+<p><strong>Things to keep in mind</strong></p>
+<ul>
+<li><p>We hope that this project will serve as practice for carrying our your own <em>independent</em> data analysis. Remember to comment your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. As you advance in the project, prompts and hints to do this will be diminished - it’ll be up to you!</p></li>
+<li><p>Before choosing a dataset, you should always keep in mind <strong>your goal</strong>, or in other ways, <em>what you wish to achieve with this data</em>. This mini data-analysis project focuses on <em>data wrangling</em>, <em>tidying</em>, and <em>visualization</em>. In short, it’s a way for you to get your feet wet with exploring data on your own.</p></li>
+</ul>
+<p>And that is exactly the first thing that you will do!</p>
+<p>1.1 <strong>(1 point)</strong> Out of the 7 datasets available in the <code>datateachr</code> package, choose <strong>4</strong> that appeal to you based on their description. Write your choices below:</p>
+<p><strong>Note</strong>: We encourage you to use the ones in the <code>datateachr</code> package, but if you have a dataset that you’d really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a <strong>brief</strong> description of the dataset here to help the teaching team understand your data.</p>
+<!-------------------------- Start your work below ---------------------------->
+<p>1: CHOICE_1_HERE<br>
+2: CHOICE_2_HERE<br>
+3: CHOICE_3_HERE<br>
+4: CHOICE_4_HERE</p>
+<!----------------------------------------------------------------------------->
+<p>1.2 <strong>(6 points)</strong> One way to narrowing down your selection is to <em>explore</em> the datasets. Use your knowledge of dplyr to find out at least <em>3</em> attributes about each of these datasets (an attribute is something such as number of rows, variables, class type…). The goal here is to have an idea of <em>what the data looks like</em>.</p>
+<p><em>Hint:</em> This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you below, but do you want to use more than one? Would you like to write more comments outside of the code chunk?</p>
+<!-------------------------- Start your work below ---------------------------->
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">### EXPLORE HERE </span><span class="al">###</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>steam_games</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40,833 × 21
+      id url    types name  desc_snippet recent_reviews all_reviews release_date
+   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;       
+ 1     1 https… app   DOOM  Now include… Very Positive… Very Posit… May 12, 2016
+ 2     2 https… app   PLAY… PLAYERUNKNO… Mixed,(6,214)… Mixed,(836… Dec 21, 2017
+ 3     3 https… app   BATT… Take comman… Mixed,(166),-… Mostly Pos… Apr 24, 2018
+ 4     4 https… app   DayZ  The post-so… Mixed,(932),-… Mixed,(167… Dec 13, 2018
+ 5     5 https… app   EVE … EVE Online … Mixed,(287),-… Mostly Pos… May 6, 2003 
+ 6     6 https… bund… Gran… Grand Theft… NaN            NaN         NaN         
+ 7     7 https… app   Devi… The ultimat… Very Positive… Very Posit… Mar 7, 2019 
+ 8     8 https… app   Huma… Human: Fall… Very Positive… Very Posit… Jul 22, 2016
+ 9     9 https… app   They… They Are Bi… Very Positive… Very Posit… Dec 12, 2017
+10    10 https… app   Warh… In a world … &lt;NA&gt;           Mixed,(904… May 31, 2019
+# ℹ 40,823 more rows
+# ℹ 13 more variables: developer &lt;chr&gt;, publisher &lt;chr&gt;, popular_tags &lt;chr&gt;,
+#   game_details &lt;chr&gt;, languages &lt;chr&gt;, achievements &lt;dbl&gt;, genre &lt;chr&gt;,
+#   game_description &lt;chr&gt;, mature_content &lt;chr&gt;, minimum_requirements &lt;chr&gt;,
+#   recommended_requirements &lt;chr&gt;, original_price &lt;dbl&gt;, discount_price &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<!----------------------------------------------------------------------------->
+<p>1.3 <strong>(1 point)</strong> Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 1. What lead you to choose this one? Briefly explain your choice below.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+<p>1.4 <strong>(2 points)</strong> Time for a final decision! Going back to the beginning, it’s important to have an <em>end goal</em> in mind. For example, if I had chosen the <code>titanic</code> dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with your dataset. Note it down below.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</section>
+<section id="important-note" class="level1">
+<h1>Important note</h1>
+<p>Read Tasks 2 and 3 <em>fully</em> before starting to complete either of them. Probably also a good point to grab a coffee to get ready for the fun part!</p>
+<p>This project is semi-guided, but meant to be <em>independent</em>. For this reason, you will complete tasks 2 and 3 below (under the <strong>START HERE</strong> mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. If you feel lost, you can find a sample data analysis <a href="https://www.kaggle.com/headsortails/tidy-titarnic">here</a> to have a better idea. However, bear in mind that it is <strong>just an example</strong> and you will not be required to have that level of complexity in your project.</p>
+</section>
+<section id="task-2-exploring-your-dataset" class="level1">
+<h1>Task 2: Exploring your dataset</h1>
+<p>If we rewind and go back to the learning objectives, you’ll see that by the end of this deliverable, you should have formulated <em>4</em> research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. <strong>Before you start this task, read all instructions carefully until you reach START HERE under Task 3</strong>.</p>
+<p>2.1 <strong>(12 points)</strong> Complete <em>4 out of the following 8 exercises</em> to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer <em>4</em>.</p>
+<p>Make sure that you’re using dplyr and ggplot2 rather than base R for this task. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that’s just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.</p>
+<ol type="1">
+<li>Plot the distribution of a numeric variable.</li>
+<li>Create a new variable based on other variables in your data (only if it makes sense)</li>
+<li>Investigate how many missing values there are per variable. Can you find a way to plot this?</li>
+<li>Explore the relationship between 2 variables in a plot.</li>
+<li>Filter observations in your data according to your own criteria. Think of what you’d like to explore - again, if this was the <code>titanic</code> dataset, I may want to narrow my search down to passengers born in a particular year…</li>
+<li>Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!</li>
+<li>Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.</li>
+<li>Use a density plot to explore any of your variables (that are suitable for this type of plot).</li>
 </ol>
-<p><em>If you want to “re-tag” your release</em>:</p>
-<p>If you want to change your submission <em>after</em> tagging a release, you can still do this if it’s before the deadline. Just increase the secondary version number by one – so, make the tag version <code>m2.1</code>, then <code>m2.2</code>, etc.</p>
-<p><strong>Grading</strong>: 2 points awarded for tagging a release.</p>
+<p>2.2 <strong>(4 points)</strong> For each of the 4 exercises that you complete, provide a <em>brief explanation</em> of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</section>
+<section id="task-3-choose-research-questions" class="level1">
+<h1>Task 3: Choose research questions</h1>
+<p><strong>(4 points)</strong> So far, you have chosen a dataset and gotten familiar with it through exploring the data. You have also brainstormed one research question that interested you (Task 1.4). Now it’s time to pick 4 research questions that you would like to explore in Milestone 2! Write the 4 questions and any additional comments below.</p>
+<!--- *****START HERE***** --->
+<!----------------------------->
+</section>
+<section id="overall-reproducibilitycleanlinesscoherence-checklist" class="level1">
+<h1>Overall reproducibility/Cleanliness/Coherence Checklist</h1>
+<section id="coherence-0.5-points" class="level2">
+<h2 class="anchored" data-anchor-id="coherence-0.5-points">Coherence (0.5 points)</h2>
+<p>The document should read sensibly from top to bottom, with no major continuity errors. An example of a major continuity error is having a data set listed for Task 3 that is not part of one of the data sets listed in Task 1.</p>
+</section>
+<section id="error-free-code-3-points" class="level2">
+<h2 class="anchored" data-anchor-id="error-free-code-3-points">Error-free code (3 points)</h2>
+<p>For full marks, all code in the document should run without error. 1 point deduction if most code runs without error, and 2 points deduction if more than 50% of the code throws an error.</p>
+</section>
+<section id="main-readme-1-point" class="level2">
+<h2 class="anchored" data-anchor-id="main-readme-1-point">Main README (1 point)</h2>
+<p>There should be a file named <code>README.md</code> at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.</p>
+<p>Minimum contents of the README file:</p>
+<ul>
+<li>In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.</li>
+<li>In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
+</ul>
+<p>Once you get in the habit of making README files, and seeing more README files in other projects, you’ll wonder how you ever got by without them! They are tremendously helpful.</p>
+</section>
+<section id="output-1-point" class="level2">
+<h2 class="anchored" data-anchor-id="output-1-point">Output (1 point)</h2>
+<p>All output is readable, recent and relevant:</p>
+<ul>
+<li>All Rmd files have been <code>knit</code>ted to their output md files.</li>
+<li>All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, “Sorry about that, but we can’t show files that are this big right now” messages, error messages from broken R code</li>
+<li>All of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.</li>
+<li>There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.</li>
+</ul>
+<p>(0.5 point deduction if any of the above criteria are not met. 1 point deduction if most or all of the above criteria are not met.)</p>
+<p>Our recommendation: right before submission, delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant. Then, after your final commit and push to Github, CHECK on Github to make sure that everything looks the way you intended!</p>
+</section>
+<section id="tagged-release-0.5-points" class="level2">
+<h2 class="anchored" data-anchor-id="tagged-release-0.5-points">Tagged release (0.5 points)</h2>
+<p>You’ve tagged a release for Milestone 1.</p>
+<section id="attribution" class="level3">
+<h3 class="anchored" data-anchor-id="attribution">Attribution</h3>
+<p>Thanks to Icíar Fernández Boyano for mostly putting this together, and Vincenzo Coia for launching.</p>
 
 
+</section>
 </section>
 </section>
 
