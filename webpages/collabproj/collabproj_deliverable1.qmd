@@ -75,9 +75,9 @@ Between your `README.md` and `TEAMWORK.md` files, showcase at least five functio
 
 -   3 markdown features: 10 points
 
--   4 markdown features: 13 points
+-   4 or 5 markdown features: 13 points
 
--   5 markdown features: 15 points
+-   5 markdown features, with at least two being "GitHub-Flavoured": 15 points
 
 ## Exercise 3: Merge one Pull Request per Teammate
 
@@ -90,6 +90,7 @@ So, like the previous exercise on Markdown Formatting, this exercise is not stan
 As a reminder, in order to make a pull request, you’ll need to:
 
 1.  Make a new branch, *before you start working on your tasks!* (So that you capture your work within the branch.)
+
     -   You can do this either on GitHub, or on your own computer using RStudio.
 
 2.  Make changes to some files on the new branch.

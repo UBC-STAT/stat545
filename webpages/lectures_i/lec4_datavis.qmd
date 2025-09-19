@@ -19,6 +19,7 @@ From this topic, students are anticipated to be able to:
 -   Choose an appropriate plot type for analysis, based on an understanding of what makes a graph effective.
 
 ## Lecture Video
+
 {{< video https://youtu.be/vltlWkDoToo >}}
 
 We will be using the following packages for this lecture:
