@@ -92,7 +92,7 @@ Worksheets are produced with Jupyter Notebooks, and will be submitted on Canvas.
 
 #### Assignments
 
-There are four formal assignments for this course, each equally weighted (each worth 21.25% of your final grade):
+There are three formal assignments for this course, each equally weighted (each worth 21.25% of your final grade):
 
 | Assignment   | Release Date          | Due Date (11:59pm PT) |
 |--------------|-----------------------|-----------------------|
