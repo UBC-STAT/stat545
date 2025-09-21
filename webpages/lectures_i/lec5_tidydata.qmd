@@ -86,7 +86,7 @@ With a partner or a small group discuss the following questions think about if t
 
 Once you have figured out what’s tidy for you, you may come to realize that your data is *not* tidy. As we have discussed, it will typically save you time and frustration to tidy it before moving on in your analysis.
 
-Very often this will involve using “pivoting” type functions. For example, the `tidyr` package in the tidyverse has two main pivoting functions:
+Very often this will involve using “pivoting” type functions. For example, the `tidyr` package in the `tidyverse` has two main pivoting functions:
 
 1.  `pivot_longer()` makes datasets *longer*: it moves some information in the columns into new rows, thereby *increasing* the number of *rows* of the dataset.
 

@@ -100,19 +100,13 @@ ratings_tbl2 %>%
   ggtitle("% Increase in Viewers from Premiere to Finale") + #add y labels
   scale_y_continuous(labels = scales::percent) + #change y axis to percentage 
   theme_classic() + #add classic theme
-  coord_flip() #flip horizontally
+  coord_flip() #flip horizontallyz
 ```
 
 ::: {.callout-warning icon="false" appearance="minimal"}
-### Exercise 2
+### Exercise 
 
-With a partner or a small group:
-
-1.  What do you think `ratings_tbl2` looks like?
-
-2.  Why is it tidy? (Hint: what are the observations and variables?)
-
-3.  Could you have calculated the information in `ratings_tbl2` using `ratings_tbl1`? (No need to write code - just discuss whether it’s possible.)
+With a partner or a small group discuss if you could you have calculated the information in `ratings_tbl2` using `ratings_tbl1`? (No need to write code - just discuss whether it’s possible.)
 :::
 
 ### **Pivoting Wider**
