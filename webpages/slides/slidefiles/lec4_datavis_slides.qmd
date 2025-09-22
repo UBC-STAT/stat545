@@ -1,0 +1,211 @@
+---
+title: "Lecture 4: Data Visualization"
+subtitle: "STAT 545 - Fall 2025"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - dplyr
+    - tidyverse
+    - knitr
+    - RColorBrewer
+    - ggplot2
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Today's Goals
+
+-   create effective data visualizations
+
+-   explore the grammar of `ggplot2`
+
+Quick links:
+
+-   [Lecture Video](https://youtu.be/vltlWkDoToo)
+
+-   [Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec4_datavis.html)
+
+## Required Packages
+
+Install (if necessary) and load in the following packages:
+
+```{r}
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(RColorBrewer)
+```
+
+## Motivating Example {.scrollable}
+
+We want to investigate if there is a relationship between the number of cylinders (`cyl`), fuel efficiency (`mpg`), and horsepower (`hp`) in the `mtcars` data set.
+
+```{webr, echo = F, warning=F, message = F}
+library(kableExtra)
+
+mtcars %>% select(cyl, mpg, hp) %>%
+  group_by(cyl) %>%
+  arrange(cyl, mpg) %>%
+  knitr::kable(col.names = c("Number of Cylinders", "Miles per Gallon", "Horsepower"), 
+               align = "c", format = "html",  
+               table.attr = 'data-quarto-disable-processing="true"') %>%
+  kable_styling(bootstrap_options = c("hover", "condensed"),
+                    full_width = FALSE, font_size = 14) %>%
+  kableExtra::collapse_rows(columns = 1, latex_hline = "major", valign = "top")
+
+```
+
+## Motivating Example
+
+-   Was it easy to figure out the relationship I was trying to convey?
+
+<!-- -->
+
+-   What about through a plot?
+
+## Motivating Example
+
+```{r, echo = F, fig.align="center"}
+#| output-location: column
+mtcars %>% select(cyl, mpg, hp) %>%
+  arrange(mpg) %>%
+  ggplot(aes(x = hp, y = mpg, color = as.factor(cyl), shape = as.factor(cyl))) + 
+    geom_point() +
+    labs(color = "Number of Cylinders", shape = "Number of Cylinders") +
+    xlab("Horsepower") + ylab("Miles Per Gallon") + 
+    ggtitle("Relationship between Number of Cylinders, Miles per Gallon, and Horsepower on the \nmtcars Dataset") +
+  scale_color_brewer(palette = "Set2") + 
+  theme_minimal()
+```
+
+## Motivating Example
+
+-   We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon).
+
+-   Cars with higher horsepower also tend to have a higher number of cylinders.
+
+-   That was a lot easier to deduce than when we were reading numbers off of a large table. We will show how to build this exact plot in this lecture!
+
+## Effective Data Visualization
+
+-   Data visualizations are often preferred to aid with identify patterns and relationships and emphasizing important findings in a research projects
+
+    -   This is especially true for presentations
+
+-   So, what's the best visualization?
+
+    -   Depends on what you need the data visualization to answer!
+
+-   Once you know what you want to show, we need to **convey the message** as clearly and simply as possible
+
+## Effective Data Visualizations: Considerations
+
+-   Make it clear as a "standalone"
+
+    -   Use labels, titles, and legends and make them informative and clear
+
+-   Minimize noise
+
+    -   Don't use colours randomly - it may cause us to see false patterns
+
+    -   Don't overlap plots
+
+    -   Use as few plots as possible, but don't be afraid to separate data to plot if it makes things clearer
+
+-   Consider the accessibility of your chart
+
+    -   up to 10% of the population has colourblindness
+
+    -   make it low-vision friendly and provide descriptions where possible
+
+## `ggplot2` and the Grammar of Graphics
+
+`ggplot2` is based on the grammar of graphics, which is a systematic approach for describing different components or aspects of a graph. It involves seven components (required components are indicated with the \*):
+
+-   Data\*
+
+    -   the data you’re feeding into the plot, perhaps a tibble or dataframe
+
+-   Aesthetic mappings\*
+
+    -   a specification of how you will connect variables (for example, horizontal or vertical positioning, grouping, size, colour, shape)
+
+-   Geometric objects\*
+
+    -   a specification of what the object will be drawn as (for example, a scatter plot, line, bar chart)
+
+    \* = required component
+
+## `ggplot2` and the Grammar of Graphics
+
+-   Scales
+
+    -   a specification of how a variable is mapped to its aesthetic
+
+-   Statistical transformations
+
+    -   a specification of whether and how the data are combined or transformed. For example, is a bar chart plotting the values or a relative frequency?
+
+-   Coordinate system
+
+    -   a specification of how the position aesthetics (x and y) are depicted in the plot. We typically use cartesian coordinates, though polar coordinates are also possible.
+
+-   Facet
+
+    -   a specification of data variables that partition the data into smaller "sub plots" or panels
+
+It's okay if you don't quite understand all of these components yet. We will walk through examples of commonly used plots and discuss which components are necessary!
+
+## Example: Scatterplot on `mtcars`
+
+Let's say you'd like to see if there is a relationship between miles per gallon and horsepower of cars in the `mtcars` data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables.
+
+```{webr}
+
+```
+
+```{r, include = F, echo = F}
+
+mtcars %>% 
+  mutate(cyl = as.factor(cyl)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl, shape = cyl)) + 
+    geom_point() + 
+    scale_color_brewer(palette = "Set2")  +
+    xlab("Horsepower") + 
+    ylab("Miles Per Gallon") +
+    labs(color = "Number of Cylinders", shape = "Number of Cylinders") +
+    theme_minimal() + 
+    ggtitle("Relationship between Number of Cylinders, Miles per Gallon, \nand Horsepower on the mtcars Dataset")
+
+```
+
+## To Save These Slides With Your Code
+
+To Print to PDF (with your code!), do the following:
+
+-   Toggle into Print View using the `E` key (or using the Navigation Menu on the bottom right of the slide)
+
+-   Open the in-browser print dialog `CMD/CTRL + P`.
+
+-   Change the Destination setting to Save as PDF.
+
+-   Change the Layout to Landscape.
+
+-   Change the Margins to None. Enable the Background graphics option.
+
+-   Click Save 🎉
+
+In all cases, ensure the code chunks don't get cut off (i.e., a line is too long). You will **not** be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)

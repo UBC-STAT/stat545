@@ -165,10 +165,10 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Lectures</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Notes</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
         <li>
     <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
@@ -195,6 +195,10 @@ div.csl-indent {
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../webpages/slides/slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../webpages/worksheets.html"> 
 <span class="menu-text">Worksheets</span></a>
@@ -331,6 +335,8 @@ div.csl-indent {
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#lecture-video" id="toc-lecture-video" class="nav-link" data-scroll-target="#lecture-video">Lecture Video</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set Up</a></li>
   <li><a href="#motivating-example" id="toc-motivating-example" class="nav-link" data-scroll-target="#motivating-example">Motivating Example</a></li>
   <li><a href="#effective-data-visualization" id="toc-effective-data-visualization" class="nav-link" data-scroll-target="#effective-data-visualization">Effective Data Visualization</a></li>
   <li><a href="#ggplot2-and-the-grammar-of-graphics" id="toc-ggplot2-and-the-grammar-of-graphics" class="nav-link" data-scroll-target="#ggplot2-and-the-grammar-of-graphics"><code>ggplot2</code> and the Grammar of Graphics</a>
@@ -363,7 +369,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 19, 2025</p>
+      <p class="date-modified">September 22, 2025</p>
     </div>
   </div>
     
@@ -387,12 +393,20 @@ div.csl-indent {
 <section id="lecture-video" class="level2">
 <h2 class="anchored" data-anchor-id="lecture-video">Lecture Video</h2>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/vltlWkDoToo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<p><a href="../../webpages/slides/slidefiles/lec4_datavis_slides.html">Lecture 4 - Data Visualization Slides</a></p>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set Up</h2>
 <p>We will be using the following packages for this lecture:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="motivating-example" class="level2">
@@ -615,14 +629,6 @@ div.csl-indent {
 <section id="ggplot2-and-the-grammar-of-graphics" class="level2">
 <h2 class="anchored" data-anchor-id="ggplot2-and-the-grammar-of-graphics"><code>ggplot2</code> and the Grammar of Graphics</h2>
 <p>If you’ve learned about data visualization in R before, you’ve likely produced plots using “base R” methods (for example, the <code>boxplot()</code> function in R. It is a simple framework for making plots and is often “enough” for producing basic plots. In this lecture, we are going to dive into <code>ggplot2</code>, a package R users often use to make more sophisticated plots! If you’ve never used R to plot before, don’t worry. We aren’t assuming you have any experience with either method of plotting in R.</p>
-<p>We will be utilising the <code>ggplot2</code> and <code>tidyverse</code> packages throughout this lecture. To load them:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") #uncomment if not already installed</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2") #uncomment if not already installed</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p><code>ggplot2</code> is based on the grammar of graphics, which is a systematic approach for describing different components or aspects of a graph. It involves seven components (required components are indicated with the *):</p>
 <ul>
 <li><p>Data*</p>
@@ -661,8 +667,21 @@ div.csl-indent {
 <p>The <code>ggplot()</code> function takes two arguments: <code>data</code> (the data frame or tibble containing your data that you’d like to plot) and <code>mapping</code> (aesthetic mappings applied to the entire plot. We use the <code>aes()</code> function inside of this argument.).</p>
 <p>Let’s start building the scatterplot! Let’s plot <code>mpg</code> (miles per gallon) on the x axis and <code>hp</code> on the y axis by <em>piping</em> the dataset into the ggplot function:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lec4_datavis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice that we haven’t actually plotted anything! <code>ggplot</code> doesn’t know what type of plot we want to draw, only that we want <code>mpg</code> on the x axis and <code>hp</code> on the y axis from the <code>mtcars</code> data we provided. To tell <code>ggplot</code> that we want a scatterplot, we are going to add a <em>layer</em> to the plot using the <code>+</code> at the end of the previous line. <code>geom_point()</code> is the geometric object we’d like to add (i.e., a scatterplot):</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -671,11 +690,11 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Notice that we haven’t actually plotted anything! <code>ggplot</code> doesn’t know what type of plot we want to draw, only that we want <code>mpg</code> on the x axis and <code>hp</code> on the y axis from the <code>mtcars</code> data we provided. To tell <code>ggplot</code> that we want a scatterplot, we are going to add a <em>layer</em> to the plot using the <code>+</code> at the end of the previous line. <code>geom_point()</code> is the geometric object we’d like to add (i.e., a scatterplot):</p>
+<p>We now have created a scatterplot! It’s <em>fine</em>, but we can elevate this. Let’s colour the points by the number of cylinders!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -684,11 +703,12 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>We now have created a scatterplot! It’s <em>fine</em>, but we can elevate this. Let’s colour the points by the number of cylinders!</p>
+<p>Hmmm. That’s not quite right! There are only 3 types of cylinders in our data set! (Don’t believe me? Try running <code>unique(mtcars$cyl))</code>. Because <code>cyl</code> is written as a number, R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable! We can do this with <code>mutate</code>, where we overwrite the <code>cyl</code> variable as a factor. Then, we use <code>color = cyl</code> in the <code>aes()</code> function to tell ggplot to colour by this category!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -697,12 +717,13 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Hmmm. That’s not quite right! There are only 3 types of cylinders in our data set! (Don’t believe me? Try running <code>unique(mtcars$cyl))</code>. Because <code>cyl</code> is written as a number, R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable! We can do this with <code>mutate</code>, where we overwrite the <code>cyl</code> variable as a factor. Then, we use <code>color = cyl</code> in the <code>aes()</code> function to tell ggplot to colour by this category!</p>
+<p>Cool! But… this isn’t super colourblind-friendly. Let’s turn to the <code>RColorBrewer</code> package to select a friendlier colour scheme. The colour pallet “Set2” is more colourblind-friendly:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -711,11 +732,11 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Cool! But… this isn’t super colourblind-friendly. Let’s turn to the <code>RColorBrewer</code> package to select a friendlier colour scheme. The colour pallet “Set2” is more colourblind-friendly:</p>
+<p>To be even more accessible, let’s change the shape of the points by cylinder type by adding <code>shape = cyl</code> to the <code>aes()</code>!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl, <span class="at">shape =</span> cyl)) <span class="sc">+</span> </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -726,13 +747,15 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>To be even more accessible, let’s change the shape of the points by cylinder type by adding <code>shape = cyl</code> to the <code>aes()</code>!</p>
+<p>Now, let’s add better labels to our X and Y axes:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl, <span class="at">shape =</span> cyl)) <span class="sc">+</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)  <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Horsepower"</span>) <span class="sc">+</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Miles Per Gallon"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -741,7 +764,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Now, let’s add better labels to our X and Y axes:</p>
+<p>We can also change the title of our legend. We’ll have to specify the title twice as we’ve grouped by colour and shape:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
@@ -749,7 +772,8 @@ div.csl-indent {
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)  <span class="sc">+</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Horsepower"</span>) <span class="sc">+</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Miles Per Gallon"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Miles Per Gallon"</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Number of Cylinders"</span>, <span class="at">shape =</span> <span class="st">"Number of Cylinders"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -758,7 +782,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>We can also change the title of our legend. We’ll have to specify the title twice as we’ve grouped by colour and shape:</p>
+<p>The grey background is still a bit distracting, so we could remove it by giving out ggplot a more minimal theme:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
@@ -767,7 +791,8 @@ div.csl-indent {
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)  <span class="sc">+</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Horsepower"</span>) <span class="sc">+</span> </span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Miles Per Gallon"</span>) <span class="sc">+</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Number of Cylinders"</span>, <span class="at">shape =</span> <span class="st">"Number of Cylinders"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Number of Cylinders"</span>, <span class="at">shape =</span> <span class="st">"Number of Cylinders"</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -776,7 +801,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The grey background is still a bit distracting, so we could remove it by giving out ggplot a more minimal theme:</p>
+<p>And finally, let’s add a descriptive title!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
@@ -786,31 +811,12 @@ div.csl-indent {
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Horsepower"</span>) <span class="sc">+</span> </span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Miles Per Gallon"</span>) <span class="sc">+</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Number of Cylinders"</span>, <span class="at">shape =</span> <span class="st">"Number of Cylinders"</span>) <span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Relationship between Number of Cylinders, Miles per Gallon, </span><span class="sc">\n</span><span class="st">and Horsepower on the mtcars Dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="lec4_datavis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>And finally, let’s add a descriptive title!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl =</span> <span class="fu">as.factor</span>(cyl)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl, <span class="at">shape =</span> cyl)) <span class="sc">+</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)  <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Horsepower"</span>) <span class="sc">+</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Miles Per Gallon"</span>) <span class="sc">+</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Number of Cylinders"</span>, <span class="at">shape =</span> <span class="st">"Number of Cylinders"</span>) <span class="sc">+</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Relationship between Number of Cylinders, Miles per Gallon, </span><span class="sc">\n</span><span class="st">and Horsepower on the mtcars Dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lec4_datavis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

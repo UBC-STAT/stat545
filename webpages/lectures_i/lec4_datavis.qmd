@@ -22,6 +22,12 @@ From this topic, students are anticipated to be able to:
 
 {{< video https://youtu.be/vltlWkDoToo >}}
 
+## Lecture Slides
+
+[Lecture 4 - Data Visualization Slides](../slides/slidefiles/lec4_datavis_slides.qmd)
+
+## Set Up
+
 We will be using the following packages for this lecture:
 
 ```{r, warning = F, message = F}
@@ -29,6 +35,7 @@ library(dplyr)
 library(knitr)
 library(ggplot2)
 library(RColorBrewer)
+library(tidyverse)
 ```
 
 ## Motivating Example
@@ -106,16 +113,6 @@ We need to convey the message using a data visualization while removing as much 
 ## `ggplot2` and the Grammar of Graphics
 
 If you've learned about data visualization in R before, you've likely produced plots using "base R" methods (for example, the `boxplot()` function in R. It is a simple framework for making plots and is often "enough" for producing basic plots. In this lecture, we are going to dive into `ggplot2`, a package R users often use to make more sophisticated plots! If you've never used R to plot before, don't worry. We aren't assuming you have any experience with either method of plotting in R.
-
-We will be utilising the `ggplot2` and `tidyverse` packages throughout this lecture. To load them:
-
-```{r, message=F, warning=F}
-# install.packages("tidyverse") #uncomment if not already installed
-# install.packages("ggplot2") #uncomment if not already installed
-
-library(tidyverse)
-library(ggplot2)
-```
 
 `ggplot2` is based on the grammar of graphics, which is a systematic approach for describing different components or aspects of a graph. It involves seven components (required components are indicated with the \*):
 

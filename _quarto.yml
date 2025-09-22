@@ -16,6 +16,8 @@ website:
         icon: house-door-fill
       - sidebar:syllabus
       - sidebar:lectures
+      - href: webpages/slides/slides.qmd
+        text: "Slides"
       - href: webpages/worksheets.qmd
         text: "Worksheets"
       - sidebar:collabproj
@@ -46,7 +48,7 @@ website:
         
         
     - id: lectures
-      title: "Lectures"
+      title: "Notes"
       style: "docked"
       background: light
       collapse-level: 2
@@ -70,8 +72,6 @@ website:
         # - webpages/lectures_ii/lec12_characterdata.qmd
         # - webpages/lectures_ii/lec13_listcolumns.qmd
         # - webpages/lectures_ii/lec14_quarto.qmd
-
-        
         
 
         

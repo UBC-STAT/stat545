@@ -1,0 +1,50 @@
+---
+title: "Lecture 5: Tidy Data and the Tidyverse"
+subtitle: "STAT 545 - Fall 2025"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - dplyr
+    - tidyverse
+    - knitr
+    - RColorBrewer
+    - ggplot2
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Today's Goals
+
+-   create effective data visualizations
+
+-   explore the grammar of `ggplot2`
+
+Quick links:
+
+-   Lecture Video
+
+-   [Lecture Notes](../../lectures_i/lec5_tidydata.qmd)
+
+## Required Packages
+
+Install (if necessary) and load in the following packages:
+
+```{r}
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(RColorBrewer)
+```

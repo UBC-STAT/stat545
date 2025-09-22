@@ -144,10 +144,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Lectures</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Notes</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
         <li>
     <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
@@ -174,6 +174,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../webpages/slides/slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../webpages/worksheets.html"> 
 <span class="menu-text">Worksheets</span></a>
@@ -449,7 +453,7 @@ Exercise 2
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">10</span>, <span class="at">num_dice =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 17</code></pre>
+<pre><code>[1] 10</code></pre>
 </div>
 </div>
 <p>If I wanted to make the default number of sides to 10, I can do that in the <code>function()</code>!</p>
@@ -477,14 +481,14 @@ Exercise 2
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 14</code></pre>
+<pre><code>[1] 24</code></pre>
 </div>
 </div>
 <p>I didn’t need to include <code>n_sides = 10</code> in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">6</span>, <span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">

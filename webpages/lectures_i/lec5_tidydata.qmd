@@ -1,5 +1,5 @@
 ---
-title: "Lecture 5: Tidy Data"
+title: "Lecture 5: Tidy Data and the Tidyverse"
 subtitle: "September 30, 2025"
 date-modified: last-modified
 bibliography: ../bibliography.bib
