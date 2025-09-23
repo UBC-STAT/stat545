@@ -31,7 +31,7 @@ Worksheets are produced with Jupyter Notebooks. For installation instructions, s
 |------------------------|------------------------|------------------------|
 | [Worksheet A1](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_a01.ipynb) | September 2nd, 2025 | NA |
 | [Worksheet A2](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_a02.ipynb) | September 15th, 2025 | September 22nd, 2025 |
-| [Worksheet A3](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_a03.ipynb) | September 22nd, 2025 | September 29th, 2025 |
+| [Worksheet A3](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_a03.ipynb) | September 22nd, 2025 | September 30th, 2025 (EXTENDED) |
 | [Worksheet A4](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_a04.ipynb) | September 29th, 2025 | October 13th, 2025 |
 | [Worksheet A5](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_a05.ipynb) | October 13th, 2025 | October 20th, 2025 |
 
