@@ -2297,8 +2297,8 @@
     "objectID": "webpages/slides/slidefiles/lec4_datavis_slides.html#todays-goals",
     "href": "webpages/slides/slidefiles/lec4_datavis_slides.html#todays-goals",
     "title": "Lecture 4: Data Visualization with ggplot2",
-    "section": "",
-    "text": "create effective data visualizations\nexplore the grammar of ggplot2\n\nQuick links:\n\nLecture Video\nLecture Notes"
+    "section": "Today’s Goals",
+    "text": "Today’s Goals\n\ncreate effective data visualizations\nexplore the grammar of ggplot2\n\nQuick links:\n\nLecture Video\nLecture Notes"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec4_datavis_slides.html#required-packages",
@@ -2312,7 +2312,7 @@
     "href": "webpages/slides/slidefiles/lec4_datavis_slides.html#motivating-example",
     "title": "Lecture 4: Data Visualization with ggplot2",
     "section": "Motivating Example",
-    "text": "Motivating Example\nWe want to investigate if there is a relationship between the number of cylinders (cyl), fuel efficiency (mpg), and horsepower (hp) in the mtcars data set.\n\nlibrary(kableExtra)\n\nmtcars %&gt;% select(cyl, mpg, hp) %&gt;%\n  group_by(cyl) %&gt;%\n  arrange(cyl, mpg) %&gt;%\n  knitr::kable(col.names = c(\"Number of Cylinders\", \"Miles per Gallon\", \"Horsepower\"), \n               align = \"c\", format = \"html\",  \n               table.attr = 'data-quarto-disable-processing=\"true\"') %&gt;%\n  kable_styling(bootstrap_options = c(\"hover\", \"condensed\"),\n                    full_width = FALSE, font_size = 14) %&gt;%\n  kableExtra::collapse_rows(columns = 1, latex_hline = \"major\", valign = \"top\")"
+    "text": "Motivating Example\nWe want to investigate if there is a relationship between the number of cylinders (cyl), fuel efficiency (mpg), and horsepower (hp) in the mtcars data set."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec4_datavis_slides.html#motivating-example-1",
@@ -2375,7 +2375,7 @@
     "href": "webpages/slides/slidefiles/lec4_datavis_slides.html#to-save-these-slides-with-your-code",
     "title": "Lecture 4: Data Visualization with ggplot2",
     "section": "To Save These Slides With Your Code",
-    "text": "To Save These Slides With Your Code\nTo Print to PDF (with your code!), do the following:\n\nToggle into Print View using the E key (or using the Navigation Menu on the bottom right of the slide)\nOpen the in-browser print dialog CMD/CTRL + P.\nChange the Destination setting to Save as PDF.\nChange the Layout to Landscape.\nChange the Margins to None. Enable the Background graphics option.\nClick Save 🎉\n\nIn all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will not be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)"
+    "text": "To Save These Slides With Your Code\nTo Print to PDF (with your code!), do the following:\n\nOpen the in-browser print dialog CMD/CTRL + P or Right click &gt; Print\nChange the Destination setting to Save as PDF.\nChange the Layout to Landscape.\nChange the Margins to None. Enable the Background graphics option.\nClick Save 🎉\n\nIn all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will not be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)"
   },
   {
     "objectID": "webpages/slides/slides.html",

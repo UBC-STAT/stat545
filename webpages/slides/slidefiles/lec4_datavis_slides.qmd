@@ -196,9 +196,7 @@ mtcars %>%
 
 To Print to PDF (with your code!), do the following:
 
--   Toggle into Print View using the `E` key (or using the Navigation Menu on the bottom right of the slide)
-
--   Open the in-browser print dialog `CMD/CTRL + P`.
+-   Open the in-browser print dialog `CMD/CTRL + P` or Right click \> Print
 
 -   Change the Destination setting to Save as PDF.
 
