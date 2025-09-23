@@ -28,9 +28,13 @@ engine: webr
 
 ## Today's Goals
 
--   create effective data visualizations
+-   recognize whether a given data set is ‘tidy’ or ‘untidy’ for their analysis
 
--   explore the grammar of `ggplot2`
+-   understand why ‘tidy’ data can be useful
+
+-   reshape a data set between ‘long’ and ‘wide’ formats, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
+
+-   understand how to grapple with explicit missing values created by pivoting
 
 Quick links:
 
