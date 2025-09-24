@@ -181,7 +181,7 @@ head(grades_wide)
 
 ### 
 
-## **Pivoting Longer** 
+## **Pivoting Longer**
 
 Here is a snippet of WHO data on the number of tuberculosis cases in different years in different countries.
 
@@ -199,7 +199,7 @@ In this case, we do not observe units within each country-year, so each observat
 
 Tidy Format: variables (the year, the country, and the case counts) on the columns. There are 6 rows, one for each unique country-year combination. In this example, the tidy format is *longer*. That means to produce it using `who_wide`, we need to lengthen it by moving some information in the column names (the info about the measurement year) into new rows.
 
-## Pivoting Longer 
+## Pivoting Longer
 
 `pivot_longer` needs three pieces of information:
 
@@ -209,7 +209,7 @@ Tidy Format: variables (the year, the country, and the case counts) on the colum
 
 -   We also want to preserve the information in the *values* of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the `values_to` argument.
 
-## Pivoting Longer: WHO Example 
+## Pivoting Longer: WHO Example
 
 ```{webr}
 who_long <- who_wide %>% pivot_longer(cols = c(..., ...), #pivot these columns
@@ -221,7 +221,7 @@ who_long
 
 Now we've got tidy data!
 
-## Pivoting Longer:  Grades Example
+## Pivoting Longer: Grades Example
 
 Challenge yourself to transform `grades_wide` back to `grades_long`. Rename your new dataset `grades_long_pivoted` and compare the two long forms.
 
@@ -278,21 +278,21 @@ Sometimes data has multiple pieces of information stored in a single column. To 
 
 `separate():` separates information within a column. It involves three arguments:
 
--    `col`: specifies the column we want to separate
+-   `col`: specifies the column we want to separate
 
--    `into`: specifies the names of the new columns.
+-   `into`: specifies the names of the new columns.
 
--    `sep`: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves *regular expressions*, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )
+-   `sep`: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves *regular expressions*, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )
 
 ## Separating and Uniting
 
 Conversely, `unite()` combines information from two or more columns into one. Involves:
 
--    `col`: name of the new column
+-   `col`: name of the new column
 
 -   `...`: the names of columns to be united
 
--    `sep`: specifies the separator to use between values (i.e., "-")
+-   `sep`: specifies the separator to use between values (i.e., "-")
 
 ## Separating and Uniting: WHO Example
 

@@ -22,6 +22,8 @@ From this topic, students are anticipated to be able to:
 
 ## Lecture Video
 
+coming soon!
+
 ## Lecture Slides
 
 [Lecture 5 - Tidy Data Slides](../slides/slidefiles/lec5_tidydata_slides.qmd)
@@ -282,19 +284,19 @@ Sometimes data has multiple pieces of information stored in a single column. To 
 
 `separate():` separates information within a column. It involves three arguments:
 
--    `col`: specifies the column we want to separate
+-   `col`: specifies the column we want to separate
 
--    `into`: specifies the names of the new columns.
+-   `into`: specifies the names of the new columns.
 
--    `sep`: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves *regular expressions*, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )
+-   `sep`: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves *regular expressions*, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )
 
 Conversely, `unite()` combines information from two or more columns into one. Involves:
 
--    `col`: name of the new column
+-   `col`: name of the new column
 
 -   `...`: the names of columns to be united
 
--    `sep`: specifies the separator to use between values (i.e., "-")
+-   `sep`: specifies the separator to use between values (i.e., "-")
 
 ```{r}
 table3 <- tibble(country = c("Afghanistan", "Afghanistan", "Brazil", "Brazil", "China", "China"),

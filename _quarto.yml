@@ -59,7 +59,7 @@ website:
         - webpages/lectures_i/lec2b_versioncontrol.qmd
         - webpages/lectures_i/lec3_dplyr.qmd
         - webpages/lectures_i/lec4_datavis.qmd
-        # - webpages/lectures_i/lec5_tidydata.qmd
+        - webpages/lectures_i/lec5_tidydata.qmd
         # - webpages/lectures_i/lec6a_modelfitting.qmd
         # - webpages/lectures_i/lec6b_dates.qmd
         # - webpages/lectures_i/lec7a_readwritedata.qmd
