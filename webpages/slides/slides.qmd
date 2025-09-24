@@ -3,3 +3,4 @@ title: "Lecture Slides"
 ---
 
 -   [Lecture 4 - Data Visualization Slides](slidefiles/lec4_datavis_slides.qmd)
+-   [Lecture 5 - Tidy Data Slides](slidefiles/lec5_tidydata_slides.qmd)

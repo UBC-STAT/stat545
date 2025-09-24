@@ -18,6 +18,25 @@ From this topic, students are anticipated to be able to:
 
 -   understand how to grapple with explicit missing values created by pivoting
 
+-   
+
+## Lecture Video
+
+## Lecture Slides
+
+[Lecture 5 - Tidy Data Slides](../slides/slidefiles/lec5_tidydata_slides.qmd)
+
+## Set Up
+
+We will be using the following packages for this lecture:
+
+```{r, warning = F, message = F}
+library(fivethirtyeight)
+library(tidyverse)
+```
+
+## 
+
 ## Tidy Data and the Tidyverse
 
 In the last two weeks, we learned about the `dplyr` package for data manipulation and the `ggplot2` package for graphing. These two packages are part of the “tidyverse”: a collection of data science packages that are designed to have input data frames and output data frames that are *tidy*. In fact, we can load all packages in the tidyverse at once with the single command `library(tidyverse)`.
@@ -32,22 +51,34 @@ Here, we are using the word “tidy” in a technical sense - we’re not talkin
 
 -   **each cell is a single measurement.** [@tidyR]
 
+So why do we want to use it?
+
+[![Artwork by Allison Horst (\@allisonhorst)](/webpages/slides/slidefiles/images/tidydata_2.jpg){fig-alt="The standard structure of tidy data means that all tidy datasets are alike... by every messy dataset is messy in its own way"}](https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork)
+
+[![Artwork by Allison Horst (\@allisonhorst)](/webpages/slides/slidefiles/images/tidydata_3.jpg){fig-alt="When working with tidy data, we can use the same tools in similar ways for each data set. But working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse."}](https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork)
+
 For example, the following data set containing cat and dog names by family is [not tidy.]{.underline} We have multiple observations per row (a cat, and a dog observation):
 
-| Owner    | Cat Name | Dog Name |
-|----------|----------|----------|
-| Emma     |          | Maud     |
-| Kevin    | Mr. Meow | Bowser   |
-| Margaret | Goose    |          |
+| Owner     | Pet 1                        | Pet 2           |
+|-----------|------------------------------|-----------------|
+| Asfar     | Cosmo (Orange Cat)           | Zuko (Grey Dog) |
+| Grace     | Dorito (Brown Chipmunk)      |                 |
+| Zifu      | Booger (Black and White Dog) |                 |
+| Flora     | Mimi (White Cat)             |                 |
+| Yvette    | Mia (Beige and White Cat)    |                 |
+| Alexandra | Bambi (Black and White Dog)  |                 |
 
 Instead, a tidy version of this data set may look like this:
 
-| Pet Name | Type | Owner    |
-|----------|------|----------|
-| Maud     | Dog  | Emma     |
-| Mr. Meow | Cat  | Kevin    |
-| Bowser   | Dog  | Kevin    |
-| Goose    | Cat  | Margaret |
+| Pet Name  | Type     | Owner     | Colour          |
+|-----------|----------|-----------|-----------------|
+| Cosmo     | Cat      | Asfar     | Orange          |
+| Zuko      | Dog      | Asfar     | Grey            |
+| Dorito    | Chipmunk | Grace     | Brown           |
+| Booger    | Dog      | Zifu      | Black and White |
+| Mimi      | Cat      | Flora     | White           |
+| Mia       | Cat      | Yvette    | Beige and White |
+| Alexandra | Dog      | Alexandra | Black and White |
 
 Each row is an observation, each variable is a column, and each cell is a single measurement. Our data is tidy!
 
@@ -58,10 +89,6 @@ All of the data we used before this week were already tidy. This made it easy to
 The `fivethirtyeight` R package contains a dataset called `drinks`. This dataset was compiled as part of a [FiveThirtyEight article](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) that explored (among other things) which countries consumes the most alcohol. Let's look at a subset of the data:
 
 ```{r, message = F, warning = F}
-# install.packages("fivethirtyeight") #uncomment if not installed
-library(fivethirtyeight)
-library(tibble)
-library(tidyverse)
 
 drinks_tbl1 <- as_tibble(drinks) %>% 
   select(-total_litres_of_pure_alcohol) #remove total liters variable
@@ -120,10 +147,12 @@ We can solve this problem using `pivot_wider`, which needs three pieces of infor
 
 Note that if you don’t specify an `id_cols` argument, `pivot_wider` will assume that you want it to be every column except those in `names_from` and `values_from`. Further, any columns not included in `id_cols`, `names_from`, and `values_from` (e.g., `ep_id`) will simply be dropped.
 
+We can pivot the `grades_long` table wider so that we have a columns "Scores_Before" and "Scores_After" for each student_id and subject:
+
 ```{r}
 grades_wide <- grades_long %>% #assign new variable
-  pivot_wider(names_from=c(time), #get column names from time
-              values_from=c(score), #fill in values form score
+  pivot_wider(names_from = time, #get column names from time
+              values_from = score, #fill in values from score
               names_prefix = "Scores_") #add "scores_" to new column names
 
 head(grades_wide)
@@ -143,7 +172,7 @@ who_wide <- tibble(country = c("Afghanistan", "Brazil", "China"),
 who_wide
 ```
 
-If we wanted to compare tuberculosis cases over time by country (e.g. by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. We want to (graphically) compare years within countries, so there should be one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.
+IIf we wanted to compare tuberculosis cases over time by country (e.g. by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. There should be one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.
 
 (Aside: if we had measured more data, then perhaps there would be more units within each population! Imagine if we had case-level information, like severity. Then we could view cases as observations within the country-year populations, and we would have variables like country, year, case ID, and severity.)
 
@@ -158,7 +187,7 @@ We can solve this problem using `pivot_longer`, which needs three pieces of info
 -   We also want to preserve the information in the *values* of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the `values_to` argument.
 
 ```{r}
-who_long <- who_wide %>% pivot_longer(cols = c(`1999`, `2000`), #pivot these columns
+who_long <- who_wide %>% pivot_longer(cols = c('1999', '2000'), #pivot these columns
                          names_to = "year", #new column name is year
                          values_to = "cases") #use cases as the values of the column
 
@@ -249,7 +278,23 @@ This discussion highlights the importance of knowing the context in which your d
 
 ## Separating and Uniting
 
-The `tidyr` package has a function for gluing columns together (`unite`) and for cutting columns apart (`separate`). Why might this help us tidy? Here is another snippet of WHO Tuberculosis data.
+Sometimes data has multiple pieces of information stored in a single column. To separate them into two distinct columns, we can use the `separate()` function from the `tidyverse` (technically, a package within tidyverse called `tidyr`.
+
+`separate():` separates information within a column. It involves three arguments:
+
+-    `col`: specifies the column we want to separate
+
+-    `into`: specifies the names of the new columns.
+
+-    `sep`: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves *regular expressions*, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )
+
+Conversely, `unite()` combines information from two or more columns into one. Involves:
+
+-    `col`: name of the new column
+
+-   `...`: the names of columns to be united
+
+-    `sep`: specifies the separator to use between values (i.e., "-")
 
 ```{r}
 table3 <- tibble(country = c("Afghanistan", "Afghanistan", "Brazil", "Brazil", "China", "China"),

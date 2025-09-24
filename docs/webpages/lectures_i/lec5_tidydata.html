@@ -279,6 +279,10 @@ div.csl-indent {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#lecture-video" id="toc-lecture-video" class="nav-link" data-scroll-target="#lecture-video">Lecture Video</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set Up</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#tidy-data-and-the-tidyverse" id="toc-tidy-data-and-the-tidyverse" class="nav-link" data-scroll-target="#tidy-data-and-the-tidyverse">Tidy Data and the Tidyverse</a>
   <ul class="collapse">
   <li><a href="#example-drinks" id="toc-example-drinks" class="nav-link" data-scroll-target="#example-drinks">Example: Drinks</a></li>
@@ -314,7 +318,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 22, 2025</p>
+      <p class="date-modified">September 24, 2025</p>
     </div>
   </div>
     
@@ -333,7 +337,26 @@ div.csl-indent {
 <li><p>understand why ‘tidy’ data can be useful</p></li>
 <li><p>reshape a data set between ‘long’ and ‘wide’ formats, using <code>tidyr::pivot_longer()</code> and <code>tidyr::pivot_wider()</code></p></li>
 <li><p>understand how to grapple with explicit missing values created by pivoting</p></li>
+<li></li>
 </ul>
+</section>
+<section id="lecture-video" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-video">Lecture Video</h2>
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<p><a href="../../webpages/slides/slidefiles/lec5_tidydata_slides.html">Lecture 5 - Tidy Data Slides</a></p>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set Up</h2>
+<p>We will be using the following packages for this lecture:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 </section>
 <section id="tidy-data-and-the-tidyverse" class="level2">
 <h2 class="anchored" data-anchor-id="tidy-data-and-the-tidyverse">Tidy Data and the Tidyverse</h2>
@@ -345,29 +368,57 @@ div.csl-indent {
 <li><p><strong>each observation forms a row, and</strong></p></li>
 <li><p><strong>each cell is a single measurement.</strong> <span class="citation" data-cites="tidyR">[<a href="#ref-tidyR" role="doc-biblioref">1</a>]</span></p></li>
 </ul>
+<p>So why do we want to use it?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork"><img src="../../webpages/slides/slidefiles/images/tidydata_2.jpg" class="img-fluid figure-img" alt="The standard structure of tidy data means that all tidy datasets are alike... by every messy dataset is messy in its own way"></a></p>
+<figcaption>Artwork by Allison Horst (@allisonhorst)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork"><img src="../../webpages/slides/slidefiles/images/tidydata_3.jpg" class="img-fluid figure-img" alt="When working with tidy data, we can use the same tools in similar ways for each data set. But working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse."></a></p>
+<figcaption>Artwork by Allison Horst (@allisonhorst)</figcaption>
+</figure>
+</div>
 <p>For example, the following data set containing cat and dog names by family is <u>not tidy.</u> We have multiple observations per row (a cat, and a dog observation):</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Owner</th>
-<th>Cat Name</th>
-<th>Dog Name</th>
+<th>Pet 1</th>
+<th>Pet 2</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Emma</td>
-<td></td>
-<td>Maud</td>
+<td>Asfar</td>
+<td>Cosmo (Orange Cat)</td>
+<td>Zuko (Grey Dog)</td>
 </tr>
 <tr class="even">
-<td>Kevin</td>
-<td>Mr.&nbsp;Meow</td>
-<td>Bowser</td>
+<td>Grace</td>
+<td>Dorito (Brown Chipmunk)</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>Margaret</td>
-<td>Goose</td>
+<td>Zifu</td>
+<td>Booger (Black and White Dog)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Flora</td>
+<td>Mimi (White Cat)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Yvette</td>
+<td>Mia (Beige and White Cat)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Alexandra</td>
+<td>Bambi (Black and White Dog)</td>
 <td></td>
 </tr>
 </tbody>
@@ -379,28 +430,51 @@ div.csl-indent {
 <th>Pet Name</th>
 <th>Type</th>
 <th>Owner</th>
+<th>Colour</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Maud</td>
-<td>Dog</td>
-<td>Emma</td>
+<td>Cosmo</td>
+<td>Cat</td>
+<td>Asfar</td>
+<td>Orange</td>
 </tr>
 <tr class="even">
-<td>Mr.&nbsp;Meow</td>
-<td>Cat</td>
-<td>Kevin</td>
+<td>Zuko</td>
+<td>Dog</td>
+<td>Asfar</td>
+<td>Grey</td>
 </tr>
 <tr class="odd">
-<td>Bowser</td>
-<td>Dog</td>
-<td>Kevin</td>
+<td>Dorito</td>
+<td>Chipmunk</td>
+<td>Grace</td>
+<td>Brown</td>
 </tr>
 <tr class="even">
-<td>Goose</td>
+<td>Booger</td>
+<td>Dog</td>
+<td>Zifu</td>
+<td>Black and White</td>
+</tr>
+<tr class="odd">
+<td>Mimi</td>
 <td>Cat</td>
-<td>Margaret</td>
+<td>Flora</td>
+<td>White</td>
+</tr>
+<tr class="even">
+<td>Mia</td>
+<td>Cat</td>
+<td>Yvette</td>
+<td>Beige and White</td>
+</tr>
+<tr class="odd">
+<td>Alexandra</td>
+<td>Dog</td>
+<td>Alexandra</td>
+<td>Black and White</td>
 </tr>
 </tbody>
 </table>
@@ -410,15 +484,10 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="example-drinks">Example: Drinks</h3>
 <p>The <code>fivethirtyeight</code> R package contains a dataset called <code>drinks</code>. This dataset was compiled as part of a <a href="https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/">FiveThirtyEight article</a> that explored (among other things) which countries consumes the most alcohol. Let’s look at a subset of the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("fivethirtyeight") #uncomment if not installed</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>drinks_tbl1 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(drinks) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>total_litres_of_pure_alcohol) <span class="co">#remove total liters variable</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drinks_tbl1) <span class="co">#view the first few rows of the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>drinks_tbl1 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(drinks) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>total_litres_of_pure_alcohol) <span class="co">#remove total liters variable</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drinks_tbl1) <span class="co">#view the first few rows of the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   country           beer_servings spirit_servings wine_servings
@@ -465,14 +534,14 @@ Exercise 1
 <h3 class="anchored" data-anchor-id="pivoting-wider"><strong>Pivoting Wider</strong></h3>
 <p>Here is an example of (artificial) data that is currently in “long” format, looking grades before and after active learning was incorporated into their math and science lectures:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>grades_long <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">student_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>,<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">subject =</span> <span class="fu">c</span>(<span class="st">"Math"</span>, <span class="st">"Math"</span>, <span class="st">"Science"</span>, <span class="st">"Science"</span>, <span class="st">"Math"</span>, <span class="st">"Math"</span>, <span class="st">"Science"</span>,<span class="st">"Science"</span>,  <span class="st">"Math"</span>, <span class="st">"Math"</span>, <span class="st">"Science"</span>, <span class="st">"Science"</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">86</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">88</span>, <span class="dv">89</span>, <span class="dv">95</span>, <span class="dv">94</span>, <span class="dv">90</span>, <span class="dv">90</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grades_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>grades_long <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">student_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>,<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>, <span class="st">"Before"</span>, <span class="st">"After"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">subject =</span> <span class="fu">c</span>(<span class="st">"Math"</span>, <span class="st">"Math"</span>, <span class="st">"Science"</span>, <span class="st">"Science"</span>, <span class="st">"Math"</span>, <span class="st">"Math"</span>, <span class="st">"Science"</span>,<span class="st">"Science"</span>,  <span class="st">"Math"</span>, <span class="st">"Math"</span>, <span class="st">"Science"</span>, <span class="st">"Science"</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">86</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">88</span>, <span class="dv">89</span>, <span class="dv">95</span>, <span class="dv">94</span>, <span class="dv">90</span>, <span class="dv">90</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grades_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   student_id time   subject score
@@ -493,13 +562,14 @@ Exercise 1
 <li><p>What values should the new columns contain? Put the name of the columns you want to take the values from to <code>values_from</code> in the <code>values_from</code> argument.</p></li>
 </ul>
 <p>Note that if you don’t specify an <code>id_cols</code> argument, <code>pivot_wider</code> will assume that you want it to be every column except those in <code>names_from</code> and <code>values_from</code>. Further, any columns not included in <code>id_cols</code>, <code>names_from</code>, and <code>values_from</code> (e.g., <code>ep_id</code>) will simply be dropped.</p>
+<p>We can pivot the <code>grades_long</code> table wider so that we have a columns “Scores_Before” and “Scores_After” for each student_id and subject:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>grades_wide <span class="ot">&lt;-</span> grades_long <span class="sc">%&gt;%</span> <span class="co">#assign new variable</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from=</span><span class="fu">c</span>(time), <span class="co">#get column names from time</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from=</span><span class="fu">c</span>(score), <span class="co">#fill in values form score</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_prefix =</span> <span class="st">"Scores_"</span>) <span class="co">#add "scores_" to new column names</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grades_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>grades_wide <span class="ot">&lt;-</span> grades_long <span class="sc">%&gt;%</span> <span class="co">#assign new variable</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> time, <span class="co">#get column names from time</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> score, <span class="co">#fill in values from score</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_prefix =</span> <span class="st">"Scores_"</span>) <span class="co">#add "scores_" to new column names</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grades_wide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   student_id subject Scores_Before Scores_After
@@ -528,7 +598,7 @@ Exercise 1
 3 China       212258 213766</code></pre>
 </div>
 </div>
-<p>If we wanted to compare tuberculosis cases over time by country (e.g.&nbsp;by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. We want to (graphically) compare years within countries, so there should be one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.</p>
+<p>IIf we wanted to compare tuberculosis cases over time by country (e.g.&nbsp;by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. There should be one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.</p>
 <p>(Aside: if we had measured more data, then perhaps there would be more units within each population! Imagine if we had case-level information, like severity. Then we could view cases as observations within the country-year populations, and we would have variables like country, year, case ID, and severity.)</p>
 <p>So the tidy format here puts the variables (the year, the country, and the case counts) on the columns. There are 6 rows, one for each unique country-year combination. In this example, the tidy format is <em>longer</em>. That means to produce it using <code>who_wide</code>, we need to lengthen it by moving some information in the column names (the info about the measurement year) into new rows.</p>
 <p>We can solve this problem using <code>pivot_longer</code>, which needs three pieces of information.</p>
@@ -538,11 +608,11 @@ Exercise 1
 <li><p>We also want to preserve the information in the <em>values</em> of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the <code>values_to</code> argument.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>who_long <span class="ot">&lt;-</span> who_wide <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="co">#pivot these columns</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="co">#new column name is year</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">values_to =</span> <span class="st">"cases"</span>) <span class="co">#use cases as the values of the column</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>who_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>who_long <span class="ot">&lt;-</span> who_wide <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'1999'</span>, <span class="st">'2000'</span>), <span class="co">#pivot these columns</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="co">#new column name is year</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">values_to =</span> <span class="st">"cases"</span>) <span class="co">#use cases as the values of the column</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>who_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   country     year   cases
@@ -561,15 +631,15 @@ Exercise 1
 <h4 class="anchored" data-anchor-id="example-column-names-contain-multiple-variable-values"><strong>Example: Column Names Contain Multiple Variable Values</strong></h4>
 <p>Here’s a more realistic (but still simplified) look at the WHO Tuberculosis data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>who_demo <span class="ot">&lt;-</span> who2 <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, <span class="fu">starts_with</span>(<span class="st">"sp"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="cf">function</span>(x) </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove</span>(x, <span class="at">pattern=</span><span class="st">"sp_"</span>), </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">starts_with</span>(<span class="st">"sp"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1999</span>, <span class="dv">2000</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Brazil"</span>, <span class="st">"China"</span>))</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(who_demo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>who_demo <span class="ot">&lt;-</span> who2 <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, <span class="fu">starts_with</span>(<span class="st">"sp"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="cf">function</span>(x) </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove</span>(x, <span class="at">pattern=</span><span class="st">"sp_"</span>), </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">starts_with</span>(<span class="st">"sp"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1999</span>, <span class="dv">2000</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Brazil"</span>, <span class="st">"China"</span>))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(who_demo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 16
   country      year m_014 m_1524 m_2534 m_3544 m_4554 m_5564  m_65 f_014 f_1524
@@ -591,10 +661,10 @@ Exercise 1
 <p>But how is <code>pivot_longer()</code> to know which part of the column name <code>m_014</code> corresponds to the gender, and which part corresponds to the age? You need to tell it that the pieces of information are separated by the “_” character using the <code>names_sep</code> argument.</p>
 <p>Finally, we can specify the name of the new column we want the values in the <code>m_014</code>, <code>m_1524</code>, etc. columns to go into with the <code>values_to</code> argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>who_demo <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>(country<span class="sc">:</span>year), <span class="co"># all columns aside from country to year</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>), <span class="co">#new columns named age and gender</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_sep =</span> <span class="st">"_"</span>,<span class="co">#current gender and age are a single variable separated by _</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">"cases"</span>) <span class="co">#use the cases column for the values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>who_demo <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>(country<span class="sc">:</span>year), <span class="co"># all columns aside from country to year</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"gender"</span>, <span class="st">"age"</span>), <span class="co">#new columns named age and gender</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">names_sep =</span> <span class="st">"_"</span>,<span class="co">#current gender and age are a single variable separated by _</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">"cases"</span>) <span class="co">#use the cases column for the values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 84 × 5
    country      year gender age   cases
@@ -618,7 +688,7 @@ Exercise 1
 <p>So far we have seen examples where the column names contain variable values. But what if they contain names AND values?</p>
 <p>Let’s have a look at the <code>household</code> dataset (loaded with the <code>tidyr</code> package), which has the date of birth and names of two children in families. Let’s say that we wanted to investigate how children names relate to their date of birth.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(household)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(household)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
   family dob_child1 dob_child2 name_child1 name_child2
@@ -633,9 +703,9 @@ Exercise 1
 <p>We are trying to learn about the population from which these children belong; it is hard to say precisely what that is without having more information about how this data was collected, but it is likely something like “all children living in a particular place in a particular year”. The units in this population are children. So to tidy this data, we’d want “date of birth” and “name” to be two variables/columns associated with an observation/row (a child). We know we want to use <code>pivot_longer()</code>, because we want to make <code>household</code> longer by creating new variables. But wait! The names of the “date of birth”/“name” variables AND the values of the “child” variable are BOTH in the column names of <code>household</code>!</p>
 <p>Inspecting <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">the documentation</a> for <code>pivot_longer()</code> very carefully reveals that you can use a special specification of the <code>names_to</code> argument to resolve this problem.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>household <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>family, <span class="co"># all columns except family</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"child"</span>), <span class="co">#change column names, .value is a placeholder</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_sep =</span> <span class="st">"_"</span>) <span class="co"># dob and child are currently separated by _ in one single variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>household <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>family, <span class="co"># all columns except family</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"child"</span>), <span class="co">#change column names, .value is a placeholder</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_sep =</span> <span class="st">"_"</span>) <span class="co"># dob and child are currently separated by _ in one single variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
    family child  dob        name  
@@ -660,10 +730,10 @@ Exercise 1
 <p>Suppose this study was designed to only sample families with two children. Then, row 4 could be a real observation that we are missing information about: family 2 should have only been included if they had two children. Perhaps this reflects family 2 filling out a survey that asks them the number of children (in which they listed 2), but then getting distracted and forgetting to fill out the information for their second child. In this case, our data is tidy, and the tidy data format is a real advantage: it reveals missing information in our data set that was not obvious from the original untidy format.</p>
 <p>Now suppose this study just samples families at large. We know from experience about the world that some families have one children, some families have two, and some families have more. Then, it seems possible that row 4 is <em>not</em> a real observation: family 2 might just have a single child. In this case, we have a row for something that is not an observation, so we would like to tidy up by dropping it. We could actually have done this by altering our original <code>pivot_wider()</code> call as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>household <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>family, </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"child"</span>), </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_sep =</span> <span class="st">"_"</span>, </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>) <span class="co">#remove NAs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>household <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>family, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"child"</span>), </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_sep =</span> <span class="st">"_"</span>, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>) <span class="co">#remove NAs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 4
   family child  dob        name  
@@ -685,14 +755,26 @@ Exercise 1
 </section>
 <section id="separating-and-uniting" class="level2">
 <h2 class="anchored" data-anchor-id="separating-and-uniting">Separating and Uniting</h2>
-<p>The <code>tidyr</code> package has a function for gluing columns together (<code>unite</code>) and for cutting columns apart (<code>separate</code>). Why might this help us tidy? Here is another snippet of WHO Tuberculosis data.</p>
+<p>Sometimes data has multiple pieces of information stored in a single column. To separate them into two distinct columns, we can use the <code>separate()</code> function from the <code>tidyverse</code> (technically, a package within tidyverse called <code>tidyr</code>.</p>
+<p><code>separate():</code> separates information within a column. It involves three arguments:</p>
+<ul>
+<li><p><code>col</code>: specifies the column we want to separate</p></li>
+<li><p><code>into</code>: specifies the names of the new columns.</p></li>
+<li><p><code>sep</code>: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves <em>regular expressions</em>, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )</p></li>
+</ul>
+<p>Conversely, <code>unite()</code> combines information from two or more columns into one. Involves:</p>
+<ul>
+<li><p><code>col</code>: name of the new column</p></li>
+<li><p><code>...</code>: the names of columns to be united</p></li>
+<li><p><code>sep</code>: specifies the separator to use between values (i.e., “-”)</p></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Afghanistan"</span>, <span class="st">"Brazil"</span>, <span class="st">"Brazil"</span>, <span class="st">"China"</span>, <span class="st">"China"</span>),</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">1999</span>, <span class="dv">2000</span>, <span class="dv">1999</span>, <span class="dv">2000</span>, <span class="dv">1999</span>, <span class="dv">2000</span>),</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rate =</span> <span class="fu">c</span>(<span class="st">"745/19987071"</span>, <span class="st">"2666/20595360"</span>, <span class="st">"37737/172006362"</span>, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"80488/174504898"</span>, <span class="st">"212258/1272915272"</span>, <span class="st">"213766/1280428583"</span>))</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>table3 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Afghanistan"</span>, <span class="st">"Brazil"</span>, <span class="st">"Brazil"</span>, <span class="st">"China"</span>, <span class="st">"China"</span>),</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">1999</span>, <span class="dv">2000</span>, <span class="dv">1999</span>, <span class="dv">2000</span>, <span class="dv">1999</span>, <span class="dv">2000</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">rate =</span> <span class="fu">c</span>(<span class="st">"745/19987071"</span>, <span class="st">"2666/20595360"</span>, <span class="st">"37737/172006362"</span>, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"80488/174504898"</span>, <span class="st">"212258/1272915272"</span>, <span class="st">"213766/1280428583"</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   country      year rate             
@@ -707,9 +789,9 @@ Exercise 1
 </div>
 <p>The <code>rate</code> column contains the values of two variables: case counts and population counts. We would like to snip it apart at the “/” character to create two columns:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>table5 <span class="ot">&lt;-</span> table3 <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="at">col =</span> rate, </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"population"</span>))</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>table5 <span class="ot">&lt;-</span> table3 <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="at">col =</span> rate, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"population"</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   country      year cases  population

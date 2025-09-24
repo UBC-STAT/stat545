@@ -173,10 +173,6 @@ It's okay if you don't quite understand all of these components yet. We will wal
 
 Let's say you'd like to see if there is a relationship between miles per gallon and horsepower of cars in the `mtcars` data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables.
 
-```{webr}
-
-```
-
 ```{r, include = F, echo = F}
 
 mtcars %>% 
