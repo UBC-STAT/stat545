@@ -18,8 +18,6 @@ From this topic, students are anticipated to be able to:
 
 -   understand how to grapple with explicit missing values created by pivoting
 
--   
-
 ## Lecture Video
 
 coming soon!
