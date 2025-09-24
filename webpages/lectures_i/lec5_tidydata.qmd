@@ -69,18 +69,20 @@ For example, the following data set containing cat and dog names by family is [n
 | Flora     | Mimi (White Cat)             |                 |
 | Yvette    | Mia (Beige and White Cat)    |                 |
 | Alexandra | Bambi (Black and White Dog)  |                 |
+| Erick     | Maisy (Brown Cat)            |                 |
 
 Instead, a tidy version of this data set may look like this:
 
-| Pet Name  | Type     | Owner     | Colour          |
-|-----------|----------|-----------|-----------------|
-| Cosmo     | Cat      | Asfar     | Orange          |
-| Zuko      | Dog      | Asfar     | Grey            |
-| Dorito    | Chipmunk | Grace     | Brown           |
-| Booger    | Dog      | Zifu      | Black and White |
-| Mimi      | Cat      | Flora     | White           |
-| Mia       | Cat      | Yvette    | Beige and White |
-| Alexandra | Dog      | Alexandra | Black and White |
+| Pet Name | Type     | Owner     | Colour          |
+|----------|----------|-----------|-----------------|
+| Cosmo    | Cat      | Asfar     | Orange          |
+| Zuko     | Dog      | Asfar     | Grey            |
+| Dorito   | Chipmunk | Grace     | Brown           |
+| Booger   | Dog      | Zifu      | Black and White |
+| Mimi     | Cat      | Flora     | White           |
+| Mia      | Cat      | Yvette    | Beige and White |
+| Bambi    | Dog      | Alexandra | Black and White |
+| Maisy    | Cat      | Erick     | Brown           |
 
 Each row is an observation, each variable is a column, and each cell is a single measurement. Our data is tidy!
 
