@@ -68,6 +68,7 @@ For example, the following data set containing cat and dog names by family is [n
 | Yvette    | Mia (Beige and White Cat)    |                 |
 | Alexandra | Bambi (Black and White Dog)  |                 |
 | Erick     | Maisy (Brown Cat)            |                 |
+| Solana    | Suki (White and Brown)       |                 |
 
 Instead, a tidy version of this data set may look like this:
 
@@ -349,6 +350,4 @@ Spend the rest of this class and next class working through Worksheet A4.
 
 ## Attribution
 
-Albert Y. Kim inspired the in-class exercises using the `drinks` data set from `fivethirtyeight`. Allison Horst and Julia Lowndes created the illustrated tidy data series. Alison Hill inspired the Great British Bakeoff example. We are immensely grateful to these people for creating amazing educational materials!
-
-We would also like to thank Samantha Tyner for pointing us towards the Data Feminism book during her week as the curator of the [\@WomenInStat](https://twitter.com/WomenInStat) Twitter account.
+Albert Y. Kim inspired the in-class exercises using the `drinks` data set from `fivethirtyeight`. Allison Horst and Julia Lowndes created the illustrated tidy data series.
