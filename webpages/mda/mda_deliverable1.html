@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 4: Data Visualization with ggplot2 – STAT545</title>
+<title>Mini Data Analysis: Deliverable 1 – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,23 +57,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../images/stat545_transparent.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,17 +103,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT545</span>
     </a>
   </div>
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door-fill" role="img">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
@@ -134,11 +134,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-syllabus">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/syllabus/syllabusA.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusA.html">
  <span class="dropdown-text">Syllabus: STAT 545 A (Part I)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/syllabus/syllabusB.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusB.html">
  <span class="dropdown-text">Syllabus: STAT 545 B (Part II)</span></a>
   </li>  
     </ul>
@@ -149,41 +149,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec1a_installation.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec1b_introR.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1b_introR.html">
  <span class="dropdown-text">Lecture 1B: Course Introduction and R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec2A_reproducibility.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2A_reproducibility.html">
  <span class="dropdown-text">Lecture 2A: Reproducibility with RMarkdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec2b_versioncontrol.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2b_versioncontrol.html">
  <span class="dropdown-text">Lecture 2B: Version Control</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec3_dplyr.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec3_dplyr.html">
  <span class="dropdown-text">Lecture 3: Data Manipulation with dplyr</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec4_datavis.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec4_datavis.html">
  <span class="dropdown-text">Lecture 4: Data Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec5_tidydata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec5_tidydata.html">
  <span class="dropdown-text">Lecture 5: Tidy Data and the Tidyverse</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/slides/slides.html"> 
+    <a class="nav-link" href="../../webpages/slides/slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/worksheets.html"> 
+    <a class="nav-link" href="../../webpages/worksheets.html"> 
 <span class="menu-text">Worksheets</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -192,11 +192,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-collab-project">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/collabproj/collabproj_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable1.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/collabproj/collabproj_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable2.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -207,11 +207,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-data-analysis">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/mda/mda_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable1.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/mda/mda_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable2.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -222,17 +222,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments-(part-b">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/assignmentsB/assignmentB1.html">
+    <a class="dropdown-item" href="../../webpages/assignmentsB/assignmentB1.html">
  <span class="dropdown-text">Assignment B1: Making a Function in R</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/casestudies.html"> 
+    <a class="nav-link" href="../../webpages/casestudies.html"> 
 <span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/faq.html"> 
+    <a class="nav-link" href="../../webpages/faq.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
 </ul>
@@ -253,38 +253,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/mda/mda_deliverable1.html">Mini Data Analysis: Deliverable 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/mda/mda_deliverable1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mini Data Analysis: Deliverable 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/mda/mda_deliverable2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mini Data Analysis: Deliverable 2</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#todays-goals" id="toc-todays-goals" class="nav-link active" data-scroll-target="#todays-goals">Today’s Goals</a></li>
-  <li><a href="#required-packages" id="toc-required-packages" class="nav-link" data-scroll-target="#required-packages">Required Packages</a></li>
-  <li><a href="#motivating-example" id="toc-motivating-example" class="nav-link" data-scroll-target="#motivating-example">Motivating Example</a></li>
-  <li><a href="#motivating-example-1" id="toc-motivating-example-1" class="nav-link" data-scroll-target="#motivating-example-1">Motivating Example</a></li>
-  <li><a href="#motivating-example-2" id="toc-motivating-example-2" class="nav-link" data-scroll-target="#motivating-example-2">Motivating Example</a></li>
-  <li><a href="#motivating-example-3" id="toc-motivating-example-3" class="nav-link" data-scroll-target="#motivating-example-3">Motivating Example</a></li>
-  <li><a href="#effective-data-visualization" id="toc-effective-data-visualization" class="nav-link" data-scroll-target="#effective-data-visualization">Effective Data Visualization</a></li>
-  <li><a href="#effective-data-visualizations-considerations" id="toc-effective-data-visualizations-considerations" class="nav-link" data-scroll-target="#effective-data-visualizations-considerations">Effective Data Visualizations: Considerations</a></li>
-  <li><a href="#ggplot2-and-the-grammar-of-graphics" id="toc-ggplot2-and-the-grammar-of-graphics" class="nav-link" data-scroll-target="#ggplot2-and-the-grammar-of-graphics"><code>ggplot2</code> and the Grammar of Graphics</a></li>
-  <li><a href="#ggplot2-and-the-grammar-of-graphics-1" id="toc-ggplot2-and-the-grammar-of-graphics-1" class="nav-link" data-scroll-target="#ggplot2-and-the-grammar-of-graphics-1"><code>ggplot2</code> and the Grammar of Graphics</a></li>
-  <li><a href="#example-scatterplot-on-mtcars" id="toc-example-scatterplot-on-mtcars" class="nav-link" data-scroll-target="#example-scatterplot-on-mtcars">Example: Scatterplot on <code>mtcars</code></a></li>
-  <li><a href="#to-save-these-slides-with-your-code" id="toc-to-save-these-slides-with-your-code" class="nav-link" data-scroll-target="#to-save-these-slides-with-your-code">To Save These Slides With Your Code</a></li>
+  <li><a href="#deliverable-1-will-be-due-on-friday-october-3rd-2025-at-1159pm-pt." id="toc-deliverable-1-will-be-due-on-friday-october-3rd-2025-at-1159pm-pt." class="nav-link active" data-scroll-target="#deliverable-1-will-be-due-on-friday-october-3rd-2025-at-1159pm-pt.">Deliverable 1 will be due on Friday October 3rd, 2025 at 11:59pm PT.</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a>
+  <ul class="collapse">
+  <li><a href="#download-datasets" id="toc-download-datasets" class="nav-link" data-scroll-target="#download-datasets">Download Datasets</a></li>
+  <li><a href="#download-rmarkdown-report" id="toc-download-rmarkdown-report" class="nav-link" data-scroll-target="#download-rmarkdown-report">Download RMarkdown Report</a></li>
+  </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lec4_datavis_slides.html"><i class="bi bi-file-slides"></i>RevealJS (live)</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 4: Data Visualization with ggplot2</h1>
-<p class="subtitle lead">STAT 545 - Fall 2025</p>
+<h1 class="title">Mini Data Analysis: Deliverable 1</h1>
 </div>
 
 
@@ -293,6 +316,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">September 18, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -301,209 +330,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="todays-goals" class="level2">
-<h2 class="anchored" data-anchor-id="todays-goals">Today’s Goals</h2>
+<section id="deliverable-1-will-be-due-on-friday-october-3rd-2025-at-1159pm-pt." class="level2">
+<h2 class="anchored" data-anchor-id="deliverable-1-will-be-due-on-friday-october-3rd-2025-at-1159pm-pt.">Deliverable 1 will be due on Friday October 3rd, 2025 at 11:59pm PT.</h2>
+<p>This project includes two deliverables, each with explicit tasks. Tasks that are more challenging will often be allocated more points.</p>
+<p>Each deliverable will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. While the two deliverables will be submitted as independent assessments, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html">Here</a> is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!</p>
+</section>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<p>By the end of this deliverable, you should:</p>
 <ul>
-<li><p>create effective data visualizations</p></li>
-<li><p>explore the grammar of <code>ggplot2</code></p></li>
-</ul>
-<p>Quick links:</p>
-<ul>
-<li><p><a href="https://youtu.be/vltlWkDoToo">Lecture Video</a></p></li>
-<li><p><a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec4_datavis.html">Lecture Notes</a></p></li>
+<li><p>Become familiar with your dataset of choosing</p></li>
+<li><p>Select 4 questions that you would like to answer with your data</p></li>
+<li><p>Generate a reproducible and clear report using R Markdown</p></li>
+<li><p>Become familiar with manipulating and summarizing your data in tibbles using <code>dplyr</code>, with a research question in mind.</p></li>
 </ul>
 </section>
-<section id="required-packages" class="level2">
-<h2 class="anchored" data-anchor-id="required-packages">Required Packages</h2>
-<p>Install (if necessary) and load in the following packages:</p>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<section id="download-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="download-datasets">Download Datasets</h3>
+<ol type="1">
+<li>In RStudio, install the <a href="https://github.com/UBC-MDS/datateachr"><code>datateachr</code></a> package by typing the following into your <strong>R terminal</strong>:</li>
+</ol>
+<pre><code>install.packages("devtools")
+devtools::install_github("UBC-MDS/datateachr")</code></pre>
+<ol start="2" type="1">
+<li>Load the packages below.</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datateachr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ol start="3" type="1">
+<li>Make a repository in our GitHub classroom. You can do this by following the steps found on canvas in the entry called <a href="https://canvas.ubc.ca/courses/169555/pages/mda-create-a-repository">MDA: Create a repository</a>. One completed, your repository should automatically be listed as part of the stat545ubc-2025 Organization.</li>
+</ol>
 </section>
-<section id="motivating-example" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="motivating-example">Motivating Example</h2>
-<p>We want to investigate if there is a relationship between the number of cylinders (<code>cyl</code>), fuel efficiency (<code>mpg</code>), and horsepower (<code>hp</code>) in the <code>mtcars</code> data set.</p>
-<div class="cell">
-<pre class="{webr}"><code>library(kableExtra)
-
-mtcars %&gt;% select(cyl, mpg, hp) %&gt;%
-  group_by(cyl) %&gt;%
-  arrange(cyl, mpg) %&gt;%
-  knitr::kable(col.names = c("Number of Cylinders", "Miles per Gallon", "Horsepower"), 
-               align = "c", format = "html",  
-               table.attr = 'data-quarto-disable-processing="true"') %&gt;%
-  kable_styling(bootstrap_options = c("hover", "condensed"),
-                    full_width = FALSE, font_size = 14) %&gt;%
-  kableExtra::collapse_rows(columns = 1, latex_hline = "major", valign = "top")
-</code></pre>
-</div>
-</section>
-<section id="motivating-example-1" class="level2">
-<h2 class="anchored" data-anchor-id="motivating-example-1">Motivating Example</h2>
-<ul>
-<li>Was it easy to figure out the relationship I was trying to convey?</li>
-</ul>
-<!-- -->
-<ul>
-<li>What about through a plot?</li>
-</ul>
-</section>
-<section id="motivating-example-2" class="level2">
-<h2 class="anchored" data-anchor-id="motivating-example-2">Motivating Example</h2>
-<div class="cell" data-layout-align="center" data-output-location="column">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="lec4_datavis_slides_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="motivating-example-3" class="level2">
-<h2 class="anchored" data-anchor-id="motivating-example-3">Motivating Example</h2>
-<ul>
-<li><p>We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon).</p></li>
-<li><p>Cars with higher horsepower also tend to have a higher number of cylinders.</p></li>
-<li><p>That was a lot easier to deduce than when we were reading numbers off of a large table. We will show how to build this exact plot in this lecture!</p></li>
-</ul>
-</section>
-<section id="effective-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="effective-data-visualization">Effective Data Visualization</h2>
-<ul>
-<li><p>Data visualizations are often preferred to aid with identify patterns and relationships and emphasizing important findings in a research projects</p>
-<ul>
-<li>This is especially true for presentations</li>
-</ul></li>
-<li><p>So, what’s the best visualization?</p>
-<ul>
-<li>Depends on what you need the data visualization to answer!</li>
-</ul></li>
-<li><p>Once you know what you want to show, we need to <strong>convey the message</strong> as clearly and simply as possible</p></li>
-</ul>
-</section>
-<section id="effective-data-visualizations-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="effective-data-visualizations-considerations">Effective Data Visualizations: Considerations</h2>
-<ul>
-<li><p>Make it clear as a “standalone”</p>
-<ul>
-<li>Use labels, titles, and legends and make them informative and clear</li>
-</ul></li>
-<li><p>Minimize noise</p>
-<ul>
-<li><p>Don’t use colours randomly - it may cause us to see false patterns</p></li>
-<li><p>Don’t overlap plots</p></li>
-<li><p>Use as few plots as possible, but don’t be afraid to separate data to plot if it makes things clearer</p></li>
-</ul></li>
-<li><p>Consider the accessibility of your chart</p>
-<ul>
-<li><p>up to 10% of the population has colourblindness</p></li>
-<li><p>make it low-vision friendly and provide descriptions where possible</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="ggplot2-and-the-grammar-of-graphics" class="level2">
-<h2 class="anchored" data-anchor-id="ggplot2-and-the-grammar-of-graphics"><code>ggplot2</code> and the Grammar of Graphics</h2>
-<p><code>ggplot2</code> is based on the grammar of graphics, which is a systematic approach for describing different components or aspects of a graph. It involves seven components (required components are indicated with the *):</p>
-<ul>
-<li><p>Data*</p>
-<ul>
-<li>the data you’re feeding into the plot, perhaps a tibble or dataframe</li>
-</ul></li>
-<li><p>Aesthetic mappings*</p>
-<ul>
-<li>a specification of how you will connect variables (for example, horizontal or vertical positioning, grouping, size, colour, shape)</li>
-</ul></li>
-<li><p>Geometric objects*</p>
-<ul>
-<li>a specification of what the object will be drawn as (for example, a scatter plot, line, bar chart)</li>
-</ul>
-<p>* = required component</p></li>
-</ul>
-</section>
-<section id="ggplot2-and-the-grammar-of-graphics-1" class="level2">
-<h2 class="anchored" data-anchor-id="ggplot2-and-the-grammar-of-graphics-1"><code>ggplot2</code> and the Grammar of Graphics</h2>
-<ul>
-<li><p>Scales</p>
-<ul>
-<li>a specification of how a variable is mapped to its aesthetic</li>
-</ul></li>
-<li><p>Statistical transformations</p>
-<ul>
-<li>a specification of whether and how the data are combined or transformed. For example, is a bar chart plotting the values or a relative frequency?</li>
-</ul></li>
-<li><p>Coordinate system</p>
-<ul>
-<li>a specification of how the position aesthetics (x and y) are depicted in the plot. We typically use cartesian coordinates, though polar coordinates are also possible.</li>
-</ul></li>
-<li><p>Facet</p>
-<ul>
-<li>a specification of data variables that partition the data into smaller “sub plots” or panels</li>
-</ul></li>
-</ul>
-<p>It’s okay if you don’t quite understand all of these components yet. We will walk through examples of commonly used plots and discuss which components are necessary!</p>
-</section>
-<section id="example-scatterplot-on-mtcars" class="level2">
-<h2 class="anchored" data-anchor-id="example-scatterplot-on-mtcars">Example: Scatterplot on <code>mtcars</code></h2>
-<p>Let’s say you’d like to see if there is a relationship between miles per gallon and horsepower of cars in the <code>mtcars</code> data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables.</p>
-</section>
-<section id="to-save-these-slides-with-your-code" class="level2">
-<h2 class="anchored" data-anchor-id="to-save-these-slides-with-your-code">To Save These Slides With Your Code</h2>
-<p>To Print to PDF (with your code!), do the following:</p>
-<ul>
-<li><p>Open the in-browser print dialog <code>CMD/CTRL + P</code> or Right click &gt; Print</p></li>
-<li><p>Change the Destination setting to Save as PDF.</p></li>
-<li><p>Change the Layout to Landscape.</p></li>
-<li><p>Change the Margins to None. Enable the Background graphics option.</p></li>
-<li><p>Click Save 🎉</p></li>
-</ul>
-<p>In all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will <strong>not</strong> be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)</p>
+<section id="download-rmarkdown-report" class="level3">
+<h3 class="anchored" data-anchor-id="download-rmarkdown-report">Download RMarkdown Report</h3>
+<p><strong>To complete this deliverable</strong>, download and edit the <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/mini-data-analysis/mini-project-1.Rmd">mini-project-1.Rmd</a> directly. Follow the instructions given in the .Rmd file. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
+<p><strong>To submit this deliverable</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
+<p><strong>Points</strong>: This deliverable is worth 36 points: 30 for your analysis, and 6 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-
-<script>
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-  // slide changes (different for each slide format).
-  (function () {
-    // dispatch for htmlwidgets
-    function fireSlideEnter() {
-      const event = window.document.createEvent("Event");
-      event.initEvent("slideenter", true, true);
-      window.document.dispatchEvent(event);
-    }
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-      fireSlideEnter();
-
-      // dispatch for shiny
-      if (window.jQuery) {
-        if (previousSlide) {
-          window.jQuery(previousSlide).trigger("hidden");
-        }
-        if (currentSlide) {
-          window.jQuery(currentSlide).trigger("shown");
-        }
-      }
-    }
-
-    // hookup for slidy
-    if (window.w3c_slidy) {
-      window.w3c_slidy.add_observer(function (slide_num) {
-        // slide_num starts at position 1
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-      });
-    }
-
-  })();
-</script>
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

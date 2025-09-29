@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 4: Data Visualization with ggplot2 – STAT545</title>
+<title>Collaborative Project: Deliverable 2 – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,60 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../images/stat545_transparent.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,17 +69,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT545</span>
     </a>
   </div>
@@ -124,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door-fill" role="img">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
@@ -134,11 +100,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-syllabus">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/syllabus/syllabusA.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusA.html">
  <span class="dropdown-text">Syllabus: STAT 545 A (Part I)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/syllabus/syllabusB.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusB.html">
  <span class="dropdown-text">Syllabus: STAT 545 B (Part II)</span></a>
   </li>  
     </ul>
@@ -149,41 +115,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec1a_installation.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec1b_introR.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1b_introR.html">
  <span class="dropdown-text">Lecture 1B: Course Introduction and R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec2A_reproducibility.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2A_reproducibility.html">
  <span class="dropdown-text">Lecture 2A: Reproducibility with RMarkdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec2b_versioncontrol.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2b_versioncontrol.html">
  <span class="dropdown-text">Lecture 2B: Version Control</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec3_dplyr.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec3_dplyr.html">
  <span class="dropdown-text">Lecture 3: Data Manipulation with dplyr</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec4_datavis.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec4_datavis.html">
  <span class="dropdown-text">Lecture 4: Data Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec5_tidydata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec5_tidydata.html">
  <span class="dropdown-text">Lecture 5: Tidy Data and the Tidyverse</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/slides/slides.html"> 
+    <a class="nav-link" href="../../webpages/slides/slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/worksheets.html"> 
+    <a class="nav-link" href="../../webpages/worksheets.html"> 
 <span class="menu-text">Worksheets</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -192,11 +158,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-collab-project">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/collabproj/collabproj_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable1.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/collabproj/collabproj_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable2.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -207,11 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-data-analysis">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/mda/mda_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable1.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/mda/mda_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable2.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -222,17 +188,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments-(part-b">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/assignmentsB/assignmentB1.html">
+    <a class="dropdown-item" href="../../webpages/assignmentsB/assignmentB1.html">
  <span class="dropdown-text">Assignment B1: Making a Function in R</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/casestudies.html"> 
+    <a class="nav-link" href="../../webpages/casestudies.html"> 
 <span class="menu-text">Case Studies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/faq.html"> 
+    <a class="nav-link" href="../../webpages/faq.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
 </ul>
@@ -253,38 +219,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/collabproj/collabproj_deliverable2.html">Collaborative Project: Deliverable 2</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/collabproj/collabproj_deliverable1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Collaborative Project: Deliverable 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/collabproj/collabproj_deliverable2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Collaborative Project: Deliverable 2</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#todays-goals" id="toc-todays-goals" class="nav-link active" data-scroll-target="#todays-goals">Today’s Goals</a></li>
-  <li><a href="#required-packages" id="toc-required-packages" class="nav-link" data-scroll-target="#required-packages">Required Packages</a></li>
-  <li><a href="#motivating-example" id="toc-motivating-example" class="nav-link" data-scroll-target="#motivating-example">Motivating Example</a></li>
-  <li><a href="#motivating-example-1" id="toc-motivating-example-1" class="nav-link" data-scroll-target="#motivating-example-1">Motivating Example</a></li>
-  <li><a href="#motivating-example-2" id="toc-motivating-example-2" class="nav-link" data-scroll-target="#motivating-example-2">Motivating Example</a></li>
-  <li><a href="#motivating-example-3" id="toc-motivating-example-3" class="nav-link" data-scroll-target="#motivating-example-3">Motivating Example</a></li>
-  <li><a href="#effective-data-visualization" id="toc-effective-data-visualization" class="nav-link" data-scroll-target="#effective-data-visualization">Effective Data Visualization</a></li>
-  <li><a href="#effective-data-visualizations-considerations" id="toc-effective-data-visualizations-considerations" class="nav-link" data-scroll-target="#effective-data-visualizations-considerations">Effective Data Visualizations: Considerations</a></li>
-  <li><a href="#ggplot2-and-the-grammar-of-graphics" id="toc-ggplot2-and-the-grammar-of-graphics" class="nav-link" data-scroll-target="#ggplot2-and-the-grammar-of-graphics"><code>ggplot2</code> and the Grammar of Graphics</a></li>
-  <li><a href="#ggplot2-and-the-grammar-of-graphics-1" id="toc-ggplot2-and-the-grammar-of-graphics-1" class="nav-link" data-scroll-target="#ggplot2-and-the-grammar-of-graphics-1"><code>ggplot2</code> and the Grammar of Graphics</a></li>
-  <li><a href="#example-scatterplot-on-mtcars" id="toc-example-scatterplot-on-mtcars" class="nav-link" data-scroll-target="#example-scatterplot-on-mtcars">Example: Scatterplot on <code>mtcars</code></a></li>
-  <li><a href="#to-save-these-slides-with-your-code" id="toc-to-save-these-slides-with-your-code" class="nav-link" data-scroll-target="#to-save-these-slides-with-your-code">To Save These Slides With Your Code</a></li>
+  <li><a href="#stat-545a-collaborative-project-milestone-2" id="toc-stat-545a-collaborative-project-milestone-2" class="nav-link active" data-scroll-target="#stat-545a-collaborative-project-milestone-2">STAT 545A Collaborative Project: Milestone 2</a>
+  <ul class="collapse">
+  <li><a href="#exercise-0-merge-one-pull-request-per-teammate" id="toc-exercise-0-merge-one-pull-request-per-teammate" class="nav-link" data-scroll-target="#exercise-0-merge-one-pull-request-per-teammate">Exercise 0: Merge one Pull Request per teammate</a></li>
+  <li><a href="#exercise-1-troubleshooting-document" id="toc-exercise-1-troubleshooting-document" class="nav-link" data-scroll-target="#exercise-1-troubleshooting-document">Exercise 1: Troubleshooting document</a></li>
+  <li><a href="#exercise-2-readme-file-and-tidy-submission" id="toc-exercise-2-readme-file-and-tidy-submission" class="nav-link" data-scroll-target="#exercise-2-readme-file-and-tidy-submission">Exercise 2: README file and tidy submission</a></li>
+  <li><a href="#exercise-3-submitting-this-deliverable" id="toc-exercise-3-submitting-this-deliverable" class="nav-link" data-scroll-target="#exercise-3-submitting-this-deliverable">Exercise 3: Submitting this Deliverable</a></li>
+  </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lec4_datavis_slides.html"><i class="bi bi-file-slides"></i>RevealJS (live)</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 4: Data Visualization with ggplot2</h1>
-<p class="subtitle lead">STAT 545 - Fall 2025</p>
+<h1 class="title">Collaborative Project: Deliverable 2</h1>
 </div>
 
 
@@ -293,6 +282,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">September 18, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -301,209 +296,123 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="todays-goals" class="level2">
-<h2 class="anchored" data-anchor-id="todays-goals">Today’s Goals</h2>
-<ul>
-<li><p>create effective data visualizations</p></li>
-<li><p>explore the grammar of <code>ggplot2</code></p></li>
-</ul>
-<p>Quick links:</p>
-<ul>
-<li><p><a href="https://youtu.be/vltlWkDoToo">Lecture Video</a></p></li>
-<li><p><a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec4_datavis.html">Lecture Notes</a></p></li>
-</ul>
-</section>
-<section id="required-packages" class="level2">
-<h2 class="anchored" data-anchor-id="required-packages">Required Packages</h2>
-<p>Install (if necessary) and load in the following packages:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><u><strong>Due September 26th, 2025 at 11:59pm PT</strong></u></p>
+<p>There is ZERO tolerance for late project submissions. Please contact the instructor for extenuating circumstances.</p>
+<section id="stat-545a-collaborative-project-milestone-2" class="level1">
+<h1>STAT 545A Collaborative Project: Milestone 2</h1>
+<p><strong>Points</strong>: 78</p>
+<p>By completing this project, students are expected to be able to:</p>
+<ol type="1">
+<li><p>Collaborate on a project with a partner using the git + GitHub workflow.</p></li>
+<li><p>Troubleshoot broken R code.</p></li>
+<li><p>Rewrite code to address instructions.</p></li>
+</ol>
+<p>This is the second of two deliverables for completing this project.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="motivating-example" class="level2 scrollable">
-<h2 class="scrollable anchored" data-anchor-id="motivating-example">Motivating Example</h2>
-<p>We want to investigate if there is a relationship between the number of cylinders (<code>cyl</code>), fuel efficiency (<code>mpg</code>), and horsepower (<code>hp</code>) in the <code>mtcars</code> data set.</p>
-<div class="cell">
-<pre class="{webr}"><code>library(kableExtra)
-
-mtcars %&gt;% select(cyl, mpg, hp) %&gt;%
-  group_by(cyl) %&gt;%
-  arrange(cyl, mpg) %&gt;%
-  knitr::kable(col.names = c("Number of Cylinders", "Miles per Gallon", "Horsepower"), 
-               align = "c", format = "html",  
-               table.attr = 'data-quarto-disable-processing="true"') %&gt;%
-  kable_styling(bootstrap_options = c("hover", "condensed"),
-                    full_width = FALSE, font_size = 14) %&gt;%
-  kableExtra::collapse_rows(columns = 1, latex_hline = "major", valign = "top")
-</code></pre>
-</div>
-</section>
-<section id="motivating-example-1" class="level2">
-<h2 class="anchored" data-anchor-id="motivating-example-1">Motivating Example</h2>
-<ul>
-<li>Was it easy to figure out the relationship I was trying to convey?</li>
-</ul>
-<!-- -->
-<ul>
-<li>What about through a plot?</li>
-</ul>
-</section>
-<section id="motivating-example-2" class="level2">
-<h2 class="anchored" data-anchor-id="motivating-example-2">Motivating Example</h2>
-<div class="cell" data-layout-align="center" data-output-location="column">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="lec4_datavis_slides_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
-</figure>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p><strong>Read through the project in its entirety</strong> to ensure you’ve made a plan for all of the components to be completed! Many tasks are not “standalone”. For example, we require at least one pull request per person that is relevant to the project. You’ll need to decide in advance who does what!</p>
 </div>
-</section>
-<section id="motivating-example-3" class="level2">
-<h2 class="anchored" data-anchor-id="motivating-example-3">Motivating Example</h2>
+</div>
+<section id="exercise-0-merge-one-pull-request-per-teammate" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-0-merge-one-pull-request-per-teammate">Exercise 0: Merge one Pull Request per teammate</h2>
+<p><strong>30 points</strong></p>
+<p><em>This exercise is identical to the one in Deliverable 1.</em></p>
+<p><strong>Each pull request will require a number of components (listed below). TAs will grade one pull request per person, and it’s up to you to ensure you’ve indicated which one is to be graded by adding “(GRADED)” to your pull request name.</strong></p>
+<p>Every teammate should submit at least one pull request for this deliverable, and have a <strong>different</strong> teammate merge the pull request after reviewing the contents of the pull request. So, like the previous exercise on Markdown Formatting, this exercise is not stand-alone. You’ll need to decide who will work on what.</p>
+<p>As a reminder, in order to make a pull request, you’ll need to:</p>
+<ol type="1">
+<li><p>Make a new branch, <em>before you start working on your tasks!</em> (So that you capture your work within the branch.)</p>
 <ul>
-<li><p>We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon).</p></li>
-<li><p>Cars with higher horsepower also tend to have a higher number of cylinders.</p></li>
-<li><p>That was a lot easier to deduce than when we were reading numbers off of a large table. We will show how to build this exact plot in this lecture!</p></li>
-</ul>
-</section>
-<section id="effective-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="effective-data-visualization">Effective Data Visualization</h2>
-<ul>
-<li><p>Data visualizations are often preferred to aid with identify patterns and relationships and emphasizing important findings in a research projects</p>
-<ul>
-<li>This is especially true for presentations</li>
+<li>You can do this either on GitHub, or on your own computer using RStudio.</li>
 </ul></li>
-<li><p>So, what’s the best visualization?</p>
+<li><p>Make changes to some files on the new branch.</p>
 <ul>
-<li>Depends on what you need the data visualization to answer!</li>
+<li>You can do this either on GitHub or on your own computer (locally), but if you do this locally, you’ll need to remember to push your work (on the branch) to GitHub.</li>
 </ul></li>
-<li><p>Once you know what you want to show, we need to <strong>convey the message</strong> as clearly and simply as possible</p></li>
-</ul>
-</section>
-<section id="effective-data-visualizations-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="effective-data-visualizations-considerations">Effective Data Visualizations: Considerations</h2>
+<li><p>Start a pull request on GitHub, by going to “Pull Requests” -&gt; “New Pull Request”, and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.</p></li>
+</ol>
 <ul>
-<li><p>Make it clear as a “standalone”</p>
+<li><p>In the comments, include some indication as to which teammate will be responsible for checking and merging the new work contained in the pull request.</p>
 <ul>
-<li>Use labels, titles, and legends and make them informative and clear</li>
+<li><p>Perhaps you’ve already decided up front who will be reviewing who’s work.</p></li>
+<li><p>Or perhaps (and more realistically), in your comment, you may ask the group at large who would like to volunteer, and then someone will respond.</p></li>
+<li><p>How you work this out should go in your teamwork document (as described in another exercise).</p></li>
 </ul></li>
-<li><p>Minimize noise</p>
+<li><p>The teammate responsible for reviewing and merging the pull request does so, being sure to add to the discussion happening in the pull request by adding a comment.</p>
 <ul>
-<li><p>Don’t use colours randomly - it may cause us to see false patterns</p></li>
-<li><p>Don’t overlap plots</p></li>
-<li><p>Use as few plots as possible, but don’t be afraid to separate data to plot if it makes things clearer</p></li>
-</ul></li>
-<li><p>Consider the accessibility of your chart</p>
-<ul>
-<li><p>up to 10% of the population has colourblindness</p></li>
-<li><p>make it low-vision friendly and provide descriptions where possible</p></li>
+<li>The comment could be as simple as something like “I’ve reviewed these changes, and everything looks great.” Or, it could highlight some issues that were found, in which case the team should work towards resolving the issue.</li>
 </ul></li>
 </ul>
-</section>
-<section id="ggplot2-and-the-grammar-of-graphics" class="level2">
-<h2 class="anchored" data-anchor-id="ggplot2-and-the-grammar-of-graphics"><code>ggplot2</code> and the Grammar of Graphics</h2>
-<p><code>ggplot2</code> is based on the grammar of graphics, which is a systematic approach for describing different components or aspects of a graph. It involves seven components (required components are indicated with the *):</p>
+<p><strong>Note 1</strong>: Work together as a team to get this done. If one of your teammates is having trouble with this procedure, help them out! Sometimes a merge conflict will happen, and it’s best to work as a team to figure out how to resolve these issues.</p>
+<p><strong>Note 2:</strong> Please indicate to the TAs which PRs you would like to be graded by adding “(GRADED)” to the PR name. Every team member should have exactly one pull request labelled “(GRADED)”.</p>
+<p><strong>Grading</strong>:</p>
 <ul>
-<li><p>Data*</p>
-<ul>
-<li>the data you’re feeding into the plot, perhaps a tibble or dataframe</li>
-</ul></li>
-<li><p>Aesthetic mappings*</p>
-<ul>
-<li>a specification of how you will connect variables (for example, horizontal or vertical positioning, grouping, size, colour, shape)</li>
-</ul></li>
-<li><p>Geometric objects*</p>
-<ul>
-<li>a specification of what the object will be drawn as (for example, a scatter plot, line, bar chart)</li>
-</ul>
-<p>* = required component</p></li>
+<li><p>4 points awarded for the creation of a complete set of pull requests (i.e., one pull request per teammate).</p></li>
+<li><p>14 points awarded for the successful merging of a complete set of pull requests.</p></li>
+<li><p>4 points awarded for the comment(s) kicking off the pull request.</p></li>
+<li><p>4 points awarded for the follow-up comment(s) from a reviewer.</p></li>
+<li><p>4 points awarded if each teammate gets the chance to act as a reviewer/merger of someone else’s pull request.</p></li>
+<li><p><em>Penalty</em> of up to 4 points if the total amount of work contained in pull requests does not amount to much. We just want to make sure that, when you’re working on this project, you’re largely working on branches. It’s OK to commit directly to the main branch without a pull request, but this should be the exception, not the norm.</p></li>
+<li><p><em>Penalty</em> of 1 point if you have not indicated to the TAs which PRs you would like to be graded by adding “(GRADED)” to the PR name.<br>
+</p></li>
 </ul>
 </section>
-<section id="ggplot2-and-the-grammar-of-graphics-1" class="level2">
-<h2 class="anchored" data-anchor-id="ggplot2-and-the-grammar-of-graphics-1"><code>ggplot2</code> and the Grammar of Graphics</h2>
-<ul>
-<li><p>Scales</p>
-<ul>
-<li>a specification of how a variable is mapped to its aesthetic</li>
-</ul></li>
-<li><p>Statistical transformations</p>
-<ul>
-<li>a specification of whether and how the data are combined or transformed. For example, is a bar chart plotting the values or a relative frequency?</li>
-</ul></li>
-<li><p>Coordinate system</p>
-<ul>
-<li>a specification of how the position aesthetics (x and y) are depicted in the plot. We typically use cartesian coordinates, though polar coordinates are also possible.</li>
-</ul></li>
-<li><p>Facet</p>
-<ul>
-<li>a specification of data variables that partition the data into smaller “sub plots” or panels</li>
-</ul></li>
-</ul>
-<p>It’s okay if you don’t quite understand all of these components yet. We will walk through examples of commonly used plots and discuss which components are necessary!</p>
+<section id="exercise-1-troubleshooting-document" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-troubleshooting-document">Exercise 1: Troubleshooting document</h2>
+<p><strong>58 points</strong></p>
+<ol type="1">
+<li><p>Put the <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/collaborative-project/milestone2/troubleshooting-2.Rmd"><code>troubleshooting-2.Rmd</code></a> document in your repository. (You can either download this file, or just copy and paste its contents into a new file that you call <code>troubleshooting-2.Rmd</code>.)</p></li>
+<li><p>Fix all the errors in the <code>troubleshooting-2.Rmd</code> document, as outlined in the document. (<strong>55 points, errors are equally weighed</strong>)</p></li>
+<li><p>Knit the document to an md file (just click “knit” in RStudio). (<strong>3 points; only 1 point if the document is not up-to-date with its Rmd source.</strong>)</p></li>
+</ol>
 </section>
-<section id="example-scatterplot-on-mtcars" class="level2">
-<h2 class="anchored" data-anchor-id="example-scatterplot-on-mtcars">Example: Scatterplot on <code>mtcars</code></h2>
-<p>Let’s say you’d like to see if there is a relationship between miles per gallon and horsepower of cars in the <code>mtcars</code> data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables.</p>
-</section>
-<section id="to-save-these-slides-with-your-code" class="level2">
-<h2 class="anchored" data-anchor-id="to-save-these-slides-with-your-code">To Save These Slides With Your Code</h2>
-<p>To Print to PDF (with your code!), do the following:</p>
+<section id="exercise-2-readme-file-and-tidy-submission" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-readme-file-and-tidy-submission">Exercise 2: README file and tidy submission</h2>
+<p><strong>10 points</strong></p>
 <ul>
-<li><p>Open the in-browser print dialog <code>CMD/CTRL + P</code> or Right click &gt; Print</p></li>
-<li><p>Change the Destination setting to Save as PDF.</p></li>
-<li><p>Change the Layout to Landscape.</p></li>
-<li><p>Change the Margins to None. Enable the Background graphics option.</p></li>
-<li><p>Click Save 🎉</p></li>
+<li><p>Update your README file to reflect any changes that have happened in your repository. This will probably only be a very small change, and that’s OK. (<strong>5 points for all changes reflected in the README; 4 points if at least one change is not reflected in the README; 0 points if there are changes and none of them are reflected in the README.</strong>)</p></li>
+<li><p>Your repository is clean and organized. For example, there aren’t any “old” files, and there are no relics (such as, if you once output to html, but no longer, then if present, that html file is an unnecessary relic). (<strong>5 points total: 1 point for general organization, 2 points for no relic files, 2 points for all output files being up to date.</strong>)</p></li>
 </ul>
-<p>In all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will <strong>not</strong> be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)</p>
+</section>
+<section id="exercise-3-submitting-this-deliverable" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-submitting-this-deliverable">Exercise 3: Submitting this Deliverable</h2>
+<p><strong>2 points</strong></p>
+<p>To submit this Deliverable, you’ll be tagging a release on your GitHub repository, and adding a link to the release on canvas.</p>
+<p><em>How to tag a release</em>:</p>
+<ol type="1">
+<li><p>Navigate to the main page (root) of your collaborative GitHub repository.</p></li>
+<li><p>There should be a small link on the right-hand-side of your page that says “Create a new release”. Click that.</p></li>
+</ol>
+<ul>
+<li>You might also be able to get to the same place by clicking on the “tags” link beside where your branches are listed.</li>
+</ul>
+<ol type="1">
+<li><p>For the tag version, put <code>m2.0</code> (for “milestone 2.0”).</p></li>
+<li><p>Choose a release title and description (this is less important).</p></li>
+<li><p>Do <strong>not</strong> check off “This is a pre-release”.</p></li>
+<li><p>Click “Publish Release”.</p></li>
+<li><p>Put a link to that release as a submission on the Collaborative Project Deliverable 2 (only one person per team needs to do this)</p>
+<ul>
+<li>You won’t lose marks for <em>not</em> submitting your link to canvas, but it would really help us out if you do this! Thank you!</li>
+</ul></li>
+</ol>
+<p><em>If you want to “re-tag” your release</em>:</p>
+<p>If you want to change your submission <em>after</em> tagging a release, you can still do this if it’s before the deadline. Just increase the secondary version number by one – so, make the tag version <code>m2.1</code>, then <code>m2.2</code>, etc.</p>
+<p><strong>Grading</strong>: 2 points awarded for tagging a release.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-
-<script>
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-  // slide changes (different for each slide format).
-  (function () {
-    // dispatch for htmlwidgets
-    function fireSlideEnter() {
-      const event = window.document.createEvent("Event");
-      event.initEvent("slideenter", true, true);
-      window.document.dispatchEvent(event);
-    }
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-      fireSlideEnter();
-
-      // dispatch for shiny
-      if (window.jQuery) {
-        if (previousSlide) {
-          window.jQuery(previousSlide).trigger("hidden");
-        }
-        if (currentSlide) {
-          window.jQuery(currentSlide).trigger("shown");
-        }
-      }
-    }
-
-    // hookup for slidy
-    if (window.w3c_slidy) {
-      window.w3c_slidy.add_observer(function (slide_num) {
-        // slide_num starts at position 1
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-      });
-    }
-
-  })();
-</script>
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

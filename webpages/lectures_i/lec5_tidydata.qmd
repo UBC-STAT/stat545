@@ -20,7 +20,9 @@ From this topic, students are anticipated to be able to:
 
 ## Lecture Video
 
-coming soon!
+{{< video https://www.youtube.com/watch?v=pO-dgdfMRZw >}}
+
+## 
 
 ## Lecture Slides
 
@@ -70,6 +72,7 @@ For example, the following data set containing cat and dog names by family is [n
 | Erick     | Maisy (Brown Cat)            |                 |
 | Solana    | Suki (White and Brown Cat)   |                 |
 | Danielle  | Enzo (Black Cat)             |                 |
+| Kisa      | Rio (Multicoloured Parrot)   |                 |
 
 Instead, a tidy version of this data set may look like this:
 
@@ -84,6 +87,7 @@ Instead, a tidy version of this data set may look like this:
 | Bambi    | Dog      | Alexandra | Black and White |
 | Maisy    | Cat      | Erick     | Brown           |
 | Enzo     | Cat      | Danielle  | Black           |
+| Rio      | Parrot   | Kisa      | Multicoloured   |
 
 Each row is an observation, each variable is a column, and each cell is a single measurement. Our data is tidy!
 

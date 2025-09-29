@@ -17,23 +17,20 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday September 23rd: Data Visualization with `ggplot`
+-   Tuesday September 30th: NO CLASS (Truth and Reconciliation Day) ‼️
 
--   Thursday September 25th: Data Visualization tutorial (with TAs): Work on worksheet A3
+-   Thursday September 25th: Tidy Data with `tidyverse`
 
 **To Do this Week:**
 
--   Finish and submit Worksheet A2 (Due: September 22nd, 11:59pm)
--   Work on Collaborative Project Milestone 2
--   Work on Worksheet A3
+-   Finish and Submit Worksheet A3
+-   Submit MDA Milestone 1
 
 **Upcoming Deadlines**
 
--   Worksheet A2: September 22nd, 11:59pm
+-   Worksheet A3: September 30th, 11:59pm
 
--   Collaborative Project Deliverable 2: Friday September 26th, 11:59pm
-
--   Worksheet A3: September 29th, 11:59pm
+-   Mini Data Analysis Deliverable 1: Friday October 3rd, 11:59pm
 :::
 ::::
 :::::::
