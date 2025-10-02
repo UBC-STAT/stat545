@@ -1,0 +1,247 @@
+---
+title: "Lecture 6b: Factors"
+subtitle: "STAT 545 - Fall 2025"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - tidyverse
+    - knitr
+    - gapminder
+    - palmerpenguins
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{r, include = F}
+library(tidyverse)
+library(gapminder)
+library(palmerpenguins)
+```
+
+## Learning Outcomes
+
+From today’s class, students are anticipated to be able to:
+
+-   Reorder levels within factors according to various principles
+
+Video Lecture: Course Notes:
+
+## Set-up
+
+Throughout this lecture, we will be using functions from the following packages:
+
+```{webr, message = F, warning = F}
+# install.packages(c("tidyverse", "gapminder", "palmerpenguins"))
+library(tidyverse)
+library(gapminder)
+library(palmerpenguins)
+
+```
+
+## Factors
+
+-    Factors represent *categorical variables*: variables that take on a fixed number of known values
+
+-    Example, in the `penguins` data set, `species` is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the `str()` (structure) of the tibble:
+
+```{webr}
+str(penguins)
+```
+
+## Factors coded as Numbers
+
+Suppose in the `penguins` data set than instead of their names, species had levels:
+
+-   "1" for Gentoo,
+
+-   "2" for Adelie, and
+
+-   3 for Chinstrap penguins
+
+```{webr, echo = T}
+penguins2 <- penguins %>%
+  mutate(species = recode(species, "Gentoo" = 1, "Adelie" = 2, "Chinstrap" = 3))
+
+str(penguins2)
+```
+
+We see here that R assumes that `species` is a numeric variable, not a categorical variable. This means, R assumes "species" can take on any numeric value, such as 1.5, 2.567, or 5 (which doesn't make sense for this variable!)
+
+## Factors coded as Numbers
+
+To ensure R knows that `species` is categorical, we can use:
+
+```{webr}
+penguins2 <- penguins2 %>% #overwrite existing tibble
+  mutate(species = as.factor(species)) #overwrite species to be a factor 
+
+str(penguins2)
+```
+
+Now we see that `species` is a factor with three levels!
+
+To make our lives easier, we will work with factors through the `forcats` package loaded as part of the tidyverse.
+
+## Reordering Factor Levels
+
+-   By default, factors are ordered alphabetically or numerically.
+
+-   However, in many cases factors have a logical ordering they should follow (i.e., elementary, secondary, post-secondary, graduate).
+
+-   Reordering data can be useful for both data visualization and model fitting.
+
+To see the current ordering of a factor variable, we can call `levels()`.
+
+```{webr}
+levels(penguins$species)
+```
+
+We see here, the levels of the factor are ordered alphabetically.
+
+## Reordering Levels of a Factors Manually
+
+There are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as `ordered()`:
+
+```{webr}
+penguins3 <- penguins %>%
+  mutate(species = ordered(species, levels = c([FILLTHISIN]))) #change species to an ordered factor with the specified ordering
+
+levels(penguins3$species) #see the levels of species
+```
+
+Now, when we call `str()` on the penguins data, we see that the factor is explicitly ordered, with out new ordering:
+
+```{webr}
+str(penguins3)
+```
+
+## Reordering Levels of a Factors Based on a Condition Using `forcats`
+
+Let's look again at the original `penguins` data set and look at the frequency of each species using `ggplot:`
+
+```{webr}
+ggplot(penguins, aes(x = species, fill = species)) + #use species variable (no y needed)
+  geom_bar() + #draw a bar chart 
+  theme(legend.position = "none")  + #remove redundant legend
+  xlab("Species") + #add x axis label
+  ylab("Count") + # add y axis label
+  ggtitle("Penguin Species Frequencies") #add a title
+```
+
+Notice that the ordering is alphabetical What would be a more effective ordering?
+
+::: {#editable-box contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
+Notes:
+:::
+
+## Reordering Levels of a Factors Based on a Condition Using `forcats`
+
+Let's order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common.
+
+Two approaches:
+
+-   edit the original tibble to have new factor ordering, or
+
+-   order the factors directly in the ggplot2 call so that the original tibble isn't overwritten.
+
+## Reordering Levels of a Factors Based on a Condition Using `forcats`
+
+**Option A: Reorder Tibble Directly**
+
+To reorder the factor levels according to the frequency in the tibble:
+
+```{webr}
+penguins4 <- penguins #initialize a new dataset we will overwrite, save original
+penguins4$species <- penguins$species %>% #overwrite species in penguins4
+  [FILLTHISIN] #relevel the factor by frequency
+
+levels(penguins4$species)
+
+```
+
+We can then plot our data using `penguins4`:
+
+```{webr}
+ggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)
+  geom_bar() + #draw a bar chart 
+  theme(legend.position = "none")  + #remove redundant legend  
+  xlab("Species") + #add x axis label
+  ylab("Count") + # add y axis label
+  ggtitle("Penguin Species Frequencies") #add a title
+```
+
+## Reordering Levels of a Factors Based on a Condition Using `forcats`
+
+**Option B: Reorder the Factor in the `ggplot`** Call
+
+We can do these steps directly in `ggplot` without overwriting or making a new tibble!
+
+```{webr}
+penguins %>% #this is the original data frame with alphabetical ordering
+  mutate(species = species %>%
+           fct_infreq()) %>% #order by frequency
+  ggplot( aes(x = species, fill = species)) + #no longer specify the data set in ggplot() as this is passed in by the pipe %>%
+    geom_bar() + 
+    theme(legend.position = "none")  +
+    xlab("Species") + 
+    ylab("Count") + 
+    ggtitle("Penguin Species Frequencies")
+```
+
+We get the exact same plot with a single chunk of code! And, the original tibble `penguins` remains unchanged with the alphabetical ordering of the species factors.
+
+```{webr}
+levels(penguins$species)
+```
+
+## Expanding Factor Levels
+
+Perhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add "Emperor" and "King" as possible factor levels for `species` in our `penguins` data set. We do so by `fct_expand()`
+
+```{webr}
+penguins %>% #this is the original data frame with alphabetical ordering
+  mutate(species = species %>%
+    fct_expand("King", "Emperor") %>% #NEW: expand levels to include king and emperor
+    fct_infreq()
+           ) %>%  
+  ggplot( aes(x = species, fill = species)) + 
+    geom_bar() + 
+    theme(legend.position = "none")  +
+    xlab("Species") + 
+    ylab("Count") + 
+    ggtitle("Penguin Species Frequencies") + 
+    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels
+```
+
+Now we add to the visualization that there were no King or Emperor penguins collected in the data.
+
+## Removing Factor Levels
+
+Let's suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using `forcats` by:
+
+```{webr}
+penguins_no_gentoo <- penguins %>%
+  filter(species %in% c("Adelie", "Chinstrap")) %>%
+  droplevels()
+
+levels(penguins_no_gentoo$species)
+```
+
+## Worksheet A5
+
+Try your hand at using factors by working through the factors portion of Worksheet A5.
+
+Finished attempting all of the questions? Then do the optional [R4DS Factors](https://r4ds.hadley.nz/factors) reading, and maybe even do some of the exercises for extra practice.

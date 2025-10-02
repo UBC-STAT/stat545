@@ -2817,21 +2817,21 @@
     "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom",
     "title": "Lecture 6a: Model Fitting",
     "section": "Summarizing the Model Without broom",
-    "text": "Summarizing the Model Without broom\nIn order for a model to work with the broom package, someone has to go out of their way to contribute to the broom package for that model. While this has happened for many common models, many others remain without broom compatibility.\nHere’s how to work with these model objects in that case.\nPrediction\nIf broom::augment() doesn’t work, then the developer of the model almost surely made it so that the predict() function works (not part of the broom package). The predict() function typically takes the same format of the augment() function, but usually doesn’t return a tibble.\nHere are the first 5 predictions of mpg on the my_lm object, defaulting to predictions made on the original data:\n\n\n\n\n\n\n\n\nHere are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:\n\n\n\n\n\n\n\n\nChecking the documentation of the predict() function for your model isn’t obvious, because the predict() function is a “generic” function. Your best bet is to append the model name after a dot. For example:\n\nFor a model fit with lm(), try ?predict.lm\nFor a model fit with rq(), try ?predict.rq (from the quantreg package)\n\nIf that doesn’t work, just google it: \"Predict function for rq\"\nInference\nWe can extract model information using summary() on the linear model:\n\n\n\n\n\n\n\n\nThere’s a lot of information here. To extract a specific piece, we use $. For example,\n\n\n\n\n\n\n\n\nThis outputs a data frame of some of the model output regarding the regression coefficients. There are a ton of other items we can access, and to see them we can call names()\n\n\n\n\n\n\n\n\nFor another example, wo see the adjusted R-squared valued of the model we can use"
+    "text": "Summarizing the Model Without broom\nIn order for a model to work with the broom package, someone has to go out of their way to contribute to the broom package for that model. While this has happened for many common models, many others remain without broom compatibility.\nHere’s how to work with these model objects in that case."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#plotting-models-in-ggplot2",
     "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#plotting-models-in-ggplot2",
     "title": "Lecture 6a: Model Fitting",
     "section": "Plotting Models in ggplot2",
-    "text": "Plotting Models in ggplot2\nWe can plot models (with one predictor/ X variable) using ggplot2 through the geom_smooth() layer. Specifying method=\"lm\" gives us the linear regression fit (but only visually – very difficult to extract model components!):\n\n\n\n\n\n\n\n\nExample: gapminder\nLet’s visualize some relationships in the gapminder dataset.\nLet’s inspect Zimbabwe, which has a unique behavior in the lifeExp and year relationship.\n\n\n\n\n\n\n\n\nNow, let’s try fitting a linear model to this relationship\n\n\n\n\n\n\n\n\nNot a great fit. Now we will try to fit a second degree polynomial and see what would that look like.\n\n\n\n\n\n\n\n\nThat’s a better fit. Visualizing data is a really good way to inform what types of models we should use in our analysis.\nWhile this lecture only focused on two-dimensonal data (one y and one x), more sophisticaed statistical models can certainly handle more complexity and higher-dimensional data. If you’re interested, head to the Resources section at the end of this page to learn more."
+    "text": "Plotting Models in ggplot2\nWe can plot models (with one predictor/ X variable) using ggplot2 through the geom_smooth() layer. Specifying method=\"lm\" gives us the linear regression fit (but only visually – very difficult to extract model components!):"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summary",
     "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summary",
     "title": "Lecture 6a: Model Fitting",
     "section": "Summary",
-    "text": "Summary\n\nfunction(formula, data, options) - most models in R follow this structure.\nbroom::augment() - uses a fitted model to obtain predictions. Puts this in a new column in existing tibble. Equivalent base-r function is predict().\nbroom::tidy() - used to extract statistical information on each component of a model. Equivalent is coef(summary(lm_object)).\nbroom::glance() - used to extract statistical summaries on the whole model. Always returns a 1-row tibble.\ngeom_smooth() - used to add geom_layer that shows a fitted line to the data. method and formula arguments can be used to customize model."
+    "text": "Summary\nWhile this lecture only focused on two-dimensonal data (one y and one x), more sophisticaed statistical models can certainly handle more complexity and higher-dimensional data. If you’re interested, head to the Resources section at the end of this lecture notes to learn more.\n\nfunction(formula, data, options) - most models in R follow this structure.\nbroom::augment() - uses a fitted model to obtain predictions. Puts this in a new column in existing tibble. Equivalent base-r function is predict().\nbroom::tidy() - used to extract statistical information on each component of a model. Equivalent is coef(summary(lm_object)).\nbroom::glance() - used to extract statistical summaries on the whole model. Always returns a 1-row tibble.\ngeom_smooth() - used to add geom_layer that shows a fitted line to the data. method and formula arguments can be used to customize model."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#fev-case-study",
@@ -3005,5 +3005,320 @@
     "crumbs": [
       "Mini Data Analysis: Deliverable 2"
     ]
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-1",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-1",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom",
+    "text": "Summarizing the Model Without broom\nPrediction\nIf broom::augment() doesn’t work, then the developer of the model almost surely made it so that the predict() function works (not part of the broom package). The predict() function typically takes the same format of the augment() function, but usually doesn’t return a tibble.\nHere are the first 5 predictions of mpg on the my_lm object, defaulting to predictions made on the original data:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-2",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-2",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom",
+    "text": "Summarizing the Model Without broom\nPrediction\nHere are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:\n\n\n\n\n\n\n\n\nChecking the documentation of the predict() function for your model isn’t obvious, because the predict() function is a “generic” function. Your best bet is to append the model name after a dot. For example:\n\nFor a model fit with lm(), try ?predict.lm\nFor a model fit with rq(), try ?predict.rq (from the quantreg package)\n\nIf that doesn’t work, just google it: \"Predict function for rq\""
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-3",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-3",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom",
+    "text": "Summarizing the Model Without broom\nInference\nWe can extract model information using summary() on the linear model:\n\n\n\n\n\n\n\n\nThere’s a lot of information here. To extract a specific piece, we use $. For example,\n\n\n\n\n\n\n\n\nThis outputs a data frame of some of the model output regarding the regression coefficients. There are a ton of other items we can access, and to see them we can call names()\n\n\n\n\n\n\n\n\nFor another example, wo see the adjusted R-squared valued of the model we can use"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-4",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-4",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom",
+    "text": "Summarizing the Model Without broom"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-5",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-5",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom",
+    "text": "Summarizing the Model Without broom\nExample: gapminder\nLet’s visualize some relationships in the gapminder dataset.\nLet’s inspect Zimbabwe, which has a unique behavior in the lifeExp and year relationship.\n\n\n\n\n\n\n\n\nNow, let’s try fitting a linear model to this relationship\n\n\n\n\n\n\n\n\nNot a great fit. Now we will try to fit a second degree polynomial and see what would that look like.\n\n\n\n\n\n\n\n\nThat’s a better fit. Visualizing data is a really good way to inform what types of models we should use in our analysis.\nWhile this lecture only focused on two-dimensonal data (one y and one x), more sophisticaed statistical models can certainly handle more complexity and higher-dimensional data. If you’re interested, head to the Resources section at the end of this page to learn more."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom: Prediction",
+    "text": "Summarizing the Model Without broom: Prediction\nIf broom::augment() doesn’t work, then the developer of the model almost surely made it so that the predict() function works (not part of the broom package). The predict() function typically takes the same format of the augment() function, but usually doesn’t return a tibble.\nHere are the first 5 predictions of mpg on the my_lm object, defaulting to predictions made on the original data:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction-1",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction-1",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom: Prediction",
+    "text": "Summarizing the Model Without broom: Prediction\nHere are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:\n\n\n\n\n\n\n\n\nChecking the documentation of the predict() function for your model isn’t obvious, because the predict() function is a “generic” function. Your best bet is to append the model name after a dot. For example:\n\nFor a model fit with lm(), try ?predict.lm\nFor a model fit with rq(), try ?predict.rq (from the quantreg package)\n\nIf that doesn’t work, just google it: \"Predict function for rq\""
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom: Inference",
+    "text": "Summarizing the Model Without broom: Inference\nWe can extract model information using summary() on the linear model:\n\n\n\n\n\n\n\n\nThere’s a lot of information here. To extract a specific piece, we use $. For example,\n\n\n\n\n\n\n\n\nThis outputs a data frame of some of the model output regarding the regression coefficients."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#example-gapminder",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#example-gapminder",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Example: gapminder",
+    "text": "Example: gapminder\nLet’s visualize some relationships in the gapminder dataset.\nLet’s inspect Zimbabwe, which has a unique behavior in the lifeExp and year relationship."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference-1",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference-1",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Summarizing the Model Without broom: Inference",
+    "text": "Summarizing the Model Without broom: Inference\nThere are a ton of other items we can access, and to see them we can call names()\n\n\n\n\n\n\n\n\nFor another example, wo see the adjusted R-squared valued of the model we can use"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#example-gapminder-1",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#example-gapminder-1",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Example: gapminder",
+    "text": "Example: gapminder\nNow, let’s try fitting a linear model to this relationship\n\n\n\n\n\n\n\n\n\nNotes:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#example-gapminder-2",
+    "href": "webpages/slides/slidefiles/lec6_modelfitting_slides.html#example-gapminder-2",
+    "title": "Lecture 6a: Model Fitting",
+    "section": "Example: gapminder",
+    "text": "Example: gapminder\nNow we will try to fit a second degree polynomial and see what would that look like.\n\n\n\n\n\n\n\n\n\nNotes:"
+  },
+  {
+    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html",
+    "href": "webpages/lectures_i/lec6b_factorsanddates.html",
+    "title": "Lecture 6B: Factors",
+    "section": "",
+    "text": "From today’s class, students are anticipated to be able to:\nThroughout this lecture, we will be using functions from X packages, which we install and load through:\n# install.packages(c(\"tidyverse\", \"gapminder\", \"lubidate\"))\nlibrary(tidyverse)\nlibrary(gapminder)\nlibrary(lubridate)"
+  },
+  {
+    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#factors",
+    "href": "webpages/lectures_i/lec6b_factorsanddates.html#factors",
+    "title": "Lecture 6B: Factors",
+    "section": "Factors",
+    "text": "Factors\n\n“There is no other object that creates as much trouble as factors.” - Patrick Burns, “The R Inferno”.\n\nIn R, we use factors to represent categorical variables: variables that take on a fixed number of known values (i.e. levels). For example, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:\n\nstr(penguins)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nor we can explicitly look at the class and levels of the variable of interest by:\n\nclass(penguins$species)\n\n[1] \"factor\"\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nUnder the hood, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.\nThis is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:\n\nset.seed(100) #make reproducible (more on this later)\n\npenguins %&gt;% \n  slice_sample(n=10) %&gt;% #take 10 random rows\n  pull(species) #output the species only\n\n [1] Gentoo    Adelie    Gentoo    Adelie    Chinstrap Chinstrap Adelie   \n [8] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nThis dual nature of factors creates a whole slew of hidden traps and headaches, especially for new R users!\n\n\n\n\n\n\nCaution\n\n\n\nSometimes factors are coded (i.e., written) in the data as integers. Without explicitly telling R, R will assume any numeric data are just regular old numbers.\nAlways ensure that factors are explicit in your code!\n\n\nFor example, suppose in the penguins data set than instead of their names, species had levels “1”, “2”, and “3’ where”1” could represent Gentoo, “2” Adelie, and 3 “Chinstrap” penguins. So, instead of having the names of penguin species as strings, they are coded as numeric values.\n\npenguins2 &lt;- penguins %&gt;%\n  mutate(species = recode(species, \"Gentoo\" = 1, \"Adelie\" = 2, \"Chinstrap\" = 3))\n\nstr(penguins2)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : num  2 2 2 2 2 2 2 2 2 2 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. To ensure R knows that species is categorical, we can use:\n\npenguins2 &lt;- penguins2 %&gt;% #overwrite existing tibble\n  mutate(species = as.factor(species)) #overwrite species to be a factor using as.factor\n\nstr(penguins2)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : Factor w/ 3 levels \"1\",\"2\",\"3\": 2 2 2 2 2 2 2 2 2 2 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nNow we see that species is a factor with three levels!\nNevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either ggplot2 or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse.\n\nReordering Factor Levels\nBy default, factors are ordered alphabetically or numerically. However, in many cases factors have a logical ordering they should follow. For example, you may have an education variable dictating the level of schooling a student is currently in (i.e., elementary, secondary, post-secondary, graduate). It is natural to order the factor in this way. In other cases, you may just want to reorder the levels of a factor so that it plots a certain way. Reordering data can be useful for both data visualization and model fitting.\nTo see the current ordering of a factor variable, we can call levels().\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nWe see here, the levels of the factor are ordered alphabetically.\n\nReordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\npenguins3 &lt;- penguins %&gt;%\n  mutate(species = ordered(species, levels = c(\"Gentoo\", \"Chinstrap\", \"Adelie\"))) #change species to an ordered factor with the specified ordering\n\nlevels(penguins3$species) #see the levels of species\n\n[1] \"Gentoo\"    \"Chinstrap\" \"Adelie\"   \n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:\n\nstr(penguins3)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : Ord.factor w/ 3 levels \"Gentoo\"&lt;\"Chinstrap\"&lt;..: 3 3 3 3 3 3 3 3 3 3 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\n\n\nReordering Levels of a Factors Based on a Condition Using forcats\nPerhaps we want to reorder levels based on some condition, perhaps the ordering levels by frequency, or perhaps by the another summary statistic (which could be useful for effective data visualization!). We can easily do so using the forcats package. Let’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\nggplot(penguins, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend\n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nThis data visualization is fine. But there’s one step we can do to make it even better: order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common. This is especially useful when the number of levels is large!\nWe can do this in two ways: edit the original tibble to have new factor ordering, or order the factors directly in the ggplot2 call so that the original tibble isn’t overwritted. We will show both ways. We will use the forcats package in both examples.\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble, we can use fct_reorder():\n\npenguins4 &lt;- penguins #initialize a new dataset we will overwrite, save original\npenguins4$species &lt;- penguins$species %&gt;% #overwrite species in penguins4\n  fct_infreq() #relevel the factor by frequency\n\nlevels(penguins4$species)\n\n[1] \"Adelie\"    \"Gentoo\"    \"Chinstrap\"\n\n\nWe see the ordering is Adelie, Gentoo, and then Chinstrap. If you look at the previous plot, you’ll see that these are ordered from smallest to largest frequencies. The original ordering was alphabetical.\nTo order from smallest to largest, we had fct_rev() to the chain:\n\npenguins4$species &lt;- penguins4$species %&gt;%\n  fct_infreq() %&gt;% #relevel the factor by frequency\n  fct_rev()\n\nlevels(penguins4$species)\n\n[1] \"Chinstrap\" \"Gentoo\"    \"Adelie\"   \n\n\nNow the levels are reversed!\nWe can then plot our data using penguins4:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nOf course, an even better visualization would involve flipping the axes:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") + #add a title\n  coord_flip()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIt may look like they are ordered from largest to smallest, but they are actually ordered from smallest to largest. When flipped, ggplot puts the first level on the bottom.\n\n\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;% #order by frequency\n           fct_rev()) %&gt;%  #reverse ordering\n  ggplot( aes(x = species, fill = species)) + #no longer specify the data set in ggplot() as this is passed in by the pipe %&gt;%\n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip()\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors.\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\n\n\n\n\n\n\nExercise\n\n\n\nThe gapminder dataset contains information on GDP per capita (gdpPercap) by country. Add to the following ggplot to visualize the GDP per capita, ordered by GDP per capita, for countries in Asia in 2007. Copy the code block to edit and run it in R.\nlibrary(gapminder)\nlibrary(tidyverse)\n\ngapminder %&gt;%\n  filter( ) %&gt;% #FILL THIS IN: filter by countries in Asia\n  mutate() %&gt;% #FILL THIS IN: change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n  \n\n\nAnswer below! No peaking until you’ve attempted this problem!\n\ngapminder %&gt;%\n  filter(continent == \"Asia\", year == 2007) %&gt;% #filter by countries in Asia\n  mutate(country = fct_reorder(country, gdpPercap)) %&gt;% #change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n\n\n\n\n\n\n\n\n\n\n\nExpanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_expand(\"King\", \"Emperor\") %&gt;% #NEW: expand levels to include king and emperor\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data.\n\nRemoving Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:\n\npenguins_no_gentoo &lt;- penguins %&gt;%\n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;%\n  droplevels()\n\nlevels(penguins_no_gentoo$species)\n\n[1] \"Adelie\"    \"Chinstrap\"\n\n\nWe can also do this along with the ggplot call by:\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;% #NEW: filter only these species\n  droplevels() %&gt;% #NEW: drop if not adelie or chinstrap species\n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels"
+  },
+  {
+    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#dates-and-times",
+    "href": "webpages/lectures_i/lec6b_factorsanddates.html#dates-and-times",
+    "title": "Lecture 6B: Factors and Dates",
+    "section": "Dates and Times",
+    "text": "Dates and Times\nOften you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit.\nDates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis. Why? Think about this:\n\nAre there 365 days in every year?\nAre there 30 days in every month?\nAre there 24 hours in every day?\n\nThe answer to all of these questions is NO. What a headache this can be when trying to compute how much time has elapsed between two date/times!\nThe lubridate package can help us with a lot of the headaches that dates and times cause. It can create date and time objects from different inputs, extract important pieces of information like year/month/day, do hard math with dates and times, and help you navigate time zones."
+  },
+  {
+    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#nyc-flights-case-study",
+    "href": "webpages/lectures_i/lec6b_factorsanddates.html#nyc-flights-case-study",
+    "title": "Lecture 6B: Factors and Dates",
+    "section": "NYC Flights Case Study",
+    "text": "NYC Flights Case Study\nWe’ll show off how to use the lubridate package in the tidyverse to work with date variables in datasets in this NYC Flights case study.\nFor the sake of time, we’ll just go over the solutions together, instead of having you attempt exercises on your own first. We think this will be sufficient to get a hang of the basics of lubridate. That being said, want extra practice? Then check out the R4DS Dates and Times Chapter!"
+  },
+  {
+    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#worksheet-a5",
+    "href": "webpages/lectures_i/lec6b_factorsanddates.html#worksheet-a5",
+    "title": "Lecture 6B: Factors",
+    "section": "Worksheet A5",
+    "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice."
+  },
+  {
+    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#additional-resources",
+    "href": "webpages/lectures_i/lec6b_factorsanddates.html#additional-resources",
+    "title": "Lecture 6B: Factors",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nVideo lecture: Special Data Types in R: Dates, Times, and Factors\nChapter IV of https://stat545.com/\nThe forcats package page and reference guide on page."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html",
+    "href": "content/mini-data-analysis/mini-project-2.html",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "",
+    "text": "To complete this milestone, you can edit this .rmd file directly. Fill in the sections that are commented out with &lt;!--- start your work here---&gt;. When you are done, make sure to knit to an .md file by changing the output in the YAML header to github_document, before submitting a tagged release on canvas."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#no-points",
+    "href": "content/mini-data-analysis/mini-project-2.html#no-points",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "3.0 (no points)",
+    "text": "3.0 (no points)\nPick a research question from 1.2, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.\n\nResearch Question: FILL_THIS_IN\nVariable of interest: FILL_THIS_IN"
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#points-5",
+    "href": "content/mini-data-analysis/mini-project-2.html#points-5",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "3.1 (3 points)",
+    "text": "3.1 (3 points)\nFit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We’ll omit having to justify your choice, because we don’t expect you to know about model specifics in STAT 545.\n\nNote: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.\n\nYou could fit a model that makes predictions on Y using another variable, by using the lm() function.\nYou could test whether the mean of Y equals 0 using t.test(), or maybe the mean across two groups are different using t.test(), or maybe the mean across multiple groups are different using anova() (you may have to pivot your data for the latter two).\nYou could use lm() to test for significance of regression coefficients."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#points-6",
+    "href": "content/mini-data-analysis/mini-project-2.html#points-6",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "3.2 (3 points)",
+    "text": "3.2 (3 points)\nProduce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.\n\nBe sure to indicate in writing what you chose to produce.\nYour code should either output a tibble (in which case you should indicate the column that contains the thing you’re looking for), or the thing you’re looking for itself.\nObtain your results using the broom package if possible. If your model is not compatible with the broom function you’re needing, then you can obtain your results by some other means, but first indicate which broom function is not compatible."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#points-7",
+    "href": "content/mini-data-analysis/mini-project-2.html#points-7",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "4.1 (3 points)",
+    "text": "4.1 (3 points)\nTake a summary table that you made from Task 1, and write it as a csv file in your output folder. Use the here::here() function.\n\nRobustness criteria: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.\nReproducibility criteria: You should be able to delete the csv file, and remake it simply by knitting this Rmd file."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#points-8",
+    "href": "content/mini-data-analysis/mini-project-2.html#points-8",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "4.2 (3 points)",
+    "text": "4.2 (3 points)\nWrite your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your output folder. Use the functions saveRDS() and readRDS().\n\nThe same robustness and reproducibility criteria as in 4.1 apply here."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#coherence-0.5-points",
+    "href": "content/mini-data-analysis/mini-project-2.html#coherence-0.5-points",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "Coherence (0.5 points)",
+    "text": "Coherence (0.5 points)\nThe document should read sensibly from top to bottom, with no major continuity errors.\nThe README file should still satisfy the criteria from the last milestone, i.e. it has been updated to match the changes to the repository made in this milestone."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#file-and-folder-structure-1-points",
+    "href": "content/mini-data-analysis/mini-project-2.html#file-and-folder-structure-1-points",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "File and folder structure (1 points)",
+    "text": "File and folder structure (1 points)\nYou should have at least three folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.\nEach milestone document is contained in its respective folder, and nowhere else.\nEvery level-1 folder (that is, the ones stored in the top level, like “Milestone1” and “output”) has a README file, explaining in a sentence or two what is in the folder, in plain language (it’s enough to say something like “This folder contains the source for Milestone 1”)."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#output-1-point",
+    "href": "content/mini-data-analysis/mini-project-2.html#output-1-point",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "Output (1 point)",
+    "text": "Output (1 point)\nAll output is recent and relevant:\n\nAll Rmd files have been knitted to their output md files.\nAll knitted md files are viewable without errors on Github. Examples of errors: Missing plots, “Sorry about that, but we can’t show files that are this big right now” messages, error messages from broken R code\nAll of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.\nThere should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.\n\nOur recommendation: delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant."
+  },
+  {
+    "objectID": "content/mini-data-analysis/mini-project-2.html#tagged-release-0.5-point",
+    "href": "content/mini-data-analysis/mini-project-2.html#tagged-release-0.5-point",
+    "title": "Mini Data Analysis Milestone 2",
+    "section": "Tagged release (0.5 point)",
+    "text": "Tagged release (0.5 point)\nYou’ve tagged a release for Milestone 2."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#video-lecture",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#video-lecture",
+    "title": "Lecture 6b: Factors",
+    "section": "Video Lecture",
+    "text": "Video Lecture"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#lecture-slides",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#lecture-slides",
+    "title": "Lecture 6b: Factors",
+    "section": "Lecture Slides",
+    "text": "Lecture Slides"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#set-up",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#set-up",
+    "title": "Lecture 6b: Factors",
+    "section": "Set-up",
+    "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors",
+    "title": "Lecture 6b: Factors",
+    "section": "Factors",
+    "text": "Factors\n\nFactors represent categorical variables: variables that take on a fixed number of known values\nExample, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#worksheet-a5",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#worksheet-a5",
+    "title": "Lecture 6b: Factors",
+    "section": "Worksheet A5",
+    "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#learning-outcomes",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#learning-outcomes",
+    "title": "Lecture 6b: Factors",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles\n\nVideo Lecture: Course Notes:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors-1",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors-1",
+    "title": "Lecture 6b: Factors",
+    "section": "Factors",
+    "text": "Factors\n\n\n\n\n\n\nCaution\n\n\nSometimes factors are coded (i.e., written) in the data as integers. Without explicitly telling R, R will assume any numeric data are just regular old numbers.\nAlways ensure that factors are explicit in your code!\n\n\n\nFor example, suppose in the penguins data set than instead of their names, species had levels “1”, “2”, and “3’ where”1” could represent Gentoo, “2” Adelie, and 3 “Chinstrap” penguins. So, instead of having the names of penguin species as strings, they are coded as numeric values.\n\npenguins2 &lt;- penguins %&gt;%\n  mutate(species = recode(species, \"Gentoo\" = 1, \"Adelie\" = 2, \"Chinstrap\" = 3))\n\nstr(penguins2)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : num  2 2 2 2 2 2 2 2 2 2 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. To ensure R knows that species is categorical, we can use:\n\npenguins2 &lt;- penguins2 %&gt;% #overwrite existing tibble\n  mutate(species = as.factor(species)) #overwrite species to be a factor using as.factor\n\nstr(penguins2)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : Factor w/ 3 levels \"1\",\"2\",\"3\": 2 2 2 2 2 2 2 2 2 2 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nNow we see that species is a factor with three levels!\nNevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either ggplot2 or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse.\nReordering Factor Levels\nBy default, factors are ordered alphabetically or numerically. However, in many cases factors have a logical ordering they should follow. For example, you may have an education variable dictating the level of schooling a student is currently in (i.e., elementary, secondary, post-secondary, graduate). It is natural to order the factor in this way. In other cases, you may just want to reorder the levels of a factor so that it plots a certain way. Reordering data can be useful for both data visualization and model fitting.\nTo see the current ordering of a factor variable, we can call levels().\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nWe see here, the levels of the factor are ordered alphabetically.\nReordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\npenguins3 &lt;- penguins %&gt;%\n  mutate(species = ordered(species, levels = c(\"Gentoo\", \"Chinstrap\", \"Adelie\"))) #change species to an ordered factor with the specified ordering\n\nlevels(penguins3$species) #see the levels of species\n\n[1] \"Gentoo\"    \"Chinstrap\" \"Adelie\"   \n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:\n\nstr(penguins3)\n\n'data.frame':   344 obs. of  8 variables:\n $ species    : Ord.factor w/ 3 levels \"Gentoo\"&lt;\"Chinstrap\"&lt;..: 3 3 3 3 3 3 3 3 3 3 ...\n $ island     : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_len   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_dep   : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_len: int  181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass  : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex        : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year       : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nReordering Levels of a Factors Based on a Condition Using forcats\nPerhaps we want to reorder levels based on some condition, perhaps the ordering levels by frequency, or perhaps by the another summary statistic (which could be useful for effective data visualization!). We can easily do so using the forcats package. Let’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\nggplot(penguins, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend\n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nThis data visualization is fine. But there’s one step we can do to make it even better: order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common. This is especially useful when the number of levels is large!\nWe can do this in two ways: edit the original tibble to have new factor ordering, or order the factors directly in the ggplot2 call so that the original tibble isn’t overwritted. We will show both ways. We will use the forcats package in both examples.\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble, we can use fct_reorder():\n\npenguins4 &lt;- penguins #initialize a new dataset we will overwrite, save original\npenguins4$species &lt;- penguins$species %&gt;% #overwrite species in penguins4\n  fct_infreq() #relevel the factor by frequency\n\nlevels(penguins4$species)\n\n[1] \"Adelie\"    \"Gentoo\"    \"Chinstrap\"\n\n\nWe see the ordering is Adelie, Gentoo, and then Chinstrap. If you look at the previous plot, you’ll see that these are ordered from smallest to largest frequencies. The original ordering was alphabetical.\nTo order from smallest to largest, we had fct_rev() to the chain:\n\npenguins4$species &lt;- penguins4$species %&gt;%\n  fct_infreq() %&gt;% #relevel the factor by frequency\n  fct_rev()\n\nlevels(penguins4$species)\n\n[1] \"Chinstrap\" \"Gentoo\"    \"Adelie\"   \n\n\nNow the levels are reversed!\nWe can then plot our data using penguins4:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nOf course, an even better visualization would involve flipping the axes:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") + #add a title\n  coord_flip()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nIt may look like they are ordered from largest to smallest, but they are actually ordered from smallest to largest. When flipped, ggplot puts the first level on the bottom.\n\n\n\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;% #order by frequency\n           fct_rev()) %&gt;%  #reverse ordering\n  ggplot( aes(x = species, fill = species)) + #no longer specify the data set in ggplot() as this is passed in by the pipe %&gt;%\n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip()\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors.\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\n\n\n\nExercise\n\n\nThe gapminder dataset contains information on GDP per capita (gdpPercap) by country. Add to the following ggplot to visualize the GDP per capita, ordered by GDP per capita, for countries in Asia in 2007. Copy the code block to edit and run it in R.\nlibrary(gapminder)\nlibrary(tidyverse)\n\ngapminder %&gt;%\n  filter( ) %&gt;% #FILL THIS IN: filter by countries in Asia\n  mutate() %&gt;% #FILL THIS IN: change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n  \n\n\n\nAnswer below! No peaking until you’ve attempted this problem!\n\ngapminder %&gt;%\n  filter(continent == \"Asia\", year == 2007) %&gt;% #filter by countries in Asia\n  mutate(country = fct_reorder(country, gdpPercap)) %&gt;% #change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n\n\n\n\n\n\n\n\nExpanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_expand(\"King\", \"Emperor\") %&gt;% #NEW: expand levels to include king and emperor\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data.\nRemoving Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:\n\npenguins_no_gentoo &lt;- penguins %&gt;%\n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;%\n  droplevels()\n\nlevels(penguins_no_gentoo$species)\n\n[1] \"Adelie\"    \"Chinstrap\"\n\n\nWe can also do this along with the ggplot call by:\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;% #NEW: filter only these species\n  droplevels() %&gt;% #NEW: drop if not adelie or chinstrap species\n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors-coded-as-numbers",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors-coded-as-numbers",
+    "title": "Lecture 6b: Factors",
+    "section": "Factors coded as Numbers",
+    "text": "Factors coded as Numbers\nSuppose in the penguins data set than instead of their names, species had levels:\n\n“1” for Gentoo,\n“2” for Adelie, and\n3 for Chinstrap penguins\n\n\n\n\n\n\n\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. This means, R assumes “species” can take on any numeric value, such as 1.5, 2.567, or 5 (which doesn’t make sense for this variable!)"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors-coded-as-numbers-1",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#factors-coded-as-numbers-1",
+    "title": "Lecture 6b: Factors",
+    "section": "Factors coded as Numbers",
+    "text": "Factors coded as Numbers\nTo ensure R knows that species is categorical, we can use:\n\n\n\n\n\n\n\n\nNow we see that species is a factor with three levels!\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-factor-levels",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-factor-levels",
+    "title": "Lecture 6b: Factors",
+    "section": "Reordering Factor Levels",
+    "text": "Reordering Factor Levels\n\nBy default, factors are ordered alphabetically or numerically.\nHowever, in many cases factors have a logical ordering they should follow (i.e., elementary, secondary, post-secondary, graduate).\nReordering data can be useful for both data visualization and model fitting.\n\nTo see the current ordering of a factor variable, we can call levels().\n\n\n\n\n\n\n\n\nWe see here, the levels of the factor are ordered alphabetically."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-manually",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-manually",
+    "title": "Lecture 6b: Factors",
+    "section": "Reordering Levels of a Factors Manually",
+    "text": "Reordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\n\n\n\n\n\n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
+    "title": "Lecture 6b: Factors",
+    "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
+    "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nLet’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\n\n\n\n\n\n\n\nNotice that the ordering is alphabetical What would be a more effective ordering?\n\nNotes:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
+    "title": "Lecture 6b: Factors",
+    "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
+    "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nLet’s order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common.\nTwo approaches:\n\nedit the original tibble to have new factor ordering, or\norder the factors directly in the ggplot2 call so that the original tibble isn’t overwritten."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
+    "title": "Lecture 6b: Factors",
+    "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
+    "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble:\n\n\n\n\n\n\n\n\nWe can then plot our data using penguins4:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#expanding-factor-levels",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#expanding-factor-levels",
+    "title": "Lecture 6b: Factors",
+    "section": "Expanding Factor Levels",
+    "text": "Expanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#removing-factor-levels",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#removing-factor-levels",
+    "title": "Lecture 6b: Factors",
+    "section": "Removing Factor Levels",
+    "text": "Removing Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
+    "href": "webpages/slides/slidefiles/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
+    "title": "Lecture 6b: Factors",
+    "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
+    "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors."
   }
 ]

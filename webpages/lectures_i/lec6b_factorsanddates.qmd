@@ -1,22 +1,27 @@
 ---
-title: "Lecture 6B: Factors and Dates"
+title: "Lecture 6B: Factors"
 subtitle: "October 9, 2025"
 date-modified: last-modified
 ---
 
 From today’s class, students are anticipated to be able to:
 
--   Reorder levels within factors according to various principles.
+-   Reorder levels within factors according to various principles
 
--   Make a date and datetime object and extract components from these objects, using the `lubridate` package.
+## Video Lecture
 
-Throughout this lecture, we will be using functions from X packages, which we install and load through:
+
+## Lecture Slides
+
+
+## Set-up
+Throughout this lecture, we will be using functions from the following packages packages:
 
 ```{r, message = F, warning = F}
-# install.packages(c("tidyverse", "gapminder", "lubidate"))
+# install.packages(c("tidyverse", "gapminder"))
 library(tidyverse)
 library(gapminder)
-library(lubridate)
+
 ```
 
 ## Factors
@@ -294,29 +299,29 @@ penguins %>% #this is the original data frame with alphabetical ordering
     scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels
 ```
 
-## 
+<!-- ##  -->
 
-## Dates and Times
+<!-- ## Dates and Times -->
 
-Often you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit.
+<!-- Often you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit. -->
 
-Dates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis. Why? Think about this:
+<!-- Dates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis. Why? Think about this: -->
 
-1.  Are there 365 days in every year?
+<!-- 1.  Are there 365 days in every year? -->
 
-2.  Are there 30 days in every month?
+<!-- 2.  Are there 30 days in every month? -->
 
-3.  Are there 24 hours in every day?
+<!-- 3.  Are there 24 hours in every day? -->
 
-The answer to all of these questions is NO. What a headache this can be when trying to compute how much time has elapsed between two date/times!
+<!-- The answer to all of these questions is NO. What a headache this can be when trying to compute how much time has elapsed between two date/times! -->
 
-The `lubridate` package can help us with a lot of the headaches that dates and times cause. It can create date and time objects from different inputs, extract important pieces of information like year/month/day, do hard math with dates and times, and help you navigate time zones.
+<!-- The `lubridate` package can help us with a lot of the headaches that dates and times cause. It can create date and time objects from different inputs, extract important pieces of information like year/month/day, do hard math with dates and times, and help you navigate time zones. -->
 
-## NYC Flights Case Study
+<!-- ## NYC Flights Case Study -->
 
-We’ll show off how to use the `lubridate` package in the tidyverse to work with date variables in datasets in this [NYC Flights case study](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/casestudies/casestudy_dates/casestudy_dates_SOLUTIONS.Rmd).
+<!-- We’ll show off how to use the `lubridate` package in the tidyverse to work with date variables in datasets in this [NYC Flights case study](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/casestudies/casestudy_dates/casestudy_dates_SOLUTIONS.Rmd). -->
 
-For the sake of time, we’ll just go over the solutions together, instead of having you attempt exercises on your own first. We think this will be sufficient to get a hang of the basics of `lubridate`. That being said, want extra practice? Then check out the [R4DS Dates and Times Chapter](https://r4ds.hadley.nz/datetimes)!
+<!-- For the sake of time, we’ll just go over the solutions together, instead of having you attempt exercises on your own first. We think this will be sufficient to get a hang of the basics of `lubridate`. That being said, want extra practice? Then check out the [R4DS Dates and Times Chapter](https://r4ds.hadley.nz/datetimes)! -->
 
 ## Worksheet A5
 
@@ -331,8 +336,4 @@ Finished attempting all of the questions? Then do the optional [R4DS Factors](ht
 -   Chapter IV of [https://stat545.com/](https://stat545.com/date-time.html)
 
 -   The [forcats](https://forcats.tidyverse.org/) package page and reference guide on page.
-
--   The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
-
--   The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html) to learn more about embedding a time series within a tibble.
 
