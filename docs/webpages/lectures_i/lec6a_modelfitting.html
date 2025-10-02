@@ -264,6 +264,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link" data-scroll-target="#video-lecture">Video Lecture</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a></li>
   <li><a href="#model-fitting-in-r" id="toc-model-fitting-in-r" class="nav-link" data-scroll-target="#model-fitting-in-r">Model Fitting in R</a></li>
   <li><a href="#example-linear-model" id="toc-example-linear-model" class="nav-link" data-scroll-target="#example-linear-model">Example: Linear Model</a></li>
   <li><a href="#fitting-a-model-in-r" id="toc-fitting-a-model-in-r" class="nav-link" data-scroll-target="#fitting-a-model-in-r">Fitting a Model in R</a></li>
@@ -273,7 +276,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#augment" id="toc-augment" class="nav-link" data-scroll-target="#augment"><strong><code>augment()</code></strong></a></li>
   <li><a href="#glance" id="toc-glance" class="nav-link" data-scroll-target="#glance"><strong><code>glance()</code></strong></a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#summarizing-the-model-without-broom" id="toc-summarizing-the-model-without-broom" class="nav-link" data-scroll-target="#summarizing-the-model-without-broom">Summarizing the Model Without <code>broom</code></a>
   <ul class="collapse">
   <li><a href="#prediction" id="toc-prediction" class="nav-link" data-scroll-target="#prediction"><strong>Prediction</strong></a></li>
@@ -308,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 12, 2025</p>
+      <p class="date-modified">October 1, 2025</p>
     </div>
   </div>
     
@@ -330,15 +332,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Note that there is a new tidyverse-like framework of packages to help with modelling. It’s called <a href="https://www.tidymodels.org/">tidymodels</a>.</p>
 </section>
-<section id="model-fitting-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="model-fitting-in-r">Model Fitting in R</h2>
-<p>Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example:</p>
-<ul>
-<li><p>Investigate the relationship between two or more variables</p></li>
-<li><p>Predict the outcome of a variable given information about other variables</p></li>
-</ul>
-<p>These typically involve fitting models, as opposed to simple computations than can be done with tidyverse packages like dplyr.</p>
-<p>This tutorial is <em>not</em> about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value.</p>
+<section id="video-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set-up</h2>
 <p>The following packages will be used throughout this lecture:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("tidyverse", "tidymodels", "gapminder")) #uncomment if not already installed</span></span>
@@ -349,12 +350,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="model-fitting-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="model-fitting-in-r">Model Fitting in R</h2>
+<p>Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example, we cannot rely only on plotting to:</p>
+<ul>
+<li><p>Investigate the relationship between two or more variables</p></li>
+<li><p>Predict the outcome of a variable given information about other variables</p></li>
+</ul>
+<p>These typically involve fitting models, as opposed to simple computations than can be done with <code>tidyverse</code> packages like <code>dplyr.</code></p>
+<p>This lecture is <em>not</em> about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value. The focus of this lecture will be on <em>how</em> we fit models in R.</p>
+</section>
 <section id="example-linear-model" class="level2">
 <h2 class="anchored" data-anchor-id="example-linear-model">Example: Linear Model</h2>
-<p>A linear model describes a relationship between an outcome <code>y</code> and a variable(s) (or covariate(s), predictor(s), dependent variable(s)) <code>x</code>. In the case where only one variable is included in the model, alinear model (or linear regression) is a “(straight) line of best fit”. This line describes the linear relationship between <code>x</code> and <code>y</code>, and can be used for both inference and prediction.</p>
-<p>Here are a couple tasks that a linear model would be useful to address:</p>
+<p>A linear model describes a relationship between an outcome <code>y</code> and a variable(s) (or covariate(s), predictor(s), dependent variable(s)) <code>x</code>. In the case where only one variable is included in the model, a linear model (or linear regression) is a “(straight) line of best fit”. This line describes the linear relationship between <code>x</code> and <code>y</code>, and can be used for both inference and prediction.</p>
+<p>Here are a couple questions that a linear model could be used to answer:</p>
 <ol type="1">
-<li><p>A car weighs 4000 lbs. Provide a numerical prediction on its mpg (miles per gallon).</p></li>
+<li><p>What is the predicted fuel efficiency (mpg) for a 4000lb car?</p></li>
 <li><p>Does the weight of a car influence its mpg?</p></li>
 <li><p>How many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?</p></li>
 </ol>
@@ -373,7 +384,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>A simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the <code>mtcars</code> dataset in the <code>datasets</code> package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.</p>
 <p>While you can plot a linear model using <code>ggplot2</code>’s <code>geom_smooth()</code> layer, you can’t really do much else in terms of the linear model, like inference. Because of this, we will explicitly fit linear models outside of <code>ggplot</code>.</p>
 </section>
 <section id="fitting-a-model-in-r" class="level2">
@@ -394,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Running the code returns an object – usually a special type of list – that you can then work with to extract results.</p>
 <p>For example, let’s fit a linear regression model on a car’s mileage per gallon (<code>mpg</code>, “Y” variable) from the car’s weight (<code>wt</code>, “X” variable). Notice that no special options are needed for <code>lm()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars) <span class="co">#mpg is the outcome/dependent (Y) variable, wt is an independent variable (X)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>my_lm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -478,9 +488,6 @@ Coefficients:
 </div>
 </div>
 </section>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
 </section>
 <section id="summarizing-the-model-without-broom" class="level2">
 <h2 class="anchored" data-anchor-id="summarizing-the-model-without-broom">Summarizing the Model Without <code>broom</code></h2>

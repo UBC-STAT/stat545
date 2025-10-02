@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 18, 2025</p>
+      <p class="date-modified">October 2, 2025</p>
     </div>
   </div>
     
@@ -370,6 +370,190 @@ devtools::install_github("UBC-MDS/datateachr")</code></pre>
 <p><strong>To complete this deliverable</strong>, download and edit the <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/mini-data-analysis/mini-project-1.Rmd">mini-project-1.Rmd</a> directly. Follow the instructions given in the .Rmd file. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
 <p><strong>To submit this deliverable</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
 <p><strong>Points</strong>: This deliverable is worth 36 points: 30 for your analysis, and 6 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
+<p><strong>Mini Data Analysis Project: Milestone 1</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 87%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criteria</th>
+<th>Ratings</th>
+<th>Total Pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Task 1.1</td>
+<td><p><strong>1 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Chose 4 data sets and clearly communicated their choice.</strong></li>
+</ul>
+<p><strong>0.5 pts: Partial Marks</strong></p>
+<ul>
+<li><strong>Chose 4 data sets, but there were communciation issues, or chose less than 4 data sets.</strong></li>
+</ul>
+<p><strong>0 pts: No Marks</strong></p></td>
+<td>1 pts<br>
+</td>
+</tr>
+<tr class="even">
+<td>Task 1.2</td>
+<td><p><strong>6 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Used dplyr to find 3 or more attributes about each of the 4 data sets from Task 1.1.</strong></li>
+</ul>
+<p><strong>6 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><p><strong>0.5-1 point deduction for insufficient use of dplyr.</strong></p></li>
+<li><p><strong>0.5 point deduction per missing attribute. (Recall that full marks goes to 3*4 = 12 attributes.)</strong></p></li>
+</ul></td>
+<td>6 pts<br>
+</td>
+</tr>
+<tr class="odd">
+<td>Task 1.3</td>
+<td><p><strong>1 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Chose a data set, clearly communicated which, and clearly explained the reasoning behind the choice.</strong></li>
+</ul>
+<p><strong>1 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><strong>Up to 0.5 point deduction for communication clarity issues or missing explanation of choices.</strong></li>
+</ul></td>
+<td>1 pts<br>
+</td>
+</tr>
+<tr class="even">
+<td>Task 1.4</td>
+<td><p><strong>2 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Provided a clear and concise question for the data set chosen in Task 1.3.</strong></li>
+</ul>
+<p><strong>2 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><strong>Up to 1 point deduction for lack of clarity or conciseness in question statement.</strong></li>
+</ul></td>
+<td>2 pts<br>
+</td>
+</tr>
+<tr class="odd">
+<td>Task 2.1</td>
+<td><p><strong>12 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Completed 4 exercises using ggplot2 and dplyr.</strong></li>
+</ul>
+<p><strong>12 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><strong>1 point deduction per exercise for a base R solution.</strong></li>
+</ul></td>
+<td>12 pts<br>
+</td>
+</tr>
+<tr class="even">
+<td>Task 2.2</td>
+<td><p><strong>4 pts: Full Marks</strong></p>
+<ul>
+<li><p><strong>Clearly and concisely explained why it made sense to choose each of the 4 exercises in relationship to the data.</strong></p></li>
+<li><p><strong>Clearly and concisely explained the reasoning and code.</strong></p></li>
+</ul>
+<p><strong>4 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><strong>Up to 0.5 point deduction per exercise for clarity issues, brevity issues, or insufficient explanation behind reasoning and code.</strong></li>
+</ul></td>
+<td>4 pts<br>
+</td>
+</tr>
+<tr class="odd">
+<td>Task 3</td>
+<td><p><strong>4 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Chose 4 research questions and clearly communicated their choice.</strong></li>
+</ul>
+<p><strong>4 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><strong>Up to 0.5 point deduction per question for clarity issues, brevity issues, or insufficient explanation behind reasoning and code.</strong></li>
+</ul></td>
+<td>4 pts<br>
+</td>
+</tr>
+<tr class="even">
+<td>Overall Coherence</td>
+<td><p><strong>0.5 pts: Full Marks</strong></p>
+<ul>
+<li><strong>The document should read sensibly from top to bottom, with no major continuity errors. An example of a major continuity error is having a data set listed for Task 3 that is not part of one of the data sets listed in Task 1.</strong></li>
+</ul>
+<p><strong>0 pts: No Marks</strong></p>
+<ul>
+<li><strong>At least one major continuity error.</strong></li>
+</ul></td>
+<td>0.5 pts<br>
+</td>
+</tr>
+<tr class="odd">
+<td>Error-free code</td>
+<td><p><strong>3 pts: Full Marks</strong></p>
+<ul>
+<li><strong>All code in the document runs without error.</strong></li>
+</ul>
+<p><strong>3 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><p><strong>1 point deduction if most code runs without error,</strong></p></li>
+<li><p><strong>2 points deduction if more than 50% of the code throws an error.</strong></p></li>
+</ul></td>
+<td>3 pts<br>
+</td>
+</tr>
+<tr class="even">
+<td>Main README</td>
+<td><p><strong>1 pts: Full Marks</strong></p>
+<ul>
+<li><strong>There is a file named README.md at the top level of the repository that clearly and concisely describes what the repository is, and how to engage with the repository.</strong></li>
+</ul>
+<p><strong>1 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><p><strong>0.5 point deduction for clarity issues</strong></p></li>
+<li><p><strong>0.5 point deduction if a “README” type document exists, but is not named README.md.</strong></p></li>
+</ul></td>
+<td>1 pts<br>
+</td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td><p><strong>1 pts: Full Marks</strong></p>
+<ul>
+<li><strong>All output is readable, recent, and relevant.</strong></li>
+</ul>
+<p><strong>1 to &gt;0 pts: Partial or No Marks</strong></p>
+<ul>
+<li><p><strong>0.5 point deduction if any of the following criteria are not met, and 1 point deduction if most or all of the following criteria are not met:</strong></p>
+<ul>
+<li><p><strong>All Rmd files are knitted to output md</strong></p></li>
+<li><p><strong>All md files are viewable without issue on Github</strong></p></li>
+<li><p><strong>All output files are up-to-date with their source</strong></p></li>
+</ul></li>
+</ul></td>
+<td>1 pts<br>
+</td>
+</tr>
+<tr class="even">
+<td>Tagged release</td>
+<td><p><strong>0.5 pts: Full Marks</strong></p>
+<ul>
+<li><strong>Tagged a release on Github.</strong></li>
+</ul>
+<p><strong>0 pts: No Marks</strong></p>
+<ul>
+<li><strong>No tagged release.</strong></li>
+</ul></td>
+<td>0.5 pts<br>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Total Points: 36</p>
 
 
 </section>
