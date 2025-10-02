@@ -283,8 +283,8 @@
     "objectID": "webpages/mda/mda_deliverable2.html#deliverable-2-will-be-due-on-wednesday-october-22nd-2025-at-1159pm-pt",
     "href": "webpages/mda/mda_deliverable2.html#deliverable-2-will-be-due-on-wednesday-october-22nd-2025-at-1159pm-pt",
     "title": "Mini Data Analysis: Deliverable 2",
-    "section": "Deliverable 2 will be due on Wednesday October 22nd, 2025 at 11:59pm PT",
-    "text": "Deliverable 2 will be due on Wednesday October 22nd, 2025 at 11:59pm PT\nThere is ZERO tolerance for late project submissions. Please contact the instructor for extenuating circumstances.",
+    "section": "",
+    "text": "There is ZERO tolerance for late project submissions. Please contact the instructor for extenuating circumstances.\nTo complete this milestone, you can edit this .rmd file directly. Fill in the sections that are commented out with &lt;!--- start your work here---&gt;. When you are done, make sure to knit to an .md file by changing the output in the YAML header to github_document, before submitting a tagged release on canvas.",
     "crumbs": [
       "Mini Data Analysis: Deliverable 2"
     ]
@@ -2995,5 +2995,15 @@
     "title": "Lecture 14: Professional Websites with Quarto",
     "section": "Resources",
     "text": "Resources\n\nOfficial tutorial for Quarto website building here."
+  },
+  {
+    "objectID": "webpages/mda/mda_deliverable2.html",
+    "href": "webpages/mda/mda_deliverable2.html",
+    "title": "Mini Data Analysis: Deliverable 2",
+    "section": "",
+    "text": "There is ZERO tolerance for late project submissions. Please contact the instructor for extenuating circumstances.\nTo complete this milestone, you can edit this .rmd file directly. Fill in the sections that are commented out with &lt;!--- start your work here---&gt;. When you are done, make sure to knit to an .md file by changing the output in the YAML header to github_document, before submitting a tagged release on canvas.",
+    "crumbs": [
+      "Mini Data Analysis: Deliverable 2"
+    ]
   }
 ]
