@@ -228,10 +228,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../webpages/casestudies.html"> 
-<span class="menu-text">Case Studies</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../webpages/faq.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
@@ -263,7 +259,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#factors" id="toc-factors" class="nav-link active" data-scroll-target="#factors">Factors</a>
+  <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link active" data-scroll-target="#video-lecture">Video Lecture</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a></li>
+  <li><a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors">Factors</a>
   <ul class="collapse">
   <li><a href="#reordering-factor-levels" id="toc-reordering-factor-levels" class="nav-link" data-scroll-target="#reordering-factor-levels">Reordering Factor Levels</a></li>
   <li><a href="#expanding-factor-levels" id="toc-expanding-factor-levels" class="nav-link" data-scroll-target="#expanding-factor-levels">Expanding Factor Levels</a></li>
@@ -304,16 +303,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li><p>Reorder levels within factors according to various principles.</p></li>
-<li><p>Make a date and datetime object and extract components from these objects, using the <code>lubridate</code> package.</p></li>
+<li>Reorder levels within factors according to various principles</li>
 </ul>
-<p>Throughout this lecture, we will be using functions from X packages, which we install and load through:</p>
+<section id="video-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set-up</h2>
+<p>Throughout this lecture, we will be using functions from the following packages packages:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("tidyverse", "gapminder", "lubidate"))</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("tidyverse", "gapminder"))</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="factors" class="level2">
 <h2 class="anchored" data-anchor-id="factors">Factors</h2>
 <blockquote class="blockquote">
