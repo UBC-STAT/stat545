@@ -10,8 +10,11 @@ From today’s class, students are anticipated to be able to:
 
 ## Video Lecture
 
+{{< video https://www.youtube.com/watch?v=DgFox3T2FaM >}}
 
 ## Lecture Slides
+
+[Lecture 6b - Factors Slides](../slides/slidefiles/lec6b_factors_slides.qmd)
 
 
 ## Set-up
