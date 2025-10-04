@@ -18,10 +18,10 @@ From today’s class, students are anticipated to be able to:
 
 
 ## Set-up
-Throughout this lecture, we will be using functions from the following packages packages:
+Throughout this lecture, we will be using functions from the following packages:
 
 ```{r, message = F, warning = F}
-library(tidyverse)
+library(tidyverse) #also loads forcats!
 library(palmerpenguins)
 library(gapminder)
 

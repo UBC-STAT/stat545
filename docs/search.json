@@ -936,7 +936,7 @@
     "href": "webpages/lectures_i/lec6b_factorsanddates.html#set-up",
     "title": "Lecture 6B: Factors",
     "section": "Set-up",
-    "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages packages:\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\nlibrary(gapminder)",
+    "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:\n\nlibrary(tidyverse) #also loads forcats!\nlibrary(palmerpenguins)\nlibrary(gapminder)",
     "crumbs": [
       "Lecture 6B: Factors"
     ]
