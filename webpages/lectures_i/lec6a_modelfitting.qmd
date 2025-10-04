@@ -34,7 +34,7 @@ The following packages will be used throughout this lecture:
 
 
 library(tidyverse)
-library(tidymodels)
+library(broom)
 library(gapminder)
 ```
 

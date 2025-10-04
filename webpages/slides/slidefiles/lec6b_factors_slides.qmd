@@ -27,7 +27,6 @@ engine: webr
 
 ```{r, include = F}
 library(tidyverse)
-library(gapminder)
 library(palmerpenguins)
 ```
 
@@ -53,9 +52,9 @@ library(palmerpenguins)
 
 ## Factors
 
--    Factors represent *categorical variables*: variables that take on a fixed number of known values
+-   Factors represent *categorical variables*: variables that take on a fixed number of known values
 
--    Example, in the `penguins` data set, `species` is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the `str()` (structure) of the tibble:
+-   Example, in the `penguins` data set, `species` is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the `str()` (structure) of the tibble:
 
 ```{webr}
 str(penguins)

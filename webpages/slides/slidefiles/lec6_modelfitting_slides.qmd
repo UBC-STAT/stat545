@@ -17,6 +17,7 @@ webr:
     - RColorBrewer
     - ggplot2
     - gapminder
+    - broom
   persist: true
 editor: visual
 execute:
@@ -29,7 +30,7 @@ engine: webr
 
 ```{r, include = F}
 library(tidyverse)
-library(tidymodels)
+library(broom)
 library(gapminder)
 ```
 

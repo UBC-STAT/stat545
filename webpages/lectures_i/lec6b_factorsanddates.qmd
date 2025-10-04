@@ -18,8 +18,8 @@ From today’s class, students are anticipated to be able to:
 Throughout this lecture, we will be using functions from the following packages packages:
 
 ```{r, message = F, warning = F}
-# install.packages(c("tidyverse", "gapminder"))
 library(tidyverse)
+library(palmerpenguins)
 library(gapminder)
 
 ```
@@ -136,9 +136,8 @@ We can do this in two ways: edit the original tibble to have new factor ordering
 To reorder the factor levels according to the frequency in the tibble, we can use `fct_reorder()`:
 
 ```{r}
-penguins4 <- penguins #initialize a new dataset we will overwrite, save original
-penguins4$species <- penguins$species %>% #overwrite species in penguins4
-  fct_infreq() #relevel the factor by frequency
+penguins4 <- penguins %>% #initialize a new dataset 
+  mutate(species = fct_infreq(species))
 
 levels(penguins4$species)
 ```
@@ -148,9 +147,11 @@ We see the ordering is Adelie, Gentoo, and then Chinstrap. If you look at the pr
 To order from smallest to largest, we had `fct_rev()` to the chain:
 
 ```{r}
-penguins4$species <- penguins4$species %>%
-  fct_infreq() %>% #relevel the factor by frequency
-  fct_rev()
+penguins4 <- penguins %>% #initialize a new dataset 
+  mutate(species = species %>%
+           fct_infreq() %>%
+           fct_rev())
+
 
 levels(penguins4$species)
 ```
