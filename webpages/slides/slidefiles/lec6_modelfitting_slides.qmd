@@ -48,7 +48,9 @@ From today’s class, students are anticipated to be able to:
 
 Note that there is a new tidyverse-like framework of packages to help with modelling. It’s called [tidymodels](https://www.tidymodels.org/).
 
-YouTube Video: Lecture Notes:
+[YouTube Video](https://www.youtube.com/watch?v=G80zo0V2ORM)
+
+[Lecture Notes:](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec6a_modelfitting.html)
 
 ## Set-up
 
@@ -153,6 +155,7 @@ Example: linear model of car’s mileage per gallon (`mpg`, “Y” variable) an
 
 ```
 
+```{=html}
 <!--# 
 
 my_lm <- lm(mpg ~ wt, data = mtcars) #mpg is the outcome/dependent (Y) variable, wt is an independent variable (X)
@@ -160,8 +163,9 @@ my_lm <- lm(mpg ~ wt, data = mtcars) #mpg is the outcome/dependent (Y) variable,
 my_lm  
 
 -->
+```
 
-`my_lm` contains a lot more than what's printed! Let's explore it. 
+`my_lm` contains a lot more than what's printed! Let's explore it.
 
 ## Summarizing the Model with `broom`
 
@@ -173,9 +177,8 @@ Now that you have the model object, there are typically three ways in which it�
 
 3.  `glance`: extract statistical summaries about the model as a whole (a 1-row tibble).
 
-
-
 ## Summarizing the Model with `broom`
+
 ### **`tidy()`**
 
 Use the `tidy()` function for a statistical summary of each component of your model, where each component gets a row in the output tibble. For `lm()`, `tidy()` gives one row per regression coefficient (slope and intercept).
@@ -184,16 +187,18 @@ Use the `tidy()` function for a statistical summary of each component of your mo
 #test out the tidy() function
 ```
 
+```{=html}
 <!--# 
 
 tidy(my_lm)
 
 -->
-
+```
 
 `tidy()` only works if it makes sense to talk about model “components”.
 
 ## Summarizing the Model with `broom`
+
 ### **`augment()`**
 
 Use the `augment()` function to make predictions on a dataset by augmenting predictions as a new column to your data. By default, `augment()` uses the dataset that was used to fit the model.
@@ -203,12 +208,12 @@ Use the `augment()` function to make predictions on a dataset by augmenting pred
 
 ```
 
-
+```{=html}
 <!--#
 augment(my_lm) %>%
   print(n = 5)
 -->
-
+```
 
 We can also predict on new datasets. Here are predictions of `mpg` for cars weighing 3, 4, and 5 thousand lbs. In the following code, we make a predictor for `wt` = 3, 4, and 5.
 
@@ -216,16 +221,17 @@ We can also predict on new datasets. Here are predictions of `mpg` for cars weig
 # try out the augment function
 ```
 
+```{=html}
 <!---
 augment(my_lm, newdata = tibble(wt = 3:5))
 
 -->
-
+```
 
 Notice that only the “X” variables are needed in the input tibble (`wt`), and that since the “Y” variable (`mpg`) wasn’t provided, `augment()` couldn’t calculate anything besides a prediction
 
-
 ## Summarizing the Model with `broom`
+
 ### **`glance()`**
 
 Use the `glance()` function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit.
@@ -235,20 +241,19 @@ Use the `glance()` function to extract a summary of the model as a whole, in the
 
 ```
 
-
-
+```{=html}
 <!--
 
 glance(my_lm)
 
 -->
+```
 
 ## Summarizing the Model Without `broom`
 
 In order for a model to work with the `broom` package, someone has to go out of their way to contribute to the `broom` package for that model. While this has happened for many common models, many others remain without `broom` compatibility.
 
 Here’s how to work with these model objects in that case.
-
 
 ## Summarizing the Model Without `broom`: **Prediction**
 
@@ -262,8 +267,8 @@ predict(my_lm) %>% #do prediction on all values in the original dataset
   head(5) #look at first 5 values
 ```
 
-
 ## Summarizing the Model Without `broom`: **Prediction**
+
 Here are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:
 
 ```{webr}
@@ -278,7 +283,6 @@ Checking the documentation of the `predict()` function *for your model* isn’t 
 -   For a model fit with `rq()`, try `?predict.rq` (from the `quantreg` package)
 
 If that doesn’t work, just google it: `"Predict function for rq"`
-
 
 ## Summarizing the Model Without `broom`: Inference
 
@@ -297,6 +301,7 @@ summary(my_lm)$coefficients
 This outputs a data frame of some of the model output regarding the regression coefficients.
 
 ## Summarizing the Model Without `broom`: Inference
+
 There are a ton of other items we can access, and to see them we can call `names()`
 
 ```{webr}
@@ -308,9 +313,6 @@ For another example, wo see the adjusted R-squared valued of the model we can us
 ```{webr}
 summary(my_lm)$adj.r.squared
 ```
-
-
-
 
 ## Example: `gapminder`
 
@@ -338,12 +340,12 @@ ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
 ```
 
 ::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
-Notes: 
+Notes:
 :::
 
-
 ## Example: `gapminder`
- Now we will try to fit a second degree polynomial and see what would that look like.
+
+Now we will try to fit a second degree polynomial and see what would that look like.
 
 ```{webr}
 ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
@@ -354,8 +356,6 @@ ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
 ::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
 Notes:
 :::
-
-
 
 ## Summary
 
@@ -370,7 +370,6 @@ While this lecture only focused on two-dimensonal data (one `y` and one `x`), mo
 4.  `broom::glance()` - used to extract statistical summaries on the whole model. Always returns a 1-row `tibble`.
 
 5.  `geom_smooth()` - used to add geom_layer that shows a fitted line to the data. `method` and `formula` arguments can be used to customize model.
-
 
 ## Worksheet A4
 

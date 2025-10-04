@@ -21,9 +21,11 @@ Note that there is a new tidyverse-like framework of packages to help with model
 
 ## Video Lecture
 
+{{< video https://www.youtube.com/watch?v=G80zo0V2ORM >}}
 
 ## Lecture Slides
 
+[Lecture 6a - Model Fitting Slides](../slides/slidefiles/lec6_modelfitting_slides.qmd)
 
 ## Set-up
 
