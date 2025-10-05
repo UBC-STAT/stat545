@@ -17,20 +17,18 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday September 30th: NO CLASS (Truth and Reconciliation Day) ‼️
+-   Tuesday October 6th: Modelling with `broom`
 
--   Thursday September 25th: Tidy Data with `tidyverse`
+-   Thursday October 8th: Factors with  `forcats` (TA lecture)
 
 **To Do this Week:**
 
--   Finish and Submit Worksheet A3
--   Submit MDA Milestone 1
+-   Work on Worksheet A4 and MDA Milestone 2
 
 **Upcoming Deadlines**
 
--   Worksheet A3: September 30th, 11:59pm
+-   Worksheet A4: Monday October 13, 11:59pm
 
--   Mini Data Analysis Deliverable 1: Friday October 3rd, 11:59pm
 :::
 ::::
 :::::::
