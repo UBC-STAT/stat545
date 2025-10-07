@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -184,6 +184,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_i/lec6b_factorsanddates.html">
  <span class="dropdown-text">Lecture 6B: Factors</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7a_readwritedata.html">
+ <span class="dropdown-text">Lecture 7A: Reading and Writing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7b_joiningtibbles.html">
+ <span class="dropdown-text">Lecture 7B: Tibble Joins</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -257,21 +265,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/lectures_i/lec7a_readwritedata.html">Lecture 7A: Reading and Writing Data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec1a_installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1A: Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec1b_introR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1B: Course Introduction and R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec2A_reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2A: Reproducibility with RMarkdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec2b_versioncontrol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2B: Version Control</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec3_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 3: Data Manipulation with dplyr</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec4_datavis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 4: Data Visualization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec5_tidydata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 5: Tidy Data and the Tidyverse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec6a_modelfitting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6A: Model Fitting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec6b_factorsanddates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6B: Factors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec7a_readwritedata.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 7A: Reading and Writing Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec7b_joiningtibbles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7B: Tibble Joins</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reading-and-writing-data-in-r" id="toc-reading-and-writing-data-in-r" class="nav-link active" data-scroll-target="#reading-and-writing-data-in-r">Reading and Writing Data in R</a>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a></li>
+  <li><a href="#data-formats" id="toc-data-formats" class="nav-link" data-scroll-target="#data-formats">Data Formats</a>
   <ul class="collapse">
   <li><a href="#comma-separated-values-csvs" id="toc-comma-separated-values-csvs" class="nav-link" data-scroll-target="#comma-separated-values-csvs">Comma Separated Values (CSVs)</a></li>
-  <li><a href="#using-relative-paths" id="toc-using-relative-paths" class="nav-link" data-scroll-target="#using-relative-paths">Using Relative Paths</a></li>
   </ul></li>
+  <li><a href="#file-locations-and-paths" id="toc-file-locations-and-paths" class="nav-link" data-scroll-target="#file-locations-and-paths">File Locations and Paths</a>
+  <ul class="collapse">
+  <li><a href="#absolute-paths" id="toc-absolute-paths" class="nav-link" data-scroll-target="#absolute-paths">Absolute Paths</a></li>
+  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths">Relative Paths</a></li>
+  </ul></li>
+  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package">The <code>here</code> Package</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
@@ -295,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 12, 2025</p>
+      <p class="date-modified">October 7, 2025</p>
     </div>
   </div>
     
@@ -306,8 +405,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="reading-and-writing-data-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="reading-and-writing-data-in-r">Reading and Writing Data in R</h2>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
 <li><p>Read and write a delimited file, like a csv, from R using the <code>readr</code> package.</p></li>
@@ -315,53 +414,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Read data from a spreadsheet</p></li>
 <li><p>Read and write R binary files (rds files) from R.</p></li>
 </ul>
+<!-- ## Video Lecture -->
+<!--  -->
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<ul>
+<li><a href="slidefiles/lec7_readwritejoin_slides.qmd">Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides</a></li>
+</ul>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set-up</h2>
 <p>Required packages:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In some of the eariler examples, I will be demonstrating using absolute and relative file paths. On Mac OS, files are written with forward slashes (i.e., datasets/penguins.csv). On Windows, backslashes are used (i.e., datasets\penguins.csv). My examples are writted for MacOS - the only thing you’d need to change in the examples are the direction of the slashes if you plan to reproduce my code!</p>
-<p>Later in the lecture, we discuss the <code>here::here()</code> function which solves this problem completely.</p>
-</div>
-</div>
-<p>Common file formats include</p>
+</section>
+<section id="data-formats" class="level2">
+<h2 class="anchored" data-anchor-id="data-formats">Data Formats</h2>
+<p>Data has to be stored somewhere. When saving data locally, common file formats include</p>
 <ul>
-<li><p><em>Spreadsheets</em>: Excel, Google Sheets, Numbers</p></li>
-<li><p><em>Delimited files</em>: Plaintext files containing data, e.g.&nbsp;comma separated values (CSVs), tab separated values (TSVs)</p></li>
-<li><p><em>R binary</em>: A serialization of an R object to a binary file. Basically, that means that it can be loaded in and out of R, but it can’t be opened by anything but R.</p></li>
+<li><p><em>Spreadsheets</em>: Excel (.xlsx), Google Sheets (.gsheet)</p></li>
+<li><p><em>Delimited files</em>: Plaintext files containing data, e.g., text files (.txt), comma separated values (.csv), tab separated values (.tsv)</p></li>
+<li><p><em>R binary</em>: A serialization of an R object to a binary file (.rds). Basically, that means that it can be loaded in and out of R, but it can’t be opened by anything but R.</p></li>
 </ul>
-<p>CSVs are the most “one-size-fits-all”: you can open them in spreadsheet software, but they are also plaintext, so are lightweight, can be opened in any text editor, and can be “diff”ed.&nbsp;Spreadsheets are nice for human interaction (like through Excel), but can be clunky in R. R binary is quite restrictive and we don’t tend to store data this way. Our lecture will focus on CSVs.</p>
+<p>CSVs are the most “one-size-fits-all”: you can open them in spreadsheet software, but they are also plaintext under the hood, meaning they are lightweight (don’t take a lot of storage) and can be opened in any text editor.</p>
+<p>Spreadsheets are nice for human interaction (like through Excel), but can be clunky in R and often use more memory to store due to their extra features.</p>
+<p>R binary can be useful for storing results that you don’t want to rerun in R, but it is not as useful for storing raw data. The R binary data type is quite restrictive and we don’t tend to store data this way. <strong>Our lecture will focus on CSVs</strong>.</p>
 <section id="comma-separated-values-csvs" class="level3">
 <h3 class="anchored" data-anchor-id="comma-separated-values-csvs">Comma Separated Values (CSVs)</h3>
 <p><a href="https://stat545.com/import-export.html#file-io-overview:~:text=Chapter%209%20Writing%20and%20reading%20files">Jenny Bryan’s website</a> has a fabulous section on reading and writing files in R. We’re going to summarize a few of the important functions here, but if you’d like to learn more then check out that website for more in-depth explorations!</p>
-<p>We are going to focus on reading and writing data using the <code>readr</code> package, because we think it has the most “work right out of the box” experience.</p>
-<p>We will start by talking about how to read and write Comma Separated Value (CSV) files (files that end in .csv). CSVs are often used to store data. When the <code>penguins</code> data set is stored as a .csv, the first few entries look like when opened as a text file:</p>
+<p>We will start by talking about how to read and write Comma Separated Value files. CSVs are often used to store data. When the <code>penguins</code> data set is stored as a .csv, the first few entries look like when opened as a text file (see for yourself <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/webpages/lectures_i/datasets/penguins.csv">here</a>):</p>
 <p><code>species,island,bill_len,bill_dep,flipper_len,body_mass,sex,year</code></p>
 <p><code>Adelie,Torgersen,39.1,18.7,181,3750,male,2007 Adelie,Torgersen,39.5,17.4,186,3800,female,2007 Adelie,Torgersen,40.3,18,195,3250,female,2007 Adelie,Torgersen,NA,NA,NA,NA,NA,2007 Adelie,Torgersen,36.7,19.3,193,3450,female,2007 Adelie,Torgersen,39.3,20.6,190,3650,male,2007 Adelie,Torgersen,38.9,17.8,181,3625,female,2007 Adelie,Torgersen,39.2,19.6,195,4675,male,2007</code></p>
-<p>Now, this isn’t exactly easy for humans to read, but saving data as CSVs has its advantages. The data is stored in a simple form (lightweight - files aren’t large) that has broad compatibility and can be used in a wide range of applications. And of course, we can use functions in R to make it more readable. A few main functions of note are</p>
+<p>Now, this isn’t exactly easy for humans to read, but saving data as CSVs has its advantages. The data is stored in a simple form (lightweight - files aren’t large) that has broad compatibility and can be used in a wide range of applications. And of course, we can use functions in R to make it more readable. A few main functions of note, which are from the <code>readr</code> package, are:</p>
 <ul>
 <li><p><code>read_csv()</code>: tidyverse equivalent of <code>read.csv()</code> used to read from a CSV to a tibble</p></li>
 <li><p><code>write_csv()</code>: tidyverse equivalent of <code>write.csv()</code> used to export a tibble into CSV format</p></li>
 </ul>
-<p>Let’s assume that a file called <code>penguins.csv</code> is saved in a <code>dataset</code> folder in our current directory. We can read in, and save the tibble as a variable called <code>penguins</code> using:</p>
+<p>Let’s assume that a file called <code>penguins.csv</code> is saved in the same folder as our code. We can read in, and save the tibble as a variable called <code>penguins</code> using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datasets/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 344 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (3): species, island, sex
-dbl (5): bill_len, bill_dep, flipper_len, body_mass, year
+dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
@@ -369,25 +470,25 @@ dbl (5): bill_len, bill_dep, flipper_len, body_mass, year
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
-  species island    bill_len bill_dep flipper_len body_mass sex     year
-  &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
-1 Adelie  Torgersen     39.1     18.7         181      3750 male    2007
-2 Adelie  Torgersen     39.5     17.4         186      3800 female  2007
-3 Adelie  Torgersen     40.3     18           195      3250 female  2007
-4 Adelie  Torgersen     NA       NA            NA        NA &lt;NA&gt;    2007
-5 Adelie  Torgersen     36.7     19.3         193      3450 female  2007
-6 Adelie  Torgersen     39.3     20.6         190      3650 male    2007</code></pre>
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+4 Adelie  Torgersen           NA            NA                  NA          NA
+5 Adelie  Torgersen           36.7          19.3               193        3450
+6 Adelie  Torgersen           39.3          20.6               190        3650
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>Pretty easy! Note that the file path needs to be a string, relative to where you are now in the directory (i.e., where the R script you’re working on is saved. You can always call <code>getwd()</code> to see what directory you’re working on currently, and we’ll show more tools for dealing with directories later in this lecture.)</p>
-<p>We can manipulate the data, and save the output as a new CSV. For example,</p>
+<p>We can also manipulate the data, and save the output as a new CSV. For example,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins_2007 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="co">#filter only on year 2007</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(penguins_2007, <span class="st">"datasets/penguins_2007.csv"</span>) <span class="co">#save csv in datasets folder, name as penguins_2007.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(penguins_2007, <span class="st">"penguins_2007.csv"</span>) <span class="co">#save new data as penguins_2007.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, in my <code>datasets</code> folder, I have <code>penguins</code> and <code>penguins_2007.</code></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -403,24 +504,88 @@ Note
 </div>
 </div>
 </section>
-<section id="using-relative-paths" class="level3">
-<h3 class="anchored" data-anchor-id="using-relative-paths">Using Relative Paths</h3>
-<p>As previously mentioned, we need to specify where we are reading/writing our data from/to. The best practice is to use a <em>relative path</em>. This helps with reproducibility and automation!</p>
-<p>I could always read in my <code>penguins</code> dataset using an absolute file path where the file path begins at the root of your computer (for me, it is a long chain of folders in <code>/Users/......../STAT545/stat454.github.io/webpages/lectures_i/datasets/penguins.csv</code>). This, however, is not best practice. As previously mentioned, this string telling me where the file path is can also differ for Windows users! I’d have to manually change all of the forward slashes to backslashes to make this run on Windows.</p>
-<p>We will use the <code>here</code> package for relative file paths. Let’s (install, if necessary, and) load it and call the function <code>here()</code><br>
+</section>
+<section id="file-locations-and-paths" class="level2">
+<h2 class="anchored" data-anchor-id="file-locations-and-paths">File Locations and Paths</h2>
+<p>In the previous example, we saved and read in data that was stored in the same folder. However, we will often want to read from or write to other locations, including sub-folders in our project.</p>
+<p>To do so, we need to specify <em>where</em> we are reading/writing our data from/to.</p>
+<section id="absolute-paths" class="level3">
+<h3 class="anchored" data-anchor-id="absolute-paths">Absolute Paths</h3>
+<p>Absolute paths start with “/” (or “\” for Windows users) and begin at the root of your computer. This is a looooong set of “directions” that tell you where the file is located.</p>
+<p>I could always read in my <code>penguins</code> dataset using an absolute file path where the file path begins at the root of your computer. Consider the following file structure:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/filepaths.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>The absolute path to the penguins.csv data set is <code>/Users/grace/documents/STAT545/Lec7A/datasets/penguins.csv</code>. Note the “/” (or “\”) at the beginning of the string indicates that you start at the root of your folder. This will work to load in the data. However, it is not best practice in terms of reproducibility. If I moved my project folder anywhere else in my computer, or sent this code to someone else to read in the data, this long file path string would have to be updated.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because I wrote this on a Mac, the slashes are forward “/”. Windows users write file paths with back slashes “".</p>
+<p>Later in the lecture, we discuss the <code>here::here()</code> function which solves this problem completely.</p>
+</div>
+</div>
+</section>
+<section id="relative-paths" class="level3">
+<h3 class="anchored" data-anchor-id="relative-paths">Relative Paths</h3>
+<p>The best practice is to use a <em>relative path</em>. This helps with reproducibility and automation!</p>
+<p>Instead of starting at the root of your computer, you can give directions to the file you want to load in <em>relative</em> to the working directory (i.e., where you are now).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/filepath_zoomedin.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>If we are working in the <code>Lec7A</code> directory on <code>mycode.R</code>, all we need to do inorder to access <code>penguins.csv</code> is go into the <code>datasets</code> folder (which is in our working directory) and load it in! The relative file path <code>datasets/penguins.csv</code> (note there is <strong>no back or forward slash at the beginning of the filepath</strong>). This means if I move my <code>Lec7A</code> folder, or share it with someone else, anyone can load in the data with this line of code (well, almost…. so long as they have the same operating system!)</p>
+<p>If you’re having trouble visualizing the working directory, you could consider the folders nested this way as well:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/filepath_alt.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p><br>
+<br>
+Some useful tips for relative paths:</p>
+<ul>
+<li><p>they do not start with a slash</p></li>
+<li><p><code>.</code> represents the current directory</p></li>
+<li><p><code>..</code> means go to one folder before the current directory (open the parent folder)</p>
+<ul>
+<li>i.e., to go to the <code>thesis</code> folder if my current working directory is <code>Lec7a</code>, the path is <code>..\..\thesis</code> (leave the <code>Lec7a</code> folder to go to the <code>STAT545</code> folder, then leave the <code>STAT545</code> folder to go to documents, then go to the <code>thesis</code>).</li>
+</ul></li>
+<li><p>you can call <code>getwd()</code> in R to confirm where your working directory is (it will show the absolute file path as the output)</p></li>
+<li><p>in R projects, by default your working directory is you R project folder.</p></li>
+</ul>
+</section>
+</section>
+<section id="the-here-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-here-package">The <code>here</code> Package</h2>
+<p>As we stated before, things can get frustrating when sharing files between operating systems. Even with relative paths, we’ll need to manually replace forward and back slashed when switching to/from Mac and Windows operating systems.</p>
+<p>Thankfully, there is a package that allows us to use relative paths without specifying a filepath string that is operating system dependent. Let’s (install, if necessary, and) load the <code>here</code> package<br>
 </p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("here")</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s call <code>here()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/Users/gracetompkins/Desktop/STAT545.github.io"</code></pre>
 </div>
 </div>
-<p>I get that long chain of folders where this R Project (which I used to build this website) is stored. The cool thing about <code>here</code> is that I can specify a file path relative to my project root (the above location) without using any operating system-specific strings.</p>
+<p><em>Side note: we will explicitly call <code>here()</code> from the <code>here</code> package using <code>here::</code> as <code>dplyr</code> also has a <code>here()</code> function.</em></p>
+<p>I get a long chain of folders where this R Project (which I used to build this website) is stored. The cool thing about <code>here</code> is that I can specify a file path relative to my project root (the above location) without using any operating system-specific strings.</p>
 <p>For example, the <code>penguins.csv</code> data set is located in <code>webpages</code> &gt; <code>lectures_i</code> &gt; <code>datasets</code> within my R project folder. I can access it by:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"webpages"</span>, <span class="st">"lectures_i"</span>, <span class="st">"datasets"</span>, <span class="st">"penguins.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"webpages"</span>, <span class="st">"lectures_i"</span>, <span class="st">"datasets"</span>, <span class="st">"penguins.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 344 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
@@ -431,7 +596,7 @@ dbl (5): bill_len, bill_dep, flipper_len, body_mass, year
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins) <span class="co">#view first few entries of the tibble</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins) <span class="co">#view first few entries of the tibble</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   species island    bill_len bill_dep flipper_len body_mass sex     year
@@ -445,7 +610,6 @@ dbl (5): bill_len, bill_dep, flipper_len, body_mass, year
 </div>
 </div>
 <p>This is reproducible!</p>
-</section>
 </section>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
@@ -475,6 +639,12 @@ head(gap_asia_2007)</code></pre>
 <p>Also notice the output of running <code>read_csv</code>. This tells us about the types of variables that were read in. It’s a good habit to check this every time you run a <code>read_</code> function. Sometimes we might want to change how these variable types are specified.</p>
 </div>
 </div>
+<p>Some notes:</p>
+<ul>
+<li><p>By default in an R project, <code>here::here()</code> will be the project folder.</p></li>
+<li><p>I don’t think you can go outside of your root folder for the R project, unless you re-initialize the root somehow using <code>here::iam()</code>.</p></li>
+<li><p>This does <em>not</em> change the working directory. However, we recommend against using <code>setwd()</code> and similar functions to play around with directories in R projects. This again affects reproducibility.</p></li>
+</ul>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>

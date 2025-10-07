@@ -62,8 +62,8 @@ website:
         - webpages/lectures_i/lec5_tidydata.qmd
         - webpages/lectures_i/lec6a_modelfitting.qmd
         - webpages/lectures_i/lec6b_factorsanddates.qmd
-        # - webpages/lectures_i/lec7a_readwritedata.qmd
-        # - webpages/lectures_i/lec7b_joiningtibbles.qmd
+        - webpages/lectures_i/lec7a_readwritedata.qmd
+        - webpages/lectures_i/lec7b_joiningtibbles.qmd
         # - webpages/lectures_ii/lec8a_functions.qmd
         # - webpages/lectures_ii/lec8b_advfunctions.qmd
         # - webpages/lectures_ii/lec9_rpackages.qmd

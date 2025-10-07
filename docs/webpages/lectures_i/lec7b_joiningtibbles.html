@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -184,6 +184,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_i/lec6b_factorsanddates.html">
  <span class="dropdown-text">Lecture 6B: Factors</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7a_readwritedata.html">
+ <span class="dropdown-text">Lecture 7A: Reading and Writing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7b_joiningtibbles.html">
+ <span class="dropdown-text">Lecture 7B: Tibble Joins</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -257,17 +265,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/lectures_i/lec7b_joiningtibbles.html">Lecture 7B: Tibble Joins</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec1a_installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1A: Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec1b_introR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 1B: Course Introduction and R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec2A_reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2A: Reproducibility with RMarkdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec2b_versioncontrol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 2B: Version Control</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec3_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 3: Data Manipulation with dplyr</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec4_datavis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 4: Data Visualization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec5_tidydata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 5: Tidy Data and the Tidyverse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec6a_modelfitting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6A: Model Fitting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec6b_factorsanddates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 6B: Factors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec7a_readwritedata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 7A: Reading and Writing Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_i/lec7b_joiningtibbles.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 7B: Tibble Joins</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview-of-join-functions" id="toc-overview-of-join-functions" class="nav-link active" data-scroll-target="#overview-of-join-functions">Overview of join functions</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link active" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a></li>
+  <li><a href="#overview-of-join-functions" id="toc-overview-of-join-functions" class="nav-link" data-scroll-target="#overview-of-join-functions">Overview of join functions</a></li>
   <li><a href="#mutating-joins" id="toc-mutating-joins" class="nav-link" data-scroll-target="#mutating-joins">Mutating joins</a>
   <ul class="collapse">
   <li><a href="#join-matching-rows-from-df2-to-df1" id="toc-join-matching-rows-from-df2-to-df1" class="nav-link" data-scroll-target="#join-matching-rows-from-df2-to-df1"><strong>Join matching rows from <code>df2</code> to <code>df1</code></strong></a></li>
@@ -317,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 12, 2025</p>
+      <p class="date-modified">October 7, 2025</p>
     </div>
   </div>
     
@@ -341,11 +434,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Perform set operations on data: <code>intersect()</code>, <code>union()</code>, <code>setdiff()</code></p></li>
 <li><p>Join tibbles with different types of variables</p></li>
 </ul>
+<!-- ## Video Lecture -->
+<!--  -->
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<ul>
+<li><a href="slidefiles/lec7_readwritejoin_slides.qmd">Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides</a></li>
+</ul>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set-up</h2>
 <p>We will require the <code>tidyverse</code> functions for this chapter:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="overview-of-join-functions" class="level2">
 <h2 class="anchored" data-anchor-id="overview-of-join-functions">Overview of join functions</h2>
 <p><strong>Note:</strong> In order to merge two tibbles, you need to have an identifier variable that has unique values for every row of observations in both tibbles.</p>

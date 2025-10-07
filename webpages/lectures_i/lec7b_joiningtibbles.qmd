@@ -22,12 +22,25 @@ From today’s class, students are anticipated to be able to:
 
 -   Join tibbles with different types of variables
 
+
+<!-- ## Video Lecture -->
+
+<!-- {{< video https://www.youtube.com/watch?v=DgFox3T2FaM >}} -->
+
+## Lecture Slides
+
+-   [Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides](slidefiles/lec7_readwritejoin_slides.qmd)
+
+
+## Set-up
+
 We will require the `tidyverse` functions for this chapter:
 
 ```{r, message = F, warning = F}
 # install.packages("tidyverse")
 library(tidyverse)
 ```
+
 
 ## Overview of join functions
 
