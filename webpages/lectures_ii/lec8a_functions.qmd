@@ -41,6 +41,20 @@ So why write functions? In short, it avoids repeatedly duplicating code. This is
 
 A good rule of thumb is whenever you find yourself repeating code more than a few times, consider writing a function.
 
+To make a function in R, we provide the function names and the arguments like the following:
+
+``` r
+my_function_name <- function(argument1, argument2, ...){
+  
+  # code that involves argument1, argument2, and so on
+  # and will calculate something to output
+  #
+  # by default, whatever is calculated in the last line of the code will be 
+  # outputted. We can override this with a return() statement (more on that later)
+  
+}
+```
+
 Here’s a simple example of a function I wrote to simulate rolling a user-inputted number of D10s (a 10-sided die used for tabletop gaming) and returning the sum of the dice.
 
 ```{r}
@@ -54,6 +68,9 @@ roll_d10(2)
 ::: callout-note
 This is not reproducible code, as the output will change each time I run this function as I am randomly sampling. If I wanted to make this reproducible, then I would set the *seed* to (say) 123 before running my function with `set.seed(123)`.
 :::
+
+
+
 
 ### **Documentation**
 
@@ -75,14 +92,14 @@ roll_d10 <- function(num_dice) {
   # inputs:
   # - num_dice: number of dice you wish to roll
   
-    sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers with replacement between 1 and 10, return sum
+    sum(sample(1:10, num_dice, replace=TRUE)) #sample num_dice numbers with replacement between 1 and 10, return sum
 }
 
 # test function
 roll_d10(2)
 ```
 
-We can do even better than this wutg [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document the function! These tags are placed immediately above the function definition. Although `roxygen2` tags are designed for use when creating R packages, they provide a standardized way to document a function – and make it easy for you to migrate your function to an R package if need be! Roxygen comment lines always start with `#'` , the usual `#` for a comment, followed immediately by a single quote `'`:
+We can do even better than this with [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document the function! These tags are placed immediately above the function definition. Although `roxygen2` tags are designed for use when creating R packages, they provide a standardized way to document a function – and make it easy for you to migrate your function to an R package if need be! Roxygen comment lines always start with `#'` , the usual `#` for a comment, followed immediately by a single quote `'`:
 
 ```         
 #' Description of function goes here
@@ -106,15 +123,20 @@ For the dice example, we could write:
 #' @return the sum of the dice rolled
   
 roll_d10 <- function(num_dice) { 
-    sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, return sum
+    sum(sample(1:10, num_dice, replace=TRUE)) #sample num_dice numbers from one to 10 with replacement, return sum
 }
 
-roll_d10(2)
+roll_d10(2) #try rolling two die
 ```
 
-### **Testing**
 
-When you’re using other people’s functions – like those in packages – they often *work*. However, as you have probably discovered by this point, it is very easy to inadvertently write code – and therefore functions – that *do not* work. Because of this, it’s important to *test* the functions we write to make sure they work. It is useful to ensure that
+
+
+
+
+## **Testing**
+
+When you’re using other people’s functions – like those in packages – they often *work*. However, as you have probably discovered by this point, it is very easy to inadvertently write code – and therefore functions – that *do not* work. Because of this, it’s important to *test* the functions we write to make sure they work. 
 
 It's useful to think of a few cases to test, along with *edge cases* (conditions that fall outside the typical or expected parameters) and see if the function performs
 
@@ -213,7 +235,7 @@ Our function is working as expected for this edge case!
 
 By default, your function will return the last thing computed in your function. However, we can return other items, like lists and vectors and dataframes using `return()`.
 
-While perhaps redundant as the last line of code here is what we want to output, we could explictly tell R what to output by:
+While perhaps redundant as the last line of code here is what we want to output, we could explicitly tell R what to output by:
 
 ```{r}
 #' @details
@@ -268,7 +290,7 @@ roll_d10 <- function(n_sides, num_dice) {
 roll_d10(num_dice = 5)
 ```
 
-Looks like we rolled 5 dice and the sum was 23.
+Looks like we rolled 5 dice (first argument of the output) and the sum was 23 (second argument of the output).
 
 ## Worksheet B1
 

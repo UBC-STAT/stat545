@@ -438,7 +438,7 @@ This is the last lecture of STAT545A! Goodbye to those not continuing onto STAT5
 
 Feel free to stay in touch:
 
--    https://www.linkedin.com/in/grace-e-tompkins/
+-   https://www.linkedin.com/in/grace-e-tompkins/
 
 -   grace\@stat.ubc.ca
 
