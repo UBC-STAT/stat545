@@ -16,6 +16,8 @@ webr:
     - knitr
     - roxygen2
     - testthat
+    - palmerpenguins
+    - gapminder
   persist: true
 editor: visual
 execute:
@@ -29,6 +31,8 @@ engine: webr
 ```{r, include = F}
 library(testthat)
 library(roxygen2)
+library(palmerpenguins)
+library(gapminder)
 ```
 
 ## Learning Outcomes
@@ -56,6 +60,8 @@ Required packages:
 ```{webr, message = F, warning = F}
 library(testthat)
 library(roxygen2)
+library(gapminder)
+library(palmerpenguins)
 ```
 
 ## Functions
@@ -390,6 +396,7 @@ roll_d10(num_dice = 5)
 ::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
 Notes:
 :::
+
 
 
 ## Worksheet B1
