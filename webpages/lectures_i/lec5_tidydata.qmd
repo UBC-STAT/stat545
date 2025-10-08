@@ -22,7 +22,6 @@ From this topic, students are anticipated to be able to:
 
 {{< video https://www.youtube.com/watch?v=pO-dgdfMRZw >}}
 
-## 
 
 ## Lecture Slides
 

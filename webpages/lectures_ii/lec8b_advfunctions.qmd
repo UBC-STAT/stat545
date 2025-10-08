@@ -24,6 +24,10 @@ library(tidyverse)
 library(gapminder)
 ```
 
+## Lecture Slides
+
+[Lecture 8B - Advanced Functions](../slides/slidefiles/lec8A_functions_slides.qmd)
+
 ## Data-masking and the Curly-Curly `{{}}`
 
 Sometimes your function needs to take in variable names without quotation marks and work with them that way.

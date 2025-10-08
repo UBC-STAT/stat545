@@ -49,9 +49,7 @@ From today’s class, students are anticipated to be able to:
 
 -   Specify what to return in a function using `return()`
 
-[Lecture Notes (Reading/Writing)](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec7a_readwritedata.html)
-
-[Lecture Notes (Joining)](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec7b_joiningtibbles.html)
+[Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec8a_functions.html)
 
 ## Set-up
 
@@ -170,7 +168,7 @@ roll_d10 <- function(num_dice) {
 }
 ```
 
-## Documenting Functions with `roxygen2` 
+## Documenting Functions with `roxygen2`
 
 We can do even better than commenting by utilizing [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html)
 
@@ -396,8 +394,6 @@ roll_d10(num_dice = 5)
 ::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
 Notes:
 :::
-
-
 
 ## Worksheet B1
 

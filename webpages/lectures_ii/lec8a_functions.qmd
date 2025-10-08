@@ -27,6 +27,10 @@ library(testthat)
 set.seed(100)
 ```
 
+## Lecture Slides
+
+Lecture 8A - Functions
+
 ## Self-made R Functions
 
 At this point in the course, we’ve used lots of functions, like `mean()`, `mutate()`, and `pivot_longer()`. But it can be really useful to *write your own* function. For example, the ability to writing your own functions can supercharge your `group_by() %>% summarize()` workflow: you can write your own function to use inside `summarize()`, instead of relying solely on functions built into R or available in packages!

@@ -275,7 +275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-masking-and-the-curly-curly" id="toc-data-masking-and-the-curly-curly" class="nav-link active" data-scroll-target="#data-masking-and-the-curly-curly">Data-masking and the Curly-Curly <code>{{}}</code></a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link active" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#data-masking-and-the-curly-curly" id="toc-data-masking-and-the-curly-curly" class="nav-link" data-scroll-target="#data-masking-and-the-curly-curly">Data-masking and the Curly-Curly <code>{{}}</code></a></li>
   <li><a href="#default-parameters" id="toc-default-parameters" class="nav-link" data-scroll-target="#default-parameters">Default Parameters</a></li>
   <li><a href="#ellipses-..." id="toc-ellipses-..." class="nav-link" data-scroll-target="#ellipses-..."><strong>Ellipses (<code>...</code></strong>)</a></li>
   <li><a href="#handling-nas" id="toc-handling-nas" class="nav-link" data-scroll-target="#handling-nas">Handling <code>NA</code>s</a></li>
@@ -325,6 +326,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<p><a href="../../webpages/slides/slidefiles/lec8A_functions_slides.html">Lecture 8B - Advanced Functions</a></p>
+</section>
 <section id="data-masking-and-the-curly-curly" class="level2">
 <h2 class="anchored" data-anchor-id="data-masking-and-the-curly-curly">Data-masking and the Curly-Curly <code>{{}}</code></h2>
 <p>Sometimes your function needs to take in variable names without quotation marks and work with them that way.</p>
@@ -473,7 +478,7 @@ Click to reveal the solution!
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">10</span>, <span class="at">num_dice =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<pre><code>[1] 16</code></pre>
 </div>
 </div>
 <p>Now, perhaps I often want to roll ten-sided dice. To avoid having to type <code>n_sides = 10</code>, I can simply make the default number of sides to 10!</p>
@@ -501,14 +506,14 @@ Click to reveal the solution!
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 22</code></pre>
+<pre><code>[1] 20</code></pre>
 </div>
 </div>
 <p>I didn’t need to include <code>n_sides = 10</code> in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">6</span>, <span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13</code></pre>
+<pre><code>[1] 10</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">

@@ -42,7 +42,7 @@ library(gapminder)
 
 -   Handling `NA`'s
 
-These topics are covered in the [R4DS Functions](https://r4ds.hadley.nz/functions) book chapter as well. So if you miss this class, then the R4DS Functions reading is a good alternative.
+[Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec8b_advfunctions.html)
 
 ## Set-up
 
