@@ -378,6 +378,7 @@ roll_d10 <- function(n_sides, num_dice) {
     sum_dice <- sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, return sum
     
     out <- c(num_dice, sum_dice) #create a vector of what we want to return
+    names(out) <- c("num_dice", "sum_dice") #add descriptive to the vector
     
     return(out)
     
@@ -390,10 +391,7 @@ roll_d10(num_dice = 5)
 Notes:
 :::
 
-## Returns
-
-*(Aside: we can output lists using `list()` and name the list for even "prettier" output. But this is beyond the scope of the course at this point)*
 
 ## Worksheet B1
 
-Now it's your turn to explore functions. Working through Worksheet B1 is a great place to go from here to learn the basics of how to define your own functions and how to test it.
+Now it's your turn to explore functions!
