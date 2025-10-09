@@ -10,7 +10,7 @@ From this topic, students are anticipated to be able to build a basic R package,
 
 -   Carefully curate package dependencies
 
--   Document functions and data using roxygen2 comments and tags
+-   Document functions and data using `roxygen2` comments and tags
 
 -   Include tests with testthat in accordance with the R package infrastructure.
 
@@ -32,15 +32,18 @@ As mentioned in the “functions” topic, your analysis will probably benefit f
 
 -   Templates for organizing your work
 
--   Easy way to share datasets
+-   Ability to attach data sets to share
 
 The alternative is keeping the functions stored in separate files, and `source()`ing them into your analysis scripts, but this can become unwieldy. Plus, if your package becomes *really* nice, you might want to share it with the world!
 
-For this topic, we’ll be making an R package like the toy [square package](https://github.com/lucylgao/square), by following along with [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html). Here’s a checklist based on that chapter. If you miss class, check out [How to Make an R Package](https://www.youtube.com/watch?v=SGh_t7zlC7U) video lecture, then try following along using the book, and coming to office hours or asking questions on Slack if you get stuck.
+We've been using various packages all semester, including `dplyr`. You can actually see the underlying package which is hosted on (pretends to be shocked) GitHub: https://github.com/tidyverse/dplyr.
+
+For this topic, we’ll be making an R package like the toy [square package](https://github.com/lucylgao/square), by following along with [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html). 
 
 ::: callout-tip
-Many of the functions we call are from the `devtools` package in R. If you're getting errors when trying to run some commands, try reloading `devtools` in the Console by running `library(devtools`).
+Many of the functions we call are from the `devtools` package in R. If you're getting errors when trying to run some commands, try reloading `devtools` in the Console by running `library(devtools)`.
 :::
+
 
 ## Minimal Working Example
 
@@ -52,7 +55,7 @@ First, make a minimal viable product:
 
 -   Run `create_package()` in the console (NOTE: all `devtools` functions should be written in the console).
 
-    -   Better defaults than going through the File menu.
+    -   (this chooses better defaults than going through the File menu).
     -   Set the file path to be wherever you'd like the package to live. I'll be saving it on my desktop in a (not yet created) folder called "powers" by calling `create_package("~/Desktop/powers")`
     -   Allow access if a pop-up appears, and RStudio will refresh to your new Project.
     -   If you look at the new folder that was created (mine is on my desktop), you'll see an R Project, a DESCRIPTION file, a NAMESPACE file, and an R folder where all of your functions will be.
@@ -265,16 +268,16 @@ Try installing the package that the person beside you just created. Restart RStu
 
 Video Lecture:
 
--   [How to Make an R Package](https://www.youtube.com/watch?v=SGh_t7zlC7U)
+-   [How to Make an R Package](https://www.youtube.com/watch?v=SGh_t7zlC7U) by Vincenzo Coia
 
 Written material:
 
 -   See [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html) for a concise overview of the entire process of making an R package.
 
-    -   The entire [“R packages” book](https://r-pkgs.org/) is overall a great resource to read if you’re wanting to learn more.
+-   The entire [“R packages” book](https://r-pkgs.org/) 
 
 -   See [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html), the authoritative and comprehensive (but dry) resource for writing R packages.
 
 -   [Package development cheat sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
 
--   To learn more about using S3 object oriented functions in your package, see [“Advanced R” Chapter 13: S3](https://adv-r.hadley.nz/s3.html).
+-  [“Advanced R” Chapter 13: S3](https://adv-r.hadley.nz/s3.html).
