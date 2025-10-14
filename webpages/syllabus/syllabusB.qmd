@@ -12,10 +12,10 @@ UBC’s Point Grey Campus is located on the traditional, ancestral, and unceded 
 |  |  |  |  |  |
 |---------------|---------------|---------------|---------------|---------------|
 | **Course Title** | **Course Code** | **Credit** **Value** | **Class Times** | **Class Location** |
-| Exploratory Data Analysis Part II | STAT 545 B | 1.5 | Monday/Wednesday: 9:30am - 10:50am | CHBE 102 |
+| Exploratory Data Analysis Part II | STAT 545 B | 1.5 | Monday/Wednesday: 9:30am - 10:50am | ORCH 1001 |
 
 ::: callout-note
-STAT545 B starts half an hour later than STAT545 A!
+STAT545 B starts half an hour later than STAT545 A and is in a different room!
 :::
 
 ### Prerequisites
