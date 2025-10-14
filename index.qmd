@@ -17,17 +17,19 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday October 6th: Modelling with `broom`
+-   Tuesday October 14th: Reading/Writing Data, Tibble Joins
 
--   Thursday October 8th: Factors with  `forcats` (TA lecture)
+-   Thursday October 16th: Working session
 
 **To Do this Week:**
 
--   Work on Worksheet A4 and MDA Milestone 2
+-   Start Worksheet A5
+-   Work on MDA Milestone 2
 
 **Upcoming Deadlines**
 
--   Worksheet A4: Monday October 13, 11:59pm
+-   Worksheet A5: Monday October 20, 11:59pm PST
+-   MDA Milestone 2: Wednesday October 22, 11:59pm PST
 
 :::
 ::::
