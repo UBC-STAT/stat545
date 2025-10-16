@@ -56,7 +56,7 @@ This course will feature short lectures and in-class demonstrations so students 
 |  | Thursday Nov 6 |  | Assignment 2 |
 |  |  |  |  |
 | 11 | Tuesday Nov 11 | **NO LECTURE: REMEMBRANCE DAY** |  |
-|  | Thursday Nov 13 | [Automation](../lectures_ii/lec11_automation.qmd) |  |
+|  | Thursday Nov 13 | [Automation (ASYNCHRONOUS ONLINE LECTURE)](../lectures_ii/lec11_automation.qmd) |  |
 |  |  |  |  |
 | 12 | Tuesday Nov 18 | [StringR and Regular Expressions](../lectures_ii/lec12_characterdata.qmd) | Worksheet B2 |
 |  | Thursday Nov 20 |  | Worksheet B2 |
