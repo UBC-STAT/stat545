@@ -21,7 +21,8 @@ STAT545 B starts half an hour later than STAT545 A and is in a different room!
 ### Prerequisites
 
 STAT545 A is a pre-requisite for STAT545 B. No exceptions.
-x
+
+
 ### Contact and Office Hours
 
 | Instructor | Contact Details | Office Location | Office Hours |
