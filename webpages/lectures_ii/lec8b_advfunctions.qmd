@@ -82,13 +82,13 @@ Here’s some code that:
 
 -   groups `gapminder` by continent, then summarizes the number of missing values in each variable.
 
-```{webr}
+```{r}
 penguins %>% 
   group_by(species) %>% 
   summarize(across(everything(), ~ sum(is.na(.x))))
 ```
 
-```{webr}
+```{r}
 gapminder %>% 
   group_by(continent) %>% 
   summarize(across(everything(), ~ sum(is.na(.x))))
@@ -287,3 +287,7 @@ get_range <- function(vec, na.rm = TRUE){
 
 get_range(flipper_len) #default to true
 ```
+
+## Worksheet B1 and Assignment B1
+
+You can now begin working on [Worksheet B1](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_b01.ipynb) and [Assignment B1 (pdf on Canvas)](https://canvas.ubc.ca/courses/170035/files/42178437).

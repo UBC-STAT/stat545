@@ -313,10 +313,6 @@ Now it's your turn to explore functions. Working through Worksheet B1 is a great
 
 ## Resources
 
-Video lecture:
-
--   [R Functions for Data Analysis](https://youtu.be/3nDgR7l5Tps)
-
 Written resources:
 
 -   Basic function syntax in R: <https://swcarpentry.github.io/r-novice-inflammation/02-func-R/>

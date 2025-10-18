@@ -232,7 +232,7 @@ Of course, regular expressions can be combined together to make powerful search 
 
 -   Class will be dedicated to getting your questions answered.
 
--   Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B4.
+-   Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B3.
 
 ## Resources
 

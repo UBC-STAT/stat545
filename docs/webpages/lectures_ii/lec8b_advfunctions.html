@@ -144,10 +144,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Notes</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures-(a" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures (A)</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures-(a">    
         <li>
     <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
@@ -194,6 +194,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lectures-(b" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Lectures (B)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lectures-(b">    
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec8a_functions.html">
+ <span class="dropdown-text">Lecture 8A: Functions</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../webpages/slides/slides.html"> 
 <span class="menu-text">Slides</span></a>
@@ -229,17 +240,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../webpages/mda/mda_deliverable2.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 2</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments-(part-b" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Assignments (Part B)</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments-(part-b">    
-        <li>
-    <a class="dropdown-item" href="../../webpages/assignmentsB/assignmentB1.html">
- <span class="dropdown-text">Assignment B1: Making a Function in R</span></a>
   </li>  
     </ul>
   </li>
@@ -280,6 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#default-parameters" id="toc-default-parameters" class="nav-link" data-scroll-target="#default-parameters">Default Parameters</a></li>
   <li><a href="#ellipses-..." id="toc-ellipses-..." class="nav-link" data-scroll-target="#ellipses-..."><strong>Ellipses (<code>...</code></strong>)</a></li>
   <li><a href="#handling-nas" id="toc-handling-nas" class="nav-link" data-scroll-target="#handling-nas">Handling <code>NA</code>s</a></li>
+  <li><a href="#worksheet-b1-and-assignment-b1" id="toc-worksheet-b1-and-assignment-b1" class="nav-link" data-scroll-target="#worksheet-b1-and-assignment-b1">Worksheet B1 and Assignment B1</a></li>
   </ul>
 </nav>
     </div>
@@ -301,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 17, 2025</p>
+      <p class="date-modified">October 18, 2025</p>
     </div>
   </div>
     
@@ -393,14 +394,33 @@ Exercise: Curly Curly
 <li><p>groups <code>gapminder</code> by continent, then summarizes the number of missing values in each variable.</p></li>
 </ul>
 <div class="cell">
-<pre class="webr cell-code"><code>penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarize(across(everything(), ~ sum(is.na(.x))))</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;
+1 Adelie         0              1             1                 1           1
+2 Chinstrap      0              0             0                 0           0
+3 Gentoo         0              1             1                 1           1
+# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;</code></pre>
+</div>
 </div>
 <div class="cell">
-<pre class="webr cell-code"><code>gapminder %&gt;% 
-  group_by(continent) %&gt;% 
-  summarize(across(everything(), ~ sum(is.na(.x))))</code></pre>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 6
+  continent country  year lifeExp   pop gdpPercap
+  &lt;fct&gt;       &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt;     &lt;int&gt;
+1 Africa          0     0       0     0         0
+2 Americas        0     0       0     0         0
+3 Asia            0     0       0     0         0
+4 Europe          0     0       0     0         0
+5 Oceania         0     0       0     0         0</code></pre>
+</div>
 </div>
 <p>These steps to summarize the data are quite similar! Instead of coding each step multiple times, let’s turn it into a function. By yourself or with a partner, write a function that could be used to group by a column name and summarize the number of NAs in a data set. Remember: we need to use the <code>{{}}</code> when referring to column names.</p>
 </div>
@@ -418,13 +438,13 @@ Click to reveal the solution!
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>summarizeby_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(data, groups){</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>({{groups}}) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>summarizeby_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(data, groups){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>({{groups}}) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 8
   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -434,7 +454,7 @@ Click to reveal the solution!
 3 Gentoo         0              1             1                 1           1
 # ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(gapminder, continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(gapminder, continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 6
   continent country  year lifeExp   pop gdpPercap
@@ -454,66 +474,66 @@ Click to reveal the solution!
 <h2 class="anchored" data-anchor-id="default-parameters">Default Parameters</h2>
 <p>Recall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to <strong>change the number of faces on the dice being rolled</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param num_dice integer representing number of dice to be rolled</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param n_sides integer representing the number of sides of each dice</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the sum of the dice rolled</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>roll_dice <span class="ot">&lt;-</span> <span class="cf">function</span>(n_sides, num_dice) { </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># throw an error if num_dice (the input) is not an integer</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(num_dice <span class="sc">%%</span> <span class="dv">1</span> <span class="sc">!=</span> <span class="dv">0</span>){ <span class="co">#if num_dice mod 1 is NOT 0</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">"num_dice must be an integer"</span>) <span class="co">#throw this error message and stop the function</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#if the num_dice is an integer, continue with the function:</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_sides, num_dice, <span class="at">replace=</span><span class="cn">TRUE</span>)) <span class="co">#sample two numbers from one to n_sides with replacement, return sum</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param num_dice integer representing number of dice to be rolled</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param n_sides integer representing the number of sides of each dice</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the sum of the dice rolled</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>roll_dice <span class="ot">&lt;-</span> <span class="cf">function</span>(n_sides, num_dice) { </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># throw an error if num_dice (the input) is not an integer</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(num_dice <span class="sc">%%</span> <span class="dv">1</span> <span class="sc">!=</span> <span class="dv">0</span>){ <span class="co">#if num_dice mod 1 is NOT 0</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">"num_dice must be an integer"</span>) <span class="co">#throw this error message and stop the function</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#if the num_dice is an integer, continue with the function:</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_sides, num_dice, <span class="at">replace=</span><span class="cn">TRUE</span>)) <span class="co">#sample two numbers from one to n_sides with replacement, return sum</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice now that in this function, there are two parameters (the new one is <code>n_sides</code>). We now sample from <code>1:nsides</code> (instead of <code>1:10)</code> to make the function more flexible. I also renamed the function to <code>roll_dice</code> as we are not necessarily rolling 10 sided dice.</p>
 <p>So to roll two 10-sided dice, I can call:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">10</span>, <span class="at">num_dice =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">10</span>, <span class="at">num_dice =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<pre><code>[1] 15</code></pre>
 </div>
 </div>
 <p>Now, perhaps I often want to roll ten-sided dice. To avoid having to type <code>n_sides = 10</code>, I can simply make the default number of sides to 10!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param num_dice integer representing number of dice to be rolled</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param n_sides integer representing the number of sides of each dice. Default is 10.</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the sum of the dice rolled</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>roll_dice <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n_sides =</span> <span class="dv">10</span>, num_dice) { <span class="co">#NEW: n_sides default is 10</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># throw an error if num_dice (the input) is not an integer</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(num_dice <span class="sc">%%</span> <span class="dv">1</span> <span class="sc">!=</span> <span class="dv">0</span>){ <span class="co">#if num_dice mod 1 is NOT 0</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">"num_dice must be an integer"</span>) <span class="co">#throw this error message and stop the function</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#if the num_dice is an integer, continue with the function:</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_sides, num_dice, <span class="at">replace=</span><span class="cn">TRUE</span>)) <span class="co">#sample two numbers from one to n_sides with replacement, return sum</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param num_dice integer representing number of dice to be rolled</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param n_sides integer representing the number of sides of each dice. Default is 10.</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the sum of the dice rolled</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>roll_dice <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n_sides =</span> <span class="dv">10</span>, num_dice) { <span class="co">#NEW: n_sides default is 10</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># throw an error if num_dice (the input) is not an integer</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(num_dice <span class="sc">%%</span> <span class="dv">1</span> <span class="sc">!=</span> <span class="dv">0</span>){ <span class="co">#if num_dice mod 1 is NOT 0</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">"num_dice must be an integer"</span>) <span class="co">#throw this error message and stop the function</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#if the num_dice is an integer, continue with the function:</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_sides, num_dice, <span class="at">replace=</span><span class="cn">TRUE</span>)) <span class="co">#sample two numbers from one to n_sides with replacement, return sum</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have set <code>n_sides = 10</code> as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16</code></pre>
 </div>
 </div>
 <p>I didn’t need to include <code>n_sides = 10</code> in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">6</span>, <span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">6</span>, <span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>[1] 13</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
@@ -542,13 +562,13 @@ Click to reveal the solution!
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>summarizeby_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(data, groups, <span class="at">columns =</span> <span class="fu">everything</span>()){</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>({{groups}}) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(columns, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>summarizeby_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(data, groups, <span class="at">columns =</span> <span class="fu">everything</span>()){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>({{groups}}) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(columns, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: There was 1 warning in `summarize()`.
 ℹ In argument: `across(columns, ~sum(is.na(.x)))`.
@@ -572,7 +592,7 @@ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.</co
 3 Gentoo         0              1             1                 1           1
 # ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species, <span class="fu">c</span>(<span class="st">"bill_length_mm"</span>, <span class="st">"sex"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species, <span class="fu">c</span>(<span class="st">"bill_length_mm"</span>, <span class="st">"sex"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   species   bill_length_mm   sex
@@ -591,13 +611,13 @@ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.</co
 <p>The ellipses allow a function to accept a variable number of additional unnamed arguments beyond what is explicitly written in the function. Many built-in functions have <code>...</code> listed (check out <code>c()</code>!)</p>
 <p>Let’s modify our function to allow grouping by any number of variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>summarizeby_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(data, ..., <span class="at">columns =</span> <span class="fu">everything</span>()){</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(columns, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>summarizeby_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(data, ..., <span class="at">columns =</span> <span class="fu">everything</span>()){</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(columns, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 8
   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -607,7 +627,7 @@ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.</co
 3 Gentoo         0              1             1                 1           1
 # ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarizeby_fun</span>(penguins, species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'species'. You can override using the
 `.groups` argument.</code></pre>
@@ -633,19 +653,19 @@ See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.</co
 <p>Missing data can <em>heavily</em> complicate analyses and even lead to biased results when not handled properly. Missing data is a big research area in statistics! But for this class, we are going to focus on dealing with missing data using a simple example.</p>
 <p>Let’s look at the flipper length of penguins in the <code>penguins</code> data set and count how many missing values there are using the <code>is.na()</code> function in R. <code>is.na(flipper_len)</code> will return a vector full of <code>TRUE</code> or <code>FALSE</code> values indicating whether or not the observation was missing. As <code>TRUE</code> is coded as a 1 and <code>FALSE</code> as a 0, we can sum over these to count how many missing values there are.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>flipper_len <span class="ot">&lt;-</span> penguins<span class="sc">$</span>flipper_length_mm <span class="co">#save this data as its own vector</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(flipper_len)) <span class="co"># count how many NAs there are in the flipper data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>flipper_len <span class="ot">&lt;-</span> penguins<span class="sc">$</span>flipper_length_mm <span class="co">#save this data as its own vector</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(flipper_len)) <span class="co"># count how many NAs there are in the flipper data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 <p>We see we have two missing values. Let’s see if we can summarize the quantiles of the lengths:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(flipper_len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(flipper_len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Error in quantile.default(flipper_length) :
 missing values and NaN's not allowed if 'na.rm' is FALSE</code></pre>
 <p>We see here that missing values are not allowed unless we specify <code>na.rm = TRUE</code>. When <code>na.rm = TRUE</code>, we remove missing values from the data and then calculate the quantiles. This is also referred to as a <em>complete case analysis.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(flipper_len, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(flipper_len, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  0%  25%  50%  75% 100% 
  172  190  197  213  231 </code></pre>
@@ -653,41 +673,45 @@ missing values and NaN's not allowed if 'na.rm' is FALSE</code></pre>
 </div>
 <p>Now suppose we wanted to make our own function that utilized the <code>quantile()</code> built-in function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' calculates the range of data by finding the 100th and 0th quantile and finding their difference</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param vec a vector that we want to find the range of</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the difference in the maximum and minimum</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>get_range <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  quantiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#calc quantiles, remove NA's</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">max</span>(quantiles) <span class="sc">-</span> <span class="fu">min</span>(quantiles)) <span class="co">#calculate and return the range</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_range</span>(flipper_len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' calculates the range of data by finding the 100th and 0th quantile and finding their difference</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param vec a vector that we want to find the range of</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the difference in the maximum and minimum</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>get_range <span class="ot">&lt;-</span> <span class="cf">function</span>(vec){</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  quantiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#calc quantiles, remove NA's</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">max</span>(quantiles) <span class="sc">-</span> <span class="fu">min</span>(quantiles)) <span class="co">#calculate and return the range</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_range</span>(flipper_len)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 59</code></pre>
 </div>
 </div>
 <p>We could also include <code>na.rm</code> in our function parameters to allow the user to specify whether or not it should be set to <code>TRUE</code> or <code>FALSE</code>. We can use a default, as well.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' calculates the range of data by finding the 100th and 0th quantile and finding their difference</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param vec a vector that we want to find the range of</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param na.rm logical, whether or not to remove NAs. Default set to TRUE.</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the difference in the maximum and minimum</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>get_range <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>){</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  quantiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(vec, <span class="at">na.rm =</span> na.rm) <span class="co">#calc quantiles, remove NA's</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">max</span>(quantiles) <span class="sc">-</span> <span class="fu">min</span>(quantiles)) <span class="co">#calculate and return the range</span></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">get_range</span>(flipper_len) <span class="co">#default to true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' @details</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' calculates the range of data by finding the 100th and 0th quantile and finding their difference</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param vec a vector that we want to find the range of</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param na.rm logical, whether or not to remove NAs. Default set to TRUE.</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return the difference in the maximum and minimum</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>get_range <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, <span class="at">na.rm =</span> <span class="cn">TRUE</span>){</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  quantiles <span class="ot">&lt;-</span> <span class="fu">quantile</span>(vec, <span class="at">na.rm =</span> na.rm) <span class="co">#calc quantiles, remove NA's</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">max</span>(quantiles) <span class="sc">-</span> <span class="fu">min</span>(quantiles)) <span class="co">#calculate and return the range</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="fu">get_range</span>(flipper_len) <span class="co">#default to true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 59</code></pre>
 </div>
 </div>
+</section>
+<section id="worksheet-b1-and-assignment-b1" class="level2">
+<h2 class="anchored" data-anchor-id="worksheet-b1-and-assignment-b1">Worksheet B1 and Assignment B1</h2>
+<p>You can now begin working on <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_b01.ipynb">Worksheet B1</a> and <a href="https://canvas.ubc.ca/courses/170035/files/42178437">Assignment B1 (pdf on Canvas)</a>.</p>
 
 
 </section>
