@@ -1,5 +1,5 @@
 ---
-title: "Lecture 8a: Functions"
+title: "Lecture 8A: Functions"
 subtitle: "October 21, 2025"
 date-modified: last-modified
 ---
@@ -26,6 +26,11 @@ library(testthat)
 ```{r, echo = F}
 set.seed(100)
 ```
+
+## Video Lecture
+
+
+{{< video https://www.youtube.com/watch?v=LqlxC661Pag >}}
 
 ## Lecture Slides
 
@@ -106,8 +111,9 @@ roll_d10(2)
 We can do even better than this with [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document the function! These tags are placed immediately above the function definition. Although `roxygen2` tags are designed for use when creating R packages, they provide a standardized way to document a function – and make it easy for you to migrate your function to an R package if need be! Roxygen comment lines always start with `#'` , the usual `#` for a comment, followed immediately by a single quote `'`:
 
 ```         
-#' Description of function goes here
+#' Title of function goes here
 #' 
+#' Description of function goes here
 #' @param x description of the parameter input x goes here
 #' @param y description of the parameter input x goes here
 #' @returns description of the what function returns goes here
@@ -120,7 +126,8 @@ name_of_function <- function(x, y) {
 For the dice example, we could write:
 
 ```{r}
-#' @details
+#' Roll any number of d10 dice
+#' 
 #' Simulates rolling `num_dice` number of dice for a 10 sided dice and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
 #'
 #' @param num_dice integer representing number of dice to be rolled
@@ -197,7 +204,8 @@ Interesting! This is something we should consider controlling for when creating 
 Within a function call, we can force errors to appear using the `stop()` function and conditional statements. For example, we may only want to allow whole numbers (positive numbers of dice) to be inputs. We can do this by seeing if the `num_dice %% 1`function returns 0. `%%` is the "modular division" function which returns the remainder after division. Whole numbers will not have any remainder when divided by 1. Let's update our function:
 
 ```{r}
-#' @details
+#' Roll any number of d10 dice
+#' 
 #' Simulates rolling `num_dice` number of dice and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
 #'
 #' @param num_dice integer representing number of dice to be rolled
@@ -242,8 +250,9 @@ By default, your function will return the last thing computed in your function. 
 While perhaps redundant as the last line of code here is what we want to output, we could explicitly tell R what to output by:
 
 ```{r}
-#' @details
-#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
+#' Roll any number of dice with a specified number of sides
+#' 
+#' Simulates rolling `num_dice` number of dice with 10 sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
 #'
 #' @param num_dice integer representing number of dice to be rolled
 #' @return the sum of the dice rolled
@@ -264,17 +273,18 @@ roll_d10 <- function(num_dice) {
 }
 ```
 
-We could also return a vector of the the number of dice, and the number of faces of each dice, and the sum.
+We could also return a vector of the the number of dice and the sum.
 
 ```{r}
-#' @details
+#' Roll any number of dice with a specified number of sides
+#' 
 #' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
 #'
 #' @param num_dice integer representing number of dice to be rolled
 #' @param n_sides integer representing the number of sides of each dice.
-#' @return the sum of the dice rolled
+#' @return the number of dice, number of sides or each dice, and the sum of the dice rolled
   
-roll_d10 <- function(n_sides, num_dice) { 
+roll_d10 <- function(num_dice) { 
   
     # throw an error if num_dice (the input) is not an integer
   
@@ -286,8 +296,9 @@ roll_d10 <- function(n_sides, num_dice) {
     sum_dice <- sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, return sum
     
     out <- c(num_dice, sum_dice) #create a vector of what we want to return
+    names(out) <- c("num_dice", "sum_dice") #add names to the elements in the vector
     
-    return(out)
+    return(out) #return the out vector
     
 }
 
@@ -316,6 +327,3 @@ Written resources:
 
     -   [R4DS functions chapter](https://r4ds.hadley.nz/functions.html)
 
-### Attribution
-
-*Content created by Grace Tompkins based off of previous instructional teams and Vincenzo Coia.*
