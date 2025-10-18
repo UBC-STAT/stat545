@@ -24,6 +24,11 @@ library(tidyverse)
 library(gapminder)
 ```
 
+## Video Lecture
+
+
+{{< video https://www.youtube.com/watch?v=Xu6QR-ptogQ >}}
+
 ## Lecture Slides
 
 [Lecture 8B - Advanced Functions](../slides/slidefiles/lec8A_functions_slides.qmd)

@@ -47,7 +47,7 @@ website:
                 
         
     - id: lectures_i
-      title: "Lectures (A)"
+      title: "Notes (A)"
       style: "docked"
       background: light
       collapse-level: 2
@@ -65,13 +65,13 @@ website:
         - webpages/lectures_i/lec7b_joiningtibbles.qmd
         
     - id: lectures_ii
-      title: "Lectures (B)"
+      title: "Notes (B)"
       style: "docked"
       background: light
       collapse-level: 2
       contents: 
         - webpages/lectures_ii/lec8a_functions.qmd
-        # - webpages/lectures_ii/lec8b_advfunctions.qmd
+        - webpages/lectures_ii/lec8b_advfunctions.qmd
         # - webpages/lectures_ii/lec9_rpackages.qmd
         # - webpages/lectures_ii/lec10_shiny.qmd
         # - webpages/lectures_ii/lec11_automation.qmd
