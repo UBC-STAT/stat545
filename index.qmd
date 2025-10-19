@@ -17,20 +17,23 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday October 14th: Reading/Writing Data, Tibble Joins
+*We are now starting STAT545B!*
 
--   Thursday October 16th: Working session
+-   Tuesday October 21st: Functions
+
+-   Thursday October 23rd: Advanced Functions
 
 **To Do this Week:**
 
--   Start Worksheet A5
--   Work on MDA Milestone 2
+-   Submit Worksheet A5
+-   Submit MDA Milestone 2
+-   Begin Worksheet B1 (due next Monday)
 
 **Upcoming Deadlines**
 
 -   Worksheet A5: Monday October 20, 11:59pm PST
 -   MDA Milestone 2: Wednesday October 22, 11:59pm PST
-
+-   Worksheet B1: Monday October 27, 11:59pm PST
 :::
 ::::
 :::::::
