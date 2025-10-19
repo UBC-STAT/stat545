@@ -44,6 +44,8 @@ library(gapminder)
 
 [Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec8b_advfunctions.html)
 
+[YouTube Video](https://www.youtube.com/watch?v=Xu6QR-ptogQ&t=1s)
+
 ## Set-up
 
 We will be using the following packages throughout this lecture:
@@ -72,21 +74,13 @@ If your function needs to do this, we need to embrace them within two curly brac
 
 Take this function that produces a quick scatterplot between two columns in a dataset as an example.
 
-``` r
+```{webr}
 quick_scatter <- function(data, x, y) {
   ggplot(data, aes(x, y)) + #note curly brackets here!
      geom_point()
 }
 
 quick_scatter(penguins, bill_length_mm, body_mass_g)
-```
-
-```         
-Error in `geom_point()`:
-! Problem while computing aesthetics.
-ℹ Error occurred in the 1st layer.
-Caused by error:
-! object 'bill_length_mm' not found
 ```
 
 Why doesn't this work?
@@ -135,21 +129,23 @@ gapminder %>%
   summarize(across(everything(), ~ sum(is.na(.x))))
 ```
 
-These steps to summarize the data are quite similar! Instead of coding each step multiple times, let's turn it into a function. By yourself or with a partner, write a function that could be used to group by a column name and summarize the number of NAs in a data set. Remember: we need to use the `{{}}` when referring to column names.
+<br>
+
+Write a function that could be used to group by a column name and summarize the number of NAs in a data set. \*Remember: we need to use the `{{}}` when referring to column names\*.
 
 ```{webr}
 
 ```
 
-## Default Parameters
+## Multiple Arguments
 
 Recall the dice-rolling example from the previous lecture.
 
 Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let's make a more flexible function that allows us to **change the number of faces on the dice being rolled**.
 
 ```{webr}
-#' @details
-#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
+#' Roll any number of any-sided dice
+#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum.  
 #'
 #' @param num_dice integer representing number of dice to be rolled
 #' @param n_sides integer representing the number of sides of each dice
@@ -174,19 +170,29 @@ So to roll two 10-sided dice, I can call:
 roll_dice(n_sides = 10, num_dice = 2)
 ```
 
-## Default Paramaters
+## Multiple Arguments
+
+NOTE: with multi-argument functions, you can either list the arguments in order that they appear in the function, or be explicit with the parameter names. The following are equivalent:
+
+-   `roll_dice(10, 2)`
+
+-   `roll_dice(n_sides = 10, num_dice = 2)`
+
+-   `roll_dice(num_dice = 2, n_sides = 10)`
+
+## Default Parameters
 
 Now, perhaps I often want to roll ten-sided dice. To avoid having to type `n_sides = 10`, I can simply make the default number of sides to 10!
 
 ```{webr}
-#' @details
-#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
+#' Roll any number of any-sided dice
+#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum.  
 #'
 #' @param num_dice integer representing number of dice to be rolled
-#' @param n_sides integer representing the number of sides of each dice. Default is 10.
+#' @param n_sides integer representing the number of sides of each dice. ...
 #' @return the sum of the dice rolled
   
-roll_dice <- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10
+roll_dice <- function(n_sides, num_dice) { 
   
     # throw an error if num_dice (the input) is not an integer
   
@@ -194,10 +200,12 @@ roll_dice <- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10
       stop("num_dice must be an integer") #throw this error message and stop the function
     }
   
-    #if the num_dice is an integer, continue with the function:
-    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum
+    #return the sum of the die rolls
+    sum(sample(1:n_sides, num_dice, replace=TRUE)) 
 }
 ```
+
+## Default Parameters
 
 We have set `n_sides = 10` as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let's roll 3 dice using 10 sided dice (the default):
 
@@ -205,10 +213,12 @@ We have set `n_sides = 10` as the default. This means the function will assume w
 roll_dice(num_dice = 3)
 ```
 
+<br>
+
 I didn't need to include `n_sides = 10` in my function call! But I can if I want to change it to a number other than 10. Let's roll 3 standard 6-sided dice
 
 ```{webr}
-roll_dice(n_sides = 6, num_dice = 3)
+roll_dice(...)
 ```
 
 ## Exercise: Default Values
@@ -229,7 +239,13 @@ summarizeby_fun(penguins, species, c("sex", "flipper_length_mm"))
 
 ## **Ellipses (`...`**)
 
-The ellipses allow a function to accept a variable number of additional unnamed arguments beyond what is explicitly written in the function. Many built-in functions have `...` listed (check out `c()`!)
+The ellipses allow a function to accept a variable number of additional unnamed arguments beyond what is explicitly written in the function. Many built-in functions have `...` listed:
+
+```{webr}
+?c #function used to make a vector
+```
+
+## **Ellipses (`...`**)
 
 Let's modify our function to allow grouping by any number of variables.
 
@@ -283,7 +299,7 @@ quantile(flipper_len, na.rm = TRUE)
 Now suppose we wanted to make our own function that utilized the `quantile()` built-in function:
 
 ```{webr}
-#' @details
+#' Get Range
 #' calculates the range of data by finding the 100th and 0th quantile and finding their difference
 #'
 #' @param vec a vector that we want to find the range of
@@ -302,21 +318,21 @@ get_range(flipper_len)
 We could also include `na.rm` in our function parameters to allow the user to specify whether or not it should be set to `TRUE` or `FALSE`. We can use a default, as well.
 
 ```{webr}
-#' @details
+#' Get Range
 #' calculates the range of data by finding the 100th and 0th quantile and finding their difference
 #'
 #' @param vec a vector that we want to find the range of
-#' @param na.rm logical, whether or not to remove NAs. Default set to TRUE.
+#' @param removenas
 #' @return the difference in the maximum and minimum
   
-get_range <- function(vec, na.rm = .....){
-  quantiles <- quantile(vec, na.rm = .....) #calc quantiles, remove NA's
+get_range <- function(vec, .....){
+  quantiles <- quantile(vec, .....) #calc quantiles, remove NA's
   return(max(quantiles) - min(quantiles)) #calculate and return the range
 }
 
 get_range(flipper_len) #default to true
 ```
 
-## Worksheet B1 
+## Worksheet B1
 
 Get some practice with advanced functions on Worksheet B1, or begin on Assignment B1.

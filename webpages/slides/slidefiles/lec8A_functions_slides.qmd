@@ -29,6 +29,7 @@ engine: webr
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 ```{r, include = F}
+library(tidyverse)
 library(testthat)
 library(roxygen2)
 library(palmerpenguins)
@@ -50,6 +51,8 @@ From today’s class, students are anticipated to be able to:
 -   Specify what to return in a function using `return()`
 
 [Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec8a_functions.html)
+
+[YouTube Video](https://www.youtube.com/watch?v=LqlxC661Pag&t=2s)
 
 ## Set-up
 
@@ -119,10 +122,10 @@ roll_d10 <- function(num_dice) {
 
 
 # Try rolling two dice
-..
+...
 
 # Try rolling four dice
-..
+...
 ```
 
 ::: callout-note
@@ -133,7 +136,7 @@ Choose a number. With a partner, set the seed to that number before the `#try ro
 
 ## Function Documentation
 
-You should have also noticed by now that other people’s functions in packages are *documented* - there’s information about:
+You should have also noticed by now that other people’s functions in packages are *documented* (try running `?mutate` in your R console or in the chunk below) - there’s information about:
 
 1.  what the function does, at a high level
 
@@ -142,6 +145,10 @@ You should have also noticed by now that other people’s functions in packages 
 3.  the object that the function outputs
 
 At an *absolute minimum*, functions should have some comments indicating what the function does and what the inputs are.
+
+```{webr}
+?mutate
+```
 
 ## Function Documentation
 
@@ -156,11 +163,7 @@ roll_d10 <- function(num_dice) {
    # 
    # 
    #
-   # inputs:
-   # - 
-   #
-   # output:
-   # - 
+
   
     #sample num_dice numbers with replacement between 1 and 10, return sum
     sum(sample(1:10, num_dice, replace=TRUE)) 
@@ -180,7 +183,7 @@ We can do even better than commenting by utilizing [roxygen2 tags](https://roxyg
 
 -   Roxygen comment lines always start with `#'`
 
-```         
+``` R
 #' Description of function goes here
 #' 
 #' @param x description of the parameter input x goes here
@@ -197,9 +200,9 @@ name_of_function <- function(x, y) {
 For the dice example, we could write:
 
 ```{webr}
-#' @details
+#' Title
 #' 
-#'
+#' Description
 #' @param 
 #' @return 
   
@@ -222,9 +225,9 @@ It is very easy to oversimplify a function and have it *not* work.
 
 Because of this, it’s important to *test* the functions. We should use:
 
--   standard test cases (i.e., rolling two, 3, or 100 die), and
+-   standard test cases (i.e., rolling 1, 3, or 100 dicee), and
 
--   e*dge cases* (conditions that fall outside the typical or expected parameters, i.e. rolling 2.5 die)
+-   e*dge cases* (conditions that fall outside the typical or expected parameters, i.e. rolling 0, or 2.5 dice)
 
 to ensure the function works as expected. This included ensuring errors are "thrown" when required.
 
@@ -236,7 +239,7 @@ Let's try rolling 4 dice:
 roll_d10(4)
 ```
 
-Now, let's try rolling no dice. The expected output should be 0.
+Now, let's try rolling no dice. The expected output is 0.
 
 ```{webr}
 roll_d10(0)
@@ -264,13 +267,13 @@ The `test_that()` function makes these tests even more readable:
 test_that("Rolling no dice equals 0", {
   expect_equal(roll_d10(0), 0)
 })
+
+test_that("Rolling one die should be less than or equal to 10", {
+  expect_true(roll_d10(1) <= 10)
+})
 ```
 
-More examples for the `test_that()` can be found on on this [Video Lecture](https://www.youtube.com/watch?v=3nDgR7l5Tps).
-
-## Testing with `testthat`
-
-### Error Handling
+## Error Handling
 
 Let's try inputting a nonsense input, like 2.5 dice. This input doesn't make sense, so let's see what happens:
 
@@ -280,28 +283,22 @@ roll_d10(2.5)
 
 Interesting! This is something we should consider controlling for when creating our function.
 
-## Testing with `testthat`
+## Error Handling
 
-### Error Handling
-
-Within a function call, we can force errors to appear using the `stop()` function and conditional statements. F
+Within a function call, we can force errors to appear using the `stop()` function and conditional statements.
 
 For example, we may only want to allow whole numbers (positive numbers of dice) to be inputs:
 
 ```{webr}
-#' @details
-#' Simulates rolling `num_dice` number of dice and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
+#' Roll any number of d10 dice
+#' Simulates rolling `num_dice` number of dice and outputs the sum. 
 #'
 #' @param num_dice integer representing number of dice to be rolled
 #' @return the sum of the dice rolled
   
 roll_d10 <- function(num_dice) { 
   
-    # throw an error if num_dice (the input) is not an integer
-  
-    if(num_dice ...FILLTHISIN..){ #if num_dice is not an integer
-      stop("num_dice must be an integer") #throw this error message and stop the function
-    }
+
   
     #if the num_dice is an integer, continue with the function:
     sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, return sum
@@ -313,15 +310,47 @@ roll_d10 <- function(num_dice) {
 Notes:
 :::
 
-## Testing with `testthat`
+## Error Handling
 
-### Error Handling
-
-So rolling 2 dice shouldn't throw an error:
+So rolling 2 dice shouldn't throw an error, but rolling 2.5 should as well:
 
 ```{webr}
 #Try rolling 2 die, then 2.5 dice
 
+
+```
+
+::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
+Notes:
+:::
+
+## Error Handling: Exercise
+
+Add another section of code that throws an error that says "num_dice must be positive" when a negative number of dice is inputted into the function.
+
+```{webr}
+#' Roll any number of d10 dice
+#' Simulates rolling `num_dice` number of 10 dice and outputs the sum.
+#'
+#' @param num_dice integer representing number of dice to be rolled
+#' @return the sum of the dice rolled
+  
+roll_d10 <- function(num_dice) { 
+  
+    # throw an error if num_dice (the input) is not an integer
+  
+    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0
+      stop("num_dice must be an integer") #throw this error message and stop 
+    }
+    
+    # throw an error if num_dice is negative
+    
+    ...
+
+  
+    #if the num_dice is an integer, continue with the function:
+    sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, return sum
+}
 
 ```
 
@@ -336,8 +365,8 @@ By default, your function will return the last thing computed in your function. 
 While perhaps redundant as the last line of code here is what we want to output, we could explicitly tell R what to output by:
 
 ```{webr}
-#' @details
-#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
+#' Roll any number of d10 dice
+#' Simulates rolling `num_dice` number of dice with 10 sides and outputs the sum. 
 #'
 #' @param num_dice integer representing number of dice to be rolled
 #' @return the sum of the dice rolled
@@ -349,11 +378,17 @@ roll_d10 <- function(num_dice) {
     if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0
       stop("num_dice must be an integer") #throw this error message and stop the function
     }
-  
-    #if the num_dice is an integer, continue with the function:
-    sum_dice <- sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, save as sum_dice
     
-    #output
+    # throw an error if num_dice (the input) is negative
+  
+    if(num_dice < 0){ #if num_dice is negative
+      stop("num_dice must be positive") #throw this error message and stop
+    }
+  
+    #sample two numbers from one to 10 with replacement, save as sum_dice
+    sum_dice <- sum(sample(1:10, num_dice, replace=TRUE)) 
+    
+    #output the sum explicitly
     return(sum_dice)
 }
 ```
@@ -363,26 +398,32 @@ roll_d10 <- function(num_dice) {
 We could also return a vector of the the number of dice, and the number of faces of each dice, and the sum.
 
 ```{webr}
-#' @details
-#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run
+#' Roll any number of d10 dice
+#' Simulates rolling `num_dice` number of dice with 10 sides and outputs the sum. 
 #'
 #' @param num_dice integer representing number of dice to be rolled
-#' @param n_sides integer representing the number of sides of each dice.
-#' @return the sum of the dice rolled
+#' @return the number of dice rolled and sum of the dice rolled
   
-roll_d10 <- function(n_sides, num_dice) { 
+roll_d10 <- function(num_dice) { 
   
     # throw an error if num_dice (the input) is not an integer
   
     if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0
       stop("num_dice must be an integer") #throw this error message and stop the function
     }
-  
-    #if the num_dice is an integer, continue with the function:
-    sum_dice <- sum(sample(1:10, num_dice, replace=TRUE)) #sample two numbers from one to 10 with replacement, return sum
     
+    # throw an error if num_dice (the input) is negative
+  
+    if(num_dice < 0){ #if num_dice is negative
+      stop("num_dice must be positive") #throw this error message and stop
+    }
+  
+    #sample two numbers from one to 10 with replacement, save as sum_dice
+    sum_dice <- sum(sample(1:10, num_dice, replace=TRUE)) 
+
+    # define some new output (can be named anything but here it's "out")
     out <- c(num_dice, sum_dice) #create a vector of what we want to return
-    names(out) <- c("num_dice", "sum_dice") #add descriptive to the vector
+    names(out) <- c("num_dice", "sum_dice") #add descriptive names to the vector
     
     return(out)
     
@@ -395,6 +436,10 @@ roll_d10(num_dice = 5)
 Notes:
 :::
 
-## Worksheet B1
+## Next Class (Thursday)
+
+We will continue with self-made R functions and explore default values, ellipses, data masking, and missing value handling.
+
+## Worksheet B1 and Assignment B1
 
 Now it's your turn to explore functions!

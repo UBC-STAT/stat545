@@ -2,9 +2,14 @@
 title: "Lecture Slides"
 ---
 
+### STAT545A
 -   [Lecture 4 - Data Visualization Slides](slidefiles/lec4_datavis_slides.qmd)
 -   [Lecture 5 - Tidy Data Slides](slidefiles/lec5_tidydata_slides.qmd)
 -   [Lecture 6A - Modelling Slides](slidefiles/lec6_modelfitting_slides.qmd)
 -   [Lecture 6B - Factors Slides](slidefiles/lec6b_factors_slides.qmd)
 -   [Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides](slidefiles/lec7_readwritejoin_slides.qmd)
+
+### STAT545B
+-   [Lecture 8A - Functions](slidefiles/lec8A_functions_slides.qmd)
+-   [Lecture 8B - Advanced Functions](slidefiles/lec8b_advfunctions_slides.qmd)
 

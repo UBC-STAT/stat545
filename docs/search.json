@@ -356,7 +356,7 @@
     "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#we-will-learn-about-a-couple-of-advanced-topics",
     "title": "Lecture 8B: Advanced Functions",
     "section": "We will learn about a couple of advanced topics:",
-    "text": "We will learn about a couple of advanced topics:\n\nData-masking and the curly-curly {{}}\nDefault values\nEllipses ...\nHandling NA’s\n\nLecture Notes"
+    "text": "We will learn about a couple of advanced topics:\n\nData-masking and the curly-curly {{}}\nDefault values\nEllipses ...\nHandling NA’s\n\nLecture Notes\nYouTube Video"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#set-up",
@@ -377,7 +377,7 @@
     "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#data-masking-and-the-curly-curly-1",
     "title": "Lecture 8B: Advanced Functions",
     "section": "Data-masking and the Curly-Curly {{}}",
-    "text": "Data-masking and the Curly-Curly {{}}\nTake this function that produces a quick scatterplot between two columns in a dataset as an example.\nquick_scatter &lt;- function(data, x, y) {\n  ggplot(data, aes(x, y)) + #note curly brackets here!\n     geom_point()\n}\n\nquick_scatter(penguins, bill_length_mm, body_mass_g)\nError in `geom_point()`:\n! Problem while computing aesthetics.\nℹ Error occurred in the 1st layer.\nCaused by error:\n! object 'bill_length_mm' not found\nWhy doesn’t this work?\n\nNotes:"
+    "text": "Data-masking and the Curly-Curly {{}}\nTake this function that produces a quick scatterplot between two columns in a dataset as an example.\n\n\n\n\n\n\n\n\nWhy doesn’t this work?\n\nNotes:"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#data-masking-and-the-curly-curly-2",
@@ -391,21 +391,35 @@
     "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#curly-curly-exercise",
     "title": "Lecture 8B: Advanced Functions",
     "section": "Curly-Curly {{}} Exercise",
-    "text": "Curly-Curly {{}} Exercise\nHere’s some code that:\n\ngroups penguins by species, then summarizes the number of missing values in each variable.\ngroups gapminder by continent, then summarizes the number of missing values in each variable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThese steps to summarize the data are quite similar! Instead of coding each step multiple times, let’s turn it into a function. By yourself or with a partner, write a function that could be used to group by a column name and summarize the number of NAs in a data set. Remember: we need to use the {{}} when referring to column names."
+    "text": "Curly-Curly {{}} Exercise\nHere’s some code that:\n\ngroups penguins by species, then summarizes the number of missing values in each variable.\ngroups gapminder by continent, then summarizes the number of missing values in each variable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWrite a function that could be used to group by a column name and summarize the number of NAs in a data set. *Remember: we need to use the {{}} when referring to column names*."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#multiple-arguments",
+    "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#multiple-arguments",
+    "title": "Lecture 8B: Advanced Functions",
+    "section": "Multiple Arguments",
+    "text": "Multiple Arguments\nRecall the dice-rolling example from the previous lecture.\nSometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n\n\n\n\n\n\n\nSo to roll two 10-sided dice, I can call:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#multiple-arguments-1",
+    "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#multiple-arguments-1",
+    "title": "Lecture 8B: Advanced Functions",
+    "section": "Multiple Arguments",
+    "text": "Multiple Arguments\nNOTE: with multi-argument functions, you can either list the arguments in order that they appear in the function, or be explicit with the parameter names. The following are equivalent:\n\nroll_dice(10, 2)\nroll_dice(n_sides = 10, num_dice = 2)\nroll_dice(num_dice = 2, n_sides = 10)"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#default-parameters",
     "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#default-parameters",
     "title": "Lecture 8B: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture.\nSometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n\n\n\n\n\n\n\nSo to roll two 10-sided dice, I can call:"
+    "text": "Default Parameters\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!"
   },
   {
-    "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#default-paramaters",
-    "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#default-paramaters",
+    "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#default-parameters-1",
+    "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#default-parameters-1",
     "title": "Lecture 8B: Advanced Functions",
-    "section": "Default Paramaters",
-    "text": "Default Paramaters\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n\n\n\n\n\n\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\n\n\n\n\n\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice"
+    "section": "Default Parameters",
+    "text": "Default Parameters\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\n\n\n\n\n\n\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#exercise-default-values",
@@ -419,7 +433,14 @@
     "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#ellipses-...",
     "title": "Lecture 8B: Advanced Functions",
     "section": "Ellipses (...)",
-    "text": "Ellipses (...)\nThe ellipses allow a function to accept a variable number of additional unnamed arguments beyond what is explicitly written in the function. Many built-in functions have ... listed (check out c()!)\nLet’s modify our function to allow grouping by any number of variables.\n\n\n\n\n\n\n\n\nNow our function is very flexible! And as a bonus, we didn’t need to use the {{}}."
+    "text": "Ellipses (...)\nThe ellipses allow a function to accept a variable number of additional unnamed arguments beyond what is explicitly written in the function. Many built-in functions have ... listed:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#ellipses-...-1",
+    "href": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#ellipses-...-1",
+    "title": "Lecture 8B: Advanced Functions",
+    "section": "Ellipses (...)",
+    "text": "Ellipses (...)\nLet’s modify our function to allow grouping by any number of variables.\n\n\n\n\n\n\n\n\nNow our function is very flexible! And as a bonus, we didn’t need to use the {{}}."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8b_advfunctions_slides.html#handling-nas",
@@ -461,7 +482,7 @@
     "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#learning-outcomes",
     "title": "Lecture 8A: Functions",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nFrom today’s class, students are anticipated to be able to:\n\nUnderstand when to use a function\nBuild functions from scratch in R\nDocument functions using roxygen2\nTest functions with the testthat package\nSpecify what to return in a function using return()\n\nLecture Notes"
+    "text": "Learning Outcomes\nFrom today’s class, students are anticipated to be able to:\n\nUnderstand when to use a function\nBuild functions from scratch in R\nDocument functions using roxygen2\nTest functions with the testthat package\nSpecify what to return in a function using return()\n\nLecture Notes\nYouTube Video"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#set-up",
@@ -503,7 +524,7 @@
     "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#function-documentation",
     "title": "Lecture 8A: Functions",
     "section": "Function Documentation",
-    "text": "Function Documentation\nYou should have also noticed by now that other people’s functions in packages are documented - there’s information about:\n\nwhat the function does, at a high level\nthe objects it expects you to input\nthe object that the function outputs\n\nAt an absolute minimum, functions should have some comments indicating what the function does and what the inputs are."
+    "text": "Function Documentation\nYou should have also noticed by now that other people’s functions in packages are documented (try running ?mutate in your R console or in the chunk below) - there’s information about:\n\nwhat the function does, at a high level\nthe objects it expects you to input\nthe object that the function outputs\n\nAt an absolute minimum, functions should have some comments indicating what the function does and what the inputs are."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#function-documentation-1",
@@ -531,14 +552,14 @@
     "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing",
     "title": "Lecture 8A: Functions",
     "section": "Testing",
-    "text": "Testing\nWhen you’re using other people’s functions – like those in packages – they often work.\nIt is very easy to oversimplify a function and have it not work.\nBecause of this, it’s important to test the functions. We should use:\n\nstandard test cases (i.e., rolling two, 3, or 100 die), and\nedge cases (conditions that fall outside the typical or expected parameters, i.e. rolling 2.5 die)\n\nto ensure the function works as expected. This included ensuring errors are “thrown” when required."
+    "text": "Testing\nWhen you’re using other people’s functions – like those in packages – they often work.\nIt is very easy to oversimplify a function and have it not work.\nBecause of this, it’s important to test the functions. We should use:\n\nstandard test cases (i.e., rolling 1, 3, or 100 dicee), and\nedge cases (conditions that fall outside the typical or expected parameters, i.e. rolling 0, or 2.5 dice)\n\nto ensure the function works as expected. This included ensuring errors are “thrown” when required."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-1",
     "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-1",
     "title": "Lecture 8A: Functions",
     "section": "Testing",
-    "text": "Testing\nLet’s try rolling 4 dice:\n\n\n\n\n\n\n\n\nNow, let’s try rolling no dice. The expected output should be 0."
+    "text": "Testing\nLet’s try rolling 4 dice:\n\n\n\n\n\n\n\n\nNow, let’s try rolling no dice. The expected output is 0."
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat",
@@ -552,28 +573,35 @@
     "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-1",
     "title": "Lecture 8A: Functions",
     "section": "Testing with testthat",
-    "text": "Testing with testthat\nThe test_that() function makes these tests even more readable:\n\n\n\n\n\n\n\n\nMore examples for the test_that() can be found on on this Video Lecture."
+    "text": "Testing with testthat\nThe test_that() function makes these tests even more readable:"
   },
   {
-    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-2",
-    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-2",
+    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling",
+    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling",
     "title": "Lecture 8A: Functions",
-    "section": "Testing with testthat",
-    "text": "Testing with testthat\nError Handling\nLet’s try inputting a nonsense input, like 2.5 dice. This input doesn’t make sense, so let’s see what happens:\n\n\n\n\n\n\n\n\nInteresting! This is something we should consider controlling for when creating our function."
+    "section": "Error Handling",
+    "text": "Error Handling\nLet’s try inputting a nonsense input, like 2.5 dice. This input doesn’t make sense, so let’s see what happens:\n\n\n\n\n\n\n\n\nInteresting! This is something we should consider controlling for when creating our function."
   },
   {
-    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-3",
-    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-3",
+    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling-1",
+    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling-1",
     "title": "Lecture 8A: Functions",
-    "section": "Testing with testthat",
-    "text": "Testing with testthat\nError Handling\nWithin a function call, we can force errors to appear using the stop() function and conditional statements. F\nFor example, we may only want to allow whole numbers (positive numbers of dice) to be inputs:\n\n\n\n\n\n\n\n\n\nNotes:"
+    "section": "Error Handling",
+    "text": "Error Handling\nWithin a function call, we can force errors to appear using the stop() function and conditional statements.\nFor example, we may only want to allow whole numbers (positive numbers of dice) to be inputs:\n\n\n\n\n\n\n\n\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-4",
-    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#testing-with-testthat-4",
+    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling-2",
+    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling-2",
     "title": "Lecture 8A: Functions",
-    "section": "Testing with testthat",
-    "text": "Testing with testthat\nError Handling\nSo rolling 2 dice shouldn’t throw an error:\n\n\n\n\n\n\n\n\n\nNotes:"
+    "section": "Error Handling",
+    "text": "Error Handling\nSo rolling 2 dice shouldn’t throw an error, but rolling 2.5 should as well:\n\n\n\n\n\n\n\n\n\nNotes:"
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling-exercise",
+    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#error-handling-exercise",
+    "title": "Lecture 8A: Functions",
+    "section": "Error Handling: Exercise",
+    "text": "Error Handling: Exercise\nAdd another section of code that throws an error that says “num_dice must be positive” when a negative number of dice is inputted into the function.\n\n\n\n\n\n\n\n\n\nNotes:"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#returns",
@@ -590,11 +618,18 @@
     "text": "Returns\nWe could also return a vector of the the number of dice, and the number of faces of each dice, and the sum.\n\n\n\n\n\n\n\n\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#worksheet-b1",
-    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#worksheet-b1",
+    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#next-class-thursday",
+    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#next-class-thursday",
     "title": "Lecture 8A: Functions",
-    "section": "Worksheet B1",
-    "text": "Worksheet B1\nNow it’s your turn to explore functions!"
+    "section": "Next Class (Thursday)",
+    "text": "Next Class (Thursday)\nWe will continue with self-made R functions and explore default values, ellipses, data masking, and missing value handling."
+  },
+  {
+    "objectID": "webpages/slides/slidefiles/lec8A_functions_slides.html#worksheet-b1-and-assignment-b1",
+    "href": "webpages/slides/slidefiles/lec8A_functions_slides.html#worksheet-b1-and-assignment-b1",
+    "title": "Lecture 8A: Functions",
+    "section": "Worksheet B1 and Assignment B1",
+    "text": "Worksheet B1 and Assignment B1\nNow it’s your turn to explore functions!"
   },
   {
     "objectID": "webpages/slides/slidefiles/lec6b_factors_slides.html#learning-outcomes",
@@ -3729,7 +3764,7 @@
     "href": "webpages/slides/slides.html",
     "title": "Lecture Slides",
     "section": "",
-    "text": "Lecture 4 - Data Visualization Slides\nLecture 5 - Tidy Data Slides\nLecture 6A - Modelling Slides\nLecture 6B - Factors Slides\nLecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides\n\n\n\n\n Back to top"
+    "text": "STAT545A\n\nLecture 4 - Data Visualization Slides\nLecture 5 - Tidy Data Slides\nLecture 6A - Modelling Slides\nLecture 6B - Factors Slides\nLecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides\n\n\n\nSTAT545B\n\nLecture 8A - Functions\nLecture 8B - Advanced Functions\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "webpages/syllabus/syllabusB.html",
@@ -3869,7 +3904,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 8\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 19\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 14\n\n\n\n\n\n\n\n\nExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 16\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 18\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 11\n\n\n\n\n\n\n\n\nExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]
