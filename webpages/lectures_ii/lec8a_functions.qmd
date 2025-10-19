@@ -29,12 +29,11 @@ set.seed(100)
 
 ## Video Lecture
 
-
 {{< video https://www.youtube.com/watch?v=LqlxC661Pag >}}
 
 ## Lecture Slides
 
--   [Lecture 8A - Functions](slidefiles/lec8A_functions_slides.qmd)
+-   [Lecture 8A - Functions](../slides/slidefiles/lec8A_functions_slides.qmd)
 
 ## Self-made R Functions
 
@@ -77,9 +76,6 @@ roll_d10(2)
 ::: callout-note
 This is not reproducible code, as the output will change each time I run this function as I am randomly sampling. If I wanted to make this reproducible, then I would set the *seed* to (say) 123 before running my function with `set.seed(123)`.
 :::
-
-
-
 
 ### **Documentation**
 
@@ -140,14 +136,9 @@ roll_d10 <- function(num_dice) {
 roll_d10(2) #try rolling two die
 ```
 
-
-
-
-
-
 ## **Testing**
 
-When you’re using other people’s functions – like those in packages – they often *work*. However, as you have probably discovered by this point, it is very easy to inadvertently write code – and therefore functions – that *do not* work. Because of this, it’s important to *test* the functions we write to make sure they work. 
+When you’re using other people’s functions – like those in packages – they often *work*. However, as you have probably discovered by this point, it is very easy to inadvertently write code – and therefore functions – that *do not* work. Because of this, it’s important to *test* the functions we write to make sure they work.
 
 It's useful to think of a few cases to test, along with *edge cases* (conditions that fall outside the typical or expected parameters) and see if the function performs
 
@@ -322,4 +313,3 @@ Written resources:
     -   [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
 
     -   [R4DS functions chapter](https://r4ds.hadley.nz/functions.html)
-

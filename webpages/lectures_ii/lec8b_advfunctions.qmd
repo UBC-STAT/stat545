@@ -26,12 +26,11 @@ library(gapminder)
 
 ## Video Lecture
 
-
 {{< video https://www.youtube.com/watch?v=Xu6QR-ptogQ >}}
 
 ## Lecture Slides
 
--   [Lecture 8B - Advanced Functions](slidefiles/lec8b_advfunctions_slides.qmd)
+-   [Lecture 8B - Advanced Functions](../slides/slidefiles/lec8b_advfunctions_slides.qmd)
 
 ## Data-masking and the Curly-Curly `{{}}`
 

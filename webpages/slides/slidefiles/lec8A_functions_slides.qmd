@@ -183,7 +183,7 @@ We can do even better than commenting by utilizing [roxygen2 tags](https://roxyg
 
 -   Roxygen comment lines always start with `#'`
 
-``` R
+``` r
 #' Description of function goes here
 #' 
 #' @param x description of the parameter input x goes here
