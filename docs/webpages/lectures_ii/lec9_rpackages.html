@@ -279,7 +279,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-r-packages" id="toc-why-r-packages" class="nav-link active" data-scroll-target="#why-r-packages">Why R Packages?</a></li>
+  <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link active" data-scroll-target="#video-lecture">Video Lecture</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#why-r-packages" id="toc-why-r-packages" class="nav-link" data-scroll-target="#why-r-packages">Why R Packages?</a></li>
   <li><a href="#minimal-working-example" id="toc-minimal-working-example" class="nav-link" data-scroll-target="#minimal-working-example">Minimal Working Example</a></li>
   <li><a href="#expand-your-package" id="toc-expand-your-package" class="nav-link" data-scroll-target="#expand-your-package">Expand Your Package</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
@@ -304,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 8, 2025</p>
+      <p class="date-modified">October 24, 2025</p>
     </div>
   </div>
     
@@ -325,6 +327,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Update an R package via semantic version-ing, NEWS, changelog.</p></li>
 <li><p>Develop and build informative vignettes and a package README.</p></li>
 </ul>
+<section id="video-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
+<p>&lt;{{ video https://youtu.be/4Y1OphsZSl0 }}&gt;</p>
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<ul>
+<li><a href="../../webpages/slides/slidefiles/lec9_rpackages_slides.html">Lecture 9 - R Packages</a></li>
+</ul>
+</section>
 <section id="why-r-packages" class="level2">
 <h2 class="anchored" data-anchor-id="why-r-packages">Why R Packages?</h2>
 <p>As mentioned in the “functions” topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:</p>
@@ -367,7 +379,7 @@ Tip
 <li>Allow access if a pop-up appears, and RStudio will refresh to your new Project.</li>
 <li>If you look at the new folder that was created (mine is on my desktop), you’ll see an R Project, a DESCRIPTION file, a NAMESPACE file, and an R folder where all of your functions will be.</li>
 </ul></li>
-<li><p>Create a simple function in a .R file, and save it in the R folder</p>
+<li><p>Create a simple function in a .R file, and <em>save it in the R folder</em></p>
 <ul>
 <li><p>you can do this by navigating to the R folder on the right hand pane of your R Project under “Files”, opening the R folder, and selecting “New File” &gt; “R Script”</p>
 <div class="quarto-figure quarto-figure-center">
@@ -516,7 +528,7 @@ Tip
 </ul></li>
 <li><p>We don’t really need to use functions from another package here, but practice declaring your general intention to use some functions from the dplyr namespace by running <code>use_package("dplyr")</code> in the Console only once. Now your package will be able to use the <code>dplyr</code> package functions.</p></li>
 <li><p>Connect your local package to Github with <code>use_github()</code>. Say yes to committing and publishing the changes. Now your package should be on GitHub!</p></li>
-<li><p>Make a vignett, a long-form document that serves as a detailed guide or tutorial for an R package:</p>
+<li><p>Make a vignette, a long-form document that serves as a detailed guide or tutorial for an R package:</p>
 <ul>
 <li><p><code>use_vignette("powers")</code></p></li>
 <li><p><code>build_vignettes()</code>.</p></li>
@@ -568,10 +580,6 @@ Exercise
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<p>Video Lecture:</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=SGh_t7zlC7U">How to Make an R Package</a> by Vincenzo Coia</li>
-</ul>
 <p>Written material:</p>
 <ul>
 <li><p>See <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a> for a concise overview of the entire process of making an R package.</p></li>

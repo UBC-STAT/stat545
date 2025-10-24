@@ -20,6 +20,14 @@ From this topic, students are anticipated to be able to build a basic R package,
 
 -   Develop and build informative vignettes and a package README.
 
+## Video Lecture
+
+\<{{ video https://youtu.be/4Y1OphsZSl0 }}\>
+
+## Lecture Slides
+
+-   [Lecture 9 - R Packages](../slides/slidefiles/lec9_rpackages_slides.qmd)
+
 ## Why R Packages?
 
 As mentioned in the “functions” topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:
@@ -38,12 +46,11 @@ The alternative is keeping the functions stored in separate files, and `source()
 
 We've been using various packages all semester, including `dplyr`. You can actually see the underlying package which is hosted on (pretends to be shocked) GitHub: https://github.com/tidyverse/dplyr.
 
-For this topic, we’ll be making an R package like the toy [square package](https://github.com/lucylgao/square), by following along with [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html). 
+For this topic, we’ll be making an R package like the toy [square package](https://github.com/lucylgao/square), by following along with [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html).
 
 ::: callout-tip
 Many of the functions we call are from the `devtools` package in R. If you're getting errors when trying to run some commands, try reloading `devtools` in the Console by running `library(devtools)`.
 :::
-
 
 ## Minimal Working Example
 
@@ -60,7 +67,7 @@ First, make a minimal viable product:
     -   Allow access if a pop-up appears, and RStudio will refresh to your new Project.
     -   If you look at the new folder that was created (mine is on my desktop), you'll see an R Project, a DESCRIPTION file, a NAMESPACE file, and an R folder where all of your functions will be.
 
--   Create a simple function in a .R file, and save it in the R folder
+-   Create a simple function in a .R file, and *save it in the R folder*
 
     -   you can do this by navigating to the R folder on the right hand pane of your R Project under "Files", opening the R folder, and selecting "New File" \> "R Script"
 
@@ -97,7 +104,7 @@ First, make a minimal viable product:
 
     -   Open the DESCRIPTION file and edit the Author information and Package Title.
 
-        ``` R
+        ``` r
         Package: powers
         Title: Easy computation of powers
         Version: 0.0.0.9000
@@ -119,7 +126,7 @@ First, make a minimal viable product:
 
     -   Open the RMD file and add some information for the package.
 
-        ```` R
+        ```` r
         ---
         output: github_document
         ---
@@ -156,7 +163,7 @@ First, make a minimal viable product:
 
     <!-- -->
 
-    -    Render the README every time with `build_readme()`.
+    -   Render the README every time with `build_readme()`.
 
 -   Document the function:
 
@@ -201,7 +208,7 @@ Now, let's expand the R package that we just created:
 
     -   Update it to include the following tests (and save the file!):
 
-        ``` R
+        ``` r
         test_that("square works", {
           expect_equal(square(3), 9)
           expect_equal(square(0), 0)
@@ -216,7 +223,7 @@ Now, let's expand the R package that we just created:
 
 3.  Connect your local package to Github with `use_github()`. Say yes to committing and publishing the changes. Now your package should be on GitHub!
 
-4.  Make a vignett, a long-form document that serves as a detailed guide or tutorial for an R package:
+4.  Make a vignette, a long-form document that serves as a detailed guide or tutorial for an R package:
 
     -   `use_vignette("powers")`
 
@@ -266,18 +273,14 @@ Try installing the package that the person beside you just created. Restart RStu
 
 ## Resources
 
-Video Lecture:
-
--   [How to Make an R Package](https://www.youtube.com/watch?v=SGh_t7zlC7U) by Vincenzo Coia
-
 Written material:
 
 -   See [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html) for a concise overview of the entire process of making an R package.
 
--   The entire [“R packages” book](https://r-pkgs.org/) 
+-   The entire [“R packages” book](https://r-pkgs.org/)
 
 -   See [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html), the authoritative and comprehensive (but dry) resource for writing R packages.
 
 -   [Package development cheat sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
 
--  [“Advanced R” Chapter 13: S3](https://adv-r.hadley.nz/s3.html).
+-   [“Advanced R” Chapter 13: S3](https://adv-r.hadley.nz/s3.html).

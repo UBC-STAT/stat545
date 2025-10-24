@@ -1,0 +1,86 @@
+---
+title: "Lecture 9: R Packaages"
+subtitle: "STAT 545 - Fall 2025"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    auto-stretch: false
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - tidyverse
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Learning Goals
+
+-   Write a DESCRIPTION file
+
+-   Carefully curate package dependencies
+
+-   Document functions and data using \`roxygen2\` comments and tags
+
+-   Include tests with testthat in accordance with the R package infrastructure.
+
+-   Add a license
+
+-   Update an R package via semantic version-ing, NEWS, changelog.
+
+-   Develop and build informative vignettes and a package README.
+
+[Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec9_rpackages.html)
+
+[YouTube Video](https://www.youtube.com/watch?v=4Y1OphsZSl0&t=2s)
+
+## Why R Packages?
+
+-   Organized documentation
+
+-   Sharability
+
+-   Built-in checks to ensure your package is working
+
+-   Templates for organizing your work
+
+-   Ability to attach data sets to share
+
+## R Packages
+
+We've been using various packages all semester, including `dplyr`. You can actually see the underlying package which is hosted on (pretends to be shocked) GitHub: https://github.com/tidyverse/dplyr.
+
+For this topic, we’ll be making an R package like the toy [square package](https://github.com/lucylgao/square), by following along with [“The Whole Game” Chapter of “R packages”](https://r-pkgs.org/whole-game.html).
+
+::: callout-tip
+Many of the functions we call are from the `devtools` package in R. If you're getting errors when trying to run some commands, try reloading `devtools` in the Console by running `library(devtools)`.
+:::
+
+## Components of an R Package
+
+-   DESCRIPTION File: describes the package contents + licensing
+
+-   NAMESPACE file: lists functions available to users, or functions imported from other packages
+
+-   Function files: files containing self-made functions to be contained in the package
+
+-   Tests (using `testthat,` perhaps)
+
+-   Vignette: a long form descriptive document that acts like a tutorial
+
+-   README file: the front page of the GitHub repository
+
+-   NEWS file: a file used to update user on new versions and releases
+
+## Minimal Working Example
+
+We will build an R Package that has functions for different powers, like squares and cubics.
