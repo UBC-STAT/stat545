@@ -22,9 +22,7 @@ From today’s class, students are anticipated to be able to:
 
 ## Lecture Slides
 
--   [Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides](slidefiles/lec7_readwritejoin_slides.qmd)
-
-
+-   [Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides](../slides/slidefiles/lec7_readwritejoin_slides.qmd)
 
 ## Set-up
 
@@ -110,7 +108,7 @@ I could always read in my `penguins` dataset using an absolute file path where t
 The absolute path to the penguins.csv data set is `/Users/grace/documents/STAT545/Lec7A/datasets/penguins.csv`. Note the "/" (or "\\") at the beginning of the string indicates that you start at the root of your folder. This will work to load in the data. However, it is not best practice in terms of reproducibility. If I moved my project folder anywhere else in my computer, or sent this code to someone else to read in the data, this long file path string would have to be updated.
 
 ::: callout-important
-Because I wrote this on a Mac, the slashes are forward "/". Windows users write file paths with back slashes "\". 
+Because I wrote this on a Mac, the slashes are forward "/". Windows users write file paths with back slashes "".
 
 Later in the lecture, we discuss the `here::here()` function which solves this problem completely.
 :::

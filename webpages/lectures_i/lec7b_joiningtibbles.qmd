@@ -29,7 +29,7 @@ From today’s class, students are anticipated to be able to:
 
 ## Lecture Slides
 
--   [Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides](slidefiles/lec7_readwritejoin_slides.qmd)
+-   [Lecture 7 (A and B) - Reading, Writing, and Joining Tibbles Slides](../slides/slidefiles/lec7_readwritejoin_slides.qmd)
 
 
 ## Set-up

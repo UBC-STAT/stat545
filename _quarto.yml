@@ -5,7 +5,7 @@ project:
 website:
   title: "STAT545"
   back-to-top-navigation: true
-  page-footer: "Copyright 2025, Grace Tompkins" 
+  page-footer: "Copyright 2025, Grace Tompkins. *Built with [Quarto](https://quarto.org)*" 
   favicon: images/stat545_transparent.png 
   navbar:
     background: primary
@@ -72,7 +72,7 @@ website:
       contents: 
         - webpages/lectures_ii/lec8a_functions.qmd
         - webpages/lectures_ii/lec8b_advfunctions.qmd
-        # - webpages/lectures_ii/lec9_rpackages.qmd
+        - webpages/lectures_ii/lec9_rpackages.qmd
         # - webpages/lectures_ii/lec10_shiny.qmd
         # - webpages/lectures_ii/lec11_automation.qmd
         # - webpages/lectures_ii/lec12_characterdata.qmd
