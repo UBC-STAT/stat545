@@ -19,21 +19,19 @@ date-modified: last-modified
 
 *We are now starting STAT545B!*
 
--   Tuesday October 21st: Functions
+-   Tuesday October 27th: R Packages
 
--   Thursday October 23rd: Advanced Functions
+-   Thursday October 29th: R Packages Tutorial (Work session with TAs)
 
 **To Do this Week:**
 
--   Submit Worksheet A5
--   Submit MDA Milestone 2
--   Begin Worksheet B1 (due next Monday)
+-   Submit Worksheet B1 (due Monday Oct 27)
+-   Work on Assignment B1
 
 **Upcoming Deadlines**
 
--   Worksheet A5: Monday October 20, 11:59pm PST
--   MDA Milestone 2: Wednesday October 22, 11:59pm PST
 -   Worksheet B1: Monday October 27, 11:59pm PST
+-   Assignment B1: Tuesday November 4, 11:59pm PST
 :::
 ::::
 :::::::
