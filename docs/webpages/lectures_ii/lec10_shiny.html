@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -249,9 +283,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-dashboards" id="toc-why-dashboards" class="nav-link active" data-scroll-target="#why-dashboards">Why Dashboards?</a></li>
-  <li><a href="#r-shiny" id="toc-r-shiny" class="nav-link" data-scroll-target="#r-shiny">R Shiny</a></li>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link active" data-scroll-target="#video-lecture">Video Lecture</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#why-dashboards" id="toc-why-dashboards" class="nav-link" data-scroll-target="#why-dashboards">Why Dashboards?</a></li>
+  <li><a href="#r-shiny" id="toc-r-shiny" class="nav-link" data-scroll-target="#r-shiny">R Shiny</a>
+  <ul class="collapse">
+  <li><a href="#initialize-the-shiny-app" id="toc-initialize-the-shiny-app" class="nav-link" data-scroll-target="#initialize-the-shiny-app">Initialize the Shiny App</a></li>
+  <li><a href="#build-the-ui" id="toc-build-the-ui" class="nav-link" data-scroll-target="#build-the-ui">Build the UI</a></li>
+  <li><a href="#build-the-server" id="toc-build-the-server" class="nav-link" data-scroll-target="#build-the-server">Build the Server</a></li>
+  <li><a href="#generate-the-app" id="toc-generate-the-app" class="nav-link" data-scroll-target="#generate-the-app">Generate the App</a></li>
+  </ul></li>
+  <li><a href="#demo-bc-liquor-store-prices" id="toc-demo-bc-liquor-store-prices" class="nav-link" data-scroll-target="#demo-bc-liquor-store-prices">Demo: BC Liquor Store Prices</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
   </ul>
 </nav>
@@ -274,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 11, 2025</p>
+      <p class="date-modified">October 27, 2025</p>
     </div>
   </div>
     
@@ -297,6 +339,17 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Make an interactive plot with plotly</p></li>
 <li><p>Make an interactive data table with the <code>DT</code> package</p></li>
 </ul>
+<p>We will spend two classes creating a Shiny dashboard together.</p>
+<section id="video-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/LqlxC661Pag" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<ul>
+<li><a href="../../webpages/slides/slidefiles/lec10_shiny_slides.html">Lecture 10 - Dashboards with R Shiny</a></li>
+</ul>
+</section>
 <section id="why-dashboards" class="level2">
 <h2 class="anchored" data-anchor-id="why-dashboards">Why Dashboards?</h2>
 <p>Dashboards allow users to get real time (and often customizable) overviews of information. Dashboards can be used for monitoring, measuring, analyzing, and presenting data.</p>
@@ -306,41 +359,173 @@ ul.task-list li input[type="checkbox"] {
 <p>Shiny is an open-source R package that allows users to create interactive web applications directly from R without needing to learn traditional web development languages like HTML, CSS, or JavaScript.</p>
 <p>Here are some examples of R Shiny Dashboards:</p>
 <ul>
-<li><a href="http://showmeshiny.com">http://ShowMeShiny.com</a></li>
-</ul>
-<!-- -->
-<ul>
+<li><p><a href="http://showmeshiny.com">http://ShowMeShiny.com</a></p></li>
 <li><p><a href="http://letsrun.com/shoes" class="uri">http://letsrun.com/shoes</a></p></li>
 <li><p><a href="http://daattali.com/shiny/cancer-data/" class="uri">http://daattali.com/shiny/cancer-data/</a><br>
 </p></li>
 </ul>
-<p>Today, we’ll be replicating this dashboard to explore BS Liquor Store prices:</p>
+<p>Today, we’ll be replicating this dashboard to explore BS Liquor Store prices, from Dean Attali:</p>
 <ul>
 <li><a href="http://daattali.com/shiny/bcl/" class="uri">http://daattali.com/shiny/bcl/</a></li>
 </ul>
+<p>To use Shiny, install it in your R Console with <code>install.packages("shiny")</code>.</p>
+<section id="initialize-the-shiny-app" class="level3">
+<h3 class="anchored" data-anchor-id="initialize-the-shiny-app">Initialize the Shiny App</h3>
+<p>There are three basic components to a Shiny app:</p>
+<ul>
+<li><p>the user interface (UI) (the appearance of the app)</p></li>
+<li><p>a server (which does the app’s computations)</p></li>
+<li><p>the app (assembles the app combining the UI and the server)</p></li>
+</ul>
+<p>A basic Shiny app may take the following form:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server) <span class="co">#do not include code past this point</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To generate a Shiny App, you can either go to “File” &gt; “New File” &gt; “Shiny Web App” in RStudio which will generate a template for you with a working example, or you can save the above code in a single file called “app.R”.</p>
+<p>If you generated the template using R Studio, the following code will appear:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application that draws a histogram</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Application title</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Old Faithful Geyser Data"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sidebar with a slider input for number of bins </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sliderInput</span>(<span class="st">"bins"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Number of bins:"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                        <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">max =</span> <span class="dv">50</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                        <span class="at">value =</span> <span class="dv">30</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Show a plot of the generated distribution</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>           <span class="fu">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># generate bins based on input$bins from ui.R</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        x    <span class="ot">&lt;-</span> faithful[, <span class="dv">2</span>]</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># draw the histogram with the specified number of bins</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">'darkgray'</span>, <span class="at">border =</span> <span class="st">'white'</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">xlab =</span> <span class="st">'Waiting time to next eruption (in mins)'</span>,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">'Histogram of waiting times'</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can click the “Run App” button to explore the demo. We see that there is a slider which the user can manipulate which changes the number of bins used to produce a histogram, which is updated live!</p>
+<p>For example, if you set the number of bins to 8, you will see:</p>
+<p><img src="images/shiny1.png" class="img-fluid" alt="Shiny App demonstrating a histogram with 8 bins"></p>
+<p>Or you can slide the number of bins to 30 and you should see:</p>
+<p><img src="images/shiny2.png" class="img-fluid" alt="Shiny Demo where slider indicating number of bins is increased to 30"></p>
+<p>We will go through the basics of this demo app, and then build another from scratch.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For more complex apps, you can save the UI and server separately so long as they exist in the same directory. <a href="https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit?slide=id.gd565d6fc7_0_192#slide=id.gd565d6fc7_0_192">More info here</a>.</p>
+</div>
+</div>
 </section>
-<section id="agenda" class="level2">
-<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
-<p>We are going to be working off of this <a href="https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p">slide deck</a> and <a href="https://deanattali.com/blog/building-shiny-apps-tutorial/">tutorial</a> written by Dean Attali. This should take two classes.</p>
+<section id="build-the-ui" class="level3">
+<h3 class="anchored" data-anchor-id="build-the-ui">Build the UI</h3>
+<p>Inside of the <code>fluidPage()</code> function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application that draws a histogram</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Application title</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">"Old Faithful Geyser Data"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sidebar with a slider input for number of bins </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarLayout</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sliderInput</span>(<span class="st">"bins"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Number of bins:"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">max =</span> <span class="dv">50</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">value =</span> <span class="dv">30</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Show a plot of the generated distribution</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>           <span class="fu">plotOutput</span>(<span class="st">"distPlot"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We see that within the <code>fluidPage()</code> function, we’ve defined a title and a sidebar with a slider that the user can manipulate the change around the number of bins in the histogram we wish to generate (this is an <strong>input</strong> that we will use to produce a plot). In the main panel (the main part of the app where the plot is shown in the images above), we are going to <strong>output</strong> a plot, which we will define in the <code>server()</code> function later. Here, we are just telling Shiny what goes where, but not calculating anything. There are more options for the UI that we will explore in our demo later.</p>
+</section>
+<section id="build-the-server" class="level3">
+<h3 class="anchored" data-anchor-id="build-the-server">Build the Server</h3>
+<p>As stated previously, we’ve set up the UI of the app but we haven’t really calculated anything. Recall the code from the R Studio template:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># generate bins based on input$bins from ui.R</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        x    <span class="ot">&lt;-</span> faithful[, <span class="dv">2</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># draw the histogram with the specified number of bins</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">'darkgray'</span>, <span class="at">border =</span> <span class="st">'white'</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">xlab =</span> <span class="st">'Waiting time to next eruption (in mins)'</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">'Histogram of waiting times'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We have a function that takes some <strong>input</strong> (in our case, the number of bins the user chose via the slider), and it <strong>outputs</strong> a histogram using the selected number of bins. Here, <code>hist()</code> is generating a histogram - the default is just not using <code>ggplot2</code> like we’ve used before in this class.</p>
+</section>
+<section id="generate-the-app" class="level3">
+<h3 class="anchored" data-anchor-id="generate-the-app">Generate the App</h3>
+<p>The final part of the code is</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>which combines everything together and allows you to interact with the app!</p>
+</section>
+</section>
+<section id="demo-bc-liquor-store-prices" class="level2">
+<h2 class="anchored" data-anchor-id="demo-bc-liquor-store-prices">Demo: BC Liquor Store Prices</h2>
+<p>We will now follow along with <a href="https://deanattali.com/blog/building-shiny-apps-tutorial/">this tutorial by Dean Attali</a> that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny.</p>
 </section>
 <section id="additional-resources" class="level2">
 <h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
 <ul>
 <li>Video lecture: <a href="https://www.youtube.com/watch?v=rB4SJGyaGls">How to Make a Shiny App in R</a></li>
+<li><a href="https://mastering-shiny.org/">“Mastering Shiny”</a> by Hadley Wickham gives a more comprehensive treatment.</li>
+<li>The <a href="https://shiny.rstudio.com/">official shiny site</a> has tutorials, a gallery, and other goodies.</li>
+<li>For deploying shiny apps, check out <a href="https://www.shinyapps.io/" class="uri">https://www.shinyapps.io/</a></li>
+<li>For shiny documents (= R Markdown + shiny), see <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Chapter 19 of Yihui’s R Markdown book</a>.</li>
+<li>For testing your shiny app, check out the <a href="https://rstudio.github.io/shinytest/">shinytest</a> and <a href="https://github.com/rstudio/reactlog">reactlog</a> packages.</li>
+<li>For further cutting down on code repetition by “functionizing” your shiny app, check out <a href="https://emilyriederer.netlify.app/post/shiny-modules/">Emily Riederer’s beginner’s guide to Shiny modules</a> for a gentle introduction and <a href="https://mastering-shiny.org/scaling-modules.html">Chapter 19 of the “Mastering Shiny” book</a> for a full treatment.</li>
 </ul>
-<!-- -->
-<ul>
-<li><p><a href="https://mastering-shiny.org/">“Mastering Shiny”</a> by Hadley Wickham gives a more comprehensive treatment.</p></li>
-<li><p>The <a href="https://shiny.rstudio.com/">official shiny site</a> has tutorials, a gallery, and other goodies.</p></li>
-<li><p>For deploying shiny apps, check out <a href="https://www.shinyapps.io/" class="uri">https://www.shinyapps.io/</a></p></li>
-<li><p>For shiny documents (= R Markdown + shiny), see <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Chapter 19 of Yihui’s R Markdown book</a>.</p></li>
-<li><p>For testing your shiny app, check out the <a href="https://rstudio.github.io/shinytest/">shinytest</a> and <a href="https://github.com/rstudio/reactlog">reactlog</a> packages.</p></li>
-<li><p>For further cutting down on code repetition by “functionizing” your shiny app, check out <a href="https://emilyriederer.netlify.app/post/shiny-modules/">Emily Riederer’s beginner’s guide to Shiny modules</a> for a gentle introduction and <a href="https://mastering-shiny.org/scaling-modules.html">Chapter 19 of the “Mastering Shiny” book</a> for a full treatment.</p></li>
-</ul>
-<p>Other dashboard tools besides shiny (but not in R):</p>
+<p>Other dashboard tools besides Shiny (but not in R):</p>
 <ul>
 <li><p>With python: plotly dash. Check out the <a href="https://plotly.com/dash/">main website</a>, or <a href="https://medium.com/plotly/introducing-dash-5ecf7191b503">this Medium post</a> introducing the tool.</p></li>
-<li><p>With javascript: <a href="https://d3js.org/">D3</a>, a tremendously powerful tool with a steep learning curve (esp.&nbsp;if you don’t know javascript).</p></li>
+<li><p>With javascript: <a href="https://d3js.org/">D3</a>, a tremendously powerful tool with a steep learning curve (especially if you don’t know javascript).</p></li>
 </ul>
 
 

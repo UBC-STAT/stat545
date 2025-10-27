@@ -1,10 +1,29 @@
 ---
 title: "Lecture 10: Dashboards with R Shiny"
-subtitle: "November 4, 2025"
-date-modified: last-modified
+subtitle: "STAT 545 - Fall 2025"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    auto-stretch: false
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - tidyverse
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
 ---
 
-This topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Learning Goals
 
 -   develop the user interface of a shiny app from scratch,
 
@@ -14,21 +33,9 @@ This topic aims to provide you with a foundation for making a shiny app. From th
 
 -   create interactive Shiny R Markdown documents (embed shiny features within an Rmd file).
 
-And possibly:
+[Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec10_shiny.html)
 
--   Make an interactive plot with plotly
-
--   Make an interactive data table with the `DT` package
-
-We will spend two classes creating a Shiny dashboard together.
-
-## Video Lecture
-
-{{< video https://www.youtube.com/watch?v=LqlxC661Pag >}}
-
-## Lecture Slides
-
--   [Lecture 10 - Dashboards with R Shiny](../slides/slidefiles/lec10_shiny_slides.qmd)
+[YouTube ](https://www.youtube.com/watch?v=4Y1OphsZSl0&t=2s)Video
 
 ## Why Dashboards?
 
@@ -44,15 +51,11 @@ Here are some examples of R Shiny Dashboards:
 
 -   <http://letsrun.com/shoes>
 
--   <http://daattali.com/shiny/cancer-data/>\
+-   <http://daattali.com/shiny/cancer-data/>
 
-Today, we'll be replicating this dashboard to explore BS Liquor Store prices, from Dean Attali:
-
--   <http://daattali.com/shiny/bcl/>
+## Initialize the Shiny App 
 
 To use Shiny, install it in your R Console with `install.packages("shiny")`.
-
-### Initialize the Shiny App 
 
 There are three basic components to a Shiny app:
 
@@ -61,6 +64,8 @@ There are three basic components to a Shiny app:
 -   a server (which does the app's computations)
 
 -   the app (assembles the app combining the UI and the server)
+
+## Initialize the Shiny App 
 
 A basic Shiny app may take the following form:
 
@@ -76,6 +81,8 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server) #do not include code past this point
 ```
+
+## Initialize the Shiny App 
 
 To generate a Shiny App, you can either go to "File" \> "New File" \> "Shiny Web App" in RStudio which will generate a template for you with a working example, or you can save the above code in a single file called "app.R".
 
@@ -129,21 +136,7 @@ shinyApp(ui = ui, server = server)
 
 You can click the "Run App" button to explore the demo. We see that there is a slider which the user can manipulate which changes the number of bins used to produce a histogram, which is updated live!
 
-For example, if you set the number of bins to 8, you will see:
-
-![](images/shiny1.png){fig-alt="Shiny App demonstrating a histogram with 8 bins"}
-
-Or you can slide the number of bins to 30 and you should see:
-
-![](images/shiny2.png){fig-alt="Shiny Demo where slider indicating number of bins is increased to 30"}
-
-We will go through the basics of this demo app, and then build another from scratch.
-
-::: callout-note
-For more complex apps, you can save the UI and server separately so long as they exist in the same directory. [More info here](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit?slide=id.gd565d6fc7_0_192#slide=id.gd565d6fc7_0_192).
-:::
-
-### Build the UI
+## Build the UI
 
 Inside of the `fluidPage()` function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:
 
@@ -172,9 +165,11 @@ ui <- fluidPage(
 )
 ```
 
-We see that within the `fluidPage()` function, we've defined a title and a sidebar with a slider that the user can manipulate the change around the number of bins in the histogram we wish to generate (this is an **input** that we will use to produce a plot). In the main panel (the main part of the app where the plot is shown in the images above), we are going to **output** a plot, which we will define in the `server()` function later. Here, we are just telling Shiny what goes where, but not calculating anything. There are more options for the UI that we will explore in our demo later.
+::: {#editable-box contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
+Notes:
+:::
 
-### Build the Server
+# Build the Server
 
 As stated previously, we've set up the UI of the app but we haven't really calculated anything. Recall the code from the R Studio template:
 
@@ -195,9 +190,11 @@ server <- function(input, output) {
 }
 ```
 
-We have a function that takes some **input** (in our case, the number of bins the user chose via the slider), and it **outputs** a histogram using the selected number of bins. Here, `hist()` is generating a histogram - the default is just not using `ggplot2` like we've used before in this class.
+::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
+Notes:
+:::
 
-### Generate the App
+## Generate the App
 
 The final part of the code is
 
@@ -208,22 +205,10 @@ shinyApp(ui = ui, server = server)
 
 which combines everything together and allows you to interact with the app!
 
+::: {contenteditable="true" style="border: 0.1px solid black; padding: 8px; font-size: 18px;"}
+Notes:
+:::
+
 ## Demo: BC Liquor Store Prices
 
 We will now follow along with [this tutorial by Dean Attali](https://deanattali.com/blog/building-shiny-apps-tutorial/) that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny.
-
-## Additional Resources
-
--   Video lecture: [How to Make a Shiny App in R](https://www.youtube.com/watch?v=rB4SJGyaGls)
--   [“Mastering Shiny”](https://mastering-shiny.org/) by Hadley Wickham gives a more comprehensive treatment.
--   The [official shiny site](https://shiny.rstudio.com/) has tutorials, a gallery, and other goodies.
--   For deploying shiny apps, check out <https://www.shinyapps.io/>
--   For shiny documents (= R Markdown + shiny), see [Chapter 19 of Yihui’s R Markdown book](https://bookdown.org/yihui/rmarkdown/shiny-documents.html).
--   For testing your shiny app, check out the [shinytest](https://rstudio.github.io/shinytest/) and [reactlog](https://github.com/rstudio/reactlog) packages.
--   For further cutting down on code repetition by “functionizing” your shiny app, check out [Emily Riederer’s beginner’s guide to Shiny modules](https://emilyriederer.netlify.app/post/shiny-modules/) for a gentle introduction and [Chapter 19 of the “Mastering Shiny” book](https://mastering-shiny.org/scaling-modules.html) for a full treatment.
-
-Other dashboard tools besides Shiny (but not in R):
-
--   With python: plotly dash. Check out the [main website](https://plotly.com/dash/), or [this Medium post](https://medium.com/plotly/introducing-dash-5ecf7191b503) introducing the tool.
-
--   With javascript: [D3](https://d3js.org/), a tremendously powerful tool with a steep learning curve (especially if you don’t know javascript).
