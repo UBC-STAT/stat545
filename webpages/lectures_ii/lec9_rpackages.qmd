@@ -22,7 +22,7 @@ From this topic, students are anticipated to be able to build a basic R package,
 
 ## Video Lecture
 
-\<{{ video https://youtu.be/4Y1OphsZSl0 }}\>
+{{< video https://youtu.be/4Y1OphsZSl0 >}}
 
 ## Lecture Slides
 

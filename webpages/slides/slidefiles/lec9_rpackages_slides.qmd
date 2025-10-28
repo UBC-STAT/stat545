@@ -1,5 +1,5 @@
 ---
-title: "Lecture 9: R Packaages"
+title: "Lecture 9: R Packages"
 subtitle: "STAT 545 - Fall 2025"
 format: 
   live-revealjs:
