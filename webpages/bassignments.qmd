@@ -1,0 +1,10 @@
+---
+title: "Worksheets"
+date-modified: last-modified
+---
+
+| Assignment Link | Release Date | Due Date (11:59pm PT) |
+|----|----|----|
+| [Assignment 1](https://canvas.ubc.ca/courses/170035/assignments/2242181) | Tuesday Oct 21, 2025 | Tuesday Nov 4, 2025 |
+| Assignment 2 | Tuesday Nov 4, 2025 | Tuesday Nov 18, 2025 |
+| Assignment 3 | Thursday Nov 18, 2025 | Thursday Dec 4, 2025 |

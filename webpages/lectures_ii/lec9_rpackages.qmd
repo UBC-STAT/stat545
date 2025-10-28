@@ -161,8 +161,6 @@ First, make a minimal viable product:
         ```
         ````
 
-    <!-- -->
-
     -   Render the README every time with `build_readme()`.
 
 -   Document the function:

@@ -23,8 +23,8 @@ website:
         text: "Worksheets"
       - sidebar:collabproj
       - sidebar:mda
-      # - href: webpages/casestudies.qmd
-      #   text: "Case Studies"
+      - href: webpages/bassignments.qmd
+        text: "Assignments (Part B)"
       - href: webpages/faq.qmd
         text: "FAQ"
         

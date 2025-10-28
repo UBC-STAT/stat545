@@ -38,7 +38,7 @@ Worksheets are produced with Jupyter Notebooks. For installation instructions, s
 ### **STAT 545 B:**
 
 | Worksheet | Release Date | Due Date (11:59PM PT) |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | [Worksheet B1](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/worksheets_student/worksheet_b01.ipynb) | Monday Oct 20, 2025 | Monday Oct 27, 2025 |
 | Worksheet B2 | Friday Nov 14, 2025 | Monday Nov 24, 2025 |
 | Worksheet B3 | Tuesday Nov 25, 2025 | Thursday Dec 4, 2025 |
