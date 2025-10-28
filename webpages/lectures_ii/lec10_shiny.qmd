@@ -52,7 +52,7 @@ Today, we'll be replicating this dashboard to explore BS Liquor Store prices, fr
 
 To use Shiny, install it in your R Console with `install.packages("shiny")`.
 
-### Initialize the Shiny App 
+### Initialize the Shiny App
 
 There are three basic components to a Shiny app:
 
@@ -64,7 +64,7 @@ There are three basic components to a Shiny app:
 
 A basic Shiny app may take the following form:
 
-``` R
+``` r
 library(shiny)
 
 ui <- fluidPage()
@@ -81,7 +81,7 @@ To generate a Shiny App, you can either go to "File" \> "New File" \> "Shiny Web
 
 If you generated the template using R Studio, the following code will appear:
 
-``` R
+``` r
 
 library(shiny)
 
@@ -147,7 +147,7 @@ For more complex apps, you can save the UI and server separately so long as they
 
 Inside of the `fluidPage()` function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:
 
-``` R
+``` r
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
@@ -178,7 +178,7 @@ We see that within the `fluidPage()` function, we've defined a title and a sideb
 
 As stated previously, we've set up the UI of the app but we haven't really calculated anything. Recall the code from the R Studio template:
 
-``` R
+``` r
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
@@ -201,7 +201,7 @@ We have a function that takes some **input** (in our case, the number of bins th
 
 The final part of the code is
 
-``` R
+``` r
 # Run the application 
 shinyApp(ui = ui, server = server)
 ```

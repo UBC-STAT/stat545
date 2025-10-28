@@ -35,7 +35,7 @@ engine: webr
 
 [Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec10_shiny.html)
 
-[YouTube ](https://www.youtube.com/watch?v=4Y1OphsZSl0&t=2s)Video
+[YouTube](https://www.youtube.com/watch?v=4Y1OphsZSl0&t=2s)Video
 
 ## Why Dashboards?
 
@@ -53,7 +53,7 @@ Here are some examples of R Shiny Dashboards:
 
 -   <http://daattali.com/shiny/cancer-data/>
 
-## Initialize the Shiny App 
+## Initialize the Shiny App
 
 To use Shiny, install it in your R Console with `install.packages("shiny")`.
 
@@ -65,11 +65,11 @@ There are three basic components to a Shiny app:
 
 -   the app (assembles the app combining the UI and the server)
 
-## Initialize the Shiny App 
+## Initialize the Shiny App
 
 A basic Shiny app may take the following form:
 
-``` R
+``` r
 library(shiny)
 
 ui <- fluidPage()
@@ -82,13 +82,13 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server) #do not include code past this point
 ```
 
-## Initialize the Shiny App 
+## Initialize the Shiny App
 
 To generate a Shiny App, you can either go to "File" \> "New File" \> "Shiny Web App" in RStudio which will generate a template for you with a working example, or you can save the above code in a single file called "app.R".
 
 If you generated the template using R Studio, the following code will appear:
 
-``` R
+``` r
 
 library(shiny)
 
@@ -140,7 +140,7 @@ You can click the "Run App" button to explore the demo. We see that there is a s
 
 Inside of the `fluidPage()` function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:
 
-``` R
+``` r
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
@@ -173,7 +173,7 @@ Notes:
 
 As stated previously, we've set up the UI of the app but we haven't really calculated anything. Recall the code from the R Studio template:
 
-``` R
+``` r
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
@@ -198,7 +198,7 @@ Notes:
 
 The final part of the code is
 
-``` R
+``` r
 # Run the application 
 shinyApp(ui = ui, server = server)
 ```
