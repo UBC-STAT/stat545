@@ -124,24 +124,13 @@ First, make a minimal viable product:
 
     -   Run `use_readme_rmd()` in the Console.
 
-    -   Open the RMD file and add some information for the package.
+    -   Open the RMD file.
 
-        ```` Markdown
-        ---
-        output: github_document
-        ---
+    -   **Do not delete the** `knitr::opts_chunk` chunk. Edit the information below it:
 
-        <!-- README.md is generated from README.Rmd. Please edit that file -->
+    -   
 
-        ```{r, include = FALSE}
-        knitr::opts_chunk$set(
-          collapse = TRUE,
-          comment = "#>",
-          fig.path = "man/figures/README-",
-          out.width = "100%"
-        )
-        ```
-
+        ``` markdown
         # powers Package
 
         This is a minimal working example of my first R Package for STAT545!
@@ -154,12 +143,12 @@ First, make a minimal viable product:
         ## Example
 
         This is a basic example which shows you how to solve a common problem:
+        ```
 
-        ```{r example}
+        ```{{r example}}
         library(powers)
         square(c(2,4,5))
         ```
-        ````
 
     -   Render the README every time with `build_readme()`.
 
