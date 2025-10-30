@@ -126,7 +126,7 @@ First, make a minimal viable product:
 
     -   Open the RMD file and add some information for the package.
 
-        ````         
+        ```` Markdown
         ---
         output: github_document
         ---
