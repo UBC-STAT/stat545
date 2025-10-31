@@ -56,10 +56,10 @@ From Milestone 1, you should have an idea of the basic structure of your dataset
 First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:
 
 <!-------------------------- Start your work below ---------------------------->
-1. *FILL_THIS_IN*
-2. *FILL_THIS_IN*
-3. *FILL_THIS_IN*
-4. *FILL_THIS_IN*
+1. what are the difference of tumor size and characteristics between malignant and benign diagnoses?
+2. could we distinguish different diagnoses by specific cell texture features. 
+3. could it be more accurate if we group the features to distinguish diagnoses.
+4. What is the correlation of the features in the dataset and is the relationship differ by diagnoses?
 <!----------------------------------------------------------------------------->
 
 Here, we will investigate your data using various data manipulation and graphing functions.
@@ -92,6 +92,90 @@ Using variables and/or tables you made in one of the "Summarizing" tasks:
 Make sure it's clear what research question you are doing each operation for!
 
 <!------------------------- Start your work below ----------------------------->
+#Research question 1:
+#Summarizing 1
+size_summary <- cancer_sample %>%
+  group_by(diagnosis) %>%
+  summarise(
+    mean_radius = mean(radius_mean, na.rm = TRUE),
+    sd_radius = sd(radius_mean, na.rm = TRUE),
+    min_radius = min(radius_mean, na.rm = TRUE),
+    max_radius = max(radius_mean, na.rm = TRUE)
+  )
+size_summary
+#Comments:This summary quantifies can answer if the tumor radius between benign and malignant tumors are different or not.
+#Graphing 1
+ggplot(cancer_sample, aes(x = diagnosis, y = radius_mean, fill = diagnosis)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) +
+  geom_jitter(width = 0.2, alpha = 0.3, color = "black") +
+  labs(title = "Distribution of Mean Radius by Diagnosis",
+       x = "Diagnosis", y = "Mean Radius (µm)") +
+  theme_minimal()
+#Comments:The boxplot and points can clearly show that the higher radius values in different tumors; visualization confirmation of the summary statistics above.
+
+#Research question 2:
+#Summarizing 4
+texture_group <- cancer_sample %>%
+  mutate(high_concavity = if_else(concavity_mean > 0.1, "High", "Low")) %>%
+  group_by(diagnosis, high_concavity) %>%
+  summarise(count = n()) %>%
+  mutate(prop = count / sum(count))
+texture_group
+#Comments: By categorizing concavity into “High” and “Low" (binary variable), we can see the proportion of cases (different tumors) in “High” and “Low" concavity groups. Support our hypothesis that cell surface irregularity is a diagnostic indicator.
+#Graphing 7
+ggplot(cancer_sample, aes(x = smoothness_mean, y = concavity_mean, color = diagnosis)) +
+  geom_point(alpha = 0.5) +
+  labs(title = "Smoothness vs. Concavity by Diagnosis",
+       x = "Mean Smoothness", y = "Mean Concavity") +
+  theme_minimal()
+#Comments: adjusting alpha transparency for better visualization. Different tumors will have different values.
+
+#Research question 3:
+#Summarizing 3
+cancer_sample <- cancer_sample %>%
+  mutate(radius_area_ratio = radius_mean / area_mean,
+         ratio_category = case_when(
+           radius_area_ratio < 0.0025 ~ "Low",
+           radius_area_ratio < 0.0030 ~ "Medium",
+           TRUE ~ "High"
+         ))
+
+ratio_summary <- cancer_sample %>%
+  count(diagnosis, ratio_category) %>%
+  group_by(diagnosis) %>%
+  mutate(prop = n / sum(n))
+ratio_summary
+#Comments:Creating a categorical ratio variable helps standardize tumor size and shape.
+#Graphing 6
+ggplot(cancer_sample, aes(x = radius_area_ratio, y = area_mean, color = diagnosis)) +
+  geom_point(alpha = 0.6) +
+  scale_y_log10(labels = scales::comma) +
+  labs(title = "Relationship between Area and Radius/Area Ratio",
+       x = "Radius-to-Area Ratio", y = "Mean Area (log scale)") +
+  theme_minimal()
+#Comments:Using a log scale makes the wide range of area values.
+
+#Research question 4:
+#Summarizing 2
+diagnosis_counts <- cancer_sample %>%
+  count(diagnosis)
+diagnosis_counts
+#Comments: Count number of observations
+#Graphing 9
+p1 <- ggplot(cancer_sample, aes(x = texture_mean)) +
+  geom_histogram(bins = 10, fill = "skyblue", color = "white") +
+  ggtitle("10 Bins")
+p2 <- ggplot(cancer_sample, aes(x = texture_mean)) +
+  geom_histogram(bins = 30, fill = "lightgreen", color = "white") +
+  ggtitle("30 Bins")
+p3 <- ggplot(cancer_sample, aes(x = texture_mean)) +
+  geom_histogram(bins = 60, fill = "salmon", color = "white") +
+  ggtitle("60 Bins")
+p1; p2; p3
+#Comments:Compare histogram bin widths; binning for a balance between detailed and continuous.
+
+
+
 
 <!----------------------------------------------------------------------------->
 
@@ -100,6 +184,12 @@ Make sure it's clear what research question you are doing each operation for!
 Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? Which research questions are yielding interesting results?
 
 <!------------------------- Write your answer here ---------------------------->
+
+I am closer to answering some of my research questions.  
+Q1. Size features like radius and area are clearly larger in malignant tumors (mostly answered).
+Q2. Malignant tumors tend to have higher concavity, but the difference is not very clear (more work is needed).
+Q3. The radius-to-area ratio looks useful for distinguishing tumor types (good).
+Q4. I saw correlations among features (good).  
 
 
 <!----------------------------------------------------------------------------->
@@ -119,6 +209,11 @@ A reminder of the definition of *tidy* data:
 Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have \>8 variables, just pick 8, and explain whether the data is untidy or tidy.
 
 <!--------------------------- Start your work below --------------------------->
+The `cancer_sample` dataset is almost tidy because:
+
+- Each row represents one tumor sample (**observation**).  
+- Each column represents one measured variable (**variable**).  
+- Each cell contains a single value (**value**).
 
 <!----------------------------------------------------------------------------->
 
@@ -131,6 +226,39 @@ If your data is untidy, then tidy it! Then, untidy it back to it's original stat
 Be sure to explain your reasoning for this task. Show us the "before" and "after".
 
 <!--------------------------- Start your work below --------------------------->
+#My data is already tidy. I will make it untidy by spreading a single variable across multiple columns. Then, I will tidy it back to the original tidy structure.
+
+library(datateachr)
+library(tidyverse)
+
+#tidy one
+tidy_subset <- cancer_sample %>%
+  select(id, diagnosis, radius_mean, area_mean, texture_mean)
+
+# Show the "before" (tidy)
+head(tidy_subset, 5)
+
+# untidy it
+untidy <- tidy_subset %>%
+  pivot_wider(
+    names_from = diagnosis,                     # Benign / Malignant become part of column names
+    values_from = c(radius_mean, area_mean, texture_mean)  # variables are split across diagnosis columns
+  )
+
+# Show the "after" (untidy)
+head(untidy, 5)
+
+#tidy back
+retidied <- untidy %>%
+  pivot_longer(
+    cols = matches("^(radius_mean|area_mean|texture_mean)"),
+    names_to = c(".value", "diagnosis"),  # .value keeps variable names; second part becomes diagnosis
+    names_sep = "_"
+  ) %>%
+  select(id, diagnosis, radius_mean, area_mean, texture_mean)
+
+# Show the retidied result
+head(retidied, 5)
 
 <!----------------------------------------------------------------------------->
 
@@ -140,15 +268,15 @@ Now, you should be more familiar with your data, and also have made progress in 
 
 <!-------------------------- Start your work below ---------------------------->
 
-1.  *FILL_THIS_IN*
-2.  *FILL_THIS_IN*
+1.  *How do tumor size characteristics differ between malignant and benign diagnoses?*
+2.  *Can combinations of cell features provide additional insights into distinguishing the benign and malignant tumors?*
 
 <!----------------------------------------------------------------------------->
 
 Explain your decision for choosing the above two research questions.
 
 <!--------------------------- Start your work below --------------------------->
-
+#I chose these two research questions because they showed the easily interpretable results.
 <!----------------------------------------------------------------------------->
 
 Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelevant columns, etc.).
@@ -182,7 +310,12 @@ Fit a model or run a hypothesis test that provides insight on this variable with
     -   You could use `lm()` to test for significance of regression coefficients.
 
 <!-------------------------- Start your work below ---------------------------->
+For my analysis, I will use **Research Question 1**:  
+*How do tumor size characteristics differ between malignant and benign diagnoses?*
 
+To explore this, I will run a t-test comparing the mean tumor radius between benign and malignant groups. This will help determine if the difference observed is statistically significant.
+t_radius <- t.test(radius_mean ~ diagnosis, data = cancer_sample)
+t_radius
 <!----------------------------------------------------------------------------->
 
 ## 3.2 (3 points)
@@ -194,7 +327,12 @@ Produce something relevant from your fitted model: either predictions on Y, or a
 -   Obtain your results using the `broom` package if possible. If your model is not compatible with the broom function you're needing, then you can obtain your results by some other means, but first indicate which broom function is not compatible.
 
 <!-------------------------- Start your work below ---------------------------->
+From the t-test in 3.1, I will extract the **p-value** and the **difference in group means** using the `broom` package to produce a tidy summary table. These values show how significantly the two groups differ in mean tumor radius.
 
+library(broom)
+
+t_radius_tidy <- tidy(t_radius)
+t_radius_tidy
 <!----------------------------------------------------------------------------->
 
 # Task 4: Reading and writing data
@@ -209,7 +347,20 @@ Take a summary table that you made from Task 1, and write it as a csv file in yo
 -   **Reproducibility criteria**: You should be able to delete the csv file, and remake it simply by knitting this Rmd file.
 
 <!-------------------------- Start your work below ---------------------------->
+Here, I will save the **summary table** from Task 1 (`size_summary`), which contains the mean, standard deviation, and range of tumor radius by diagnosis.  
+I will use the `here::here()` function to ensure the file path remains **robust** and **reproducible**.
 
+library(here)
+
+# Create output folder if it doesn't exist
+if(!dir.exists(here("output"))) {
+  dir.create(here("output"))
+}
+
+# Write the summary table to a CSV file
+write_csv(size_summary, here("output", "tumor_size_summary.csv"))
+
+list.files(here("output"))
 <!----------------------------------------------------------------------------->
 
 ## 4.2 (3 points)
@@ -219,7 +370,17 @@ Write your model object from Task 3 to an R binary file (an RDS), and load it ag
 -   The same robustness and reproducibility criteria as in 4.1 apply here.
 
 <!-------------------------- Start your work below ---------------------------->
+I will save the **t-test model object** (`t_radius`) from Task 3 as an R binary file (`.rds`) inside the `output` folder and read it on R to confirm that it loads correctly.  
+This ensures both **robustness** and **reproducibility** in storing and reusing model objects.
 
+# Save the model object
+saveRDS(t_radius, here("output", "t_radius_model.rds"))
+
+# Load the model back into R
+t_radius_loaded <- readRDS(here("output", "t_radius_model.rds"))
+
+# Print to confirm it loaded correctly
+t_radius_loaded
 <!----------------------------------------------------------------------------->
 
 # Overall Reproducibility/Cleanliness/Coherence Checklist 
