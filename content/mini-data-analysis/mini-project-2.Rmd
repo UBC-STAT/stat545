@@ -7,24 +7,24 @@ output: html_document
 
 # Welcome to the rest of your mini data analysis project!
 
-In Milestone 1, you explored your data. and came up with research questions. This time, we will finish up our mini data analysis and obtain results for your data by: 
+In Milestone 1, you explored your data. and came up with research questions. This time, we will finish up our mini data analysis and obtain results for your data by:
 
-- Making summary tables and graphs 
-- Manipulating special data types in R: factors and/or dates and times.
+-   Making summary tables and graphs
+-   Manipulating special data types in R: factors and/or dates and times.
 -   Fitting a model object to your data, and extract a result.
 -   Reading and writing data as separate files.
 
-We will also explore more in depth the concept of *tidy data.* 
+We will also explore more in depth the concept of *tidy data.*
 
-**NOTE**: The main purpose of the mini data analysis is to integrate what you learn in class in an analysis. Although each milestone provides a framework for you to conduct your analysis, it's possible that you might find the instructions too rigid for your data set. If this is the case, you may deviate from the instructions -- just make sure you're demonstrating a wide range of tools and techniques taught in this class, and indicate *why* you had to deviate. Feel free to contact the instructor in these cases. 
+**NOTE**: The main purpose of the mini data analysis is to integrate what you learn in class in an analysis. Although each milestone provides a framework for you to conduct your analysis, it's possible that you might find the instructions too rigid for your data set. If this is the case, you may deviate from the instructions -- just make sure you're demonstrating a wide range of tools and techniques taught in this class, and indicate *why* you had to deviate. Feel free to contact the instructor in these cases.
 
 # Instructions
 
-**To complete this milestone**, edit [this very `.Rmd` file](https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/mini-data-analysis/mini-project-2.Rmd) directly. Fill in the sections that are tagged with `<!--- start your work here--->`.
+**To complete this milestone**, edit this .Rmd directly. Fill in the sections that are tagged with `<!--- start your work here--->`.
 
 **To submit this milestone**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.
 
-**Points**: This milestone is worth 50 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission. 
+**Points**: This milestone is worth 50 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission.
 
 **Research Questions**: In Milestone 1, you chose four research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don't align well with one of your research questions, feel free to discuss your results in the context of a different research question.
 
@@ -47,64 +47,113 @@ library(datateachr) # <- might contain the data you picked!
 library(tidyverse)
 ```
 
-# Task 1: Process and summarize your data 
+# Task 1: Process and summarize your data
 
-From Milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions. 
+From Milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.
 
-### 1.1 (1 point) 
+### 1.1: Write Research Questions (1 point)
 
-First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:
+First, write out the 4 research questions you defined in Milestone 1 were. If you'd like to refine them, you can do some here and just write the new question. This will guide your work through Milestone 2:
 
 <!-------------------------- Start your work below ---------------------------->
-1. *FILL_THIS_IN*
-2. *FILL_THIS_IN*
-3. *FILL_THIS_IN*
-4. *FILL_THIS_IN*
+
+1.  *FILL_THIS_IN*
+
+2.  *FILL_THIS_IN*
+
+3.  *FILL_THIS_IN*
+
+4.  *FILL_THIS_IN*
+
 <!----------------------------------------------------------------------------->
 
-Here, we will investigate your data using various data manipulation and graphing functions.
+### 1.2: Perform 2 Tasks Per Research Question (8 points)
 
-### 1.2 (8 points)
-
-Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don't use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn't!) answer the corresponding research question.
+Now, for *each* of your four research questions, choose one task in the Summarizing category, and one other task from Graphing. You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don't use a numerical variables for a task that needs a categorical variable.). Be explicit with which task you are performing and comment on why each task helps (or doesn't!) answer the corresponding research question.
 
 Ensure that the output of each operation is printed!
 
-Also make sure that you're using dplyr and ggplot2 rather than base R. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that's just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.
+Also make sure that you're using `dplyr` and `ggplot2` rather than base R. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that's just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.
 
 **Summarizing:**
 
-1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
-2.  Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
-3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
-4. Compute the proportion and counts in each category of one categorical variable across the groups of another categorical variable from your data. Do not use the function `table()`!
+-   S1. Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
+
+-   S2. Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
+
+-   S3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! (Example: turn age in years into "child, teen, adult, senior".)
+
+-   S4. Create a categorical variable that condenses an existing categorical variable (Ex: group grades 1 - 12 into "elementary", "middle", "high school")
+
+-   S5. Compute the proportion and counts in each category of one categorical variable across the groups of another categorical variable from your data. Do not use the function `table()`!
 
 **Graphing:**
 
-6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
-7. Make a graph where it makes sense to customize the alpha transparency.
+-   G1. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are easier to read but still say what is being measured (log-scaled).
 
-Using variables and/or tables you made in one of the "Summarizing" tasks: 
+-   G2. Make a graph where it makes sense to customize the alpha transparency.
 
-8. Create a graph that has at least two geom layers. 
-9. Create 3 histograms, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+-   G3. Create a graph that has at least two geom layers.
 
-Make sure it's clear what research question you are doing each operation for!
+-   G4. Create 3 histograms, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+
+-   G5: Create a graph where you use a colourblind-friendly palette G6: Create a plot that involves facets (sub-panels)
+
+Make sure it's clear what tasks you are doing for each research question!
 
 <!------------------------- Start your work below ----------------------------->
 
+**Research Question 1:**
+
+Task:
+
+Task:
+
+```{r}
+
+```
+
+**Research Question 2:**
+
+Task:
+
+Task:
+
+```{r}
+
+```
+
+**Research Question 3:**
+
+Task:
+
+Task:
+
+```{r}
+
+```
+
+**Research Question 4:**
+
+Task:
+
+Task:
+
+```{r}
+
+```
+
 <!----------------------------------------------------------------------------->
 
-### 1.3 (2 points)
+### 1.3 Refining Your Research Questions (2 points)
 
 Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? Which research questions are yielding interesting results?
 
 <!------------------------- Write your answer here ---------------------------->
 
-
 <!----------------------------------------------------------------------------->
 
-# Task 2: Tidy your data 
+# Task 2: Tidy your data
 
 In this task, we will do several exercises to reshape our data. The goal here is to understand how to do this reshaping with the `tidyr` package.
 
@@ -116,13 +165,15 @@ A reminder of the definition of *tidy* data:
 
 ### 2.1 (2 points)
 
-Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have \>8 variables, just pick 8, and explain whether the data is untidy or tidy.
+You may have manipulated and cleaned your data up to this point. So, using any version of your data, select 8 columns (if your data has less, use the entire data set). Show a few rows of the reduced dataset using `head()`.
+
+Based on the definition above, can you identify if this dataset is tidy or untidy? Go through all the columns, and explain whether the data is untidy or tidy in the context of your research question.
 
 <!--------------------------- Start your work below --------------------------->
 
 <!----------------------------------------------------------------------------->
 
-### 2.2 (4 points)
+### 2.2 Tidying/Untidying (4 points)
 
 Now, if your data is tidy, untidy it! Then, tidy it back to it's original state.
 
@@ -134,7 +185,7 @@ Be sure to explain your reasoning for this task. Show us the "before" and "after
 
 <!----------------------------------------------------------------------------->
 
-### 2.3 (4 points)
+### 2.3 Narrow Your Research Questions (4 points)
 
 Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in the remaining tasks:
 
@@ -151,15 +202,17 @@ Explain your decision for choosing the above two research questions.
 
 <!----------------------------------------------------------------------------->
 
-Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelevant columns, etc.).
+Now, try to create a version of your data that you think will be appropriate to answer these 2 questions (i.e. by filtering, cleaning, tidy'ing, dropping irrelevant columns, etc.). If you don't need to do anything, explain why.
 
-(If it makes more sense, then you can make/pick two versions of your data, one for each research question.) 
+(If it makes more sense, then you can make/pick two versions of your data, one for each research question.)
 
 <!--------------------------- Start your work below --------------------------->
 
+<!----------------------------------------------------------------------------->
+
 # Task 3: Modelling
 
-## 3.0 (no points)
+### 3.0: Select One Research Question (no points)
 
 Pick a research question from 1.2, and pick a variable of interest (we'll call it "Y") that's relevant to the research question. Indicate these.
 
@@ -171,7 +224,7 @@ Pick a research question from 1.2, and pick a variable of interest (we'll call i
 
 <!----------------------------------------------------------------------------->
 
-## 3.1 (3 points)
+### 3.1: Fit a Model (3 points)
 
 Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We'll omit having to justify your choice, because we don't expect you to know about model specifics in STAT 545.
 
@@ -185,7 +238,7 @@ Fit a model or run a hypothesis test that provides insight on this variable with
 
 <!----------------------------------------------------------------------------->
 
-## 3.2 (3 points)
+### 3.2: Investigate Your Model (3 points)
 
 Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.
 
@@ -201,7 +254,7 @@ Produce something relevant from your fitted model: either predictions on Y, or a
 
 Get set up for this exercise by making a folder called `output` in the top level of your project folder / repository. You'll be saving things there.
 
-## 4.1 (3 points)
+### 4.1 Output Using `here()` (3 points)
 
 Take a summary table that you made from Task 1, and write it as a csv file in your `output` folder. Use the `here::here()` function.
 
@@ -212,7 +265,7 @@ Take a summary table that you made from Task 1, and write it as a csv file in yo
 
 <!----------------------------------------------------------------------------->
 
-## 4.2 (3 points)
+### 4.2 Input Using `here()` (3 points)
 
 Write your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder. Use the functions `saveRDS()` and `readRDS()`.
 
@@ -222,17 +275,17 @@ Write your model object from Task 3 to an R binary file (an RDS), and load it ag
 
 <!----------------------------------------------------------------------------->
 
-# Overall Reproducibility/Cleanliness/Coherence Checklist 
+# Overall Reproducibility/Cleanliness/Coherence Checklist
 
 Here are the criteria we're looking for.
 
-## Coherence (0.5 points)
+### Coherence (0.5 points)
 
-The document should read sensibly from top to bottom, with no major continuity errors. 
+The document should read sensibly from top to bottom, with no major continuity errors.
 
-The README file should still satisfy the criteria from the last milestone, i.e. it has been updated to match the changes to the repository made in this milestone. 
+The README file should still satisfy the criteria from the last milestone, i.e. it has been updated to match the changes to the repository made in this milestone.
 
-## File and folder structure (1 points)
+### File and folder structure (1 points)
 
 You should have at least three folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.
 
@@ -240,18 +293,17 @@ Each milestone document is contained in its respective folder, and nowhere else.
 
 Every level-1 folder (that is, the ones stored in the top level, like "Milestone1" and "output") has a `README` file, explaining in a sentence or two what is in the folder, in plain language (it's enough to say something like "This folder contains the source for Milestone 1").
 
-## Output (1 point)
+### Output (1 point)
 
 All output is recent and relevant:
 
--   All Rmd files have been `knit`ted to their output md files. 
+-   All Rmd files have been `knit`ted to their output md files.
 -   All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, "Sorry about that, but we can't show files that are this big right now" messages, error messages from broken R code
 -   All of these output files are up-to-date -- that is, they haven't fallen behind after the source (Rmd) files have been updated.
 -   There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.
 
 Our recommendation: delete all output files, and re-knit each milestone's Rmd file, so that everything is up to date and relevant.
 
-## Tagged release (0.5 point)
+### Tagged release (0.5 point)
 
-You've tagged a release for Milestone 2. 
-
+You've tagged a release for Milestone 2.

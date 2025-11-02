@@ -211,6 +211,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_ii/lec9_rpackages.html">
  <span class="dropdown-text">Lecture 9: R Packages</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec10_shiny.html">
+ <span class="dropdown-text">Lecture 10: Dashboards with R Shiny</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -294,20 +298,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#for-milestone-1" id="toc-for-milestone-1" class="nav-link" data-scroll-target="#for-milestone-1">For Milestone 1</a></li>
   </ul></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#task-1-choose-your-favorite-dataset" id="toc-task-1-choose-your-favorite-dataset" class="nav-link" data-scroll-target="#task-1-choose-your-favorite-dataset">Task 1: Choose your favorite dataset</a></li>
+  <li><a href="#task-1-choose-your-favorite-dataset" id="toc-task-1-choose-your-favorite-dataset" class="nav-link" data-scroll-target="#task-1-choose-your-favorite-dataset">Task 1: Choose your favorite dataset</a>
+  <ul class="collapse">
+  <li><a href="#choose-4-datasets-1-point" id="toc-choose-4-datasets-1-point" class="nav-link" data-scroll-target="#choose-4-datasets-1-point">1.1: Choose 4 Datasets <strong>(1 point)</strong></a></li>
+  <li><a href="#explore-the-data-6-points" id="toc-explore-the-data-6-points" class="nav-link" data-scroll-target="#explore-the-data-6-points">1.2: Explore the Data <strong>(6 points)</strong></a></li>
+  <li><a href="#choose-1-dataset-1-point" id="toc-choose-1-dataset-1-point" class="nav-link" data-scroll-target="#choose-1-dataset-1-point">1.3: Choose 1 Dataset <strong>(1 point)</strong></a></li>
+  <li><a href="#research-question-2-points" id="toc-research-question-2-points" class="nav-link" data-scroll-target="#research-question-2-points">1.4: Research Question <strong>(2 points)</strong></a></li>
+  </ul></li>
   <li><a href="#important-note" id="toc-important-note" class="nav-link" data-scroll-target="#important-note">Important note</a></li>
-  <li><a href="#task-2-exploring-your-dataset" id="toc-task-2-exploring-your-dataset" class="nav-link" data-scroll-target="#task-2-exploring-your-dataset">Task 2: Exploring your dataset</a></li>
-  <li><a href="#task-3-choose-research-questions" id="toc-task-3-choose-research-questions" class="nav-link" data-scroll-target="#task-3-choose-research-questions">Task 3: Choose research questions</a></li>
+  <li><a href="#task-2-further-exploring-your-chosen-dataset" id="toc-task-2-further-exploring-your-chosen-dataset" class="nav-link" data-scroll-target="#task-2-further-exploring-your-chosen-dataset">Task 2: Further Exploring Your Chosen Dataset</a>
+  <ul class="collapse">
+  <li><a href="#complete-4-tasks-12-points" id="toc-complete-4-tasks-12-points" class="nav-link" data-scroll-target="#complete-4-tasks-12-points">2.1: Complete 4 Tasks <strong>(12 points)</strong></a></li>
+  <li><a href="#explain-the-four-chosen-tasks-4-points" id="toc-explain-the-four-chosen-tasks-4-points" class="nav-link" data-scroll-target="#explain-the-four-chosen-tasks-4-points">2.2: Explain the Four Chosen Tasks <strong>(4 points)</strong></a></li>
+  </ul></li>
+  <li><a href="#task-3-narrow-your-research-topic" id="toc-task-3-narrow-your-research-topic" class="nav-link" data-scroll-target="#task-3-narrow-your-research-topic">Task 3: Narrow Your Research Topic</a>
+  <ul class="collapse">
+  <li><a href="#choose-4-research-questions-4-points" id="toc-choose-4-research-questions-4-points" class="nav-link" data-scroll-target="#choose-4-research-questions-4-points">3.0: Choose 4 Research Questions <strong>(4 points)</strong></a></li>
+  </ul></li>
   <li><a href="#overall-reproducibilitycleanlinesscoherence-checklist" id="toc-overall-reproducibilitycleanlinesscoherence-checklist" class="nav-link" data-scroll-target="#overall-reproducibilitycleanlinesscoherence-checklist">Overall reproducibility/Cleanliness/Coherence Checklist</a>
   <ul class="collapse">
   <li><a href="#coherence-0.5-points" id="toc-coherence-0.5-points" class="nav-link" data-scroll-target="#coherence-0.5-points">Coherence (0.5 points)</a></li>
   <li><a href="#error-free-code-3-points" id="toc-error-free-code-3-points" class="nav-link" data-scroll-target="#error-free-code-3-points">Error-free code (3 points)</a></li>
   <li><a href="#main-readme-1-point" id="toc-main-readme-1-point" class="nav-link" data-scroll-target="#main-readme-1-point">Main README (1 point)</a></li>
   <li><a href="#output-1-point" id="toc-output-1-point" class="nav-link" data-scroll-target="#output-1-point">Output (1 point)</a></li>
-  <li><a href="#tagged-release-0.5-points" id="toc-tagged-release-0.5-points" class="nav-link" data-scroll-target="#tagged-release-0.5-points">Tagged release (0.5 points)</a>
-  <ul class="collapse">
-  <li><a href="#attribution" id="toc-attribution" class="nav-link" data-scroll-target="#attribution">Attribution</a></li>
-  </ul></li>
+  <li><a href="#tagged-release-0.5-points" id="toc-tagged-release-0.5-points" class="nav-link" data-scroll-target="#tagged-release-0.5-points">Tagged release (0.5 points)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -363,13 +377,13 @@ devtools::install_github("UBC-MDS/datateachr")</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
-<li>Make a repository in the <a href="https://github.com/stat545ubc-2024" class="uri">https://github.com/stat545ubc-2024</a> Organization. You can do this by following the steps found on canvas in the entry called <a href="https://canvas.ubc.ca/courses/158528/pages/mda-create-a-repository">MDA: Create a repository</a>. One completed, your repository should automatically be listed as part of the stat545ubc-2024 Organization.</li>
+<li>Make a repository in our Github Classroom Organization. You can do this by following the steps found on canvas in the entry called <a href="https://canvas.ubc.ca/courses/158528/pages/mda-create-a-repository">MDA: Create a repository</a>. One completed, your repository should automatically be listed as part of the stat545ubc-2025 Organization.</li>
 </ol>
 </section>
 <section id="instructions" class="level1">
 <h1>Instructions</h1>
-<section id="for-both-milestones" class="level2">
-<h2 class="anchored" data-anchor-id="for-both-milestones">For Both Milestones</h2>
+<section id="for-both-milestones" class="level3">
+<h3 class="anchored" data-anchor-id="for-both-milestones">For Both Milestones</h3>
 <ul>
 <li><p>Each milestone has explicit tasks. Tasks that are more challenging will often be allocated more points.</p></li>
 <li><p>Each milestone will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission.</p></li>
@@ -377,9 +391,9 @@ devtools::install_github("UBC-MDS/datateachr")</code></pre>
 <li><p>The milestones will be equally weighted.</p></li>
 </ul>
 </section>
-<section id="for-milestone-1" class="level2">
-<h2 class="anchored" data-anchor-id="for-milestone-1">For Milestone 1</h2>
-<p><strong>To complete this milestone</strong>, edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
+<section id="for-milestone-1" class="level3">
+<h3 class="anchored" data-anchor-id="for-milestone-1">For Milestone 1</h3>
+<p><strong>To complete this milestone</strong>, edit this .Rmd file directly. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
 <p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
 <p><strong>Points</strong>: This milestone is worth 36 points: 30 for your analysis, and 6 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
 </section>
@@ -412,101 +426,132 @@ devtools::install_github("UBC-MDS/datateachr")</code></pre>
 <li><p>Before choosing a dataset, you should always keep in mind <strong>your goal</strong>, or in other ways, <em>what you wish to achieve with this data</em>. This mini data-analysis project focuses on <em>data wrangling</em>, <em>tidying</em>, and <em>visualization</em>. In short, it’s a way for you to get your feet wet with exploring data on your own.</p></li>
 </ul>
 <p>And that is exactly the first thing that you will do!</p>
-<p>1.1 <strong>(1 point)</strong> Out of the 7 datasets available in the <code>datateachr</code> package, choose <strong>4</strong> that appeal to you based on their description. Write your choices below:</p>
+<section id="choose-4-datasets-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="choose-4-datasets-1-point">1.1: Choose 4 Datasets <strong>(1 point)</strong></h3>
+<p>Out of the 7 datasets available in the <code>datateachr</code> package, choose <strong>4</strong> that appeal to you based on their description. Write your choices below:</p>
 <p><strong>Note</strong>: We encourage you to use the ones in the <code>datateachr</code> package, but if you have a dataset that you’d really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a <strong>brief</strong> description of the dataset here to help the teaching team understand your data.</p>
 <!-------------------------- Start your work below ---------------------------->
-<p>1: CHOICE_1_HERE<br>
-2: CHOICE_2_HERE<br>
-3: CHOICE_3_HERE<br>
-4: CHOICE_4_HERE</p>
+<p>1: Write 1st choice here 2: Write 2nd choice here 3: Write 3rd choice here 4: Write 4th choice here</p>
 <!----------------------------------------------------------------------------->
-<p>1.2 <strong>(6 points)</strong> One way to narrowing down your selection is to <em>explore</em> the datasets. Use your knowledge of dplyr to find out at least <em>3</em> attributes about each of these datasets (an attribute is something such as number of rows, variables, class type…). The goal here is to have an idea of <em>what the data looks like</em>.</p>
-<p><em>Hint:</em> This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you below, but do you want to use more than one? Would you like to write more comments outside of the code chunk?</p>
+</section>
+<section id="explore-the-data-6-points" class="level3">
+<h3 class="anchored" data-anchor-id="explore-the-data-6-points">1.2: Explore the Data <strong>(6 points)</strong></h3>
+<p>One way to narrowing down your selection is to <em>explore</em> the datasets. Use your knowledge of <code>dplyr</code> to find out at least <em>1</em> attribute about each of these datasets (an attribute is something such as number of rows, variables, class types of variables…), and summarize two variables (for example, looking at the levels, or calculating the mean). Write a sentence or two that states the attribute you found, and the summaries of the variables you calculated.</p>
+<p>You must use at least one <code>dplyr</code> function for each task. You can repeat tasks across the data sets.</p>
 <!-------------------------- Start your work below ---------------------------->
+<section id="dataset-1" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-1">Dataset 1</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">### EXPLORE HERE </span><span class="al">###</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>steam_games</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 40,833 × 21
-      id url    types name  desc_snippet recent_reviews all_reviews release_date
-   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;       
- 1     1 https… app   DOOM  Now include… Very Positive… Very Posit… May 12, 2016
- 2     2 https… app   PLAY… PLAYERUNKNO… Mixed,(6,214)… Mixed,(836… Dec 21, 2017
- 3     3 https… app   BATT… Take comman… Mixed,(166),-… Mostly Pos… Apr 24, 2018
- 4     4 https… app   DayZ  The post-so… Mixed,(932),-… Mixed,(167… Dec 13, 2018
- 5     5 https… app   EVE … EVE Online … Mixed,(287),-… Mostly Pos… May 6, 2003 
- 6     6 https… bund… Gran… Grand Theft… NaN            NaN         NaN         
- 7     7 https… app   Devi… The ultimat… Very Positive… Very Posit… Mar 7, 2019 
- 8     8 https… app   Huma… Human: Fall… Very Positive… Very Posit… Jul 22, 2016
- 9     9 https… app   They… They Are Bi… Very Positive… Very Posit… Dec 12, 2017
-10    10 https… app   Warh… In a world … &lt;NA&gt;           Mixed,(904… May 31, 2019
-# ℹ 40,823 more rows
-# ℹ 13 more variables: developer &lt;chr&gt;, publisher &lt;chr&gt;, popular_tags &lt;chr&gt;,
-#   game_details &lt;chr&gt;, languages &lt;chr&gt;, achievements &lt;dbl&gt;, genre &lt;chr&gt;,
-#   game_description &lt;chr&gt;, mature_content &lt;chr&gt;, minimum_requirements &lt;chr&gt;,
-#   recommended_requirements &lt;chr&gt;, original_price &lt;dbl&gt;, discount_price &lt;dbl&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">### EXPLORE DATASET 1 HERE </span><span class="al">###</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="dataset-2" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-2">Dataset 2</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">### EXPLORE DATASET 2 HERE </span><span class="al">###</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dataset-3" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-3">Dataset 3</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">### EXPLORE DATASET 3 HERE </span><span class="al">###</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dataset-4" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-4">Dataset 4</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">### EXPLORE DATASET 4 HERE </span><span class="al">###</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!----------------------------------------------------------------------------->
-<p>1.3 <strong>(1 point)</strong> Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 1. What lead you to choose this one? Briefly explain your choice below.</p>
+</section>
+</section>
+<section id="choose-1-dataset-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="choose-1-dataset-1-point">1.3: Choose 1 Dataset <strong>(1 point)</strong></h3>
+<p>Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 1. What lead you to choose this one? Briefly explain your choice below.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
-<p>1.4 <strong>(2 points)</strong> Time for a final decision! Going back to the beginning, it’s important to have an <em>end goal</em> in mind. For example, if I had chosen the <code>titanic</code> dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with your dataset. Note it down below.</p>
+</section>
+<section id="research-question-2-points" class="level3">
+<h3 class="anchored" data-anchor-id="research-question-2-points">1.4: Research Question <strong>(2 points)</strong></h3>
+<p>Time for a final decision! Going back to the beginning, it’s important to have an <em>end goal</em> in mind. For example, if I had chosen a <code>titanic</code> dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with your dataset. Note it down below. You can change it later.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
+</section>
 </section>
 <section id="important-note" class="level1">
 <h1>Important note</h1>
 <p>Read Tasks 2 and 3 <em>fully</em> before starting to complete either of them. Probably also a good point to grab a coffee to get ready for the fun part!</p>
 <p>This project is semi-guided, but meant to be <em>independent</em>. For this reason, you will complete tasks 2 and 3 below (under the <strong>START HERE</strong> mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. If you feel lost, you can find a sample data analysis <a href="https://www.kaggle.com/headsortails/tidy-titarnic">here</a> to have a better idea. However, bear in mind that it is <strong>just an example</strong> and you will not be required to have that level of complexity in your project.</p>
 </section>
-<section id="task-2-exploring-your-dataset" class="level1">
-<h1>Task 2: Exploring your dataset</h1>
+<section id="task-2-further-exploring-your-chosen-dataset" class="level1">
+<h1>Task 2: Further Exploring Your Chosen Dataset</h1>
 <p>If we rewind and go back to the learning objectives, you’ll see that by the end of this deliverable, you should have formulated <em>4</em> research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. <strong>Before you start this task, read all instructions carefully until you reach START HERE under Task 3</strong>.</p>
-<p>2.1 <strong>(12 points)</strong> Complete <em>4 out of the following 8 exercises</em> to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer <em>4</em>.</p>
-<p>Make sure that you’re using dplyr and ggplot2 rather than base R for this task. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that’s just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.</p>
-<ol type="1">
-<li>Plot the distribution of a numeric variable.</li>
+<section id="complete-4-tasks-12-points" class="level3">
+<h3 class="anchored" data-anchor-id="complete-4-tasks-12-points">2.1: Complete 4 Tasks <strong>(12 points)</strong></h3>
+<p>Complete <em>4 out of the following 8 exercises</em> to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer <em>4</em>.</p>
+<p>Make sure that you’re using <code>dplyr</code> and <code>ggplot2</code> rather than base R for this task. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that’s just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.</p>
+<ol type="A">
+<li>Plot the distribution of a numeric variable using a histogram.</li>
 <li>Create a new variable based on other variables in your data (only if it makes sense)</li>
-<li>Investigate how many missing values there are per variable. Can you find a way to plot this?</li>
-<li>Explore the relationship between 2 variables in a plot.</li>
+<li>Investigate how many missing values there are per variable.</li>
+<li>Explore the relationship between 2 variables in a scatterplot.</li>
 <li>Filter observations in your data according to your own criteria. Think of what you’d like to explore - again, if this was the <code>titanic</code> dataset, I may want to narrow my search down to passengers born in a particular year…</li>
-<li>Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!</li>
+<li>Create a table of the counts of each level within a categorical variable</li>
 <li>Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.</li>
-<li>Use a density plot to explore any of your variables (that are suitable for this type of plot).</li>
+<li>Summarize the mean of a numeric variable across the levels of another categorical variable</li>
+<li>Create a plot of the counts of each level within a categorical variable (a different variable than used in F) using a bar chart.</li>
 </ol>
-<p>2.2 <strong>(4 points)</strong> For each of the 4 exercises that you complete, provide a <em>brief explanation</em> of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.</p>
-<!-------------------------- Start your work below ---------------------------->
+<p>Task 1: Option [FILLMEIN] <!-------------------------- Start your work below ----------------------------></p>
+<!----------------------------------------------------------------------------->
+<p>Task 2: Option [FILLMEIN] <!-------------------------- Start your work below ----------------------------></p>
+<!----------------------------------------------------------------------------->
+<p>Task 3: Option [FILLMEIN] <!-------------------------- Start your work below ----------------------------></p>
+<!----------------------------------------------------------------------------->
+<p>Task 4: Option [FILLMEIN] <!-------------------------- Start your work below ----------------------------></p>
 <!----------------------------------------------------------------------------->
 </section>
-<section id="task-3-choose-research-questions" class="level1">
-<h1>Task 3: Choose research questions</h1>
-<p><strong>(4 points)</strong> So far, you have chosen a dataset and gotten familiar with it through exploring the data. You have also brainstormed one research question that interested you (Task 1.4). Now it’s time to pick 4 research questions that you would like to explore in Milestone 2! Write the 4 questions and any additional comments below.</p>
+<section id="explain-the-four-chosen-tasks-4-points" class="level3">
+<h3 class="anchored" data-anchor-id="explain-the-four-chosen-tasks-4-points">2.2: Explain the Four Chosen Tasks <strong>(4 points)</strong></h3>
+<p>For each of the 4 exercises that you complete, provide a <em>brief explanation</em> (a sentence or two) of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?).</p>
+</section>
+</section>
+<section id="task-3-narrow-your-research-topic" class="level1">
+<h1>Task 3: Narrow Your Research Topic</h1>
+<section id="choose-4-research-questions-4-points" class="level3">
+<h3 class="anchored" data-anchor-id="choose-4-research-questions-4-points">3.0: Choose 4 Research Questions <strong>(4 points)</strong></h3>
+<p>So far, you have chosen a dataset and gotten familiar with it through exploring the data. You have also brainstormed one research question that interested you (Task 1.4). Now it’s time to pick 4 research questions that you would like to explore in Milestone 2! Write the 4 questions and any additional comments below.</p>
 <!--- *****START HERE***** --->
-<!----------------------------->
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+<li><!-----------------------------></li>
+</ol>
+</section>
 </section>
 <section id="overall-reproducibilitycleanlinesscoherence-checklist" class="level1">
 <h1>Overall reproducibility/Cleanliness/Coherence Checklist</h1>
-<section id="coherence-0.5-points" class="level2">
-<h2 class="anchored" data-anchor-id="coherence-0.5-points">Coherence (0.5 points)</h2>
+<section id="coherence-0.5-points" class="level3">
+<h3 class="anchored" data-anchor-id="coherence-0.5-points">Coherence (0.5 points)</h3>
 <p>The document should read sensibly from top to bottom, with no major continuity errors. An example of a major continuity error is having a data set listed for Task 3 that is not part of one of the data sets listed in Task 1.</p>
 </section>
-<section id="error-free-code-3-points" class="level2">
-<h2 class="anchored" data-anchor-id="error-free-code-3-points">Error-free code (3 points)</h2>
+<section id="error-free-code-3-points" class="level3">
+<h3 class="anchored" data-anchor-id="error-free-code-3-points">Error-free code (3 points)</h3>
 <p>For full marks, all code in the document should run without error. 1 point deduction if most code runs without error, and 2 points deduction if more than 50% of the code throws an error.</p>
 </section>
-<section id="main-readme-1-point" class="level2">
-<h2 class="anchored" data-anchor-id="main-readme-1-point">Main README (1 point)</h2>
+<section id="main-readme-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="main-readme-1-point">Main README (1 point)</h3>
 <p>There should be a file named <code>README.md</code> at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.</p>
 <p>Minimum contents of the README file:</p>
 <ul>
 <li>In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.</li>
-<li>In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
+<li>List the files contained in the repository</li>
+<li>In a sentence or two, briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
 </ul>
 <p>Once you get in the habit of making README files, and seeing more README files in other projects, you’ll wonder how you ever got by without them! They are tremendously helpful.</p>
 </section>
-<section id="output-1-point" class="level2">
-<h2 class="anchored" data-anchor-id="output-1-point">Output (1 point)</h2>
+<section id="output-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="output-1-point">Output (1 point)</h3>
 <p>All output is readable, recent and relevant:</p>
 <ul>
 <li>All Rmd files have been <code>knit</code>ted to their output md files.</li>
@@ -517,15 +562,11 @@ devtools::install_github("UBC-MDS/datateachr")</code></pre>
 <p>(0.5 point deduction if any of the above criteria are not met. 1 point deduction if most or all of the above criteria are not met.)</p>
 <p>Our recommendation: right before submission, delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant. Then, after your final commit and push to Github, CHECK on Github to make sure that everything looks the way you intended!</p>
 </section>
-<section id="tagged-release-0.5-points" class="level2">
-<h2 class="anchored" data-anchor-id="tagged-release-0.5-points">Tagged release (0.5 points)</h2>
+<section id="tagged-release-0.5-points" class="level3">
+<h3 class="anchored" data-anchor-id="tagged-release-0.5-points">Tagged release (0.5 points)</h3>
 <p>You’ve tagged a release for Milestone 1.</p>
-<section id="attribution" class="level3">
-<h3 class="anchored" data-anchor-id="attribution">Attribution</h3>
-<p>Thanks to Icíar Fernández Boyano for mostly putting this together, and Vincenzo Coia for launching.</p>
 
 
-</section>
 </section>
 </section>
 

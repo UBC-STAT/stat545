@@ -17,20 +17,17 @@ date-modified: last-modified
 
 **Lectures:**
 
-*We are now starting STAT545B!*
+-   Tuesday November 4th: R Shiny
 
--   Tuesday October 27th: R Packages
-
--   Thursday October 29th: R Packages Tutorial (Work session with TAs)
+-   Thursday November 6th: R Shiny Tutorial (Work session with TAs)
 
 **To Do this Week:**
 
--   Submit Worksheet B1 (due Monday Oct 27)
--   Work on Assignment B1
+-   Submit Assignment B1 (due Tuesday Nov 4)
+-   Start  Assignment B2
 
 **Upcoming Deadlines**
 
--   Worksheet B1: Monday October 27, 11:59pm PST
 -   Assignment B1: Tuesday November 4, 11:59pm PST
 :::
 ::::

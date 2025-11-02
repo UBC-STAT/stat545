@@ -13,3 +13,4 @@ title: "Lecture Slides"
 -   [Lecture 8A - Functions](slidefiles/lec8A_functions_slides.qmd)
 -   [Lecture 8B - Advanced Functions](slidefiles/lec8b_advfunctions_slides.qmd)
 -   [Lecture 9 - R Packages](slidefiles/lec9_rpackages_slides.qmd)
+-   [Lecture 10 - Dashboards with R Shiny](slidefiles/lec9_rshiny_slides.qmd)

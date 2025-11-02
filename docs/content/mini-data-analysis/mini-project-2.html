@@ -211,6 +211,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_ii/lec9_rpackages.html">
  <span class="dropdown-text">Lecture 9: R Packages</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec10_shiny.html">
+ <span class="dropdown-text">Lecture 10: Dashboards with R Shiny</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -293,26 +297,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#task-1-process-and-summarize-your-data" id="toc-task-1-process-and-summarize-your-data" class="nav-link" data-scroll-target="#task-1-process-and-summarize-your-data">Task 1: Process and summarize your data</a>
   <ul class="collapse">
-  <li><a href="#point" id="toc-point" class="nav-link" data-scroll-target="#point">1.1 (1 point)</a></li>
-  <li><a href="#points" id="toc-points" class="nav-link" data-scroll-target="#points">1.2 (8 points)</a></li>
-  <li><a href="#points-1" id="toc-points-1" class="nav-link" data-scroll-target="#points-1">1.3 (2 points)</a></li>
+  <li><a href="#write-research-questions-1-point" id="toc-write-research-questions-1-point" class="nav-link" data-scroll-target="#write-research-questions-1-point">1.1: Write Research Questions (1 point)</a></li>
+  <li><a href="#perform-2-tasks-per-research-question-8-points" id="toc-perform-2-tasks-per-research-question-8-points" class="nav-link" data-scroll-target="#perform-2-tasks-per-research-question-8-points">1.2: Perform 2 Tasks Per Research Question (8 points)</a></li>
+  <li><a href="#refining-your-research-questions-2-points" id="toc-refining-your-research-questions-2-points" class="nav-link" data-scroll-target="#refining-your-research-questions-2-points">1.3 Refining Your Research Questions (2 points)</a></li>
   </ul></li>
   <li><a href="#task-2-tidy-your-data" id="toc-task-2-tidy-your-data" class="nav-link" data-scroll-target="#task-2-tidy-your-data">Task 2: Tidy your data</a>
   <ul class="collapse">
-  <li><a href="#points-2" id="toc-points-2" class="nav-link" data-scroll-target="#points-2">2.1 (2 points)</a></li>
-  <li><a href="#points-3" id="toc-points-3" class="nav-link" data-scroll-target="#points-3">2.2 (4 points)</a></li>
-  <li><a href="#points-4" id="toc-points-4" class="nav-link" data-scroll-target="#points-4">2.3 (4 points)</a></li>
+  <li><a href="#points" id="toc-points" class="nav-link" data-scroll-target="#points">2.1 (2 points)</a></li>
+  <li><a href="#tidyinguntidying-4-points" id="toc-tidyinguntidying-4-points" class="nav-link" data-scroll-target="#tidyinguntidying-4-points">2.2 Tidying/Untidying (4 points)</a></li>
+  <li><a href="#narrow-your-research-questions-4-points" id="toc-narrow-your-research-questions-4-points" class="nav-link" data-scroll-target="#narrow-your-research-questions-4-points">2.3 Narrow Your Research Questions (4 points)</a></li>
   </ul></li>
   <li><a href="#task-3-modelling" id="toc-task-3-modelling" class="nav-link" data-scroll-target="#task-3-modelling">Task 3: Modelling</a>
   <ul class="collapse">
-  <li><a href="#no-points" id="toc-no-points" class="nav-link" data-scroll-target="#no-points">3.0 (no points)</a></li>
-  <li><a href="#points-5" id="toc-points-5" class="nav-link" data-scroll-target="#points-5">3.1 (3 points)</a></li>
-  <li><a href="#points-6" id="toc-points-6" class="nav-link" data-scroll-target="#points-6">3.2 (3 points)</a></li>
+  <li><a href="#select-one-research-question-no-points" id="toc-select-one-research-question-no-points" class="nav-link" data-scroll-target="#select-one-research-question-no-points">3.0: Select One Research Question (no points)</a></li>
+  <li><a href="#fit-a-model-3-points" id="toc-fit-a-model-3-points" class="nav-link" data-scroll-target="#fit-a-model-3-points">3.1: Fit a Model (3 points)</a></li>
+  <li><a href="#investigate-your-model-3-points" id="toc-investigate-your-model-3-points" class="nav-link" data-scroll-target="#investigate-your-model-3-points">3.2: Investigate Your Model (3 points)</a></li>
   </ul></li>
   <li><a href="#task-4-reading-and-writing-data" id="toc-task-4-reading-and-writing-data" class="nav-link" data-scroll-target="#task-4-reading-and-writing-data">Task 4: Reading and writing data</a>
   <ul class="collapse">
-  <li><a href="#points-7" id="toc-points-7" class="nav-link" data-scroll-target="#points-7">4.1 (3 points)</a></li>
-  <li><a href="#points-8" id="toc-points-8" class="nav-link" data-scroll-target="#points-8">4.2 (3 points)</a></li>
+  <li><a href="#output-using-here-3-points" id="toc-output-using-here-3-points" class="nav-link" data-scroll-target="#output-using-here-3-points">4.1 Output Using <code>here()</code> (3 points)</a></li>
+  <li><a href="#input-using-here-3-points" id="toc-input-using-here-3-points" class="nav-link" data-scroll-target="#input-using-here-3-points">4.2 Input Using <code>here()</code> (3 points)</a></li>
   </ul></li>
   <li><a href="#overall-reproducibilitycleanlinesscoherence-checklist" id="toc-overall-reproducibilitycleanlinesscoherence-checklist" class="nav-link" data-scroll-target="#overall-reproducibilitycleanlinesscoherence-checklist">Overall Reproducibility/Cleanliness/Coherence Checklist</a>
   <ul class="collapse">
@@ -361,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="instructions" class="level1">
 <h1>Instructions</h1>
-<p><strong>To complete this milestone</strong>, edit <a href="https://github.com/UBC-STAT/STAT545.github.io/blob/main/content/mini-data-analysis/mini-project-2.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work here---&gt;</code>.</p>
+<p><strong>To complete this milestone</strong>, edit this .Rmd directly. Fill in the sections that are tagged with <code>&lt;!--- start your work here---&gt;</code>.</p>
 <p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
 <p><strong>Points</strong>: This milestone is worth 50 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
 <p><strong>Research Questions</strong>: In Milestone 1, you chose four research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don’t align well with one of your research questions, feel free to discuss your results in the context of a different research question.</p>
@@ -388,46 +392,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="task-1-process-and-summarize-your-data" class="level1">
 <h1>Task 1: Process and summarize your data</h1>
 <p>From Milestone 1, you should have an idea of the basic structure of your dataset (e.g.&nbsp;number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.</p>
-<section id="point" class="level3">
-<h3 class="anchored" data-anchor-id="point">1.1 (1 point)</h3>
-<p>First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:</p>
+<section id="write-research-questions-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="write-research-questions-1-point">1.1: Write Research Questions (1 point)</h3>
+<p>First, write out the 4 research questions you defined in Milestone 1 were. If you’d like to refine them, you can do some here and just write the new question. This will guide your work through Milestone 2:</p>
 <!-------------------------- Start your work below ---------------------------->
 <ol type="1">
-<li><em>FILL_THIS_IN</em></li>
-<li><em>FILL_THIS_IN</em></li>
-<li><em>FILL_THIS_IN</em></li>
-<li><em>FILL_THIS_IN</em> <!-----------------------------------------------------------------------------></li>
+<li><p><em>FILL_THIS_IN</em></p></li>
+<li><p><em>FILL_THIS_IN</em></p></li>
+<li><p><em>FILL_THIS_IN</em></p></li>
+<li><p><em>FILL_THIS_IN</em></p></li>
 </ol>
-<p>Here, we will investigate your data using various data manipulation and graphing functions.</p>
-</section>
-<section id="points" class="level3">
-<h3 class="anchored" data-anchor-id="points">1.2 (8 points)</h3>
-<p>Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g.&nbsp;don’t use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn’t!) answer the corresponding research question.</p>
-<p>Ensure that the output of each operation is printed!</p>
-<p>Also make sure that you’re using dplyr and ggplot2 rather than base R. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that’s just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.</p>
-<p><strong>Summarizing:</strong></p>
-<ol type="1">
-<li>Compute the <em>range</em>, <em>mean</em>, and <em>two other summary statistics</em> of <strong>one numerical variable</strong> across the groups of <strong>one categorical variable</strong> from your data.</li>
-<li>Compute the number of observations for at least one of your categorical variables. Do not use the function <code>table()</code>!</li>
-<li>Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! <em>An example: age in years into “child, teen, adult, senior”.</em></li>
-<li>Compute the proportion and counts in each category of one categorical variable across the groups of another categorical variable from your data. Do not use the function <code>table()</code>!</li>
-</ol>
-<p><strong>Graphing:</strong></p>
-<ol start="6" type="1">
-<li>Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are “pretty” or easier to read.</li>
-<li>Make a graph where it makes sense to customize the alpha transparency.</li>
-</ol>
-<p>Using variables and/or tables you made in one of the “Summarizing” tasks:</p>
-<ol start="8" type="1">
-<li>Create a graph that has at least two geom layers.</li>
-<li>Create 3 histograms, with each histogram having different sized bins. Pick the “best” one and explain why it is the best.</li>
-</ol>
-<p>Make sure it’s clear what research question you are doing each operation for!</p>
-<!------------------------- Start your work below ----------------------------->
 <!----------------------------------------------------------------------------->
 </section>
-<section id="points-1" class="level3">
-<h3 class="anchored" data-anchor-id="points-1">1.3 (2 points)</h3>
+<section id="perform-2-tasks-per-research-question-8-points" class="level3">
+<h3 class="anchored" data-anchor-id="perform-2-tasks-per-research-question-8-points">1.2: Perform 2 Tasks Per Research Question (8 points)</h3>
+<p>Now, for <em>each</em> of your four research questions, choose one task in the Summarizing category, and one other task from Graphing. You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g.&nbsp;don’t use a numerical variables for a task that needs a categorical variable.). Be explicit with which task you are performing and comment on why each task helps (or doesn’t!) answer the corresponding research question.</p>
+<p>Ensure that the output of each operation is printed!</p>
+<p>Also make sure that you’re using <code>dplyr</code> and <code>ggplot2</code> rather than base R. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that’s just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.</p>
+<p><strong>Summarizing:</strong></p>
+<ul>
+<li><p>S1. Compute the <em>range</em>, <em>mean</em>, and <em>two other summary statistics</em> of <strong>one numerical variable</strong> across the groups of <strong>one categorical variable</strong> from your data.</p></li>
+<li><p>S2. Compute the number of observations for at least one of your categorical variables. Do not use the function <code>table()</code>!</p></li>
+<li><p>S3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! (Example: turn age in years into “child, teen, adult, senior”.)</p></li>
+<li><p>S4. Create a categorical variable that condenses an existing categorical variable (Ex: group grades 1 - 12 into “elementary”, “middle”, “high school”)</p></li>
+<li><p>S5. Compute the proportion and counts in each category of one categorical variable across the groups of another categorical variable from your data. Do not use the function <code>table()</code>!</p></li>
+</ul>
+<p><strong>Graphing:</strong></p>
+<ul>
+<li><p>G1. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are easier to read but still say what is being measured (log-scaled).</p></li>
+<li><p>G2. Make a graph where it makes sense to customize the alpha transparency.</p></li>
+<li><p>G3. Create a graph that has at least two geom layers.</p></li>
+<li><p>G4. Create 3 histograms, with each histogram having different sized bins. Pick the “best” one and explain why it is the best.</p></li>
+<li><p>G5: Create a graph where you use a colourblind-friendly palette G6: Create a plot that involves facets (sub-panels)</p></li>
+</ul>
+<p>Make sure it’s clear what tasks you are doing for each research question!</p>
+<!------------------------- Start your work below ----------------------------->
+<p><strong>Research Question 1:</strong></p>
+<p>Task:</p>
+<p>Task:</p>
+<p><strong>Research Question 2:</strong></p>
+<p>Task:</p>
+<p>Task:</p>
+<p><strong>Research Question 3:</strong></p>
+<p>Task:</p>
+<p>Task:</p>
+<p><strong>Research Question 4:</strong></p>
+<p>Task:</p>
+<p>Task:</p>
+<!----------------------------------------------------------------------------->
+</section>
+<section id="refining-your-research-questions-2-points" class="level3">
+<h3 class="anchored" data-anchor-id="refining-your-research-questions-2-points">1.3 Refining Your Research Questions (2 points)</h3>
 <p>Based on the operations that you’ve completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you’ve investigated your data a bit more? Which research questions are yielding interesting results?</p>
 <!------------------------- Write your answer here ---------------------------->
 <!----------------------------------------------------------------------------->
@@ -442,22 +457,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Each column is a <strong>variable</strong></li>
 <li>Each cell is a <strong>value</strong></li>
 </ul>
-<section id="points-2" class="level3">
-<h3 class="anchored" data-anchor-id="points-2">2.1 (2 points)</h3>
-<p>Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have &gt;8 variables, just pick 8, and explain whether the data is untidy or tidy.</p>
+<section id="points" class="level3">
+<h3 class="anchored" data-anchor-id="points">2.1 (2 points)</h3>
+<p>You may have manipulated and cleaned your data up to this point. So, using any version of your data, select 8 columns (if your data has less, use the entire data set). Show a few rows of the reduced dataset using <code>head()</code>.</p>
+<p>Based on the definition above, can you identify if this dataset is tidy or untidy? Go through all the columns, and explain whether the data is untidy or tidy in the context of your research question.</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 </section>
-<section id="points-3" class="level3">
-<h3 class="anchored" data-anchor-id="points-3">2.2 (4 points)</h3>
+<section id="tidyinguntidying-4-points" class="level3">
+<h3 class="anchored" data-anchor-id="tidyinguntidying-4-points">2.2 Tidying/Untidying (4 points)</h3>
 <p>Now, if your data is tidy, untidy it! Then, tidy it back to it’s original state.</p>
 <p>If your data is untidy, then tidy it! Then, untidy it back to it’s original state.</p>
 <p>Be sure to explain your reasoning for this task. Show us the “before” and “after”.</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 </section>
-<section id="points-4" class="level3">
-<h3 class="anchored" data-anchor-id="points-4">2.3 (4 points)</h3>
+<section id="narrow-your-research-questions-4-points" class="level3">
+<h3 class="anchored" data-anchor-id="narrow-your-research-questions-4-points">2.3 Narrow Your Research Questions (4 points)</h3>
 <p>Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in the remaining tasks:</p>
 <!-------------------------- Start your work below ---------------------------->
 <ol type="1">
@@ -468,23 +484,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Explain your decision for choosing the above two research questions.</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
-<p>Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we’ve covered so far (i.e.&nbsp;by filtering, cleaning, tidy’ing, dropping irrelevant columns, etc.).</p>
+<p>Now, try to create a version of your data that you think will be appropriate to answer these 2 questions (i.e.&nbsp;by filtering, cleaning, tidy’ing, dropping irrelevant columns, etc.). If you don’t need to do anything, explain why.</p>
 <p>(If it makes more sense, then you can make/pick two versions of your data, one for each research question.)</p>
 <!--------------------------- Start your work below --------------------------->
+<!----------------------------------------------------------------------------->
 </section>
 </section>
 <section id="task-3-modelling" class="level1">
 <h1>Task 3: Modelling</h1>
-<section id="no-points" class="level2">
-<h2 class="anchored" data-anchor-id="no-points">3.0 (no points)</h2>
+<section id="select-one-research-question-no-points" class="level3">
+<h3 class="anchored" data-anchor-id="select-one-research-question-no-points">3.0: Select One Research Question (no points)</h3>
 <p>Pick a research question from 1.2, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
 <!-------------------------- Start your work below ---------------------------->
 <p><strong>Research Question</strong>: FILL_THIS_IN</p>
 <p><strong>Variable of interest</strong>: FILL_THIS_IN</p>
 <!----------------------------------------------------------------------------->
 </section>
-<section id="points-5" class="level2">
-<h2 class="anchored" data-anchor-id="points-5">3.1 (3 points)</h2>
+<section id="fit-a-model-3-points" class="level3">
+<h3 class="anchored" data-anchor-id="fit-a-model-3-points">3.1: Fit a Model (3 points)</h3>
 <p>Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We’ll omit having to justify your choice, because we don’t expect you to know about model specifics in STAT 545.</p>
 <ul>
 <li><p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.</p>
@@ -497,8 +514,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </section>
-<section id="points-6" class="level2">
-<h2 class="anchored" data-anchor-id="points-6">3.2 (3 points)</h2>
+<section id="investigate-your-model-3-points" class="level3">
+<h3 class="anchored" data-anchor-id="investigate-your-model-3-points">3.2: Investigate Your Model (3 points)</h3>
 <p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.</p>
 <ul>
 <li>Be sure to indicate in writing what you chose to produce.</li>
@@ -512,8 +529,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="task-4-reading-and-writing-data" class="level1">
 <h1>Task 4: Reading and writing data</h1>
 <p>Get set up for this exercise by making a folder called <code>output</code> in the top level of your project folder / repository. You’ll be saving things there.</p>
-<section id="points-7" class="level2">
-<h2 class="anchored" data-anchor-id="points-7">4.1 (3 points)</h2>
+<section id="output-using-here-3-points" class="level3">
+<h3 class="anchored" data-anchor-id="output-using-here-3-points">4.1 Output Using <code>here()</code> (3 points)</h3>
 <p>Take a summary table that you made from Task 1, and write it as a csv file in your <code>output</code> folder. Use the <code>here::here()</code> function.</p>
 <ul>
 <li><strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.</li>
@@ -522,8 +539,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </section>
-<section id="points-8" class="level2">
-<h2 class="anchored" data-anchor-id="points-8">4.2 (3 points)</h2>
+<section id="input-using-here-3-points" class="level3">
+<h3 class="anchored" data-anchor-id="input-using-here-3-points">4.2 Input Using <code>here()</code> (3 points)</h3>
 <p>Write your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your <code>output</code> folder. Use the functions <code>saveRDS()</code> and <code>readRDS()</code>.</p>
 <ul>
 <li>The same robustness and reproducibility criteria as in 4.1 apply here.</li>
@@ -535,19 +552,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overall-reproducibilitycleanlinesscoherence-checklist" class="level1">
 <h1>Overall Reproducibility/Cleanliness/Coherence Checklist</h1>
 <p>Here are the criteria we’re looking for.</p>
-<section id="coherence-0.5-points" class="level2">
-<h2 class="anchored" data-anchor-id="coherence-0.5-points">Coherence (0.5 points)</h2>
+<section id="coherence-0.5-points" class="level3">
+<h3 class="anchored" data-anchor-id="coherence-0.5-points">Coherence (0.5 points)</h3>
 <p>The document should read sensibly from top to bottom, with no major continuity errors.</p>
 <p>The README file should still satisfy the criteria from the last milestone, i.e.&nbsp;it has been updated to match the changes to the repository made in this milestone.</p>
 </section>
-<section id="file-and-folder-structure-1-points" class="level2">
-<h2 class="anchored" data-anchor-id="file-and-folder-structure-1-points">File and folder structure (1 points)</h2>
+<section id="file-and-folder-structure-1-points" class="level3">
+<h3 class="anchored" data-anchor-id="file-and-folder-structure-1-points">File and folder structure (1 points)</h3>
 <p>You should have at least three folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.</p>
 <p>Each milestone document is contained in its respective folder, and nowhere else.</p>
 <p>Every level-1 folder (that is, the ones stored in the top level, like “Milestone1” and “output”) has a <code>README</code> file, explaining in a sentence or two what is in the folder, in plain language (it’s enough to say something like “This folder contains the source for Milestone 1”).</p>
 </section>
-<section id="output-1-point" class="level2">
-<h2 class="anchored" data-anchor-id="output-1-point">Output (1 point)</h2>
+<section id="output-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="output-1-point">Output (1 point)</h3>
 <p>All output is recent and relevant:</p>
 <ul>
 <li>All Rmd files have been <code>knit</code>ted to their output md files.</li>
@@ -557,8 +574,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Our recommendation: delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant.</p>
 </section>
-<section id="tagged-release-0.5-point" class="level2">
-<h2 class="anchored" data-anchor-id="tagged-release-0.5-point">Tagged release (0.5 point)</h2>
+<section id="tagged-release-0.5-point" class="level3">
+<h3 class="anchored" data-anchor-id="tagged-release-0.5-point">Tagged release (0.5 point)</h3>
 <p>You’ve tagged a release for Milestone 2.</p>
 
 
