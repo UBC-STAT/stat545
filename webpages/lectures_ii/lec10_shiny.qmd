@@ -24,7 +24,7 @@ We will spend two classes creating a Shiny dashboard together.
 
 ## Video Lecture
 
-{{< video https://www.youtube.com/watch?v=LqlxC661Pag >}}
+{{< video https://www.youtube.com/watch?v=VTI84Pqk3SI >}}
 
 ## Lecture Slides
 
