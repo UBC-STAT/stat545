@@ -20,7 +20,7 @@ From this lecture, students are anticipated to be able to:
 
 -   Use `make` from the Terminal.
 
-## Video Lecture 
+## Video Lecture
 
 {{< video https://www.youtube.com/watch?v=VTI84Pqk3SI >}}
 

@@ -32,9 +32,9 @@ Now, we should send this to GitHub so we can host our website on GitHub and make
 
 [**Step 5:**]{.underline} When you made this project, you should have selected to use Git as a version control. If not, head to Tools \> Version control \> Project Setup and select Git as your version control. At this time, origin should be set to `none`.
 
-[**Step 6:**]{.underline} On GitHub, make a new EMPTY repository. This should be named with the same name as your website (i.e., [yourname.github.io](http://yourname.github.io/)). **Ensure you UNSELECT to make a README file.**
+[**Step 6:**]{.underline} Run `library(devtools)` in the Console. Then, run `use_git()` and choose the option that means yes. Then, run `use_github()` to create a GitHub repository for your website. 
 
-[**Step 7:**]{.underline} Now back to RStudio. We will be working in the terminal to give commands to our computer to connect with Github.
+[**Step 7:**]{.underline} Now back to RStudio. We will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the "Git" tab in RStudio to stage, commit, and push changes. 
 
 -   SAVE ALL FILES. In the Terminal (beside the Console in RStudio)
 
