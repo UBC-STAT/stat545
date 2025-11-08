@@ -4,7 +4,7 @@ subtitle: "November 13, 2025"
 date-modified: last-modified
 ---
 
-[***This is an optional topic.***]{.underline}
+[***This is an optional topic with no in-class lecture!***]{.underline}
 
 From this lecture, students are anticipated to be able to:
 
@@ -22,7 +22,7 @@ From this lecture, students are anticipated to be able to:
 
 ## Video Lecture
 
-{{< video https://www.youtube.com/watch?v=VTI84Pqk3SI >}}
+{{< video https://youtu.be/LJl7Ek3cXZA >}}
 
 ## Why Automation
 
