@@ -35,5 +35,3 @@ Using a `make` file can make this process more streamlined through automation. O
 We will begin by setting up `make` (see [stat545.com Chapter 35](https://stat545.com/make-test-drive.html)) and then work through the demonstration from [stat545.com Chapter 36](https://stat545.com/automating-pipeline.html) together.
 
 Both of these tasks will be outlined in the Video Lecture linked above.
-
-## 

@@ -17,18 +17,17 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday November 4th: R Shiny
-
--   Thursday November 6th: R Shiny Tutorial (Work session with TAs)
+-   No lectures this week! [See the optional video lecture on automation here!](https://www.youtube.com/watch?v=LJl7Ek3cXZA)
+-   No office hours Monday - Wednesday this week.
 
 **To Do this Week:**
 
--   Submit Assignment B1 (due Tuesday Nov 4)
--   Start  Assignment B2
+-   Work on Assignment B2
+-   Relax!
 
 **Upcoming Deadlines**
 
--   Assignment B1: Tuesday November 4, 11:59pm PST
+-   Assignment B2: November 19th, 11:59pm PST
 :::
 ::::
 :::::::
