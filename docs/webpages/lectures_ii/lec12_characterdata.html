@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -219,6 +219,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_ii/lec11_automation.html">
  <span class="dropdown-text">Lecture 11: Automation</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec12_characterdata.html">
+ <span class="dropdown-text">Lecture 12: StringR and Regular Expressions</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -285,26 +289,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/lectures_ii/lec12_characterdata.html">Lecture 12: StringR and Regular Expressions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec8a_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8A: Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec8b_advfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8b: Advanced Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec9_rpackages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 9: R Packages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec10_shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 10: Dashboards with R Shiny</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec11_automation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 11: Automation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec12_characterdata.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 12: StringR and Regular Expressions</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#strings" id="toc-strings" class="nav-link active" data-scroll-target="#strings">Strings</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link active" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings">Strings</a></li>
   <li><a href="#working-with-strings" id="toc-working-with-strings" class="nav-link" data-scroll-target="#working-with-strings">Working with Strings</a>
   <ul class="collapse">
   <li><a href="#non-regex-string-manipulation" id="toc-non-regex-string-manipulation" class="nav-link" data-scroll-target="#non-regex-string-manipulation">Non-regex String Manipulation</a></li>
   <li><a href="#regular-expressions-regex" id="toc-regular-expressions-regex" class="nav-link" data-scroll-target="#regular-expressions-regex">Regular Expressions (regex)</a></li>
-  </ul></li>
-  <li><a href="#worksheet-b2" id="toc-worksheet-b2" class="nav-link" data-scroll-target="#worksheet-b2"><strong>Worksheet B2</strong></a>
-  <ul class="collapse">
-  <li><a href="#class-1" id="toc-class-1" class="nav-link" data-scroll-target="#class-1">Class 1</a></li>
-  <li><a href="#class-2" id="toc-class-2" class="nav-link" data-scroll-target="#class-2">Class 2</a></li>
   </ul></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
@@ -328,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 18, 2025</p>
+      <p class="date-modified">November 16, 2025</p>
     </div>
   </div>
     
@@ -341,14 +394,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>From this topic, students are anticipated to be able to:</p>
 <ul>
-<li><p>Manipulate a character vector in R using the stringr package.</p></li>
+<li><p>Manipulate a character vector in R using the <code>stringr</code> package.</p></li>
 <li><p>Write simple regular expressions (regex).</p></li>
-<li><p>Apply stringr and regular expressions to manipulate data in tibbles.</p></li>
+<li><p>Apply <code>stringr</code> and regular expressions to manipulate data in tibbles.</p></li>
 </ul>
 <p>We will require the following packages:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#stringr is automatically downloaded with tidyverse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+</section>
 <section id="strings" class="level2">
 <h2 class="anchored" data-anchor-id="strings">Strings</h2>
 <p>You’ve used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by <code>"</code>, you’ve been making a <em>string</em>: a storage format for text. In R, they are of type “character”.</p>
@@ -406,8 +462,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="non-regex-string-manipulation" class="level3">
 <h3 class="anchored" data-anchor-id="non-regex-string-manipulation">Non-regex String Manipulation</h3>
 <p>We’ll first go through some <code>stringr</code> functions that <strong>don’t</strong> require regular expressions.</p>
-<section id="str_detech-and-str_subset" class="level4">
-<h4 class="anchored" data-anchor-id="str_detech-and-str_subset">str_detech() and str_subset()</h4>
+<section id="str_detect-and-str_subset" class="level4">
+<h4 class="anchored" data-anchor-id="str_detect-and-str_subset">str_detect() and str_subset()</h4>
 <p>Let’s filter only on entries that contain emails. We can do this by calling <code>str_detect()</code> and finding entries that contain “From:”:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>enron_email_at<span class="ot">&lt;-</span> <span class="fu">str_detect</span>(enron_email, <span class="st">"@"</span>) <span class="co"># find all entries with "@" in the email column</span></span>
@@ -491,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 9</code></pre>
 </div>
 </div>
-<p>and..</p>
+<p>and…</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>enron_emails_important <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(enron_email_words, <span class="st">"IMPORTANT"</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(enron_emails_important)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -499,13 +555,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
-<p>This is where <em>regular expressions</em> come in handy! We’ll discuss this in the following section.</p>
+<p>This is where <em>regular expressions</em> will come in handy! We’ll discuss this in the following section.</p>
 </section>
 </section>
 <section id="regular-expressions-regex" class="level3">
 <h3 class="anchored" data-anchor-id="regular-expressions-regex">Regular Expressions (regex)</h3>
 <p>Regular expressions provide a powerful tool to extract character data through patterns! In regexes, specific characters and constructs take on special meaning in order to match multiple strings.</p>
-<p>We will go through a few common regex special characters, but refer readers to t<a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://rstudio.github.io/cheatsheets/regex.pdf">his Cheat Sheet</a> by Ian Kopacka for a more in-depth review.</p>
+<p>We will go through a few common regex special characters, but refer readers to <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://rstudio.github.io/cheatsheets/regex.pdf">this Cheat Sheet</a> by Ian Kopacka for a more in-depth review.</p>
 <p>Let’s consider a simple vector of words:<br>
 </p>
 <div class="cell">
@@ -541,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "bat"      "cat"      "5at"      "?at"      "kittycat"</code></pre>
 </div>
 </div>
-<p>Notice how we <strong>only</strong> selected words ending in &lt;some chatacter&gt;at.</p>
+<p>Notice how we <strong>only</strong> selected words ending in &lt;some character&gt;at.</p>
 </section>
 <section id="b-and-b-boundaries-and-not-a-word-boundary" class="level4">
 <h4 class="anchored" data-anchor-id="b-and-b-boundaries-and-not-a-word-boundary"><code>\b</code> and <code>\B</code> (boundaries and not a word boundary)</h4>
@@ -634,25 +690,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Of course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out <a href="https://stat545.com/character-vectors.html">Chapter 11 of the STAT545 Textbook</a>and the <a href="https://www.youtube.com/watch?v=I0dJ1zpxAtU">STAT545 video lecture</a>. We will also learn more as we work through Worksheet B2.</p>
 </section>
-</section>
-</section>
-<section id="worksheet-b2" class="level2">
-<h2 class="anchored" data-anchor-id="worksheet-b2"><strong>Worksheet B2</strong></h2>
-<section id="class-1" class="level3">
-<h3 class="anchored" data-anchor-id="class-1">Class 1</h3>
-<ul>
-<li><p><strong>Before class</strong>, start working on parts I and II of Worksheet B2.</p></li>
-<li><p>Class will be dedicated to getting your questions answered.</p></li>
-<li><p>Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice.</p></li>
-</ul>
-</section>
-<section id="class-2" class="level3">
-<h3 class="anchored" data-anchor-id="class-2">Class 2</h3>
-<ul>
-<li><p><strong>Before class</strong>, start working on parts II and III of Worksheet B2.</p></li>
-<li><p>Class will be dedicated to getting your questions answered.</p></li>
-<li><p>Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B3.</p></li>
-</ul>
 </section>
 </section>
 <section id="resources" class="level2">

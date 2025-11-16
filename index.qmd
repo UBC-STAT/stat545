@@ -17,17 +17,18 @@ date-modified: last-modified
 
 **Lectures:**
 
--   No lectures this week! [See the optional video lecture on automation here!](https://www.youtube.com/watch?v=LJl7Ek3cXZA)
--   No office hours Monday - Wednesday this week.
+-   Tuesday November 18: Character Data Lecture
+-   Thursday November 20: Working Session w TAs
 
 **To Do this Week:**
 
--   Work on Assignment B2
--   Relax!
+-   Submit on Assignment B2
+-   Start Worksheet B2
 
 **Upcoming Deadlines**
 
 -   Assignment B2: November 19th, 11:59pm PST
+-   Worksheet B2: November 25, 11:59pm PST
 :::
 ::::
 :::::::

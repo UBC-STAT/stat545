@@ -219,6 +219,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_ii/lec11_automation.html">
  <span class="dropdown-text">Lecture 11: Automation</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec12_characterdata.html">
+ <span class="dropdown-text">Lecture 12: StringR and Regular Expressions</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -330,6 +334,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../webpages/lectures_ii/lec11_automation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lecture 11: Automation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec12_characterdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 12: StringR and Regular Expressions</span></a>
   </div>
 </li>
     </ul>
@@ -600,14 +610,14 @@ Click to reveal the solution!
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13</code></pre>
+<pre><code>[1] 11</code></pre>
 </div>
 </div>
 <p>I didn’t need to include <code>n_sides = 10</code> in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roll_dice</span>(<span class="at">n_sides =</span> <span class="dv">6</span>, <span class="at">num_dice =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 13</code></pre>
+<pre><code>[1] 17</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">

@@ -6,17 +6,20 @@ date-modified: last-modified
 
 From this topic, students are anticipated to be able to:
 
--   Manipulate a character vector in R using the stringr package.
+-   Manipulate a character vector in R using the `stringr` package.
 
 -   Write simple regular expressions (regex).
 
--   Apply stringr and regular expressions to manipulate data in tibbles.
+-   Apply `stringr` and regular expressions to manipulate data in tibbles.
 
 We will require the following packages:
 
 ```{r, warning = F, message = F}
 library(tidyverse) #stringr is automatically downloaded with tidyverse
 ```
+
+## Lecture Slides
+
 
 ## Strings
 
@@ -71,7 +74,7 @@ enron_email <- enron$email
 
 We'll first go through some `stringr` functions that **don't** require regular expressions.
 
-#### str_detech() and str_subset()
+#### str_detect() and str_subset()
 
 Let's filter only on entries that contain emails. We can do this by calling `str_detect()` and finding entries that contain "From:":
 
@@ -120,20 +123,20 @@ enron_emails_important <- str_subset(enron_email_words, "Important")
 length(enron_emails_important)
 ```
 
-and..
+and...
 
 ```{r}
 enron_emails_important <- str_subset(enron_email_words, "IMPORTANT")
 length(enron_emails_important)
 ```
 
-This is where *regular expressions* come in handy! We'll discuss this in the following section.
+This is where *regular expressions* will come in handy! We'll discuss this in the following section.
 
 ### Regular Expressions (regex)
 
 Regular expressions provide a powerful tool to extract character data through patterns! In regexes, specific characters and constructs take on special meaning in order to match multiple strings.
 
-We will go through a few common regex special characters, but refer readers to t[his Cheat Sheet](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://rstudio.github.io/cheatsheets/regex.pdf) by Ian Kopacka for a more in-depth review.
+We will go through a few common regex special characters, but refer readers to [this Cheat Sheet](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://rstudio.github.io/cheatsheets/regex.pdf) by Ian Kopacka for a more in-depth review.
 
 Let's consider a simple vector of words:\
 
@@ -165,7 +168,7 @@ Notice how we **did not** select "attic","kittycat" or "doormats"
 str_subset(words, pattern = ".at$")
 ```
 
-Notice how we **only** selected words ending in \<some chatacter\>at.
+Notice how we **only** selected words ending in \<some character\>at.
 
 #### `\b` and `\B` (boundaries and not a word boundary)
 
@@ -216,23 +219,7 @@ str_subset(words, pattern = "o+")
 
 Of course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out [Chapter 11 of the STAT545 Textbook](https://stat545.com/character-vectors.html)and the [STAT545 video lecture](https://www.youtube.com/watch?v=I0dJ1zpxAtU). We will also learn more as we work through Worksheet B2.
 
-## **Worksheet B2**
 
-### Class 1
-
--   **Before class**, start working on parts I and II of Worksheet B2.
-
--   Class will be dedicated to getting your questions answered.
-
--   Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice.
-
-### Class 2
-
--   **Before class**, start working on parts II and III of Worksheet B2.
-
--   Class will be dedicated to getting your questions answered.
-
--   Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B3.
 
 ## Resources
 
