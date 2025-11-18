@@ -212,6 +212,36 @@ which combines everything together and allows you to interact with the app!
 
 We will now follow along with [this tutorial by Dean Attali](https://deanattali.com/blog/building-shiny-apps-tutorial/) that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny.
 
+## Deploy the App to Shinyapps.io 
+
+Shinyapps.io allows you to host Shiny apps online! Here's how to do it:
+
+1)  Run `install.packages('rsconnect')` and `library(rsconnect)` in your Console.
+
+2)  Go to <https://www.shinyapps.io/> and create an account (click Sign Up). Follow the instructions. You can use the same username as your GitHub account if you'd like to be consistent.
+
+3)  Click Show Secret, and copy the Account Authorization into your R Console, with <SECRET> filled in
+
+    ```         
+    rsconnect::setAccountInfo(name='grcetmpk',
+                  token='E60FD358D5080B343605C63AE78C7858',
+                  secret='<SECRET>')
+    ```
+
+4)  Deploy the app by running in your Console:
+
+    ```         
+    rsconnect::deployApp('[PATH TO YOUR APP FOLDER]')
+    ```
+
+-   for example, to deploy my BC Liquor demo app, I'd insert the path `/Users/gracetompkins/Desktop/BCLiquor` (which is the folder where app.R exists).
+
+-   This may take a few minutes.
+
+On your shinyapps.io profile, you should see a dashboard of your apps, and see that yours has been deployed.
+
+***Tip***: Include a clickable link to your app in the README so others can easily try it out (i.e., "The app can be viewed at \[<https://grcetmpk.shinyapps.io/bcliquor/>\])<https://grcetmpk.shinyapps.io/bcliquor/>)".
+
 ## Additional Resources
 
 -   Video lecture: [How to Make a Shiny App in R](https://www.youtube.com/watch?v=rB4SJGyaGls)

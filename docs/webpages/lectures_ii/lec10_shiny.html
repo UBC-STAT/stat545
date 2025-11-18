@@ -363,6 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#generate-the-app" id="toc-generate-the-app" class="nav-link" data-scroll-target="#generate-the-app">Generate the App</a></li>
   </ul></li>
   <li><a href="#demo-bc-liquor-store-prices" id="toc-demo-bc-liquor-store-prices" class="nav-link" data-scroll-target="#demo-bc-liquor-store-prices">Demo: BC Liquor Store Prices</a></li>
+  <li><a href="#deploy-the-app-to-shinyapps.io" id="toc-deploy-the-app-to-shinyapps.io" class="nav-link" data-scroll-target="#deploy-the-app-to-shinyapps.io">Deploy the App to Shinyapps.io</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
   </ul>
 </nav>
@@ -385,7 +386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 2, 2025</p>
+      <p class="date-modified">November 18, 2025</p>
     </div>
   </div>
     
@@ -579,6 +580,26 @@ Note
 <section id="demo-bc-liquor-store-prices" class="level2">
 <h2 class="anchored" data-anchor-id="demo-bc-liquor-store-prices">Demo: BC Liquor Store Prices</h2>
 <p>We will now follow along with <a href="https://deanattali.com/blog/building-shiny-apps-tutorial/">this tutorial by Dean Attali</a> that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny.</p>
+</section>
+<section id="deploy-the-app-to-shinyapps.io" class="level2">
+<h2 class="anchored" data-anchor-id="deploy-the-app-to-shinyapps.io">Deploy the App to Shinyapps.io</h2>
+<p>Shinyapps.io allows you to host Shiny apps online! Here’s how to do it:</p>
+<ol type="1">
+<li><p>Run <code>install.packages('rsconnect')</code> and <code>library(rsconnect)</code> in your Console.</p></li>
+<li><p>Go to <a href="https://www.shinyapps.io/" class="uri">https://www.shinyapps.io/</a> and create an account (click Sign Up). Follow the instructions. You can use the same username as your GitHub account if you’d like to be consistent.</p></li>
+<li><p>Click Show Secret, and copy the Account Authorization into your R Console, with <secret> filled in</secret></p>
+<pre><code>rsconnect::setAccountInfo(name='grcetmpk',
+              token='E60FD358D5080B343605C63AE78C7858',
+              secret='&lt;SECRET&gt;')</code></pre></li>
+<li><p>Deploy the app by running in your Console:</p>
+<pre><code>rsconnect::deployApp('[PATH TO YOUR APP FOLDER]')</code></pre></li>
+</ol>
+<ul>
+<li><p>for example, to deploy my BC Liquor demo app, I’d insert the path <code>/Users/gracetompkins/Desktop/BCLiquor</code> (which is the folder where app.R exists).</p></li>
+<li><p>This may take a few minutes.</p></li>
+</ul>
+<p>On your shinyapps.io profile, you should see a dashboard of your apps, and see that yours has been deployed.</p>
+<p><strong><em>Tip</em></strong>: Include a clickable link to your app in the README so others can easily try it out (i.e., “The app can be viewed at [<a href="https://grcetmpk.shinyapps.io/bcliquor/" class="uri">https://grcetmpk.shinyapps.io/bcliquor/</a>])<a href="https://grcetmpk.shinyapps.io/bcliquor/" class="uri">https://grcetmpk.shinyapps.io/bcliquor/</a>)”.</p>
 </section>
 <section id="additional-resources" class="level2">
 <h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
