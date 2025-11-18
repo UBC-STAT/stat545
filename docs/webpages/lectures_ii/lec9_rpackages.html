@@ -355,8 +355,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link active" data-scroll-target="#video-lecture">Video Lecture</a></li>
   <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
   <li><a href="#why-r-packages" id="toc-why-r-packages" class="nav-link" data-scroll-target="#why-r-packages">Why R Packages?</a></li>
-  <li><a href="#minimal-working-example" id="toc-minimal-working-example" class="nav-link" data-scroll-target="#minimal-working-example">Minimal Working Example</a></li>
-  <li><a href="#expand-your-package" id="toc-expand-your-package" class="nav-link" data-scroll-target="#expand-your-package">Expand Your Package</a></li>
+  <li><a href="#minimal-working-example" id="toc-minimal-working-example" class="nav-link" data-scroll-target="#minimal-working-example">Minimal Working Example</a>
+  <ul class="collapse">
+  <li><a href="#initialize-git" id="toc-initialize-git" class="nav-link" data-scroll-target="#initialize-git">Initialize Git</a></li>
+  <li><a href="#update-the-description-file" id="toc-update-the-description-file" class="nav-link" data-scroll-target="#update-the-description-file">Update the DESCRIPTION File</a></li>
+  <li><a href="#add-a-readme" id="toc-add-a-readme" class="nav-link" data-scroll-target="#add-a-readme">Add a README</a></li>
+  <li><a href="#document-the-function" id="toc-document-the-function" class="nav-link" data-scroll-target="#document-the-function">Document the function</a></li>
+  </ul></li>
+  <li><a href="#expand-your-package" id="toc-expand-your-package" class="nav-link" data-scroll-target="#expand-your-package">Expand Your Package</a>
+  <ul class="collapse">
+  <li><a href="#add-tests-using-testthat" id="toc-add-tests-using-testthat" class="nav-link" data-scroll-target="#add-tests-using-testthat">Add Tests using <code>testthat</code></a></li>
+  <li><a href="#add-functions-from-other-packages" id="toc-add-functions-from-other-packages" class="nav-link" data-scroll-target="#add-functions-from-other-packages">Add Functions from Other Packages</a></li>
+  <li><a href="#add-your-package-to-github" id="toc-add-your-package-to-github" class="nav-link" data-scroll-target="#add-your-package-to-github">Add Your Package to GitHub</a></li>
+  <li><a href="#make-a-vignette" id="toc-make-a-vignette" class="nav-link" data-scroll-target="#make-a-vignette">Make a Vignette</a></li>
+  <li><a href="#include-datasets" id="toc-include-datasets" class="nav-link" data-scroll-target="#include-datasets">Include Datasets</a></li>
+  <li><a href="#release-your-package" id="toc-release-your-package" class="nav-link" data-scroll-target="#release-your-package">Release your package:</a></li>
+  </ul></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
@@ -379,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 30, 2025</p>
+      <p class="date-modified">November 18, 2025</p>
     </div>
   </div>
     
@@ -472,17 +486,24 @@ Tip
 <ul>
 <li>Any function with the <code>#' @export</code> tag will be exported to the namespace file which contains a list of functions we want to make available in the R package.</li>
 </ul></li>
-<li><p>Run <code>use_git()</code> to start using version control and hosting your package on Github:</p>
-<ul>
-<li>Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found <a href="#0">in “Happy Git with R” Part III</a>.</li>
-</ul></li>
 <li><p>Run <code>load_all()</code> in the console to test your package out</p>
 <ul>
 <li><p>If R Restarted, then you need to reload <code>devtools</code> before running <code>load_all()</code>.</p></li>
 <li><p>see if <code>square(5)</code> returns the correct answer</p></li>
 </ul></li>
 <li><p>Check that the package is intact: run <code>check()</code> in the Console</p></li>
-<li><p>Edit the DESCRIPTION file</p>
+</ul>
+<section id="initialize-git" class="level3">
+<h3 class="anchored" data-anchor-id="initialize-git">Initialize Git</h3>
+<ul>
+<li><p>Run <code>use_git()</code> to start using version control and hosting your package on Github:</p>
+<ul>
+<li>Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found <a href="#0">in “Happy Git with R” Part III</a>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="update-the-description-file" class="level3">
+<h3 class="anchored" data-anchor-id="update-the-description-file">Update the DESCRIPTION File</h3>
 <ul>
 <li><p>First, run <code>use_mit_license("Your Name")</code> in the Console.</p></li>
 <li><p>Open the DESCRIPTION file and edit the Author information and Package Title.</p>
@@ -499,13 +520,15 @@ Tip
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Suggests<span class="sc">:</span> </span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">testthat</span> (<span class="sc">&gt;=</span> <span class="dv">3</span>.<span class="fl">0.0</span>)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Config<span class="sc">/</span>testthat<span class="sc">/</span>edition<span class="sc">:</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><p>Add a README file</p>
+</ul>
+</section>
+<section id="add-a-readme" class="level3">
+<h3 class="anchored" data-anchor-id="add-a-readme">Add a README</h3>
 <ul>
 <li><p>Run <code>use_readme_rmd()</code> in the Console.</p></li>
 <li><p>Open the RMD file.</p></li>
-<li><p><strong>Do not delete the</strong> <code>knitr::opts_chunk</code> chunk. Edit the information below it:</p></li>
-<li><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># powers Package</span></span>
+<li><p><strong>Do not delete the</strong> <code>knitr::opts_chunk</code> chunk. Edit the information below it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># powers Package</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>This is a minimal working example of my first R Package for STAT545!</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,8 +545,10 @@ Tip
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">square(c(2,4,5))</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Render the README every time with <code>build_readme()</code>.</p></li>
-</ul></li>
-<li><p>Document the function:</p>
+</ul>
+</section>
+<section id="document-the-function" class="level3">
+<h3 class="anchored" data-anchor-id="document-the-function">Document the function</h3>
 <ul>
 <li><p>Navigate back to the function <code>square</code> we made and click anywhere inside of the function. Select “Code” &gt; “Insert roxygen skeleton”</p></li>
 <li><p>Edit the documentation for <code>param</code>, <code>returns</code>, and <code>examples</code>. You can also add a <code>@title</code> and <code>@description</code>. Here’s what mine looks like:</p>
@@ -546,15 +571,16 @@ Tip
 </div></li>
 <li><p>Run <code>document()</code> again in the Console.</p></li>
 <li><p>Run <code>check()</code> again to make sure your examples are working.</p></li>
-</ul></li>
 <li><p>Install and Restart (<code>Ctrl + Shift + B</code> (Windows &amp; Linux) or <code>Cmd + Shift + B</code> (macOS)) , or run <code>install()</code> in the console. Try loading the package and using it!</p></li>
 </ul>
+</section>
 </section>
 <section id="expand-your-package" class="level2">
 <h2 class="anchored" data-anchor-id="expand-your-package">Expand Your Package</h2>
 <p>Now, let’s expand the R package that we just created:</p>
-<ol type="1">
-<li><p>Run <code>use_testthat()</code> in the Console (re-load <code>devtools</code> if R recently restarted)</p>
+<section id="add-tests-using-testthat" class="level3">
+<h3 class="anchored" data-anchor-id="add-tests-using-testthat">Add Tests using <code>testthat</code></h3>
+<p>Run <code>use_testthat()</code> in the Console (re-load <code>devtools</code> if R recently restarted)</p>
 <ul>
 <li><p>This will create a folder called <code>tests</code> and a <code>testthat.R</code> file which we will add our tests to.</p></li>
 <li><p>Run <code>use_test("square")</code> in the Console. This will create a file called test-square.R</p></li>
@@ -566,45 +592,79 @@ Tip
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">square</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="cn">NA</span>)), <span class="fu">c</span>(<span class="dv">9</span>, <span class="cn">NA</span>))</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Check all tests with <code>test()</code> in the Console. This also happens with <code>check()</code>.</p></li>
-</ul></li>
-<li><p>We don’t really need to use functions from another package here, but practice declaring your general intention to use some functions from the dplyr namespace by running <code>use_package("dplyr")</code> in the Console only once. Now your package will be able to use the <code>dplyr</code> package functions.</p></li>
-<li><p>Connect your local package to Github with <code>use_github()</code>. Say yes to committing and publishing the changes. Now your package should be on GitHub!</p></li>
-<li><p>Make a vignette, a long-form document that serves as a detailed guide or tutorial for an R package:</p>
+</ul>
+</section>
+<section id="add-functions-from-other-packages" class="level3">
+<h3 class="anchored" data-anchor-id="add-functions-from-other-packages">Add Functions from Other Packages</h3>
+<p>We don’t really need to use functions from another package here, but practice declaring your general intention to use some functions from the dplyr namespace by running <code>use_package("dplyr")</code> in the Console only once. Now your package will be able to use the <code>dplyr</code> package functions.</p>
+</section>
+<section id="add-your-package-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="add-your-package-to-github">Add Your Package to GitHub</h3>
+<p>Connect your local package to Github with <code>use_github()</code>. Say yes to committing and publishing the changes. Now your package should be on GitHub!</p>
+</section>
+<section id="make-a-vignette" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-vignette">Make a Vignette</h3>
+<p>Make a vignette, a long-form document that serves as a detailed guide or tutorial for an R package:</p>
 <ul>
 <li><p><code>use_vignette("powers")</code></p></li>
 <li><p><code>build_vignettes()</code>.</p></li>
-</ul></li>
-<li><p>Include data with the R package with <code>use_data(R_OBJECT_HERE)</code>. Then document <em>a string of its name</em> in a new R script using <a href="https://r-pkgs.org/data.html#documenting-data">a different collection of roxygen tags</a>.</p>
+</ul>
+</section>
+<section id="include-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="include-datasets">Include Datasets</h3>
+<p>To include data with the R package that exists within an R package, use <code>use_data(R_OBJECT_HERE)</code>. This will create an R object in the data/ folder of your repository. Then document <em>a string of its name</em> in a new R script using <a href="https://r-pkgs.org/data.html#documenting-data">a different collection of roxygen tags</a>.</p>
 <ul>
-<li>I’ll add the <code>mtcars</code> dataset using <code>use_data(mtcars)</code></li>
-</ul></li>
-<li><p>Release your package:</p>
+<li>For example, if I wanted to add the <code>mtcars</code> dataset to my package (which exists in R by default), I’ll add the <code>mtcars</code> dataset using <code>use_data(mtcars)</code>. Then, I’ll create a file called “mtcars.R” in the R/ folder with the following:</li>
+</ul>
+<pre><code>#' Motor Trend Car Road Tests
+#'
+#' The data was extracted from the 1974 Motor Trend US magazine,
+#' and comprises fuel consumption and 10 aspects of automobile design and
+#' performance for 32 automobiles (1973–74 models).
+#'
+#' @source Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
+
+"mtcars"</code></pre>
 <ul>
-<li><p>Make a NEWS.md file with <code>use_news_md()</code> and add the main development notes.</p></li>
-<li><p>Commit changes (in Terminal on RStudio)</p>
-<ul>
-<li><p><code>git add .</code></p></li>
-<li><p><code>git commit -m "Adding Vignette:"</code></p></li>
-</ul></li>
-<li><p>Push Changes (in Terminal on RStudio)</p>
-<ul>
-<li><p><code>git push origin main</code></p></li>
-<li><p>(If you get an error, try going to the Git section in the top right hand pane and push from there)</p></li>
-</ul></li>
-<li><p>Tag a release on GitHub.</p>
-<ul>
-<li><p>Recall <em>How to tag a release</em> from the Collaborative Project Milestone 1:</p>
-<ol type="1">
-<li><p>Navigate to the main page (root) of your GitHub repository.</p></li>
-<li><p>There should be a small link on the right-hand-side of your page that says “Create a new release”. Click that.</p></li>
-<li><p>For the tag version/name, put <code>1.0.0</code></p></li>
-<li><p>Choose a release title and description (this is less important).</p></li>
-<li><p>Do <strong>not</strong> check off “This is a pre-release”.</p></li>
-<li><p>Click “Publish Release”.</p></li>
-</ol></li>
-</ul></li>
-</ul></li>
-</ol>
+<li>If I wanted to add external data from a .csv file, I can read in the data into an R object in the console (ex: <code>housingdata &lt;- read_csv("[pathtofile]/housingdata.csv")</code> and then run <code>use_data(housingdata)</code>. This will create <code>housingdata.rda</code> in the data/ folder in your project. Then, I can document the data by creating <code>housingdata.R</code> in the R/ folder, as:</li>
+</ul>
+<pre><code>#' Artificiant Housing Data
+#'
+#' Includes made up data!
+
+"housingdata"</code></pre>
+</section>
+<section id="release-your-package" class="level3">
+<h3 class="anchored" data-anchor-id="release-your-package">Release your package:</h3>
+<pre><code>-   Make a NEWS.md file with `use_news_md()` and add the main development notes.
+
+-   Commit changes (in Terminal on RStudio)
+
+    -   `git add .`
+
+    -   `git commit -m "Adding Vignette:"`
+
+-   Push Changes (in Terminal on RStudio)
+
+    -   `git push origin main`
+
+    -   (If you get an error, try going to the Git section in the top right hand pane and push from there)
+
+-   Tag a release on GitHub.
+
+    -   Recall *How to tag a release* from the Collaborative Project Milestone 1:
+
+        1.  Navigate to the main page (root) of your GitHub repository.
+
+        2.  There should be a small link on the right-hand-side of your page that says “Create a new release”. Click that.
+
+        3.  For the tag version/name, put `1.0.0`
+
+        4.  Choose a release title and description (this is less important).
+
+        5.  Do **not** check off “This is a pre-release”.
+
+        6.  Click “Publish Release”.</code></pre>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -618,6 +678,7 @@ Exercise
 <p>Try installing the package that the person beside you just created. Restart RStudio, load <code>devtools</code> and see if you can use <code>devtools::install_github("YOUR_GITHUB_USERNAME/powers")</code> to install their package. Load in the newly installed <code>powers</code> package and test out the <code>square</code> function and see if it works!</p>
 </div>
 </div>
+</section>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
