@@ -34,7 +34,7 @@ As mentioned in the “functions” topic, your analysis will probably benefit f
 
 -   Organized documentation
 
--   Sharability
+-   Shareability
 
 -   Built-in checks to ensure your package is working
 

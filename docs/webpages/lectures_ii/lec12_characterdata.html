@@ -359,6 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#non-regex-string-manipulation" id="toc-non-regex-string-manipulation" class="nav-link" data-scroll-target="#non-regex-string-manipulation">Non-regex String Manipulation</a></li>
   <li><a href="#regular-expressions-regex" id="toc-regular-expressions-regex" class="nav-link" data-scroll-target="#regular-expressions-regex">Regular Expressions (regex)</a></li>
   </ul></li>
+  <li><a href="#example-back-to-the-emails" id="toc-example-back-to-the-emails" class="nav-link" data-scroll-target="#example-back-to-the-emails">Example: Back to the Emails</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
@@ -381,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 16, 2025</p>
+      <p class="date-modified">November 18, 2025</p>
     </div>
   </div>
     
@@ -691,6 +692,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Of course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out <a href="https://stat545.com/character-vectors.html">Chapter 11 of the STAT545 Textbook</a>and the <a href="https://www.youtube.com/watch?v=I0dJ1zpxAtU">STAT545 video lecture</a>. We will also learn more as we work through Worksheet B2.</p>
 </section>
 </section>
+</section>
+<section id="example-back-to-the-emails" class="level2">
+<h2 class="anchored" data-anchor-id="example-back-to-the-emails">Example: Back to the Emails</h2>
+<p>So, how do we select emails that contain the word “important” without it being case sensitive? There are a few ways. The easiest is to leverage <code>stringr</code> and wrap the regular expression in the <code>regex()</code> function and use <code>ignore_case = T</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>enron_emails_important <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(enron_email_words, <span class="fu">regex</span>(<span class="st">"important"</span>, <span class="at">ignore_case =</span> T))</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(enron_emails_important)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 105</code></pre>
+</div>
+</div>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>

@@ -220,6 +220,16 @@ str_subset(words, pattern = "o+")
 Of course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out [Chapter 11 of the STAT545 Textbook](https://stat545.com/character-vectors.html)and the [STAT545 video lecture](https://www.youtube.com/watch?v=I0dJ1zpxAtU). We will also learn more as we work through Worksheet B2.
 
 
+## Example: Back to the Emails
+
+So, how do we select emails that contain the word "important" without it being case sensitive? There are a few ways. The easiest is to leverage `stringr` and wrap the regular expression in the `regex()` function and use `ignore_case = T`: 
+
+```{r}
+enron_emails_important <- str_subset(enron_email_words, regex("important", ignore_case = T))
+length(enron_emails_important)
+```
+
+
 
 ## Resources
 
