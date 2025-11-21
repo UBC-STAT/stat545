@@ -223,6 +223,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../../webpages/lectures_ii/lec12_characterdata.html">
  <span class="dropdown-text">Lecture 12: StringR and Regular Expressions</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec13_purrr.html">
+ <span class="dropdown-text">Lecture 13: Lists, Iterations, and <code>purrr</code></span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -358,10 +362,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>Using GitHub PAT from the git credential store.</code></pre>
 </div>
-<div class="cell-output cell-output-error">
-<pre><code>Error: Failed to install 'singer' from GitHub:
-  SSL connect error [api.github.com]:
-Recv failure: Connection reset by peer</code></pre>
+<div class="cell-output cell-output-stderr">
+<pre><code>Skipping install of 'singer' from a github remote, the SHA1 (2b4fe9cb) has not changed since last install.
+  Use `force = TRUE` to force installation</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load.packages</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">

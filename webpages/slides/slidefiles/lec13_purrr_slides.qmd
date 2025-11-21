@@ -1,0 +1,273 @@
+---
+title: "Lecture 13: Lists, Iterations, and `purrr`"
+subtitle: "STAT 545 - Fall 2025"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    auto-stretch: false
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - tidyverse
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Learning Outcomes
+
+-   Use the `map` family of functions from the purrr package to iteratively apply a function.
+
+-   Create and operate on list columns in a tibble using `nest()`, `unnest()`, and the `map_*()` family of functions.
+
+-   Define functions on-the-fly within a `map` function using shortcuts.
+
+-   Create and operate on list columns in a tibble using `nest()`, `unnest()`
+
+[Written Notes](../../lectures_ii/lec13_purrr.qmd)
+
+(No video lecture this week!)
+
+## Required Packages
+
+We will require the following packages:
+
+```{r, warning = F, message = F}
+library(tidyverse) #purrr is automatically downloaded with tidyverse
+```
+
+## Lists
+
+Here is a list in R; it holds multiple items.
+
+```{webr}
+my_list <- list(1:10, c("a", "b", "c"), "samplestring")
+my_list
+```
+
+| Vectors | Lists |
+|------------------------------------|------------------------------------|
+| Access elements with square brackets `[]` | Access elements with `[[]]` |
+| Each element must be an atomic data type (i.e., a single value) | Elements can be anything, even another list or another vector |
+| Each element has to be of the same type | Elements can be as different as you like |
+
+## Lists
+
+Let's take our sample list and access some items stored in it.
+
+```{webr}
+#returns the vector stored in the second element of the list
+
+```
+
+To access the data within the vector, we can index it as well:
+
+```{webr}
+#returns third element of the vector stored in the second element of the list
+
+```
+
+## Lists
+
+Elements within a list can also be named using `names()`.
+
+```{webr}
+...(my_list) <- c("NumericVec", "CharacterVec", "String")
+my_list
+```
+
+Once the elements are named, you can access them using the `$` operator, similar to how you can grab columns from a data frame or tibble:
+
+```{webr}
+
+```
+
+## Tibbles, as a List?
+
+Data frames and tibbles are actually a special type of list:
+
+```{webr}
+typeof(mtcars) 
+```
+
+```{webr}
+typeof(palmerpenguins::penguins)
+```
+
+-   We can efficiently apply a function to each column of a tibble by learning how to apply a function to each entry of a list.
+
+## Iteration
+
+Let's write a "for loop" in R that iterates over the entries of a numeric vector `x`, squares each entry, and stores the result in a numeric vector `output`:
+
+```{webr}
+x <- 1:10 
+output <- vector("double", length(x)) #init a vector of 0s
+
+...
+
+output
+```
+
+## Iteration with `purrr`
+
+Often, you can replace loops with a compact call to a function in the `purrr` package.
+
+There are many `map_*()` functions, a few of which we will highlight here:
+
+-   `map()`: applies a function to each element in a list or vector, returns a list
+-   `map_dbl()`: applies a function to each element in a list or vector, returns a vector
+-   `map_dfr()`: applies a function to each element in a list or vector, returns a data frame
+
+The first argument of each function specifies the list/vector we want to iterate over, and the second argument specifies a function that we want to apply to each entry.
+
+## Iteration with `purrr`
+
+Let's use these map functions over a list containing ages of some made-up people
+
+```{webr}
+sample_list <- list(18, 25, 63, 22)
+names(sample_list) <- c("Amir", "Jenna", "Logan", "Phum")
+
+sample_list
+```
+
+We will compare the outputs of these functions when applying a simple square function to their ages.
+
+## Iteration with `purrr`
+
+### `map()`
+
+```{webr}
+...(sample_list, function(x) x^2) #map a square function to the sample vector
+```
+
+A list is returned!
+
+## Iteration with `purrr`
+
+### `map_dbl()`
+
+```{webr}
+...(sample_list, function(x) x^2) #map a square function to the sample vector
+```
+
+A vector is returned!
+
+## Iteration with `purrr`
+
+### `map_dfr()`
+
+```{webr}
+...(sample_list, function(x) x^2) #map a square function to the sample vector
+```
+
+A dataframe is returned!
+
+## Iteration with `purrr`
+
+### `purrr` Shortcuts
+
+Here’s an example using `purrr::map_dbl()` and a custom function:
+
+```{webr}
+purrr::map_dbl(sample_list, function(x) x^2)
+```
+
+Here are two examples of “shortcuts”:
+
+```{webr}
+purrr::map_dbl(sample_list, ~ (.x)^2)
+```
+
+```{webr}
+purrr::map_dbl(sample_list, \(x) x^2)
+```
+
+## List Columns
+
+Consider the following example: a snippet of the Game of Thrones data from [An API of Ice and Fire](https://anapioficeandfire.com/).
+
+```         
+## # A tibble: 6 × 3
+##   name              gender titles   
+##   <chr>             <chr>  <list>   
+## 1 Theon Greyjoy     Male   <chr [2]>
+## 2 Tyrion Lannister  Male   <chr [2]>
+## 3 Victarion Greyjoy Male   <chr [2]>
+## 4 Will              Male   <chr [1]>
+## 5 Areo Hotah        Male   <chr [1]>
+## 6 Chett             Male   <chr [1]>
+```
+
+-   Some characters have one title (e.g., Will); others have more than one title (e.g., Theon Greyjoy).
+
+-   The `titles` column is a *list column*, where each entry is a *list* that contains as many or as few strings as we like.
+
+## List Columns
+
+### Create List Columns using `nest()`
+
+```{webr}
+# Artificial dataset of families
+family_data <- tibble(
+  family_id = c(1, 1, 2, 3, 3, 3, 4),
+  lastname    = c("Smith", "Smith", "Lee", "Patel", "Patel", "Patel", "LeBlanc"),
+  child     = c("Mia", "Leo", "Noah",
+                "Ella", "Sofia", "Lucas",
+                "Harper")
+)
+
+family_data
+```
+
+-   Instead of having one row per child, perhaps we want to nest the data such that there is only one row per family.
+
+-   We can nest the `child` column!
+
+-   *Aside: in general this data will not be tidy, but we're demonstrating how to nest and un-nest data here*
+
+## List Columns
+
+### Create List Columns using `nest()`
+
+We first need to group by `family_id` to gather children from each family, and then create a nested column called "children":
+
+```{webr}
+nested_families <- family_data %>%
+  ...(family_id, lastname) %>%   # group by family
+  ...(children = child) %>%           # create list-column "children" (tibble type)
+  ...e(children = map(children, ~ .x$child)) #overwrite children: change from tibble to vector
+
+nested_families
+```
+
+Now we have a list column that contains vectors of varying lengths with the children's names within each family.
+
+## List Columns
+
+### Remove List Columns using `unnest()`
+
+We can revert back to the original tibble using `unnest()`.
+
+```{webr}
+original_family_data <- nested_families %>%
+  ...(children) #unnest the children column name
+
+original_family_data
+```
+
+## Worksheet B3
+
+You'll dive deeper into these topics in Worksheet B3
+
+Take the rest of today's class and Thursday's class to work through the worksheet and ask for help if needed.

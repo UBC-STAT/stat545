@@ -20,6 +20,8 @@ library(tidyverse) #stringr is automatically downloaded with tidyverse
 
 ## Lecture Slides
 
+-   [Lecture 12 - R Character Data](../slides/slidefiles/lec12_characterdata_slides.qmd)
+
 
 ## Strings
 

@@ -62,8 +62,8 @@ This course will feature short lectures and in-class demonstrations so students 
 | 12 | Tuesday Nov 18 | [StringR and Regular Expressions](../lectures_ii/lec12_characterdata.qmd) | Worksheet B2 |
 |  | Thursday Nov 20 |  | Worksheet B2 |
 |  |  |  |  |
-| 13 | Tuesday Nov 25 | [List Columns](../lectures_ii/lec13_listcolumns.qmd) | Worksheet B3 |
-|  | Thursday Nov 27 |  | Worksheet B3, Assignment 3 |
+| 13 | Tuesday Nov 25 | [Iteration with `purrr`](../lectures_ii/lec13_purrr.qmd) | Worksheet B3 |
+|  | Thursday Nov 27 | | Worksheet B3 |
 |  |  |  |  |
 | 14 | Tuesday Dec 2 | [Quarto Websites and Slides](../lectures_ii/lec14_quarto.qmd) |  |
 |  | Thursday Dec 4 | Review and Work Session | Worksheet B3, Assignment 3 |

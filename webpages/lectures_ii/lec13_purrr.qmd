@@ -1,0 +1,287 @@
+---
+title: "Lecture 13: Lists, Iterations, and `purrr`"
+subtitle: "November 25, 2025"
+date-modified: last-modified
+---
+
+### **Learning Objectives**
+
+From this topic, students are anticipated to be able to:
+
+-   Use the `map` family of functions from the purrr package to iteratively apply a function.
+
+-   Create and operate on list columns in a tibble using `nest()`, `unnest()`, and the `map_*()` family of functions.
+
+-   Define functions on-the-fly within a `map` function using shortcuts.
+
+-   Create and operate on list columns in a tibble using `nest()`, `unnest()`
+
+-   Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble.
+
+We will need to load in the `tidyverse`  package for this lecture:
+
+```{r, warning = F, message = F}
+library(tidyverse)
+```
+
+
+## Lecture Slides
+
+-   [Lecture 12 - Lists, Iteration, and `purrr`](../slides/slidefiles/lec13_purrr_slides.qmd)
+
+
+## Lists
+
+Here is a list in R; it holds multiple items. 
+
+```{r}
+my_list <- list(1:10, c("a", "b", "c"), "samplestring")
+my_list
+```
+
+A list might sound like a *vector*, which we have worked with before – remember, we construct them using the `c()` function. Indeed, vectors and lists can both hold multiple items. But there are key differences.
+
+| Vectors | Lists |
+|----|----|
+| Access elements with square brackets `[]` | Access elements with `[[]]` |
+| Each element must be an atomic data type (i.e., a single value) | Elements can be anything, even another list or another vector |
+| Each element has to be of the same type | Elements can be as different as you like |
+
+
+Let's take our sample list and access some items stored in it. 
+
+```{r}
+#returns the vector stored in the second element of the list
+my_list[[2]] 
+```
+
+To access the data within the vector, we can index it as well:
+
+```{r}
+#returns third element of the vector stored in the second element of the list
+my_list[[2]][3] 
+```
+
+Elements within a list can also be named using `names()`.
+
+```{r}
+names(my_list) <- c("NumericVec", "CharacterVec", "String")
+my_list
+```
+
+Once the elements are named, you can access them using the `$` operator, similar to how you can grab columns from a data frame or tibble:
+
+```{r}
+my_list$CharacterVec
+```
+
+
+
+
+## Tibbles, as a list?
+
+Speaking of data frames and tibbles, did you know that data frames and tibbles are actually a special type of list? It’s true!
+
+```{r}
+typeof(mtcars) 
+```
+
+```{r}
+typeof(palmerpenguins::penguins)
+```
+
+It turns out that they are actually *lists*, where each element of the list stores a column, which is either a list with the same number of entries as the tibble has rows, or a vector with the same number of entries as the tibble has rows.
+
+This has an important implication: we can efficiently apply a function to each column of a tibble by learning how to apply a function to each entry of a list. This is yet another way (beyond functions themselves) of avoiding duplicating code, which you will recall (from the functions topic) has many advantages.
+
+## Iteration
+
+If you programmed before, you probably have an idea of how to do this with a `for` loop. Here’s an example of a for loop in R that iterates over the entries of a numeric vector `x`, squares each entry, and stores the result in a numeric vector `output`:
+
+```{r}
+x <- 1:10 
+output <- vector("double", length(x)) #init a vector of 0s
+
+for(i in seq_along(x)) { 
+    output[i] <- x[i]^2  
+}
+
+output
+```
+
+
+## Iteration with `purrr`
+
+Often, you can replace loops with a compact call to a function in the `purrr` package. This has the advantage of making our code even more readable and compact, since we’re expressing the same logic with less space. 
+
+There are many `map_*()` functions, a few of which we will highlight here:
+
+- `map()`: applies a function to each element in a list or vector, returns a list
+- `map_dbl()`: applies a function to each element in a list or vector, returns a vector
+- `map_dfr()`: applies a function to each element in a list or vector, returns a data frame
+- `map2()`: performs `map()` over multiple inputs simultaneously
+
+
+The first argument of each function specifies the list/vector we want to iterate over, and the second argument specifies a function that we want to apply to each entry.
+
+Let's use these map functions over a list containing ages of some made-up people
+
+```{r}
+sample_list <- list(18, 25, 63, 22)
+names(sample_list) <- c("Amir", "Jenna", "Logan", "Phum")
+
+sample_list
+```
+
+We will compare the outputs of these functions when applying a simple square function to their ages. 
+
+### `map()`
+
+```{r}
+map(sample_list, function(x) x^2) #map a square function to the sample vector
+```
+
+A list is returned!
+
+### `map_dbl()`
+
+```{r}
+map_dbl(sample_list, function(x) x^2) #map a square function to the sample vector
+```
+
+A vector is returned!
+
+
+### `map_dfr()`
+
+```{r}
+map_dfr(sample_list, function(x) x^2) #map a square function to the sample vector
+```
+
+A dataframe is returned!
+
+
+You will explore `map2()` in the Worksheet. 
+
+## `purrr` Shortcuts
+
+Here’s an example using `purrr::map_dbl()` and a custom function:
+
+```{r}
+purrr::map_dbl(sample_list, function(x) x^2)
+```
+
+ Options for specifying functions include the name of a function, a fully specified custom function (as demonstrated above), or one of the “shortcuts” the `purrr` developers have provided.
+
+Here are two examples of “shortcuts”:
+
+```{r}
+purrr::map_dbl(sample_list, ~ (.x)^2)
+```
+
+```{r}
+purrr::map_dbl(sample_list, \(x) x^2)
+```
+
+The second one is easier to remember and appears to be the one that `purrr` developers are recommending now; see the [purrr cheatsheat](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf). But this change in recommendation appears to have happened around 2022/2023, so you may still see the first type of shortcut in many places in the wild.
+
+
+
+
+## List Columns
+
+Did you know columns in a tibble can have type “list”? We call these types of columns “list columns”.
+
+Consider the following example: a snippet of the Game of Thrones data from [An API of Ice and Fire](https://anapioficeandfire.com/).
+
+```         
+## # A tibble: 6 × 3
+##   name              gender titles   
+##   <chr>             <chr>  <list>   
+## 1 Theon Greyjoy     Male   <chr [2]>
+## 2 Tyrion Lannister  Male   <chr [2]>
+## 3 Victarion Greyjoy Male   <chr [2]>
+## 4 Will              Male   <chr [1]>
+## 5 Areo Hotah        Male   <chr [1]>
+## 6 Chett             Male   <chr [1]>
+```
+
+Some characters have one title (e.g., Will); others have more than one title (e.g., Theon Greyjoy). Consequently, the `titles` column is a *list column*, where each entry is a *list* that contains as many or as few strings as we like.
+
+We can even have tibbles as an observation in our data (which is technically still a list type). 
+
+Nested columns can have lists nested in lists, which we refer to as JSON-style data. You'll see this in Worksheet B3!
+
+### Create List Columns using `nest()`
+
+```{r}
+# Artificial dataset of families
+family_data <- tibble(
+  family_id = c(1, 1, 2, 3, 3, 3, 4),
+  lastname    = c("Smith", "Smith", "Lee", "Patel", "Patel", "Patel", "LeBlanc"),
+  child     = c("Mia", "Leo", "Noah",
+                "Ella", "Sofia", "Lucas",
+                "Harper")
+)
+
+family_data
+```
+
+Instead of having one row per child, perhaps we want to nest the data such that there is only one row per family. We can nest the `child` column! (*Aside: in general this data will not be tidy, but we're demonstrating how to nest and un-nest data here*).
+
+We first need to group by `family_id` to gather children from each family, and then create a nested column called "children":
+
+```{r}
+nested_families <- family_data %>%
+  group_by(family_id, lastname) %>%   # group by family
+  nest(children = child) %>%           # create list-column "children" (tibble type)
+  mutate(children = map(children, ~ .x$child)) #overwrite children: change from tibble to vector
+
+nested_families
+```
+
+Now we have a list column that contains vectors of varying lengths with the children's names within each family. 
+
+
+### Remove List Columns using `unnest()`
+
+We can revert back to the original tibble using `unnest()`. 
+
+```{r}
+original_family_data <- nested_families %>%
+  unnest(children) #unnest the children column name
+
+original_family_data
+```
+
+
+
+
+
+## Resources
+
+Video lectures:
+
+-   [Vectors and Lists in R](https://www.youtube.com/watch?v=nJgrDoCENBI)
+
+-   [R List Columns: purrr map and nesting](https://www.youtube.com/watch?v=_731PZ8I9m0)
+
+Written material:
+
+-   [R4DS Chapter 21: Iteration](https://r4ds.hadley.nz/iteration.html) for purrr
+
+    -   21.1 for an intro
+
+    -   21.5 for the `map` family of functions
+
+    -   The intro of 21.7 for the `map2` and `pmap` families.
+
+-   [“List Columns”](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html) from [Jenny’s purrr tutorial](https://jennybc.github.io/purrr-tutorial/index.html)
+
+-   [“Nested data” article](https://tidyr.tidyverse.org/articles/nest.html) on tidyr’s website.
+
+Want to dig deeper? These resources can help.
+
+-   [Advanced R Chapter 9: Functionals](https://adv-r.hadley.nz/functionals.html) – looking at purrr and `map()` from a programming perspective.
+
+-   [tidyr’s rectangling vignette](https://tidyr.tidyverse.org/articles/rectangle.html) – for handling deeply nested lists (JSON-style data), similar to tidyr’s `pivot_` functions.

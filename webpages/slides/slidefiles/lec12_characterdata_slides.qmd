@@ -246,7 +246,7 @@ This selected words that did not have any separation between them.
 We can specify regex to match any number of characters
 
 | **Quantifier** | **Number of Characters** | **Range to Match** | **Meaning** |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | \* | 0 or more | {n} | exactly n |
 | \+ | 1 or more | {n,} | at least n |
 | ? | 0 or 1 | {,m} | at most m |

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 13: List Columns – STAT545</title>
+<title>Lecture 13: Lists, Iterations, and purrr – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,6 +223,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../webpages/lectures_ii/lec12_characterdata.html">
  <span class="dropdown-text">Lecture 12: StringR and Regular Expressions</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec13_purrr.html">
+ <span class="dropdown-text">Lecture 13: Lists, Iterations, and <code>purrr</code></span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -289,10 +293,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/lectures_ii/lec13_purrr.html">Lecture 13: Lists, Iterations, and <code>purrr</code></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec8a_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8A: Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec8b_advfunctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8b: Advanced Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec9_rpackages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 9: R Packages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec10_shiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 10: Dashboards with R Shiny</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec11_automation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 11: Automation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec12_characterdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 12: StringR and Regular Expressions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/lectures_ii/lec13_purrr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lecture 13: Lists, Iterations, and <code>purrr</code></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -300,14 +363,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><strong>Learning Objectives</strong></a></li>
-  <li><a href="#vectors-vs-lists" id="toc-vectors-vs-lists" class="nav-link" data-scroll-target="#vectors-vs-lists">Vectors vs Lists</a></li>
-  <li><a href="#the-secret-life-of-tibbles" id="toc-the-secret-life-of-tibbles" class="nav-link" data-scroll-target="#the-secret-life-of-tibbles">The Secret Life of Tibbles</a></li>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides">Lecture Slides</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
+  <li><a href="#tibbles-as-a-list" id="toc-tibbles-as-a-list" class="nav-link" data-scroll-target="#tibbles-as-a-list">Tibbles, as a list?</a></li>
   <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration">Iteration</a></li>
-  <li><a href="#list-columns" id="toc-list-columns" class="nav-link" data-scroll-target="#list-columns">List Columns</a></li>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a>
+  <li><a href="#iteration-with-purrr" id="toc-iteration-with-purrr" class="nav-link" data-scroll-target="#iteration-with-purrr">Iteration with <code>purrr</code></a>
   <ul class="collapse">
-  <li><a href="#class-1-worksheet-b3-part-i" id="toc-class-1-worksheet-b3-part-i" class="nav-link" data-scroll-target="#class-1-worksheet-b3-part-i">Class 1: Worksheet B3, Part I</a></li>
-  <li><a href="#class-2-worksheet-b3-parts-2-and-3" id="toc-class-2-worksheet-b3-parts-2-and-3" class="nav-link" data-scroll-target="#class-2-worksheet-b3-parts-2-and-3">Class 2: Worksheet B3, Parts 2 and 3</a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map"><code>map()</code></a></li>
+  <li><a href="#map_dbl" id="toc-map_dbl" class="nav-link" data-scroll-target="#map_dbl"><code>map_dbl()</code></a></li>
+  <li><a href="#map_dfr" id="toc-map_dfr" class="nav-link" data-scroll-target="#map_dfr"><code>map_dfr()</code></a></li>
+  </ul></li>
+  <li><a href="#purrr-shortcuts" id="toc-purrr-shortcuts" class="nav-link" data-scroll-target="#purrr-shortcuts"><code>purrr</code> Shortcuts</a></li>
+  <li><a href="#list-columns" id="toc-list-columns" class="nav-link" data-scroll-target="#list-columns">List Columns</a>
+  <ul class="collapse">
+  <li><a href="#create-list-columns-using-nest" id="toc-create-list-columns-using-nest" class="nav-link" data-scroll-target="#create-list-columns-using-nest">Create List Columns using <code>nest()</code></a></li>
+  <li><a href="#remove-list-columns-using-unnest" id="toc-remove-list-columns-using-unnest" class="nav-link" data-scroll-target="#remove-list-columns-using-unnest">Remove List Columns using <code>unnest()</code></a></li>
   </ul></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
@@ -318,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 13: List Columns</h1>
+<h1 class="title">Lecture 13: Lists, Iterations, and <code>purrr</code></h1>
 <p class="subtitle lead">November 25, 2025</p>
 </div>
 
@@ -331,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 11, 2025</p>
+      <p class="date-modified">November 21, 2025</p>
     </div>
   </div>
     
@@ -347,28 +417,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>From this topic, students are anticipated to be able to:</p>
 <ul>
 <li><p>Use the <code>map</code> family of functions from the purrr package to iteratively apply a function.</p></li>
-<li><p>Create and operate on list columns in a tibble using <code>nest()</code>, <code>unnest()</code>, and the <code>map()</code> family of functions.</p></li>
+<li><p>Create and operate on list columns in a tibble using <code>nest()</code>, <code>unnest()</code>, and the <code>map_*()</code> family of functions.</p></li>
 <li><p>Define functions on-the-fly within a <code>map</code> function using shortcuts.</p></li>
+<li><p>Create and operate on list columns in a tibble using <code>nest()</code>, <code>unnest()</code></p></li>
 <li><p>Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble.</p></li>
 </ul>
-<p>Class 1 will be dedicated to <code>purrr</code> while Class 2 will be dedicated to list-columns.</p>
 <p>We will need to load in the <code>tidyverse</code> package for this lecture:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="vectors-vs-lists" class="level2">
-<h2 class="anchored" data-anchor-id="vectors-vs-lists">Vectors vs Lists</h2>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">Lecture Slides</h2>
+<ul>
+<li><a href="../../webpages/slides/slidefiles/lec13_purrr_slides.html">Lecture 12 - Lists, Iteration, and <code>purrr</code></a></li>
+</ul>
+</section>
+<section id="lists" class="level2">
+<h2 class="anchored" data-anchor-id="lists">Lists</h2>
 <p>Here is a list in R; it holds multiple items.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sample_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sample_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="st">"samplestring"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 1 2 3
+ [1]  1  2  3  4  5  6  7  8  9 10
 
 [[2]]
-[1] "a" "b" "c"</code></pre>
+[1] "a" "b" "c"
+
+[[3]]
+[1] "samplestring"</code></pre>
 </div>
 </div>
 <p>A list might sound like a <em>vector</em>, which we have worked with before – remember, we construct them using the <code>c()</code> function. Indeed, vectors and lists can both hold multiple items. But there are key differences.</p>
@@ -389,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Access elements with <code>[[]]</code></td>
 </tr>
 <tr class="even">
-<td>Each element must be an atomic data type (i.e.&nbsp;a single value)</td>
+<td>Each element must be an atomic data type (i.e., a single value)</td>
 <td>Elements can be anything, even another list or another vector</td>
 </tr>
 <tr class="odd">
@@ -398,18 +477,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-</section>
-<section id="the-secret-life-of-tibbles" class="level2">
-<h2 class="anchored" data-anchor-id="the-secret-life-of-tibbles">The Secret Life of Tibbles</h2>
-<p>Did you know that data frames (and tibbles) are actually a special type of list? It’s true!</p>
+<p>Let’s take our sample list and access some items stored in it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(mtcars) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#returns the vector stored in the second element of the list</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">2</span>]] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "c"</code></pre>
+</div>
+</div>
+<p>To access the data within the vector, we can index it as well:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#returns third element of the vector stored in the second element of the list</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">2</span>]][<span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "c"</code></pre>
+</div>
+</div>
+<p>Elements within a list can also be named using <code>names()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"NumericVec"</span>, <span class="st">"CharacterVec"</span>, <span class="st">"String"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$NumericVec
+ [1]  1  2  3  4  5  6  7  8  9 10
+
+$CharacterVec
+[1] "a" "b" "c"
+
+$String
+[1] "samplestring"</code></pre>
+</div>
+</div>
+<p>Once the elements are named, you can access them using the <code>$</code> operator, similar to how you can grab columns from a data frame or tibble:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_list<span class="sc">$</span>CharacterVec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "c"</code></pre>
+</div>
+</div>
+</section>
+<section id="tibbles-as-a-list" class="level2">
+<h2 class="anchored" data-anchor-id="tibbles-as-a-list">Tibbles, as a list?</h2>
+<p>Speaking of data frames and tibbles, did you know that data frames and tibbles are actually a special type of list? It’s true!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(mtcars) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "list"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(palmerpenguins<span class="sc">::</span>penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(palmerpenguins<span class="sc">::</span>penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "list"</code></pre>
 </div>
@@ -421,37 +538,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="iteration">Iteration</h2>
 <p>If you programmed before, you probably have an idea of how to do this with a <code>for</code> loop. Here’s an example of a for loop in R that iterates over the entries of a numeric vector <code>x</code>, squares each entry, and stores the result in a numeric vector <code>output</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"double"</span>, <span class="fu">length</span>(x))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) { </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    output[i] <span class="ot">&lt;-</span> x[i]<span class="sc">^</span><span class="dv">2</span>  </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"double"</span>, <span class="fu">length</span>(x)) <span class="co">#init a vector of 0s</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) { </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    output[i] <span class="ot">&lt;-</span> x[i]<span class="sc">^</span><span class="dv">2</span>  </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
 </div>
 </div>
-<p>Often, you can replace loops with a compact call to a function in the <code>purrr</code> package. This has the advantage of making our code even more readable and compact, since we’re expressing the same logic with less space. Here’s an example using <code>purrr::map_dbl()</code> and a custom function:</p>
+</section>
+<section id="iteration-with-purrr" class="level2">
+<h2 class="anchored" data-anchor-id="iteration-with-purrr">Iteration with <code>purrr</code></h2>
+<p>Often, you can replace loops with a compact call to a function in the <code>purrr</code> package. This has the advantage of making our code even more readable and compact, since we’re expressing the same logic with less space.</p>
+<p>There are many <code>map_*()</code> functions, a few of which we will highlight here:</p>
+<ul>
+<li><code>map()</code>: applies a function to each element in a list or vector, returns a list</li>
+<li><code>map_dbl()</code>: applies a function to each element in a list or vector, returns a vector</li>
+<li><code>map_dfr()</code>: applies a function to each element in a list or vector, returns a data frame</li>
+<li><code>map2()</code>: performs <code>map()</code> over multiple inputs simultaneously</li>
+</ul>
+<p>The first argument of each function specifies the list/vector we want to iterate over, and the second argument specifies a function that we want to apply to each entry.</p>
+<p>Let’s use these map functions over a list containing ages of some made-up people</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sample_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">63</span>, <span class="dv">22</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sample_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Amir"</span>, <span class="st">"Jenna"</span>, <span class="st">"Logan"</span>, <span class="st">"Phum"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>sample_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<pre><code>$Amir
+[1] 18
+
+$Jenna
+[1] 25
+
+$Logan
+[1] 63
+
+$Phum
+[1] 22</code></pre>
 </div>
 </div>
-<p>The first argument specifies the list/vector we want to iterate over, and the second argument specifies a function that we want to apply to each entry. Options for specifying functions include the name of a function, a fully specified custom function (as demonstrated above), or one of the “shortcuts” the <code>purrr</code> developers have provided.</p>
+<p>We will compare the outputs of these functions when applying a simple square function to their ages.</p>
+<section id="map" class="level3">
+<h3 class="anchored" data-anchor-id="map"><code>map()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(sample_list, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>) <span class="co">#map a square function to the sample vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Amir
+[1] 324
+
+$Jenna
+[1] 625
+
+$Logan
+[1] 3969
+
+$Phum
+[1] 484</code></pre>
+</div>
+</div>
+<p>A list is returned!</p>
+</section>
+<section id="map_dbl" class="level3">
+<h3 class="anchored" data-anchor-id="map_dbl"><code>map_dbl()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dbl</span>(sample_list, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>) <span class="co">#map a square function to the sample vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Amir Jenna Logan  Phum 
+  324   625  3969   484 </code></pre>
+</div>
+</div>
+<p>A vector is returned!</p>
+</section>
+<section id="map_dfr" class="level3">
+<h3 class="anchored" data-anchor-id="map_dfr"><code>map_dfr()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dfr</span>(sample_list, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>) <span class="co">#map a square function to the sample vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+   Amir Jenna Logan  Phum
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1   324   625  3969   484</code></pre>
+</div>
+</div>
+<p>A dataframe is returned!</p>
+<p>You will explore <code>map2()</code> in the Worksheet.</p>
+</section>
+</section>
+<section id="purrr-shortcuts" class="level2">
+<h2 class="anchored" data-anchor-id="purrr-shortcuts"><code>purrr</code> Shortcuts</h2>
+<p>Here’s an example using <code>purrr::map_dbl()</code> and a custom function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(sample_list, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Amir Jenna Logan  Phum 
+  324   625  3969   484 </code></pre>
+</div>
+</div>
+<p>Options for specifying functions include the name of a function, a fully specified custom function (as demonstrated above), or one of the “shortcuts” the <code>purrr</code> developers have provided.</p>
 <p>Here are two examples of “shortcuts”:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="sc">~</span> (.x)<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(sample_list, <span class="sc">~</span> (.x)<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<pre><code> Amir Jenna Logan  Phum 
+  324   625  3969   484 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, \(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_dbl</span>(sample_list, \(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<pre><code> Amir Jenna Logan  Phum 
+  324   625  3969   484 </code></pre>
 </div>
 </div>
 <p>The second one is easier to remember and appears to be the one that <code>purrr</code> developers are recommending now; see the <a href="https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf">purrr cheatsheat</a>. But this change in recommendation appears to have happened around 2022/2023, so you may still see the first type of shortcut in many places in the wild.</p>
@@ -469,17 +670,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ## 4 Will              Male   &lt;chr [1]&gt;
 ## 5 Areo Hotah        Male   &lt;chr [1]&gt;
 ## 6 Chett             Male   &lt;chr [1]&gt;</code></pre>
-<p>Some characters have one title (e.g.&nbsp;Will); others have more than one title (e.g.&nbsp;Theon Greyjoy). Consequently, the <code>titles</code> column is a <em>list column</em>, where each entry is a <em>list</em> that contains as many or as few strings as we like.</p>
+<p>Some characters have one title (e.g., Will); others have more than one title (e.g., Theon Greyjoy). Consequently, the <code>titles</code> column is a <em>list column</em>, where each entry is a <em>list</em> that contains as many or as few strings as we like.</p>
+<p>We can even have tibbles as an observation in our data (which is technically still a list type).</p>
+<p>Nested columns can have lists nested in lists, which we refer to as JSON-style data. You’ll see this in Worksheet B3!</p>
+<section id="create-list-columns-using-nest" class="level3">
+<h3 class="anchored" data-anchor-id="create-list-columns-using-nest">Create List Columns using <code>nest()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Artificial dataset of families</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>family_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">family_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lastname    =</span> <span class="fu">c</span>(<span class="st">"Smith"</span>, <span class="st">"Smith"</span>, <span class="st">"Lee"</span>, <span class="st">"Patel"</span>, <span class="st">"Patel"</span>, <span class="st">"Patel"</span>, <span class="st">"LeBlanc"</span>),</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">child     =</span> <span class="fu">c</span>(<span class="st">"Mia"</span>, <span class="st">"Leo"</span>, <span class="st">"Noah"</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Ella"</span>, <span class="st">"Sofia"</span>, <span class="st">"Lucas"</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Harper"</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>family_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+  family_id lastname child 
+      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; 
+1         1 Smith    Mia   
+2         1 Smith    Leo   
+3         2 Lee      Noah  
+4         3 Patel    Ella  
+5         3 Patel    Sofia 
+6         3 Patel    Lucas 
+7         4 LeBlanc  Harper</code></pre>
+</div>
+</div>
+<p>Instead of having one row per child, perhaps we want to nest the data such that there is only one row per family. We can nest the <code>child</code> column! (<em>Aside: in general this data will not be tidy, but we’re demonstrating how to nest and un-nest data here</em>).</p>
+<p>We first need to group by <code>family_id</code> to gather children from each family, and then create a nested column called “children”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>nested_families <span class="ot">&lt;-</span> family_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(family_id, lastname) <span class="sc">%&gt;%</span>   <span class="co"># group by family</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">children =</span> child) <span class="sc">%&gt;%</span>           <span class="co"># create list-column "children" (tibble type)</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">children =</span> <span class="fu">map</span>(children, <span class="sc">~</span> .x<span class="sc">$</span>child)) <span class="co">#overwrite children: change from tibble to vector</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>nested_families</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+# Groups:   family_id, lastname [4]
+  family_id lastname children 
+      &lt;dbl&gt; &lt;chr&gt;    &lt;list&gt;   
+1         1 Smith    &lt;chr [2]&gt;
+2         2 Lee      &lt;chr [1]&gt;
+3         3 Patel    &lt;chr [3]&gt;
+4         4 LeBlanc  &lt;chr [1]&gt;</code></pre>
+</div>
+</div>
+<p>Now we have a list column that contains vectors of varying lengths with the children’s names within each family.</p>
 </section>
-<section id="agenda" class="level2">
-<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
-<section id="class-1-worksheet-b3-part-i" class="level3">
-<h3 class="anchored" data-anchor-id="class-1-worksheet-b3-part-i">Class 1: Worksheet B3, Part I</h3>
-<p>We think the best way to get your bearings with <code>purrr</code> is to jump into Worksheet B3. Class 1 will be dedicated to getting your questions about Part 1 and about any concepts up to this point answered.</p>
-</section>
-<section id="class-2-worksheet-b3-parts-2-and-3" class="level3">
-<h3 class="anchored" data-anchor-id="class-2-worksheet-b3-parts-2-and-3">Class 2: Worksheet B3, Parts 2 and 3</h3>
-<p>Class 2 will be dedicated to getting your questions about Parts 2 and 3 and about any concepts involving list columns and nested lists answered.</p>
+<section id="remove-list-columns-using-unnest" class="level3">
+<h3 class="anchored" data-anchor-id="remove-list-columns-using-unnest">Remove List Columns using <code>unnest()</code></h3>
+<p>We can revert back to the original tibble using <code>unnest()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>original_family_data <span class="ot">&lt;-</span> nested_families <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(children) <span class="co">#unnest the children column name</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>original_family_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 3
+# Groups:   family_id, lastname [4]
+  family_id lastname children
+      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   
+1         1 Smith    Mia     
+2         1 Smith    Leo     
+3         2 Lee      Noah    
+4         3 Patel    Ella    
+5         3 Patel    Sofia   
+6         3 Patel    Lucas   
+7         4 LeBlanc  Harper  </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="resources" class="level2">

@@ -212,7 +212,7 @@ which combines everything together and allows you to interact with the app!
 
 We will now follow along with [this tutorial by Dean Attali](https://deanattali.com/blog/building-shiny-apps-tutorial/) that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny.
 
-## Deploy the App to Shinyapps.io 
+## Deploy the App to Shinyapps.io
 
 Shinyapps.io allows you to host Shiny apps online! Here's how to do it:
 
