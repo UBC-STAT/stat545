@@ -55,7 +55,7 @@ my_list
 ```
 
 | Vectors | Lists |
-|------------------------------------|------------------------------------|
+|----|----|
 | Access elements with square brackets `[]` | Access elements with `[[]]` |
 | Each element must be an atomic data type (i.e., a single value) | Elements can be anything, even another list or another vector |
 | Each element has to be of the same type | Elements can be as different as you like |

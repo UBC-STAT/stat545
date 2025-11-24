@@ -17,18 +17,20 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday November 18: Character Data Lecture
--   Thursday November 20: Working Session w TAs
+-   Tuesday November 25: Lists, List Columns, and `purrr`
+-   Thursday November 27: Working Session w TAs
 
 **To Do this Week:**
 
--   Submit on Assignment B2
--   Start Worksheet B2
+-   Submit on Worksheet B2
+-   Start Worksheet B3
+-   Continue working on Assignment B3
 
 **Upcoming Deadlines**
 
--   Assignment B2: November 19th, 11:59pm PST
 -   Worksheet B2: November 25, 11:59pm PST
+-   Worksheet B3: December 5th, 11:59pm PST (EXTENDED)
+-   Assignment B3: December 5th, 11:59pm PST
 :::
 ::::
 :::::::
