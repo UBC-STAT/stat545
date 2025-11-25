@@ -16,3 +16,4 @@ title: "Lecture Slides"
 -   [Lecture 10 - Dashboards with R Shiny](slidefiles/lec10_shiny_slides.qmd)
 -   Lecture 11 - No Slides/Online YouTube Lecture
 -   [Lecture 12 - Character Data and ReGeX](slidefiles/lec12_characterdata_slides.qmd)
+-   [Lecture 13 - Lists, Iteration, and `purrr`](slidefiles/lec13_purrr_slides.qmd)
