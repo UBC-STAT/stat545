@@ -269,8 +269,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarto-websites" id="toc-quarto-websites" class="nav-link active" data-scroll-target="#quarto-websites">Quarto Websites</a>
+  <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link active" data-scroll-target="#video-lecture">Video Lecture</a></li>
+  <li><a href="#quarto-websites" id="toc-quarto-websites" class="nav-link" data-scroll-target="#quarto-websites">Quarto Websites</a>
   <ul class="collapse">
+  <li><a href="#install-quarto" id="toc-install-quarto" class="nav-link" data-scroll-target="#install-quarto">Install Quarto</a></li>
   <li><a href="#initial-website-set-up" id="toc-initial-website-set-up" class="nav-link" data-scroll-target="#initial-website-set-up">Initial Website Set-up</a></li>
   <li><a href="#general-tips" id="toc-general-tips" class="nav-link" data-scroll-target="#general-tips">General tips</a></li>
   </ul></li>
@@ -291,6 +293,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#add-a-github-link-on-your-navigation-bar" id="toc-add-a-github-link-on-your-navigation-bar" class="nav-link" data-scroll-target="#add-a-github-link-on-your-navigation-bar">Add a GitHub Link on your Navigation Bar</a></li>
   <li><a href="#add-a-table-of-contents-on-each-page" id="toc-add-a-table-of-contents-on-each-page" class="nav-link" data-scroll-target="#add-a-table-of-contents-on-each-page">Add a Table of Contents on Each Page</a></li>
   <li><a href="#add-a-favicon-website-icon-and-logo" id="toc-add-a-favicon-website-icon-and-logo" class="nav-link" data-scroll-target="#add-a-favicon-website-icon-and-logo">Add a Favicon (Website Icon) and Logo</a></li>
+  <li><a href="#add-a-readme-to-your-github-repository" id="toc-add-a-readme-to-your-github-repository" class="nav-link" data-scroll-target="#add-a-readme-to-your-github-repository">Add a README to Your GitHub Repository</a></li>
   <li><a href="#extras" id="toc-extras" class="nav-link" data-scroll-target="#extras">Extras</a></li>
   </ul></li>
   <li><a href="#quarto-slides" id="toc-quarto-slides" class="nav-link" data-scroll-target="#quarto-slides">Quarto Slides</a></li>
@@ -316,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 6, 2025</p>
+      <p class="date-modified">November 27, 2025</p>
     </div>
   </div>
     
@@ -332,11 +335,18 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Understand the basics of Quarto</p></li>
 <li><p>Build a simple, professional website</p></li>
 </ul>
+<section id="video-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/s4jRj0wrtQg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
 <section id="quarto-websites" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-websites">Quarto Websites</h2>
 <p>Turns out, you’ve been using a Quarto website this whole semester! Our STAT545 webpage (the one you’re on right now) was build entirely using Quarto. And, this was build using no prior Quarto knowledge or fancy tools - this was actually my first website build <em>ever</em>.</p>
 <p>Let’s “learn by doing” and build a webpage together! This is a great opportunity to build a professional website (like <a href="https://grcetmpk.github.io/">mine</a>) using Quarto. We will host our website on Github to make things easy!</p>
-<p>Before continuing, ensure that you’ve installed Quarto using the tutorial in the previous sections.</p>
+<section id="install-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="install-quarto">Install Quarto</h3>
+<p>Before continuing, ensure that you’ve installed Quarto <a href="https://quarto.org/docs/get-started/">these directions</a>.</p>
+</section>
 <section id="initial-website-set-up" class="level3">
 <h3 class="anchored" data-anchor-id="initial-website-set-up">Initial Website Set-up</h3>
 <p><u><strong>Step 1:</strong></u> In RStudio, create a New Project. Select “New Directory” and then find “Quarto Website”. If given an option for version control, select Git. A simple build of a two paged website will generate.</p>
@@ -643,6 +653,14 @@ Exercise: Add Another Page
     background: primary
     search: true
     logo: &lt;yourlogo&gt;.png</code></pre>
+</section>
+<section id="add-a-readme-to-your-github-repository" class="level3">
+<h3 class="anchored" data-anchor-id="add-a-readme-to-your-github-repository">Add a README to Your GitHub Repository</h3>
+<ol type="1">
+<li>Create a Markdown file called README.rmd, and save it in your repository folder.</li>
+<li>Include some information on the website, including the link so people who find your repository can easily access the website build.</li>
+<li>Save all changes, and push them to GitHub.</li>
+</ol>
 </section>
 <section id="extras" class="level3">
 <h3 class="anchored" data-anchor-id="extras">Extras</h3>

@@ -10,13 +10,23 @@ By the end of this class, students are anticipated to:
 
 -   Build a simple, professional website
 
+
+## Video Lecture
+
+{{< video https://youtu.be/s4jRj0wrtQg >}}
+
+
 ## Quarto Websites
 
 Turns out, you've been using a Quarto website this whole semester! Our STAT545 webpage (the one you're on right now) was build entirely using Quarto. And, this was build using no prior Quarto knowledge or fancy tools - this was actually my first website build *ever*.
 
 Let's "learn by doing" and build a webpage together! This is a great opportunity to build a professional website (like [mine](https://grcetmpk.github.io/)) using Quarto. We will host our website on Github to make things easy!
 
-Before continuing, ensure that you've installed Quarto using the tutorial in the previous sections.
+
+### Install Quarto 
+
+Before continuing, ensure that you've installed Quarto [these directions](https://quarto.org/docs/get-started/). 
+
 
 ### Initial Website Set-up
 
@@ -388,11 +398,20 @@ You can also add a logo that appears in the top lefthand corner of your website 
     logo: <yourlogo>.png
 ```
 
+### Add a README to Your GitHub Repository
+
+1. Create a Markdown file called README.rmd, and save it in your repository folder.
+2. Include some information on the website, including the link so people who find your repository can easily access the website build.
+3. Save all changes, and push them to GitHub. 
+
+
+
 ### Extras
 
 There is SO much more that Quarto can do, and this is just scratching the surface. From aesthetics to website navigation, <https://quarto.org/docs/websites/> has so many examples of cool things you can do with your website.
 
 If you'd like to see how THIS exact website was built, check out <https://github.com/UBC-STAT/STAT545.github.io>.
+
 
 ## Quarto Slides
 

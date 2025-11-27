@@ -27,7 +27,7 @@ library(tidyverse)
 
 ## Lecture Slides
 
--   [Lecture 12 - Lists, Iteration, and `purrr`](../slides/slidefiles/lec13_purrr_slides.qmd)
+-   [Lecture 13 - Lists, Iteration, and `purrr`](../slides/slidefiles/lec13_purrr_slides.qmd)
 
 
 ## Lists
