@@ -23,8 +23,7 @@ website:
         text: "Worksheets"
       - sidebar:collabproj
       - sidebar:mda
-      - href: webpages/bassignments.qmd
-        text: "Assignments (Part B)"
+      - sidebar:assignmentsB
       - href: webpages/faq.qmd
         text: "FAQ"
         
@@ -77,7 +76,7 @@ website:
         - webpages/lectures_ii/lec11_automation.qmd
         - webpages/lectures_ii/lec12_characterdata.qmd
         - webpages/lectures_ii/lec13_purrr.qmd
-        # - webpages/lectures_ii/lec14_quarto.qmd
+        - webpages/lectures_ii/lec14_quarto.qmd
         
 
         
@@ -98,6 +97,17 @@ website:
       contents: 
         - webpages/mda/mda_deliverable1.qmd
         - webpages/mda/mda_deliverable2.qmd      
+   
+    - id: assignmentsB
+      title: "Assignments (Part B)"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - webpages/assignmentspartB/assignmentB1.qmd
+        - webpages/assignmentspartB/assignmentB2.qmd
+        - webpages/assignmentspartB/assignmentB3.qmd       
+   
    
 format:
   html:

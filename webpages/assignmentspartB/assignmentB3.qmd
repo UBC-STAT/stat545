@@ -1,0 +1,132 @@
+---
+title: "Assignment B3: Shiny App"
+subtitle: "Due: Friday Dec 5, 2025 at 11:59pm"
+---
+
+
+
+**Total Points**: 100
+
+For this assignment, you will create a Shiny app with three features, deploy it, and include a statement on AI use (see [Part C](#genAI) below).
+
+Note that we aren’t expecting a complex app for this assignment – a simple one is all we’re expecting.
+
+## Setup
+
+Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-3 on Canvas. Name your repository as you wish, so long as it’s informative. Clone the repository.
+
+## Part A) Create a Shiny App (80 points)
+
+You can create any sort of app using any sort of data (aside from the BC Liquor data)! If you'd like, it may be natural to create an app that relates to your Mini Data Analysis, or a data set you've enjoyed working with throughout this course.
+
+While we don't care *too* much about aesthetics, there will be two points devoted to the overall organization/cleanliness of the app. Avoid neon backgrounds and hard-to-read fonts.
+
+Your Shiny app **must** include:
+
+-   [ ] A title
+
+-   [ ] A brief description of its purpose with some instructions to the user
+
+-   [ ] A plot that dynamically updates with some user input
+
+-   [ ] A table that dynamically updates with some user input
+
+-   [ ] Any other feature/functionality that is not a table nor a plot.
+
+See [the Appendix](#appendix) at the end of this assignment for some ideas for your third feature!
+
+**We used the BC Liquor App as a running example of feature ideas for concreteness. You cannot use this data set for your project.**
+
+## Part B) Deploy the App to Shinyapps.io (10 points)
+
+-   [ ] Deploy the app to Shinyapps.io [(instructions here)](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec10_shiny.html#deploy-the-app-to-shinyapps.io)
+
+## Part C) Statement on Gen AI use (10 points) {#genAI}
+
+I *encourage you* to use Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, there is additional documentation you must provide.
+
+You may ***not*** ask Gen AI to build a shiny app from scratch. Use it as an additional tool to help you with the assignment.
+
+-   [ ] Provide the Gen AI Chat Prompts
+    -   You must provide a **list of prompts/questions provided to the Gen AI chat bot**. For example:
+
+        -   "I'm trying to build a Shiny app but I keep getting this error: [insert error]. What does this mean?"
+        -   "I'm building a Shiny app that creates a plot. Here is my code: [insert code]. Can you help me add a second slider that adjusts the transparency of the points?
+
+    -   You do not have to provide the responses or any follow-up questions.
+
+    -   You can provide the list of statements in a Word, .Rmd, or .txt file. Just be sure we can read it and include it in your repository.
+
+    -   **If you did not use Gen AI,** provide some links to any resources you used instead (i.e., StackExchange).
+-   [ ] Provide a Reflection
+    -   Within the same document, you must provide a **short reflection on how you felt the use of Gen AI contributed to your learning**. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). **Write this in your own words**. It can be brief.
+    -   **If you did not use Gen AI**, provide a brief statement (a sentence or two) on why you chose not to use it.
+
+## Part D) GitHub Repository
+
+-   [ ] Ensure all files required to reproduce your app exist in your repository
+
+-   [ ] Ensure you have the [Part C Reflection](#genAI) document somewhere in your repository
+
+-   [ ] Include a README file in your repository that describes the app, and explicitly defines what three features were used. For example:
+
+    ```         
+     This R Shiny called [my title] app does [description]
+
+     There are three main features of this app:
+
+     - FEATURE 1: Plot showing [something] that updates with [some user input]
+     - FEATURE 2: Table showing [something] that updates with [some user input]
+     - FEATURE 3: [A description of the third feature]
+
+     You can test out the app for yourself at [link_to_shinyapp.io](link_to_shinyapp.io)
+    ```
+
+## Submission
+
+-   [ ] Submit a link to a Tagged Release of your repository on Canvas.
+
+The rubric can be found on [Canvas](https://canvas.ubc.ca/courses/170035/assignments/2242183).
+
+\newpage
+
+## Appendix: Ideas {#appendix}
+
+### Tables
+
+-   Add an option to sort the table by one of your variables. For example, in the BC Liquor App, sorting the results by price.
+
+    -   *Hint:* Use `checkboxInput()` to get `TRUE`/`FALSE` values from the user.
+
+-   Use the DT package to turn a static table into an interactive table.
+
+    -   *Hint:* Install the DT package, replace `tableOutput()` with `DT::dataTableOutput()` and replace `renderTable()` with `DT::renderDataTable()`.
+
+-   Show the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines `$20` - `$40`, show the text “We found 122 options for you”.
+
+    -   *Hint:* Add a `textOutput()` to the UI, and in its corresponding `renderText()` use the number of rows in the `filtered()` object.
+
+-   Allow the user to search for multiple entries simultaneously; for example, in the BC Liquor app, allow the user to search for multiple alcohol types at once instead of wine/beer/etc, one at a time.
+
+    -   *Hint:* There are two approaches to do this. Either change the typeInput radio buttons into checkboxes (`checkboxGroupInput()`) since checkboxes support choosing multiple items, or change typeInput into a select box (`selectInput()`) with the argument `multiple = TRUE` to support choosing multiple options.
+
+### Plots
+
+-   Add parameters to the plot.
+    -   *Hint:* You will need to add input functions that will be used as parameters for the plot. You could use `shinyjs::colourInput()` to let the user decide on the colours of the bars in the plot.
+-   Allow the user to save/export the plot
+
+### Other Features
+
+-   Any other feature that is not a table or a plot.
+-   Need some ideas? Check [this](https://shiny.rstudio.com/tutorial/) out or use one of the following options:
+    -   Add a button that allows the user to download your table as a .csv file, or plot as a .png file.
+    -   *Hint:* Look into the `downloadButton()` and `downloadHandler()` functions.
+    -   Add an image to the UI. For example, in the BC Liquor app, add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!
+        -   *Hint:* Place the image in a folder named www, and use `img(src = "imagename.png")` to add the image.
+    -   If you know CSS, add CSS to make your app look nicer.
+        -   *Hint:* Add a CSS file under the www folder and use the function `includeCSS()` to use it in your app.
+    -   Experiment with packages that add extra features to Shiny, such as shinyjs, leaflet, shinydashboard, shinythemes, ggvis.
+        -   *Hint:* Each package is unique and has a different purpose, so you need to read the documentation of each package in order to know what it provides and how to use it.
+    -   If you have both a plot and a table, place them in separate tabs.
+        -   *Hint:* Use `tabsetPanel()` to create an interface with multiple tabs.

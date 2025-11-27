@@ -1,0 +1,103 @@
+---
+title: "Assignment B1: Making a Function in R"
+subtitle: 'Due: Tuesday November 4th, 2025 at 11:59pm'
+---
+
+
+**Total Points**: 100
+
+This assignment covers making a function in R, documenting it, and testing it.
+
+## Setup
+
+1.  Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish, so long as it’s informative.
+
+2.  Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a *github_document*
+
+## Exercise 1: Make a Function (25 points)
+
+Create an R Function! It doesn't need to be overly complicated, but it also shouldn't be completely trivial (i.e., `my function <- function(x){ print(x)}`)
+
+**Function Ideas**
+
+-   Did you repeat any code for a data analysis in STAT 545A? If so, consider making a function for this action.
+
+-   Consider bundling a specific dplyr workfly (like`group_by() %>% summarise()`)
+
+-   Write a *wrapper* around an existing function.
+
+    -   For example, perhaps accepting a narrower range of inputs (like not allowing logical vectors), or providing a different output.
+
+    -   It’s usually better to narrow a function’s focus than to broaden, so that a function doesn’t end up doing too much.
+
+-   Make a special plot that you’d want to repeat when exploring your data
+
+**Guidelines**
+
+-   Your function should not rely on anything from your working environment. Try clearing it to ensure your function works as intended.
+
+-   Your function should not rely on “magic numbers” – pre-selected numbers (or options) that appear inside the function that can’t be accessed by a user of the function.
+
+    -   For example, maybe `quantile(x, type = 1, ...)` appears in your function. The choice of 1 is arbitrary – unless you’re making a function like `quantile_type_1()`.
+
+-   Your function should be reasonably flexible on its inputs. Here is an example of a function that is *not* reasonably flexible: a function called `count_missing_values_by_group()` that only works when the data frame has columns that are all of type fct.
+
+-   The output is consistent – for example, always gives a list. An example of inconsistent output: `sapply(1:3, seq_len)` gives a list, and `sapply(1:3, sqrt)` gives an (atomic) vector.
+
+-   Your function includes appropriate arguments. (Do you handle NA’s appropriately? Are you using the ellipsis properly? etc.)
+
+## Exercise 2: Document your Function (20 points)
+
+In the same code chunk where you made your function, document the function using [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html). Be sure to include:
+
+1.  Title.
+
+2.  Function description: In 1-2 brief sentences, describe what the function does.
+
+3.  Document each argument with the `@param` tag, *making sure to justify why you named the parameter as you did*.
+
+    -   (Justification for naming is not often needed, but we want to hear your reasoning.)
+
+4.  What the function returns, using the `@return` tag.
+
+## Exercise 3: Include examples (15 points)
+
+Demonstrate the usage of your function with a few examples. Use one or more new code chunks, describing what you’re doing.
+
+Note: If you want to deliberately show an error, you can use `error = TRUE` in your code chunk option.
+
+## Exercise 4: Test the Function (25 points)
+
+Write formal tests for your function. You should use at least three non-redundant uses of an `expect_*()` function from the `testthat` package, and they should be contained in a `test_that()` function (or more than one). They should all pass.
+
+You can use the same `expect_*()` function multiple times so long as they test different cases.
+
+Example of non-redundant inputs in the dice rolling example from class:
+
+-   Rolling a positive integer number of dice
+
+-   Rolling no dice
+
+-   Rolling a negative number of dice
+
+-   Rolling half a dice
+
+Example of redundant inputs:
+
+-   Rolling 1 die
+-   Rolling 3 dice
+-   Rolling 100 dice
+
+## Tidy Submission (15 points)
+
+Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
+
+1.  Make a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.
+
+2.  Knit your .Rmd file to a .md file. Keep both in your repository.
+
+3.  Tag a release in your GitHub repository corresponding to your submission before the deadline.
+
+4.  Grab the URL corresponding to your tagged release, and submit that to canvas.
+
+See Rubric on Canvas for more details on grading.

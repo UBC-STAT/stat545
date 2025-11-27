@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Lucy">
-<meta name="dcterms.date" content="2023-08-28">
 
-<title>FEV Case Study: Graphing, With Solutions – STAT545</title>
+<title>Assignment B3: Shiny App – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,60 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../images/stat545_transparent.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,17 +69,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT545</span>
     </a>
   </div>
@@ -126,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door-fill" role="img">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
@@ -136,11 +100,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-syllabus">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/syllabus/syllabusA.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusA.html">
  <span class="dropdown-text">Syllabus: STAT 545 A (Part I)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/syllabus/syllabusB.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusB.html">
  <span class="dropdown-text">Syllabus: STAT 545 B (Part II)</span></a>
   </li>  
     </ul>
@@ -151,47 +115,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes-(a">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec1a_installation.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec1b_introR.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1b_introR.html">
  <span class="dropdown-text">Lecture 1B: Course Introduction and R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec2A_reproducibility.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2A_reproducibility.html">
  <span class="dropdown-text">Lecture 2A: Reproducibility with RMarkdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec2b_versioncontrol.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2b_versioncontrol.html">
  <span class="dropdown-text">Lecture 2B: Version Control</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec3_dplyr.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec3_dplyr.html">
  <span class="dropdown-text">Lecture 3: Data Manipulation with dplyr</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec4_datavis.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec4_datavis.html">
  <span class="dropdown-text">Lecture 4: Data Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec5_tidydata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec5_tidydata.html">
  <span class="dropdown-text">Lecture 5: Tidy Data and the Tidyverse</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec6a_modelfitting.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec6a_modelfitting.html">
  <span class="dropdown-text">Lecture 6A: Model Fitting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec6b_factorsanddates.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec6b_factorsanddates.html">
  <span class="dropdown-text">Lecture 6B: Factors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec7a_readwritedata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7a_readwritedata.html">
  <span class="dropdown-text">Lecture 7A: Reading and Writing Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_i/lec7b_joiningtibbles.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7b_joiningtibbles.html">
  <span class="dropdown-text">Lecture 7B: Tibble Joins</span></a>
   </li>  
     </ul>
@@ -202,45 +166,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes-(b">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec8a_functions.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec8a_functions.html">
  <span class="dropdown-text">Lecture 8A: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec8b_advfunctions.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec8b_advfunctions.html">
  <span class="dropdown-text">Lecture 8b: Advanced Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec9_rpackages.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec9_rpackages.html">
  <span class="dropdown-text">Lecture 9: R Packages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec10_shiny.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec10_shiny.html">
  <span class="dropdown-text">Lecture 10: Dashboards with R Shiny</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec11_automation.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec11_automation.html">
  <span class="dropdown-text">Lecture 11: Automation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec12_characterdata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec12_characterdata.html">
  <span class="dropdown-text">Lecture 12: StringR and Regular Expressions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec13_purrr.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec13_purrr.html">
  <span class="dropdown-text">Lecture 13: Lists, Iterations, and <code>purrr</code></span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/lectures_ii/lec14_quarto.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec14_quarto.html">
  <span class="dropdown-text">Lecture 14: Professional Websites with Quarto</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/slides/slides.html"> 
+    <a class="nav-link" href="../../webpages/slides/slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/worksheets.html"> 
+    <a class="nav-link" href="../../webpages/worksheets.html"> 
 <span class="menu-text">Worksheets</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -249,11 +213,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-collab-project">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/collabproj/collabproj_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable1.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/collabproj/collabproj_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable2.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -264,11 +228,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-data-analysis">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/mda/mda_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable1.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/mda/mda_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable2.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -279,21 +243,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments-(part-b">    
         <li>
-    <a class="dropdown-item" href="../../../webpages/assignmentspartB/assignmentB1.html">
+    <a class="dropdown-item" href="../../webpages/assignmentspartB/assignmentB1.html">
  <span class="dropdown-text">Assignment B1: Making a Function in R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/assignmentspartB/assignmentB2.html">
+    <a class="dropdown-item" href="../../webpages/assignmentspartB/assignmentB2.html">
  <span class="dropdown-text">Assignment B2: Making an R Package</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../webpages/assignmentspartB/assignmentB3.html">
+    <a class="dropdown-item" href="../../webpages/assignmentspartB/assignmentB3.html">
  <span class="dropdown-text">Assignment B3: Shiny App</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../webpages/faq.html"> 
+    <a class="nav-link" href="../../webpages/faq.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
 </ul>
@@ -314,29 +278,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/assignmentspartB/assignmentB3.html">Assignment B3: Shiny App</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/assignmentspartB/assignmentB1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment B1: Making a Function in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/assignmentspartB/assignmentB2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment B2: Making an R Package</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/assignmentspartB/assignmentB3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assignment B3: Shiny App</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#review" id="toc-review" class="nav-link active" data-scroll-target="#review">Review</a></li>
-  <li><a href="#smoking-and-fev-unadjusted" id="toc-smoking-and-fev-unadjusted" class="nav-link" data-scroll-target="#smoking-and-fev-unadjusted">Smoking and FEV (unadjusted)</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#part-a-create-a-shiny-app-80-points" id="toc-part-a-create-a-shiny-app-80-points" class="nav-link" data-scroll-target="#part-a-create-a-shiny-app-80-points">Part A) Create a Shiny App (80 points)</a></li>
+  <li><a href="#part-b-deploy-the-app-to-shinyapps.io-10-points" id="toc-part-b-deploy-the-app-to-shinyapps.io-10-points" class="nav-link" data-scroll-target="#part-b-deploy-the-app-to-shinyapps.io-10-points">Part B) Deploy the App to Shinyapps.io (10 points)</a></li>
+  <li><a href="#genAI" id="toc-genAI" class="nav-link" data-scroll-target="#genAI">Part C) Statement on Gen AI use (10 points)</a></li>
+  <li><a href="#part-d-github-repository" id="toc-part-d-github-repository" class="nav-link" data-scroll-target="#part-d-github-repository">Part D) GitHub Repository</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix: Ideas</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  </ul></li>
-  <li><a href="#informating-gathering-what-might-we-want-to-adjust-for" id="toc-informating-gathering-what-might-we-want-to-adjust-for" class="nav-link" data-scroll-target="#informating-gathering-what-might-we-want-to-adjust-for">Informating gathering: what might we want to adjust for?</a>
-  <ul class="collapse">
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  </ul></li>
-  <li><a href="#smoking-and-fev-adjusted-for-height" id="toc-smoking-and-fev-adjusted-for-height" class="nav-link" data-scroll-target="#smoking-and-fev-adjusted-for-height">Smoking and FEV, adjusted for height</a>
-  <ul class="collapse">
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#plots" id="toc-plots" class="nav-link" data-scroll-target="#plots">Plots</a></li>
+  <li><a href="#other-features" id="toc-other-features" class="nav-link" data-scroll-target="#other-features">Other Features</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -346,26 +343,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">FEV Case Study: Graphing, With Solutions</h1>
+<h1 class="title">Assignment B3: Shiny App</h1>
+<p class="subtitle lead">Due: Friday Dec 5, 2025 at 11:59pm</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Lucy </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 28, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -375,140 +361,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="review" class="level2">
-<h2 class="anchored" data-anchor-id="review">Review</h2>
-<p>We’ll continue exploring the FEV data set from last week. Let’s start by loading the data and required packages.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rigr) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fev_tbl <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(fev) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(sex<span class="sc">:</span>smoke, <span class="sc">~</span> <span class="fu">as.factor</span>(.x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Last week, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have <em>better</em> lung function than the non-smokers.</p>
-<p>We also had a theory as to why: the association between FEV and smoking status may be confounded, eg. by age/size.</p>
-<p>We’ll investigate further this week with our newly acquired plotting skills!</p>
-<p>Here are some helpful resources for making plots, now that we are moving towards less “guided” exercises:</p>
-<ul>
-<li><a href="https://ggplot2.tidyverse.org/index.html">ggplot2 package webpage</a></li>
-<li><a href="https://ggplot2-book.org/">ggplot2 Book</a></li>
-<li><a href="https://r-graphics.org/">R Graphics Cookbook</a></li>
+<p><strong>Total Points</strong>: 100</p>
+<p>For this assignment, you will create a Shiny app with three features, deploy it, and include a statement on AI use (see <a href="#genAI">Part C</a> below).</p>
+<p>Note that we aren’t expecting a complex app for this assignment – a simple one is all we’re expecting.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-3 on Canvas. Name your repository as you wish, so long as it’s informative. Clone the repository.</p>
+</section>
+<section id="part-a-create-a-shiny-app-80-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-create-a-shiny-app-80-points">Part A) Create a Shiny App (80 points)</h2>
+<p>You can create any sort of app using any sort of data (aside from the BC Liquor data)! If you’d like, it may be natural to create an app that relates to your Mini Data Analysis, or a data set you’ve enjoyed working with throughout this course.</p>
+<p>While we don’t care <em>too</em> much about aesthetics, there will be two points devoted to the overall organization/cleanliness of the app. Avoid neon backgrounds and hard-to-read fonts.</p>
+<p>Your Shiny app <strong>must</strong> include:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">A title</label></p></li>
+<li><p><label><input type="checkbox">A brief description of its purpose with some instructions to the user</label></p></li>
+<li><p><label><input type="checkbox">A plot that dynamically updates with some user input</label></p></li>
+<li><p><label><input type="checkbox">A table that dynamically updates with some user input</label></p></li>
+<li><p><label><input type="checkbox">Any other feature/functionality that is not a table nor a plot.</label></p></li>
+</ul>
+<p>See <a href="#appendix">the Appendix</a> at the end of this assignment for some ideas for your third feature!</p>
+<p><strong>We used the BC Liquor App as a running example of feature ideas for concreteness. You cannot use this data set for your project.</strong></p>
+</section>
+<section id="part-b-deploy-the-app-to-shinyapps.io-10-points" class="level2">
+<h2 class="anchored" data-anchor-id="part-b-deploy-the-app-to-shinyapps.io-10-points">Part B) Deploy the App to Shinyapps.io (10 points)</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Deploy the app to Shinyapps.io <a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec10_shiny.html#deploy-the-app-to-shinyapps.io">(instructions here)</a></label></li>
 </ul>
 </section>
-<section id="smoking-and-fev-unadjusted" class="level2">
-<h2 class="anchored" data-anchor-id="smoking-and-fev-unadjusted">Smoking and FEV (unadjusted)</h2>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Now that we have plotting tools, let’s make a plot that compares the FEV of smokers to the FEV of non-smokers.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fev_tbl, <span class="fu">aes</span>(<span class="at">x=</span>smoke,<span class="at">y=</span>fev, <span class="at">fill=</span>smoke)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape=</span><span class="cn">NA</span>, <span class="at">width=</span><span class="fl">0.4</span>) <span class="sc">+</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.1</span>, <span class="at">size=</span><span class="fl">0.15</span>, <span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"cornflowerblue"</span>,<span class="st">"darkorange"</span>)) <span class="sc">+</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Box plots of FEV, stratified by smoking status"</span>) <span class="sc">+</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"FEV (l/s)"</span>) <span class="sc">+</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Smoking Status"</span>) <span class="sc">+</span> </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="casestudy_datavis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This broadly tells the same story as the summaries we calculated last week, but conveys more information and is more visually engaging.</p>
+<section id="genAI" class="level2">
+<h2 class="anchored" data-anchor-id="genAI">Part C) Statement on Gen AI use (10 points)</h2>
+<p>I <em>encourage you</em> to use Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, there is additional documentation you must provide.</p>
+<p>You may <strong><em>not</em></strong> ask Gen AI to build a shiny app from scratch. Use it as an additional tool to help you with the assignment.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Provide the Gen AI Chat Prompts</label>
+<ul>
+<li><p>You must provide a <strong>list of prompts/questions provided to the Gen AI chat bot</strong>. For example:</p>
+<ul>
+<li>“I’m trying to build a Shiny app but I keep getting this error: [insert error]. What does this mean?”</li>
+<li>“I’m building a Shiny app that creates a plot. Here is my code: [insert code]. Can you help me add a second slider that adjusts the transparency of the points?</li>
+</ul></li>
+<li><p>You do not have to provide the responses or any follow-up questions.</p></li>
+<li><p>You can provide the list of statements in a Word, .Rmd, or .txt file. Just be sure we can read it and include it in your repository.</p></li>
+<li><p><strong>If you did not use Gen AI,</strong> provide some links to any resources you used instead (i.e., StackExchange).</p></li>
+</ul></li>
+<li><label><input type="checkbox">Provide a Reflection</label>
+<ul>
+<li>Within the same document, you must provide a <strong>short reflection on how you felt the use of Gen AI contributed to your learning</strong>. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). <strong>Write this in your own words</strong>. It can be brief.</li>
+<li><strong>If you did not use Gen AI</strong>, provide a brief statement (a sentence or two) on why you chose not to use it.</li>
+</ul></li>
+</ul>
 </section>
+<section id="part-d-github-repository" class="level2">
+<h2 class="anchored" data-anchor-id="part-d-github-repository">Part D) GitHub Repository</h2>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Ensure all files required to reproduce your app exist in your repository</label></p></li>
+<li><p><label><input type="checkbox">Ensure you have the <a href="#genAI">Part C Reflection</a> document somewhere in your repository</label></p></li>
+<li><p><label><input type="checkbox">Include a README file in your repository that describes the app, and explicitly defines what three features were used. For example:</label></p>
+<pre><code> This R Shiny called [my title] app does [description]
+
+ There are three main features of this app:
+
+ - FEATURE 1: Plot showing [something] that updates with [some user input]
+ - FEATURE 2: Table showing [something] that updates with [some user input]
+ - FEATURE 3: [A description of the third feature]
+
+ You can test out the app for yourself at [link_to_shinyapp.io](link_to_shinyapp.io)</code></pre></li>
+</ul>
 </section>
-<section id="informating-gathering-what-might-we-want-to-adjust-for" class="level2">
-<h2 class="anchored" data-anchor-id="informating-gathering-what-might-we-want-to-adjust-for">Informating gathering: what might we want to adjust for?</h2>
-<p>Let’s do some digging to see if there are other variables that we would like to adjust for, when comparing the FEV of smokers to non-smokers.</p>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Last week, we found that the youngest patient who smokes is 9, suggesting that there is a difference in the age distribution among smokers and non-smokers. Make a plot that compares these two distributions.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fev_tbl, <span class="fu">aes</span>(<span class="at">fill=</span>smoke)) <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> <span class="fu">after_stat</span>(prop))) <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>smoke) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"cornflowerblue"</span>,<span class="st">"orange"</span>)) <span class="sc">+</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Histograms of age, stratified by smoking status"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Age"</span>) <span class="sc">+</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion"</span>) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="casestudy_datavis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Again, we see that the smokers are overall older than the non-smokers.</p>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Submit a link to a Tagged Release of your repository on Canvas.</label></li>
+</ul>
+<p>The rubric can be found on <a href="https://canvas.ubc.ca/courses/170035/assignments/2242183">Canvas</a>.</p>
 </section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>We think that age should be related to height, which in turn should be related to FEV. Let’s investigate that more systematically now with plotting.</p>
-<p>How would you like to investigate that with plotting? Here’s one suggestion, though you don’t have to take it: make a plot with two panels, one that has a scatterplot of height versus age for the female patients, and one that has a scatterplot of height versus age for the male patients.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fev_tbl, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> height, <span class="at">colour=</span>sex)) <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"cornflowerblue"</span>,<span class="st">"darkorange"</span>)) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex) <span class="sc">+</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Height versus age, stratified by sex"</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Age"</span>) <span class="sc">+</span> </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Height (inches)"</span>) <span class="sc">+</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="casestudy_datavis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We see that the within-sex trend is similar: height is linear-ish at younger ages, and flat-ish at older ages. Boys wind up taller at older ages.</p>
-<p>We will then make a scatterplot of FEV versus height.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fev_tbl, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> fev)) <span class="sc">+</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"FEV versus height"</span>) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"FEV (l/s)"</span>) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Height (inches)"</span>) <span class="sc">+</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="casestudy_datavis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We see that taller participants generally have higher FEV.</p>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix: Ideas</h2>
+<section id="tables" class="level3">
+<h3 class="anchored" data-anchor-id="tables">Tables</h3>
+<ul>
+<li><p>Add an option to sort the table by one of your variables. For example, in the BC Liquor App, sorting the results by price.</p>
+<ul>
+<li><em>Hint:</em> Use <code>checkboxInput()</code> to get <code>TRUE</code>/<code>FALSE</code> values from the user.</li>
+</ul></li>
+<li><p>Use the DT package to turn a static table into an interactive table.</p>
+<ul>
+<li><em>Hint:</em> Install the DT package, replace <code>tableOutput()</code> with <code>DT::dataTableOutput()</code> and replace <code>renderTable()</code> with <code>DT::renderDataTable()</code>.</li>
+</ul></li>
+<li><p>Show the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines <code>$20</code> - <code>$40</code>, show the text “We found 122 options for you”.</p>
+<ul>
+<li><em>Hint:</em> Add a <code>textOutput()</code> to the UI, and in its corresponding <code>renderText()</code> use the number of rows in the <code>filtered()</code> object.</li>
+</ul></li>
+<li><p>Allow the user to search for multiple entries simultaneously; for example, in the BC Liquor app, allow the user to search for multiple alcohol types at once instead of wine/beer/etc, one at a time.</p>
+<ul>
+<li><em>Hint:</em> There are two approaches to do this. Either change the typeInput radio buttons into checkboxes (<code>checkboxGroupInput()</code>) since checkboxes support choosing multiple items, or change typeInput into a select box (<code>selectInput()</code>) with the argument <code>multiple = TRUE</code> to support choosing multiple options.</li>
+</ul></li>
+</ul>
 </section>
+<section id="plots" class="level3">
+<h3 class="anchored" data-anchor-id="plots">Plots</h3>
+<ul>
+<li>Add parameters to the plot.
+<ul>
+<li><em>Hint:</em> You will need to add input functions that will be used as parameters for the plot. You could use <code>shinyjs::colourInput()</code> to let the user decide on the colours of the bars in the plot.</li>
+</ul></li>
+<li>Allow the user to save/export the plot</li>
+</ul>
 </section>
-<section id="smoking-and-fev-adjusted-for-height" class="level2">
-<h2 class="anchored" data-anchor-id="smoking-and-fev-adjusted-for-height">Smoking and FEV, adjusted for height</h2>
-<p>Now that we know that the smokers are older and bigger and have higher FEV, let’s look at the relationship between FEV and smoking status <em>adjusted</em> for height.</p>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Make a scatterplot of FEV versus height, with points marked by smoking status.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fev_tbl, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> fev, <span class="at">colour=</span>smoke)) <span class="sc">+</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"cornflowerblue"</span>,<span class="st">"darkorange"</span>)) <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"FEV versus height, stratified by smoking status"</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"FEV (l/s)"</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Height (inches)"</span>) <span class="sc">+</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="casestudy_datavis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Based on this plot, it seems like the FEV of smokers and non-smokers <em>of the same height</em> is pretty similar.</p>
+<section id="other-features" class="level3">
+<h3 class="anchored" data-anchor-id="other-features">Other Features</h3>
+<ul>
+<li>Any other feature that is not a table or a plot.</li>
+<li>Need some ideas? Check <a href="https://shiny.rstudio.com/tutorial/">this</a> out or use one of the following options:
+<ul>
+<li>Add a button that allows the user to download your table as a .csv file, or plot as a .png file.</li>
+<li><em>Hint:</em> Look into the <code>downloadButton()</code> and <code>downloadHandler()</code> functions.</li>
+<li>Add an image to the UI. For example, in the BC Liquor app, add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!
+<ul>
+<li><em>Hint:</em> Place the image in a folder named www, and use <code>img(src = "imagename.png")</code> to add the image.</li>
+</ul></li>
+<li>If you know CSS, add CSS to make your app look nicer.
+<ul>
+<li><em>Hint:</em> Add a CSS file under the www folder and use the function <code>includeCSS()</code> to use it in your app.</li>
+</ul></li>
+<li>Experiment with packages that add extra features to Shiny, such as shinyjs, leaflet, shinydashboard, shinythemes, ggvis.
+<ul>
+<li><em>Hint:</em> Each package is unique and has a different purpose, so you need to read the documentation of each package in order to know what it provides and how to use it.</li>
+</ul></li>
+<li>If you have both a plot and a table, place them in separate tabs.
+<ul>
+<li><em>Hint:</em> Use <code>tabsetPanel()</code> to create an interface with multiple tabs.</li>
+</ul></li>
+</ul></li>
+</ul>
 
 
 </section>

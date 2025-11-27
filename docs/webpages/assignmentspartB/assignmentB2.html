@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignments (Part B) – STAT545</title>
+<title>Assignment B2: Making an R Package – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../images/stat545_transparent.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f55b795d08b5ec9c46d466a81ca0990b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,17 +69,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT545</span>
     </a>
   </div>
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house-door-fill" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-door-fill" role="img">
 </i> 
 <span class="menu-text"> </span></a>
   </li>  
@@ -100,11 +100,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-syllabus">    
         <li>
-    <a class="dropdown-item" href="../webpages/syllabus/syllabusA.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusA.html">
  <span class="dropdown-text">Syllabus: STAT 545 A (Part I)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/syllabus/syllabusB.html">
+    <a class="dropdown-item" href="../../webpages/syllabus/syllabusB.html">
  <span class="dropdown-text">Syllabus: STAT 545 B (Part II)</span></a>
   </li>  
     </ul>
@@ -115,47 +115,47 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes-(a">    
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec1a_installation.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1a_installation.html">
  <span class="dropdown-text">Lecture 1A: Installation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec1b_introR.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec1b_introR.html">
  <span class="dropdown-text">Lecture 1B: Course Introduction and R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec2A_reproducibility.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2A_reproducibility.html">
  <span class="dropdown-text">Lecture 2A: Reproducibility with RMarkdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec2b_versioncontrol.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec2b_versioncontrol.html">
  <span class="dropdown-text">Lecture 2B: Version Control</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec3_dplyr.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec3_dplyr.html">
  <span class="dropdown-text">Lecture 3: Data Manipulation with dplyr</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec4_datavis.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec4_datavis.html">
  <span class="dropdown-text">Lecture 4: Data Visualization</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec5_tidydata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec5_tidydata.html">
  <span class="dropdown-text">Lecture 5: Tidy Data and the Tidyverse</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec6a_modelfitting.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec6a_modelfitting.html">
  <span class="dropdown-text">Lecture 6A: Model Fitting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec6b_factorsanddates.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec6b_factorsanddates.html">
  <span class="dropdown-text">Lecture 6B: Factors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec7a_readwritedata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7a_readwritedata.html">
  <span class="dropdown-text">Lecture 7A: Reading and Writing Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_i/lec7b_joiningtibbles.html">
+    <a class="dropdown-item" href="../../webpages/lectures_i/lec7b_joiningtibbles.html">
  <span class="dropdown-text">Lecture 7B: Tibble Joins</span></a>
   </li>  
     </ul>
@@ -166,41 +166,45 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes-(b">    
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec8a_functions.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec8a_functions.html">
  <span class="dropdown-text">Lecture 8A: Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec8b_advfunctions.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec8b_advfunctions.html">
  <span class="dropdown-text">Lecture 8b: Advanced Functions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec9_rpackages.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec9_rpackages.html">
  <span class="dropdown-text">Lecture 9: R Packages</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec10_shiny.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec10_shiny.html">
  <span class="dropdown-text">Lecture 10: Dashboards with R Shiny</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec11_automation.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec11_automation.html">
  <span class="dropdown-text">Lecture 11: Automation</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec12_characterdata.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec12_characterdata.html">
  <span class="dropdown-text">Lecture 12: StringR and Regular Expressions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/lectures_ii/lec13_purrr.html">
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec13_purrr.html">
  <span class="dropdown-text">Lecture 13: Lists, Iterations, and <code>purrr</code></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/lectures_ii/lec14_quarto.html">
+ <span class="dropdown-text">Lecture 14: Professional Websites with Quarto</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../webpages/slides/slides.html"> 
+    <a class="nav-link" href="../../webpages/slides/slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../webpages/worksheets.html"> 
+    <a class="nav-link" href="../../webpages/worksheets.html"> 
 <span class="menu-text">Worksheets</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -209,11 +213,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-collab-project">    
         <li>
-    <a class="dropdown-item" href="../webpages/collabproj/collabproj_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable1.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/collabproj/collabproj_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/collabproj/collabproj_deliverable2.html">
  <span class="dropdown-text">Collaborative Project: Deliverable 2</span></a>
   </li>  
     </ul>
@@ -224,21 +228,36 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-mini-data-analysis">    
         <li>
-    <a class="dropdown-item" href="../webpages/mda/mda_deliverable1.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable1.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../webpages/mda/mda_deliverable2.html">
+    <a class="dropdown-item" href="../../webpages/mda/mda_deliverable2.html">
  <span class="dropdown-text">Mini Data Analysis: Deliverable 2</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="../webpages/bassignments.html" aria-current="page"> 
-<span class="menu-text">Assignments (Part B)</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments-(part-b" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assignments (Part B)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments-(part-b">    
+        <li>
+    <a class="dropdown-item" href="../../webpages/assignmentspartB/assignmentB1.html">
+ <span class="dropdown-text">Assignment B1: Making a Function in R</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/assignmentspartB/assignmentB2.html">
+ <span class="dropdown-text">Assignment B2: Making an R Package</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../webpages/assignmentspartB/assignmentB3.html">
+ <span class="dropdown-text">Assignment B3: Shiny App</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../webpages/faq.html"> 
+    <a class="nav-link" href="../../webpages/faq.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
 </ul>
@@ -259,20 +278,73 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/assignmentspartB/assignmentB2.html">Assignment B2: Making an R Package</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/assignmentspartB/assignmentB1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment B1: Making a Function in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/assignmentspartB/assignmentB2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Assignment B2: Making an R Package</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../webpages/assignmentspartB/assignmentB3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment B3: Shiny App</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#options-for-what-function-to-wrap-into-a-package" id="toc-options-for-what-function-to-wrap-into-a-package" class="nav-link active" data-scroll-target="#options-for-what-function-to-wrap-into-a-package">Options for what function to wrap into a package</a>
+  <ul class="collapse">
+  <li><a href="#option-1-the-function-you-made-in-assignment-b1" id="toc-option-1-the-function-you-made-in-assignment-b1" class="nav-link" data-scroll-target="#option-1-the-function-you-made-in-assignment-b1">Option 1: The function you made in Assignment B1</a></li>
+  <li><a href="#option-2-pre-baked-function" id="toc-option-2-pre-baked-function" class="nav-link" data-scroll-target="#option-2-pre-baked-function">Option 2: “Pre-baked” function</a></li>
+  <li><a href="#option-3-something-new" id="toc-option-3-something-new" class="nav-link" data-scroll-target="#option-3-something-new">Option 3: Something new!</a></li>
+  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#exercise-1-functions-20-points" id="toc-exercise-1-functions-20-points" class="nav-link" data-scroll-target="#exercise-1-functions-20-points">Exercise 1: Function(s) (20 points)</a></li>
+  <li><a href="#exercise-2-high-level-documentation-20-points" id="toc-exercise-2-high-level-documentation-20-points" class="nav-link" data-scroll-target="#exercise-2-high-level-documentation-20-points">Exercise 2: High-level documentation (20 points)</a></li>
+  <li><a href="#exercise-3-description-file-20-points" id="toc-exercise-3-description-file-20-points" class="nav-link" data-scroll-target="#exercise-3-description-file-20-points">Exercise 3: DESCRIPTION file (20 points)</a></li>
+  <li><a href="#exercise-4-tests-20-points" id="toc-exercise-4-tests-20-points" class="nav-link" data-scroll-target="#exercise-4-tests-20-points">Exercise 4: Tests (20 points)</a></li>
+  <li><a href="#tidy-submission-20-points" id="toc-tidy-submission-20-points" class="nav-link" data-scroll-target="#tidy-submission-20-points">Tidy Submission (20 points)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments (Part B)</h1>
+<h1 class="title">Assignment B2: Making an R Package</h1>
+<p class="subtitle lead">Due: Wednesday November 19, 2025 at 11:59pm</p>
 </div>
 
 
@@ -281,12 +353,6 @@ ul.task-list li input[type="checkbox"] {
 
     
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 4, 2025</p>
-    </div>
-  </div>
     
   </div>
   
@@ -295,34 +361,143 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Assignment Link</th>
-<th>Release Date</th>
-<th>Due Date (11:59pm PT)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://canvas.ubc.ca/courses/170035/assignments/2242181">Assignment 1</a></td>
-<td>Tuesday Oct 21, 2025</td>
-<td>Wednesday Nov 5, 2025</td>
-</tr>
-<tr class="even">
-<td><a href="https://canvas.ubc.ca/courses/170035/files/42550326?module_item_id=8669578">Assignment 2</a></td>
-<td>Wednesday Nov 5, 2025</td>
-<td>Wednesday Nov 19, 2025</td>
-</tr>
-<tr class="odd">
-<td>Assignment 3</td>
-<td>Wednesday Nov 19, 2025</td>
-<td>Friday Dec 5, 2025</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Total Points</strong>: 100</p>
+<p>In Assignment B-1, you practiced writing a function. This time, we’ll be evaluating your ability to wrap that function (or something else!) in an R package.</p>
+<p>Need some help? Checkout <a href="https://r-pkgs.org/whole-game.html">chapter 2</a> of the “R packages” book.</p>
+<section id="options-for-what-function-to-wrap-into-a-package" class="level2">
+<h2 class="anchored" data-anchor-id="options-for-what-function-to-wrap-into-a-package">Options for what function to wrap into a package</h2>
+<section id="option-1-the-function-you-made-in-assignment-b1" class="level3">
+<h3 class="anchored" data-anchor-id="option-1-the-function-you-made-in-assignment-b1">Option 1: The function you made in Assignment B1</h3>
+<p>You can turn the function you made in Assignment B1 into a package for Assignment B2.</p>
+<p>The work in Assignment B1 was deliberately designed to make it easier for you to convert it into a package down the line.</p>
+<p>However, note that the deadlines for Assignments B1 and B2 are close together as they are on sequential topics, and so you are <strong>not</strong> guaranteed feedback before the B2 deadline.</p>
+</section>
+<section id="option-2-pre-baked-function" class="level3">
+<h3 class="anchored" data-anchor-id="option-2-pre-baked-function">Option 2: “Pre-baked” function</h3>
+<p>A documented function with tests written by the instructional team will be released to Canvas; you can choose to make that into a package for Assignment B2.(Note that the download links on that page won’t work until after the Assignment B1 deadline.)</p>
+<p>Click <a href="https://canvas.ubc.ca/courses/170035/pages/assignment-b2-pre-bake-option">here</a> for the link to download the function.</p>
+<p><strong>Note</strong>: If you take this option, then you may modify the documentation or the tests in any way you see fit. This “pre-baked” function is simply intended to serve as a clean starting point for this assignment that doesn’t depend on your personal success level in Assignment B1.</p>
+</section>
+<section id="option-3-something-new" class="level3">
+<h3 class="anchored" data-anchor-id="option-3-something-new">Option 3: Something new!</h3>
+<p>If you like, you can choose to write a new function - not used in Assignment B1 - for Assignment B2.</p>
+</section>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<ol type="1">
+<li><p>Accept the assignment in GitHub classroom (link in Assignment B-2 Description <a href="https://canvas.ubc.ca/courses/170035/assignments/2242182">here</a>))</p></li>
+<li><p>Rename your repository to match the name of your package (go to your repository Settings and edit the repository name there)</p></li>
+<li><p>Open an RStudio session</p>
+<ol type="1">
+<li><p>Run <code>library(devtools)</code> in the console</p></li>
+<li><p>Run <code>create_package("path/package_name")</code> replacing “path” with the path to where you’d like your package to live on your computer, and “package_name” with the name of your package.</p></li>
+</ol></li>
+<li><p>Initialize Git</p>
+<ol type="1">
+<li>In the RStudio window that just opened, run <code>git init</code> in your <strong>Terminal</strong></li>
+</ol></li>
+<li><p>Connect to GitHub</p>
+<ol type="1">
+<li><p>In the Terminal, run <code>git remote add origin https://github.com/[username]/[repository_name].git</code> replacing the link with the link to your URL (you can find this on the green CODE button on your repository)</p></li>
+<li><p>Stage, commit, and push the changes to GitHub from RStudio. In the Terminal, run:</p>
+<ul>
+<li><p><code>git add .</code></p></li>
+<li><p><code>git commit -m "initial commit"</code></p></li>
+<li><p><code>git push origin main</code> (OR <code>git push origin master</code> if an error occurs)</p></li>
+</ul></li>
+</ol></li>
+</ol>
+<p>Your files should now appear on GitHub, and you can commit and push changes as you work through the project.</p>
+</section>
+<section id="exercise-1-functions-20-points" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-functions-20-points">Exercise 1: Function(s) (20 points)</h2>
+<p>Include a function in your package (see above options).</p>
+<p>You should include documentation for the:</p>
+<ol type="1">
+<li><p>title</p></li>
+<li><p>description</p></li>
+<li><p>parameter descriptions</p></li>
+<li><p>outputs</p></li>
+<li><p>examples</p></li>
+</ol>
+<p>Be sure to also include the <code>@export</code> tag to make your function(s) available to users (unless you want the function to be strictly internal)</p>
+<p>Render the documentation for all of the functions/objects in your package using <code>document()</code>.</p>
+<p><em><strong>Hint</strong>: if you’re using the same function as in Assignment B-1, you should only need to put your function in an R script in the <code>R/</code> folder with the specified additions to your roxygen2 documentation. Then, run <code>document()</code> after loading the devtools package.</em></p>
+<p><strong>What we’re looking for</strong>:</p>
+<ul>
+<li><p>You followed the above instructions.</p></li>
+<li><p>You should have <code>.Rd</code> files automatically generated in your <code>man/</code> folder. Don’t touch these files.</p></li>
+<li><p>Functions intended to be used by a package user are deliberately listed under “exports” in the NAMESPACE file (this should happen automatically after running <code>document()</code> and having <code>@export</code> tags with your functions).</p></li>
+<li><p>Documentation for each function should load after executing <code>?function</code> after loading your package.</p></li>
+</ul>
+</section>
+<section id="exercise-2-high-level-documentation-20-points" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-high-level-documentation-20-points">Exercise 2: High-level documentation (20 points)</h2>
+<p>Create documentation for your R package at a high level.</p>
+<ol type="1">
+<li><p>Fill out a <code>README.Rmd</code> file, being sure to include the package description, installation instructions, and demonstrated usage. Knit to <code>README.md</code> using <code>devtools::build_readme()</code>, and don’t ever touch the <code>README.md</code> file.</p></li>
+<li><p>In the <code>DESCRIPTION</code> file, update the package title and description fields (you can use the same description as you did in your README).</p></li>
+</ol>
+<p><strong>Tips:</strong></p>
+<ul>
+<li><p>When writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.</p></li>
+<li><p>Use the README boilerplate that comes with running <code>usethis::use_readme_rmd()</code>.</p></li>
+<li><p>Installation instructions: should be as simple as running, for example, <code>install_github("org/repo", ref = "0.1.0")</code> (change the version number to your own).</p></li>
+</ul>
+<p><strong>What we’re looking for</strong>:</p>
+<ul>
+<li><p>The above instructions were followed.</p></li>
+<li><p>The documentation is clear, simple, and effective.</p></li>
+</ul>
+</section>
+<section id="exercise-3-description-file-20-points" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-description-file-20-points">Exercise 3: DESCRIPTION file (20 points)</h2>
+<ol type="1">
+<li><p>Ensure a license is in place, and found in the DESCRIPTION file. We suggest <code>usethis::use_mit_license()</code> as an open-source-friendly license.</p></li>
+<li><p>Ensure package dependencies are listed in the DESCRIPTION file, and are effectively chosen (probably listed under “Imports”).</p>
+<ul>
+<li><p>If your function relies on other packages, like <code>dplyr</code>, they should be included here</p></li>
+<li><p>If your function relies on a dataset from another package (like <code>steamgames</code> from <code>datateachr,</code> include them here)</p></li>
+<li><p>Packages that come pre-loaded upon opening R are candidates to be listed here, too, such as the datasets and stats packages (but not the base package).</p></li>
+<li><p>If your package does not rely on anything</p></li>
+</ul></li>
+<li><p>Ensure all calls to functions from external packages are called using the form <code>package::function()</code> (only in very rare situations will you not need to use <code>::</code>).</p></li>
+<li><p>Ensure all other mechanical structure of the DESCRIPTION file is in place, i.e., passes a <code>check()</code>.</p></li>
+</ol>
+</section>
+<section id="exercise-4-tests-20-points" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-tests-20-points">Exercise 4: Tests (20 points)</h2>
+<p>Create unit tests for your package using <code>use_testthat()</code> (see <a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec9_rpackages.html#expand-your-package">lecture notes</a>)</p>
+<p><em><strong>Hint</strong>: if you’re using the same function as in Assignment B-1, you should only need to copy and paste your <code>test_that</code> calls after creating a test file using <code>usethis::use_test(...)</code>.</em></p>
+<p><strong>What we’re looking for</strong>:</p>
+<ul>
+<li><p>The extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package.</p></li>
+<li><p>Your tests should all pass after running <code>devtools::test()</code>.</p></li>
+<li><p>All tests use <code>testthat</code></p></li>
+<li><p>If you create an object in a test script, you clean up after yourself using <code>rm('name_of_object')</code> (not needed if the objects are created <em>within</em> a <code>test_that()</code> function.)</p></li>
+</ul>
+</section>
+<section id="tidy-submission-20-points" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-submission-20-points">Tidy Submission (20 points)</h2>
+<p>Follow these steps once you’re ready to submit your work.</p>
+<ol type="1">
+<li><p>Increase the version number in the <code>DESCRIPTION</code> file, using <a href="https://semver.org/">semantic versioning conventions</a>. You should not have a trailing <code>.9000</code>.</p>
+<ul>
+<li><p>Summary of convention: <code>MAJOR.MINOR.PATCH</code>, where initial development starts at <code>0.1.0</code>, and then increment the minor version for each subsequent release</p>
+<ul>
+<li><p>Only release <code>1.0.0</code> if your package is being used in production and ready for public use.</p></li>
+<li><p>e.g., <code>0.1.0</code> -&gt; <code>0.1.1</code> -&gt; <code>0.1.X</code> -&gt; <code>1.0.0</code> -&gt; <code>1.0.1</code> -&gt; <code>1.0.X</code> -&gt; <code>1.1.0</code></p></li>
+</ul></li>
+<li><p>Your release versioning is especially important if you will be choosing to develop your package further.</p></li>
+</ul></li>
+<li><p>Tag a release in your GitHub repository corresponding to your submission before the deadline, using the package version as your tag.</p></li>
+<li><p>Grab the URL corresponding to your tagged release, and submit that to canvas</p></li>
+</ol>
+<p>See Rubric on Canvas for more details on how the package will be graded.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
