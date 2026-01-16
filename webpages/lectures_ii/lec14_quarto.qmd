@@ -10,11 +10,9 @@ By the end of this class, students are anticipated to:
 
 -   Build a simple, professional website
 
-
 ## Video Lecture
 
 {{< video https://youtu.be/s4jRj0wrtQg >}}
-
 
 ## Quarto Websites
 
@@ -22,15 +20,21 @@ Turns out, you've been using a Quarto website this whole semester! Our STAT545 w
 
 Let's "learn by doing" and build a webpage together! This is a great opportunity to build a professional website (like [mine](https://grcetmpk.github.io/)) using Quarto. We will host our website on Github to make things easy!
 
+### Install Quarto
 
-### Install Quarto 
-
-Before continuing, ensure that you've installed Quarto [these directions](https://quarto.org/docs/get-started/). 
-
+Before continuing, ensure that you've installed Quarto [these directions](https://quarto.org/docs/get-started/).
 
 ### Initial Website Set-up
 
-[**Step 1:**]{.underline} In RStudio, create a New Project. Select "New Directory" and then find "Quarto Website". If given an option for version control, select Git. A simple build of a two paged website will generate.
+[**Step 1:**]{.underline} In RStudio, create a New Project.
+
+-   Select "New Directory" and then find "Quarto Website".
+
+-   If given an option for version control, select Git. A simple build of a two paged website will generate.
+
+-   Name the project "yourusername.github.io" if you want a personal website, or any other project name.
+
+    -   NOTE: if you do not use "yourusername.github.io", the website will be at "yourusername.github.io/yourprojectname" by default.
 
 [**Step 2:**]{.underline} In the Terminal, run `touch .nojekyll` (Mac OS) or `copy NUL .nojekyll` to disable Jekyll.
 
@@ -42,13 +46,17 @@ Now, we should send this to GitHub so we can host our website on GitHub and make
 
 [**Step 5:**]{.underline} When you made this project, you should have selected to use Git as a version control. If not, head to Tools \> Version control \> Project Setup and select Git as your version control. At this time, origin should be set to `none`.
 
-[**Step 6:**]{.underline} On GitHub, make a new EMPTY repository. This should be named with the same name as your website (i.e., yourname.github.io). Ensure you UNSELECT to make a README file.
+[**Step 6:**]{.underline} In the Console:
 
-[**Step 7:**]{.underline} Now back to RStudio. We will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the "Git" tab in RStudio to stage, commit, and push changes. 
+-   Load in the `usethis` package with `library(usethis)`
+
+-   Run `use_git()` and select the option that will commit all changes
+
+-   Run `use_github()` to create a github repository with the same name as your R Project.
+
+[**Step 7:**]{.underline} Now will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the "Git" tab in RStudio to stage, commit, and push changes.
 
 -   SAVE ALL FILES. In the Terminal (beside the Console in RStudio)
-
--   Run `git init`
 
 -   Run `git add .`
 
@@ -56,13 +64,11 @@ Now, we should send this to GitHub so we can host our website on GitHub and make
 
     -   The `-m "<description>"` part adds the \<description\> of your changes.
 
--   Now we need to tell GitHub where we are pushing our changes to (i.e., the repository you just created!) using `git remote add origin https://github.com/<yourusername>/<yourreponame>` and filling in your username and repository name.
-
--   Push the changes using `git push -u origin main`. Head back to github to see new files added to your repository.
+-   Push the changes using `git push origin main`. Head back to github to see new files added to your repository.
 
 [**Step 8:**]{.underline} See your new website
 
--   On Github in your repository, click the three dots and head to settings.
+-   Navigate to your repository on Github and click the three dots and head to the repository settings.
 
 -   Navigate to `pages` on the lefthand side menu.
 
@@ -400,18 +406,15 @@ You can also add a logo that appears in the top lefthand corner of your website 
 
 ### Add a README to Your GitHub Repository
 
-1. Create a Markdown file called README.rmd, and save it in your repository folder.
-2. Include some information on the website, including the link so people who find your repository can easily access the website build.
-3. Save all changes, and push them to GitHub. 
-
-
+1.  Create a Markdown file called README.rmd, and save it in your repository folder.
+2.  Include some information on the website, including the link so people who find your repository can easily access the website build.
+3.  Save all changes, and push them to GitHub.
 
 ### Extras
 
 There is SO much more that Quarto can do, and this is just scratching the surface. From aesthetics to website navigation, <https://quarto.org/docs/websites/> has so many examples of cool things you can do with your website.
 
 If you'd like to see how THIS exact website was built, check out <https://github.com/UBC-STAT/STAT545.github.io>.
-
 
 ## Quarto Slides
 

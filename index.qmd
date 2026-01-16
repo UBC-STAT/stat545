@@ -17,9 +17,9 @@ date-modified: last-modified
 
 **Lectures:**
 
--   Tuesday November 25: Quarto Workshop
+-   Tuesday December 2: Quarto/Website Building Workshop
 
--   Thursday November 27: Working Session w TAs
+-   Thursday December 4: Working Session w TAs
 
 **Upcoming Deadlines**
 

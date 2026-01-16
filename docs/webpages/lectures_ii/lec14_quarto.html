@@ -403,7 +403,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 27, 2025</p>
+      <p class="date-modified">January 16, 2026</p>
     </div>
   </div>
     
@@ -433,28 +433,39 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="initial-website-set-up" class="level3">
 <h3 class="anchored" data-anchor-id="initial-website-set-up">Initial Website Set-up</h3>
-<p><u><strong>Step 1:</strong></u> In RStudio, create a New Project. Select “New Directory” and then find “Quarto Website”. If given an option for version control, select Git. A simple build of a two paged website will generate.</p>
+<p><u><strong>Step 1:</strong></u> In RStudio, create a New Project.</p>
+<ul>
+<li><p>Select “New Directory” and then find “Quarto Website”.</p></li>
+<li><p>If given an option for version control, select Git. A simple build of a two paged website will generate.</p></li>
+<li><p>Name the project “yourusername.github.io” if you want a personal website, or any other project name.</p>
+<ul>
+<li>NOTE: if you do not use “yourusername.github.io”, the website will be at “yourusername.github.io/yourprojectname” by default.</li>
+</ul></li>
+</ul>
 <p><u><strong>Step 2:</strong></u> In the Terminal, run <code>touch .nojekyll</code> (Mac OS) or <code>copy NUL .nojekyll</code> to disable Jekyll.</p>
 <p><u><strong>Step 3:</strong></u> Within the RStudio project, navigate to the <code>_quarto.yml</code> file in your files (right hand pane). Under the <code>project:</code> preamble, add <code>output-dir: docs</code>.</p>
 <p><u><strong>Step 4:</strong></u> Navigate back to <code>index.qmd</code>. Save and click the Render button. A local version of this simple website will appear.</p>
 <p>Now, we should send this to GitHub so we can host our website on GitHub and make changes both locally and through GitHub. To do so, we need to connect this R Project with Github.</p>
 <p><u><strong>Step 5:</strong></u> When you made this project, you should have selected to use Git as a version control. If not, head to Tools &gt; Version control &gt; Project Setup and select Git as your version control. At this time, origin should be set to <code>none</code>.</p>
-<p><u><strong>Step 6:</strong></u> On GitHub, make a new EMPTY repository. This should be named with the same name as your website (i.e., yourname.github.io). Ensure you UNSELECT to make a README file.</p>
-<p><u><strong>Step 7:</strong></u> Now back to RStudio. We will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the “Git” tab in RStudio to stage, commit, and push changes.</p>
+<p><u><strong>Step 6:</strong></u> In the Console:</p>
+<ul>
+<li><p>Load in the <code>usethis</code> package with <code>library(usethis)</code></p></li>
+<li><p>Run <code>use_git()</code> and select the option that will commit all changes</p></li>
+<li><p>Run <code>use_github()</code> to create a github repository with the same name as your R Project.</p></li>
+</ul>
+<p><u><strong>Step 7:</strong></u> Now will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the “Git” tab in RStudio to stage, commit, and push changes.</p>
 <ul>
 <li><p>SAVE ALL FILES. In the Terminal (beside the Console in RStudio)</p></li>
-<li><p>Run <code>git init</code></p></li>
 <li><p>Run <code>git add .</code></p></li>
 <li><p>Then, commit the changes of our website to Git. Type <code>git commit -m "initial commit"</code></p>
 <ul>
 <li>The <code>-m "&lt;description&gt;"</code> part adds the &lt;description&gt; of your changes.</li>
 </ul></li>
-<li><p>Now we need to tell GitHub where we are pushing our changes to (i.e., the repository you just created!) using <code>git remote add origin https://github.com/&lt;yourusername&gt;/&lt;yourreponame&gt;</code> and filling in your username and repository name.</p></li>
-<li><p>Push the changes using <code>git push -u origin main</code>. Head back to github to see new files added to your repository.</p></li>
+<li><p>Push the changes using <code>git push origin main</code>. Head back to github to see new files added to your repository.</p></li>
 </ul>
 <p><u><strong>Step 8:</strong></u> See your new website</p>
 <ul>
-<li><p>On Github in your repository, click the three dots and head to settings.</p></li>
+<li><p>Navigate to your repository on Github and click the three dots and head to the repository settings.</p></li>
 <li><p>Navigate to <code>pages</code> on the lefthand side menu.</p></li>
 <li><p>Under <code>branch</code>, select <code>main</code> as your branch and <code>/docs</code> as the folder. Select save.</p></li>
 <li><p>Give it a few minutes and refresh if you don’t see a success message pointing to the website.</p></li>
