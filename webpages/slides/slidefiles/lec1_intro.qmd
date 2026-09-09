@@ -1,6 +1,6 @@
 ---
 title: "Lecture 1: Welcome and Intro to R"
-subtitle: "STAT 545 - Fall 2025"
+subtitle: "STAT 545 - Fall 2026"
 format: 
   live-revealjs:
     scrollable: true
@@ -36,7 +36,9 @@ For today's lecture, we are going to go through the some important information r
 
     -   Training: BSc Math, MMATH Biostatistics, PhD Biostatistics
 
--   Hobbies include crafting (knitting/crochet/pottery) and looking for banana slugs in the forest
+-   Hobbies include crafting (knitting/crochet/pottery/sewing) and looking for banana slugs in the forest
+
+![](/images/avatar.png){fig-align="center" width="500"}
 
 ## Positionality Statement
 
@@ -68,25 +70,25 @@ We will be using various technologies throughout this course which you should fa
 
 -   Slack (for communications),
 
--   RStudio (for writing R code) [(](https://www.youtube.com/watch?v=dC2bRweVePo)[Video Here!](https://youtu.be/OYxDwybdlkY)[!)](https://www.youtube.com/watch?v=dC2bRweVePo),
+-   RStudio (for writing R code) [(](https://www.youtube.com/watch?v=dC2bRweVePo)[Video Here!](https://youtu.be/OYxDwybdlkY)[)](https://www.youtube.com/watch?v=dC2bRweVePo),
 
 -   GitHub (for version control and collaboration), and
 
--   Jupyter notebooks (for interactive worksheets) [(Video Here!)](https://youtu.be/CdISUthp8dk).
+-   Jupyter notebooks (for interactive worksheets) [(Video Here!)](https://www.youtube.com/watch?v=PD6POGbd9Ec).
 
 If you've never used some of these before, that's absolutely OK. This course is made to guide you through the basics of many of these platforms.
 
-## Assessments 
+## Assessments
 
 ### Worksheets (20%)
 
--   Worksheets are produced on our JupyterHub linked on Canvas. These are formative assessments meant to supplement lectures
+-   Worksheets are produced on our JupyterHub linked on Canvas. These are formative assessments meant to supplement lectures.
 
 -   **There are no late submissions accepted for worksheets**. The server will automatically pull your work at the due date and run the autograding software.
 
 -   **Extensions must be requested at least 6 hours before the due date, and will only be granted for extenuating circumstances**.
 
-## Assessments 
+## Assessments
 
 ### Mini Data Analysis (45%)
 
@@ -104,11 +106,11 @@ If you've never used some of these before, that's absolutely OK. This course is 
 
 All of the important information is in the [syllabus](../../syllabus/syllabusA.qmd). There are a few items I'd like to emphasize:
 
--   Stay home if you're sick. Fill out an Academic Concession Self Declaration form if you miss an assessment due to illness. Accommodations will be given on a case-by-case basis.
+-   Stay home if you're sick. Fill out an Academic Concession Self Declaration form if you miss a major assessment due to illness. Accommodations will be given on a case-by-case basis.
 
 -   Bring a charged laptop to class!
 
--   All communications are to be done on Slack - do not email me questions unless they are of a sensitive nature (i.e., an academic concession form).
+-   All communications are to be done on Slack - please do not email me questions unless they are of a sensitive nature (i.e., an academic concession form). The invite link is on Canvas
 
 But please - read the syllabus :)
 
