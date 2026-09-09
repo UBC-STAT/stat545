@@ -16,8 +16,9 @@ date-modified: last-modified
 ::: {.callout-note icon="false"}
 ## This Week at a Glance
 
-Important information will be posted here and on Slack each week! Check back for Fall 2026 updates. 
+Our first class will be on Thursday Sept 10th. Please bring a charged laptop!
 
+We will be going over an introduction to coding in R, and start working on our first worksheet which you will submit for grades. 
 :::
 
 ::::
