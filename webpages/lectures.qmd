@@ -15,10 +15,10 @@ All due dates are at 11:59pm PT (local time, Vancouver).
 |------------------|------------------|------------------|------------------|
 | 1 | Tues Sept 8 | (Optional) [Installation Help Session](lectures_i/lec1a_installation.qmd) |  |
 |  | Thurs Sept 10 | [Introduction to R](lectures_i/lec1b_introR.qmd) |  |
-| 2 | Tues Sept 15 | [Data Cleaning with `dplyr`](lectures_i/lec2a_dplyr.qmd) | Worksheet A1 |
-|  | Thus Sept 17 | [RMarkdown and Reproducibility](lectures_i/lec2b_reproducibility.qmd) |  |
-| 3 | Tues Sept 22 | [Version Control I](lectures_i/lec3_versioncontrol.qmd) | Worksheet A2 |
-|  | Thurs Sept 24 | [Version Control II](lectures_i/lec3_versioncontrol.qmd) | |  |
+| 2 | Tues Sept 15 | [Data Cleaning with `dplyr`](lectures_i/lec2a_dplyr.qmd) | |
+|  | Thus Sept 17 | [RMarkdown and Reproducibility](lectures_i/lec2b_reproducibility.qmd) | Worksheet A1  |
+| 3 | Tues Sept 22 | [Version Control I](lectures_i/lec3_versioncontrol.qmd) | |
+|  | Thurs Sept 24 | [Version Control II](lectures_i/lec3_versioncontrol.qmd) | | Worksheet A2  |
 | 4 | Tues Sept 29 | [Data Visualization I](lectures_i/lec4_datavis.qmd) | |  |
 |  | Thurs Oct 01 | [Data Visualization II](lectures_i/lec4_datavis.qmd)  | Collaborative Project |
 | 5 | Tues Oct 06 | [Tidy Data](lectures_i/lec5_tidydata.qmd)  | Worksheet A3 |
