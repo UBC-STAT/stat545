@@ -1,0 +1,213 @@
+---
+title: "Lecture 3: Reproducibility with RMarkdown"
+subtitle: "STAT 545 - Fall 2026"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    menu: 
+      side: right
+      width: wide
+webr:
+  packages:
+    - knitr
+    - tibble
+    - tidyverse
+  persist: true
+editor: visual
+execute:
+  echo: true
+  warning: false
+engine: webr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+
+## Learning Objectives
+
+From today’s class, students are anticipated to be able to:
+
+-   Use basic markdown features.
+
+-   Write documents in markdown.
+
+-   Choose whether html or pdf is an appropriate output.
+
+-   Style an .Rmd document by editing the YAML header.
+
+-   Customize code chunk output using Rmd code chunk.
+
+-   Render your finalized document to HTML & PDF.
+
+
+
+## Reproducibility
+
+-  *Reproducibility* is the ability of an independent researcher to repeat an experiment using the [same data and workflow]{.underline} to obtain the same results 
+
+-  One way to ensure reproducible research is sharing clear details on the analysis and providing the code used to produce the results.
+
+-  Reproducibility is often confused with *replication*. However, replication is a separate concept where the results of a study should be validated on an independent study using new data. 
+
+-  A "good" study is both replicable and reproducible.
+
+
+## Reproducibility
+
+
+-  There are also ethical benefits to reproducible research. Performing open research can reduce the chance of data fabrication or other ethical issues such as *p-hacking*, where a researcher tests a number of hypotheses until they find one that is statistically significant. 
+
+-  Open, transparent research poses a sense of accountability on the researcher(s). 
+
+-  Of course, you can't always share data (for example, health data containing personal identifying information), but you should share as much as is possible. Always check with your ethics board or principal investigator before sharing data online.
+
+Reproducible studies can also advance research by providing the code used for analysis. Not only can we reproduce the study to make the findings more trustworthy, but we can learn more about how the analysis was performed and possibly apply it to other studies.
+
+## Reproducibility
+
+-  Reproducible research can also force you to have better, more automated workflows. 
+
+-  The first analysis I (Grace) ever did in R, I was manually changing things in excel documents, and then saving them in a certain place, and then using R to fit a model, and then exporting the data, and then changing the worksheet format, and so on. 
+
+-  I had a sticky note of instructions on how to produce the results on my desk. This was neither reproducible nor productive for my time. While automating some steps and using tools like GitHub for version control can be more work upfront, it can save you *a lot* of headaches down the road. It is something I personally wish I learned to use earlier in my career.
+
+## R Markdown
+
+-  R Markdown lets you write a single “blueprint” for your analysis that includes everything - positioning/sizing/colouring/formatting, analysis/graph/table code and results, and text – and then “knit” all of those components together into a complete report with a single button press.
+
+-  There is a large community of R Markdown users, making it easy to find tutorials and blog posts about a ton of different types of documents. We're going to start simple and dive right into R Markdown.
+
+## Getting Started with Markdown
+
+In lecture, we are going to work through [this online Markdown tutorial together](https://www.markdowntutorial.com/) in small groups. Challenge yourself to meet someone new in the class!
+
+Take 15 minutes to start this tutorial, and then we will return to the lecture. 
+
+## Getting Started with Markdown
+
+After completing the tutorial, try making your own R Markdown document!
+
+1.  In RStudio, go to “File” -\> “New File” -\> “Markdown File”
+
+2.  Write a Markdown document all about you that includes:
+
+    -   A header
+
+    -   A link to your GitHub profile
+
+    -   A list of courses you're taking this semester
+
+3.  Click the “Preview” button to generate an output .html file from the source .md file.
+
+## Getting Started with Markdown
+
+1.  To get started with using R Markdown, you’ll need to install the `rmarkdown` and `DT` R packages package.
+
+    ``` r
+    install.packages('rmarkdown')
+    install.packages('DT')
+    ```
+
+<!-- -->
+
+3.  Create an R Markdown file by going to File \> New File \> R Markdown..
+
+    -   Change the title to "STAT545 Lecture 2a" and save the defaults. Click OK.
+
+4.  Click the "Knit" button to generate the default document.
+
+
+## RMarkdown
+
+**Things to notice:**
+
+-   The YAML header is contained between two --- at the top of the .Rmd source, and contains metadata on the document. This is where you specify the output type to be HTML.
+
+-   Text is formatted using Markdown. There are three chunks of R code, and knitting executes the R code and displays the output in the output file.
+
+## RMarkdown
+
+**How does it all work?**
+
+-  The key drivers under the hood are `knitr`and `Pandoc`! 
+
+-  When you press “Knit”, R Markdown passes the .`Rmd`file to `knitr`, which executes all of the code and creates a new `.md` file including the code and output. 
+
+-  Then, that `.md` file is processed into the final output format (e.g. `.html`) by pandoc.
+
+## RMarkdown
+
+
+**What if I want a PDF?**
+
+-  You'll need to install LaTeX and set the document type as a PDF document. TinyTeX is recommended:
+
+``` r
+install.packages('tinytex')
+tinytex::install_tinytex()  # install TinyTeX
+```
+
+-  For this lecture, we will be knitting to HTML.
+
+
+## RMarkdown
+
+
+::: {.callout-warning appearance="minimal" icon="false"}
+### Exercise: Edit Your YAML in Small Groups:
+
+Run `?html_document` from your R console and/or check out [Yihui Xie’s RMarkdown book](https://bookdown.org/yihui/rmarkdown/html-document.html) to:
+
+-   Add a floating table of contents
+
+-   Add a theme.
+:::
+
+## RMarkdown
+
+
+::: {.callout-tip appearance="minimal" icon="false"}
+### Instructor Demo
+
+We will now demonstrate a few basics of RMarkdown using the `mtcars` dataset, including
+
+-  Headers
+
+-  Comments
+
+-  Code chunks (with options like echo and warning)
+
+-  Lists
+
+-  In-line r code using \`r `
+:::
+
+## RMarkdown
+
+
+-  Just like YAML is metadata for the Rmd document, code chunk options are metadata for the code chunk. Specify them within the `{r}` at the top of a code chunk, separated by commas. For a list of chunk options, check out [Yihui Xie’s knitr book](https://yihui.org/knitr/options/). Let’s try some:
+
+1.  Hide the code from the output with `echo = FALSE.`
+
+2.  Change the figure width and height with `fig.width = 5` and `fig.height = 3`.
+
+3.  Knit the results. Can you spot the differences?
+
+## Resources
+
+Here are a number of resources that may help supplement you with today's lesson:
+
+-   [STAT 545 Episode 3-A: Reproducible Reports with R Markdown Some additional resources that you might find useful:](https://www.youtube.com/watch?v=ZzDSkBgt9xQ)
+
+-   [The Official R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html) from the “Introduction” up to and including the “Inline Code” section.
+
+-   [R Markdown cheat sheet](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
+
+::: callout-tip
+Many cheat sheets can be found from RStudio: go to "Help" -\> "Cheatsheets".
+:::
+
+
+

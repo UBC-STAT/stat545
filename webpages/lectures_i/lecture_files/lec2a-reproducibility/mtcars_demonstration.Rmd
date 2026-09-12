@@ -7,14 +7,23 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
 ```
 
-
-<!-- my stupid supervisors want me to remove the first row omg -->
+<!--- I need to finish this analysis ASAP!!! --->
 
 ```{r}
 #remove the first row
 mtcars <- mtcars[-1, ]
+head(mtcars)
+```
+
+
+The following code is hidden but the output is shown. 
+
+```{r, echo = F}
+# this is code where the output is shown, but the code is hidden! 
+select(mtcars, mpg)
 ```
 
 

@@ -6,6 +6,15 @@ bibliography: ../bibliography.bib
 csl: ../../diabetologia.csl
 ---
 
+## Lecture Slides
+
+
+
+## Video Lecture
+
+{{< video https://youtu.be/tS0nXW6Hfbk >}}
+
+
 ## Learning Objectives
 
 From today’s class, students are anticipated to be able to:
@@ -21,10 +30,6 @@ From today’s class, students are anticipated to be able to:
 -   Customize code chunk output using Rmd code chunk.
 
 -   Render your finalized document to HTML & PDF.
-
-## Video Lecture
-
-{{< video https://youtu.be/tS0nXW6Hfbk >}}
 
 
 
