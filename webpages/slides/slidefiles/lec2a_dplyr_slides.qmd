@@ -26,6 +26,7 @@ engine: webr
 
 
 
+
 ## Learning Objectives
 
 From this topic, students are anticipated to be able to:
@@ -38,16 +39,13 @@ From this topic, students are anticipated to be able to:
 
 4.  Use `across()` to operate on multiple columns with `summarise()` and `mutate()`.
 
-
-
 ## Why Data Manipulation?
 
--  In practice, it’s very rare that you have the data in the exact right form to make the graph you want, or fit the model you want. 
+-   In practice, it’s very rare that you have the data in the exact right form to make the graph you want, or fit the model you want.
 
--  You will need to start by *manipulating* your data into the right form: creating new variables, subsetting rows, renaming columns, etc.
+-   You will need to start by *manipulating* your data into the right form: creating new variables, subsetting rows, renaming columns, etc.
 
-
--  An even less exciting but perhaps even more important part of data analysis is simply checking the data for things like:
+-   An even less exciting but perhaps even more important part of data analysis is simply checking the data for things like:
 
     -   Possible inconsistencies with your understanding of what the data set should contain
 
@@ -55,12 +53,11 @@ From this topic, students are anticipated to be able to:
 
     -   Basic info gathering: number of rows, number of columns, amount of missing data, etc.
 
-
 ## Tibbles
 
--  A *tibble* is a modern version of a basic data frame. 
+-   A *tibble* is a modern version of a basic data frame.
 
--  To use tibbles, we first install the `tibble` package (if we haven't already) and load it into R by:
+-   To use tibbles, we first install the `tibble` package (if we haven't already) and load it into R by:
 
 ```{webr}
 # install.packages("tibble") #uncomment if using this code in RStudio!
@@ -69,9 +66,9 @@ library(tibble)
 
 ## Tibbles
 
--  Tibbles typically said to be more user friendly than standard R dataframes, and are easily used with *tidyverse* functions. More on that in a bit!
+-   Tibbles typically said to be more user friendly than standard R dataframes, and are easily used with *tidyverse* functions. More on that in a bit!
 
--  We can either load in pre-existing data frames (like from a `.csv` file or an R package), or create a tibble manually using the `tibble()` function. For example, we could use
+-   We can either load in pre-existing data frames (like from a `.csv` file or an R package), or create a tibble manually using the `tibble()` function. For example, we could use
 
 ```{webr}
 tibble(x = letters)
@@ -90,10 +87,9 @@ housingdata
 
 ## Tibbles
 
+-   We can see that the tibble can store different data types (here we have both numeric data ("dbl" is short for double) and character data ("chr" is short for character).
 
--  We can see that the tibble can store different data types (here we have both numeric data ("dbl" is short for double) and character data ("chr" is short for character).
-
--  We can also change an R data frame to a tibble. For example, the `mtcars` data set is available in the `datasets` package in R as a dataframe. We can load it as a tibble using:
+-   We can also change an R data frame to a tibble. For example, the `mtcars` data set is available in the `datasets` package in R as a dataframe. We can load it as a tibble using:
 
 ```{webr}
 library(datasets)
@@ -109,21 +105,22 @@ To use the dplyr functions, we need to install (if necessary) and load the dplyr
 library(dplyr)
 ```
 
-Once loaded, we will have a number of new tools at our disposal. 
+Once loaded, we will have a number of new tools at our disposal.
 
+## `dplyr` Functions
 
-## `dplyr` Functions 
 ### Subsetting with `select()`
 
-`select()` allows you to keep or remove columns. 
+`select()` allows you to keep or remove columns.
 
-- For example, in the `housingdata` dataset, say we only want the columns `name` and `city`. We use the `select` function where the first argument is the name of the tibble, and the other arguments are the names of the columns we wish to keep:
+-   For example, in the `housingdata` dataset, say we only want the columns `name` and `city`. We use the `select` function where the first argument is the name of the tibble, and the other arguments are the names of the columns we wish to keep:
 
 ```{webr}
 select(housingdata, name, city)
 ```
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Subsetting with `select()`
 
 Now, this didn't alter the original data frame! If we wanted to save this reduced dataframe, we can name it to a new variable, such as
@@ -139,7 +136,8 @@ Now, `housingdata2` contains only the rows we were interested in keeping, withou
 housingdata
 ```
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Subsetting with `select()`
 
 We can also use `select()` to indicate which columns to **remove.** For example, if I wanted all variables except `name` in my data set, I could do:
@@ -148,8 +146,8 @@ We can also use `select()` to indicate which columns to **remove.** For example,
 select(housingdata, -name)
 ```
 
+## `dplyr` Functions
 
-## `dplyr` Functions 
 ### Subsetting with `filter()`
 
 The `filter()` function allows you to specify which rows to keep in the tibble. The `filter()` function takes *conditional statements* and allows us to remove or keep rows based on these conditions.
@@ -162,7 +160,8 @@ filter(housingdata, rent_2025 > 2500)
 
 Now, only rows with `rent_2025` \> 2500 are kept in the data frame.
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Subsetting with `filter()`
 
 We can also use the `==` sign to indicate that something is equivalent. For example, we may only be interested in observations in Vancouver. To do so, we can use:
@@ -175,7 +174,8 @@ filter(housingdata, city == "Vancouver")
 The double `==` in the statement to indicate "is equal to"! Further, as the variable of interest is a string (or character type), we need to use quotations around the city name "Vancouver".
 :::
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Subsetting with `filter()`
 
 We can also filter on multiple variables at the same time, even if they are different types. for example:
@@ -184,19 +184,21 @@ We can also filter on multiple variables at the same time, even if they are diff
 filter(housingdata, rent_2025 > 2500, city == "Vancouver")
 ```
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Leveling Up with `tidyselect()`
 
--  Sometimes we will want to select columns that have something in common with their name. This is particularly useful when the number of columns is large (for example, think if we had historical rent data for many years). 
+-   Sometimes we will want to select columns that have something in common with their name. This is particularly useful when the number of columns is large (for example, think if we had historical rent data for many years).
 
--  To do so, we can use helper functions in the `tidyverse` library. First, install (if necessary) and load in the `tidyverse` library
+-   To do so, we can use helper functions in the `tidyverse` library. First, install (if necessary) and load in the `tidyverse` library
 
 ```{webr, message=F, warning=F}
 # install.packages("tidyverse")
 library(tidyverse)
 ```
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Leveling Up with `tidyselect()`
 
 Let's use the `starts_with()` function to select all columns that relate to rents. We can do this by:
@@ -205,9 +207,10 @@ Let's use the `starts_with()` function to select all columns that relate to rent
 select(housingdata, starts_with("rent"))
 ```
 
-This code returned a tibble where only the columns involving rents are included! 
+This code returned a tibble where only the columns involving rents are included!
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Leveling Up with `tidyselect()`
 
 Other useful helper functions include:
@@ -220,18 +223,20 @@ Other useful helper functions include:
 
 While for the example data set we are really only selecting two columns, using these functions allows your code to be more flexible as data may be added later for more years of rent, for example.
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Creating New Variables with `mutate()`
 
-- Sometimes we need to create another variable or column based on information already present in a tibble. 
+-   Sometimes we need to create another variable or column based on information already present in a tibble.
 
-- For example, suppose we are interested in the cost per room, rather than total rent, in our data. We can create a new variable that is the rent divided by the number of rooms using `mutate()`:
+-   For example, suppose we are interested in the cost per room, rather than total rent, in our data. We can create a new variable that is the rent divided by the number of rooms using `mutate()`:
 
 ```{webr}
 mutate(housingdata, rent_per_room_2025 = rent_2025/numrooms)
 ```
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### Creating New Variables with `mutate()`
 
 We can also clean this up by rounding our new variable to two decimal places using the `round()` function:
@@ -242,7 +247,8 @@ mutate(housingdata, rent_per_room_2025 = round(rent_2025/numrooms,2))
 
 As we can see, the `mutate()` function took the data as the first argument, and then we listed the new variable name `rent_per_room_2025` which we calculated by taking the rent in 2025 (`rent_2025`) and dividing it by the number of rooms in the house (`numrooms`). We wrapped `round( x, 2)` around the calculation to clean up the answer to two decimal places.
 
-## `dplyr` Functions 
+## `dplyr` Functions
+
 ### The Pipe Operator `%>%`
 
 The pipe operator (`%>%`) is a convenient way to form a chain of commands on a tibble to perform multiple tasks at once.
@@ -266,8 +272,8 @@ Here, we tell dplyr the tibble we want to transform (`housingdata`), and then us
 When using the pipe operator, we no longer need to include the dataframe in the first argument of the function. Compare the previous two code chunks to see what I mean.
 :::
 
+## `dplyr` Functions
 
-## `dplyr` Functions 
 ### The Pipe Operator `%>%`
 
 While it may not be obvious from this first example why the pipe operator is commonly used, let's consider that we want to
@@ -298,8 +304,8 @@ housingdata %>%
 After each function call, we need to include the pipe operator to tell dplyr that we're not done yet, and the chain of commands continues on the next line.
 :::
 
+## `dplyr` Functions
 
-## `dplyr` Functions 
 ### The Pipe Operator `%>%`
 
 Another thing to note is that the pipe operator creates a new tibble and does not alter the original. So, `housingdata` still contains all of the original rows and columns in its unaltered form. If we wanted to alter it (or save the output to a new variable), we need to assign it using `<-`. For example, the following code will [overwrite]{.underline} the original tibble:
@@ -317,8 +323,6 @@ housingdata
 ## Worksheet A2
 
 Worksheet A2 is now available, and will guide you through some of the basics of `dplyr`.
-
-
 
 ## To Save These Slides With Your Code
 

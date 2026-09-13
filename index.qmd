@@ -3,26 +3,9 @@ title: "STAT545 A/B: Exploratory Data Analysis (Fall 2026)"
 date-modified: last-modified
 ---
 
-::::::: column-layout
-::: {.column width="30%"}
-![](images/stat545_transparent.png)
-:::
 
-::: {.column width="5%"}
-:::
+![](images/stat545_transparent.png){fig-align="center" width="200"}
 
-:::: {.column width="59%"}
-
-::: {.callout-note icon="false"}
-## This Week at a Glance
-
-Our first class will be on Thursday Sept 10th. Please bring a charged laptop!
-
-We will be going over an introduction to coding in R, and start working on our first worksheet which you will submit for grades. 
-:::
-
-::::
-:::::::
 
 ## 👋 Welcome!
 
@@ -58,11 +41,11 @@ My name is Grace Tompkins (she/her) and I'll be your course instructor. I'm a Bi
 
 I am joined by a wonderful group of TAs:
 
--  TBD
+-   Asfar
 
--  TBD
+-   Mario
 
--  TBD
+-   Erick
 
 Please reach out if you have any concerns or questions at grace\<at\>stat.ubc.ca, or through our **Slack channel!**
 
