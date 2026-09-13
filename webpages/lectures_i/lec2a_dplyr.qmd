@@ -5,7 +5,7 @@ date-modified: last-modified
 
 ## Lecture Slides
 
-[Lecture 2A Slides](../slides/slidefiles/lec2a_dplyr_slides.qmd)
+[Lecture 2A Slides](../slides/lec2a_dplyr_slides.qmd)
 
 
 

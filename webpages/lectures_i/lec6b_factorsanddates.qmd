@@ -4,17 +4,20 @@ subtitle: "October 9, 2025"
 date-modified: last-modified
 ---
 
-From today’s class, students are anticipated to be able to:
 
--   Reorder levels within factors according to various principles
+## Lecture Slides
+
+[Lecture 6b Slides](../slides/lec6b_factors_slides.qmd)
 
 ## Video Lecture
 
 {{< video https://www.youtube.com/watch?v=DgFox3T2FaM >}}
 
-## Lecture Slides
 
-[Lecture 6b - Factors Slides](../slides/slidefiles/lec6b_factors_slides.qmd)
+
+From today’s class, students are anticipated to be able to:
+
+-   Reorder levels within factors according to various principles
 
 
 ## Set-up

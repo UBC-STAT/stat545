@@ -6,6 +6,16 @@ bibliography: ../bibliography.bib
 csl: ../../diabetologia.csl
 ---
 
+
+
+## Lecture Slides
+
+[Lecture 4 Slides](../slides/lec4_datavis_slides.qmd)
+
+## Lecture Video
+
+{{< video https://youtu.be/vltlWkDoToo >}}
+
 ## Learning Objectives
 
 From this topic, students are anticipated to be able to:
@@ -18,13 +28,7 @@ From this topic, students are anticipated to be able to:
 
 -   Choose an appropriate plot type for analysis, based on an understanding of what makes a graph effective.
 
-## Lecture Video
 
-{{< video https://youtu.be/vltlWkDoToo >}}
-
-## Lecture Slides
-
-[Lecture 4 - Data Visualization Slides](../slides/slidefiles/lec4_datavis_slides.qmd)
 
 ## Set Up
 

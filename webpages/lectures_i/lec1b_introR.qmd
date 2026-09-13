@@ -5,7 +5,7 @@ date-modified: last-modified
 
 ## Lecture Slides
 
-[Lecture 1 Slides](../slides/slidefiles/lec1_intro_slides.qmd)
+[Lecture 1 Slides](../slides/lec1_intro_slides.qmd)
 
 ## Video Lecture
 

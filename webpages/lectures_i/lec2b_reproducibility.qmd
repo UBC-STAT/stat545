@@ -8,7 +8,7 @@ csl: ../../diabetologia.csl
 
 ## Lecture Slides
 
-[Lecture 2B Slides](../slides/slidefiles/lec2b_reproducibility_slides.qmd)
+[Lecture 2B Slides](../slides/lec2b_reproducibility_slides.qmd)
 
 
 

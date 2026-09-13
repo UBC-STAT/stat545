@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<link href="../../../images/stat545_transparent.png" rel="icon" type="image/png">
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT545 – Lecture 3: Reproducibility with RMarkdown</title>
+  <title>STAT545 – Lecture 9: R Packages</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -30,78 +30,12 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
-  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -190,186 +124,49 @@
       margin-right: 0; 
     }
   </style>
-  <script type="module" src="../../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-  <link href="../../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 3: Reproducibility with RMarkdown</h1>
-  <p class="subtitle">STAT 545 - Fall 2026</p>
+  <h1 class="title">Lecture 9: R Packages</h1>
+  <p class="subtitle">STAT 545 - Fall 2025</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning Objectives</h2>
-<p>From today’s class, students are anticipated to be able to:</p>
+<section id="learning-goals" class="slide level2">
+<h2>Learning Goals</h2>
 <ul>
-<li><p>Use basic markdown features.</p></li>
-<li><p>Write documents in markdown.</p></li>
-<li><p>Choose whether html or pdf is an appropriate output.</p></li>
-<li><p>Style an .Rmd document by editing the YAML header.</p></li>
-<li><p>Customize code chunk output using Rmd code chunk.</p></li>
-<li><p>Render your finalized document to HTML &amp; PDF.</p></li>
+<li><p>Write a DESCRIPTION file</p></li>
+<li><p>Carefully curate package dependencies</p></li>
+<li><p>Document functions and data using `roxygen2` comments and tags</p></li>
+<li><p>Include tests with testthat in accordance with the R package infrastructure.</p></li>
+<li><p>Add a license</p></li>
+<li><p>Update an R package via semantic version-ing, NEWS, changelog.</p></li>
+<li><p>Develop and build informative vignettes and a package README.</p></li>
+</ul>
+<p><a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec9_rpackages.html">Lecture Notes</a></p>
+<p><a href="https://www.youtube.com/watch?v=4Y1OphsZSl0&amp;t=2s">YouTube Video</a></p>
+</section>
+<section id="why-r-packages" class="slide level2">
+<h2>Why R Packages?</h2>
+<ul>
+<li><p>Organized documentation</p></li>
+<li><p>Sharability</p></li>
+<li><p>Built-in checks to ensure your package is working</p></li>
+<li><p>Templates for organizing your work</p></li>
+<li><p>Ability to attach data sets to share</p></li>
 </ul>
 </section>
-<section id="reproducibility" class="slide level2">
-<h2>Reproducibility</h2>
-<ul>
-<li><p><em>Reproducibility</em> is the ability of an independent researcher to repeat an experiment using the <u>same data and workflow</u> to obtain the same results</p></li>
-<li><p>One way to ensure reproducible research is sharing clear details on the analysis and providing the code used to produce the results.</p></li>
-<li><p>Reproducibility is often confused with <em>replication</em>. However, replication is a separate concept where the results of a study should be validated on an independent study using new data.</p></li>
-<li><p>A “good” study is both replicable and reproducible.</p></li>
-</ul>
-</section>
-<section id="reproducibility-1" class="slide level2">
-<h2>Reproducibility</h2>
-<ul>
-<li><p>There are also ethical benefits to reproducible research. Performing open research can reduce the chance of data fabrication or other ethical issues such as <em>p-hacking</em>, where a researcher tests a number of hypotheses until they find one that is statistically significant.</p></li>
-<li><p>Open, transparent research poses a sense of accountability on the researcher(s).</p></li>
-<li><p>Of course, you can’t always share data (for example, health data containing personal identifying information), but you should share as much as is possible. Always check with your ethics board or principal investigator before sharing data online.</p></li>
-</ul>
-<p>Reproducible studies can also advance research by providing the code used for analysis. Not only can we reproduce the study to make the findings more trustworthy, but we can learn more about how the analysis was performed and possibly apply it to other studies.</p>
-</section>
-<section id="reproducibility-2" class="slide level2">
-<h2>Reproducibility</h2>
-<ul>
-<li><p>Reproducible research can also force you to have better, more automated workflows.</p></li>
-<li><p>The first analysis I (Grace) ever did in R, I was manually changing things in excel documents, and then saving them in a certain place, and then using R to fit a model, and then exporting the data, and then changing the worksheet format, and so on.</p></li>
-<li><p>I had a sticky note of instructions on how to produce the results on my desk. This was neither reproducible nor productive for my time. While automating some steps and using tools like GitHub for version control can be more work upfront, it can save you <em>a lot</em> of headaches down the road. It is something I personally wish I learned to use earlier in my career.</p></li>
-</ul>
-</section>
-<section id="r-markdown" class="slide level2">
-<h2>R Markdown</h2>
-<ul>
-<li><p>R Markdown lets you write a single “blueprint” for your analysis that includes everything - positioning/sizing/colouring/formatting, analysis/graph/table code and results, and text – and then “knit” all of those components together into a complete report with a single button press.</p></li>
-<li><p>There is a large community of R Markdown users, making it easy to find tutorials and blog posts about a ton of different types of documents. We’re going to start simple and dive right into R Markdown.</p></li>
-</ul>
-</section>
-<section id="getting-started-with-markdown" class="slide level2">
-<h2>Getting Started with Markdown</h2>
-<p>In lecture, we are going to work through <a href="https://www.markdowntutorial.com/">this online Markdown tutorial together</a> in small groups. Challenge yourself to meet someone new in the class!</p>
-<p>Take 15 minutes to start this tutorial, and then we will return to the lecture.</p>
-</section>
-<section id="getting-started-with-markdown-1" class="slide level2 scrollable">
-<h2>Getting Started with Markdown</h2>
-<p>After completing the tutorial, try making your own R Markdown document!</p>
-<ol type="1">
-<li><p>In RStudio, go to “File” -&gt; “New File” -&gt; “Markdown File”</p></li>
-<li><p>Write a Markdown document all about you that includes:</p>
-<ul>
-<li><p>A header</p></li>
-<li><p>A link to your GitHub profile</p></li>
-<li><p>A list of courses you’re taking this semester</p></li>
-</ul></li>
-<li><p>Click the “Preview” button to generate an output .html file from the source .md file.</p></li>
-</ol>
-</section>
-<section id="getting-started-with-markdown-2" class="slide level2 scrollable">
-<h2>Getting Started with Markdown</h2>
-<ol type="1">
-<li><p>To get started with using R Markdown, you’ll need to install the <code>rmarkdown</code> and <code>DT</code> R packages package.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">'rmarkdown'</span>)</span>
-<span id="cb1-2"><a></a><span class="fu">install.packages</span>(<span class="st">'DT'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
-<!-- -->
-<ol start="3" type="1">
-<li><p>Create an R Markdown file by going to File &gt; New File &gt; R Markdown..</p>
-<ul>
-<li>Change the title to “STAT545 Lecture 2a” and save the defaults. Click OK.</li>
-</ul></li>
-<li><p>Click the “Knit” button to generate the default document.</p></li>
-</ol>
-</section>
-<section id="rmarkdown" class="slide level2">
-<h2>RMarkdown</h2>
-<p><strong>Things to notice:</strong></p>
-<ul>
-<li><p>The YAML header is contained between two — at the top of the .Rmd source, and contains metadata on the document. This is where you specify the output type to be HTML.</p></li>
-<li><p>Text is formatted using Markdown. There are three chunks of R code, and knitting executes the R code and displays the output in the output file.</p></li>
-</ul>
-</section>
-<section id="rmarkdown-1" class="slide level2">
-<h2>RMarkdown</h2>
-<p><strong>How does it all work?</strong></p>
-<ul>
-<li><p>The key drivers under the hood are <code>knitr</code>and <code>Pandoc</code>!</p></li>
-<li><p>When you press “Knit”, R Markdown passes the .<code>Rmd</code>file to <code>knitr</code>, which executes all of the code and creates a new <code>.md</code> file including the code and output.</p></li>
-<li><p>Then, that <code>.md</code> file is processed into the final output format (e.g.&nbsp;<code>.html</code>) by pandoc.</p></li>
-</ul>
-</section>
-<section id="rmarkdown-2" class="slide level2">
-<h2>RMarkdown</h2>
-<p><strong>What if I want a PDF?</strong></p>
-<ul>
-<li>You’ll need to install LaTeX and set the document type as a PDF document. TinyTeX is recommended:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
-<span id="cb2-2"><a></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()  <span class="co"># install TinyTeX</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>For this lecture, we will be knitting to HTML.</li>
-</ul>
-</section>
-<section id="rmarkdown-3" class="slide level2">
-<h2>RMarkdown</h2>
-<div class="callout callout-warning no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Exercise: Edit Your YAML in Small Groups:</strong></p>
-</div>
-<div class="callout-content">
-<p>Run <code>?html_document</code> from your R console and/or check out <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">Yihui Xie’s RMarkdown book</a> to:</p>
-<ul>
-<li><p>Add a floating table of contents</p></li>
-<li><p>Add a theme.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="rmarkdown-4" class="slide level2">
-<h2>RMarkdown</h2>
-<div class="callout callout-tip no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Instructor Demo</strong></p>
-</div>
-<div class="callout-content">
-<p>We will now demonstrate a few basics of RMarkdown using the <code>mtcars</code> dataset, including</p>
-<ul>
-<li><p>Headers</p></li>
-<li><p>Comments</p></li>
-<li><p>Code chunks (with options like echo and warning)</p></li>
-<li><p>Lists</p></li>
-<li><p>In-line r code using `r `</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="rmarkdown-5" class="slide level2 scrollable">
-<h2>RMarkdown</h2>
-<ul>
-<li>Just like YAML is metadata for the Rmd document, code chunk options are metadata for the code chunk. Specify them within the <code>{r}</code> at the top of a code chunk, separated by commas. For a list of chunk options, check out <a href="https://yihui.org/knitr/options/">Yihui Xie’s knitr book</a>. Let’s try some:</li>
-</ul>
-<ol type="1">
-<li><p>Hide the code from the output with <code>echo = FALSE.</code></p></li>
-<li><p>Change the figure width and height with <code>fig.width = 5</code> and <code>fig.height = 3</code>.</p></li>
-<li><p>Knit the results. Can you spot the differences?</p></li>
-</ol>
-</section>
-<section id="resources" class="slide level2">
-<h2>Resources</h2>
-<p>Here are a number of resources that may help supplement you with today’s lesson:</p>
-<ul>
-<li><p><a href="https://www.youtube.com/watch?v=ZzDSkBgt9xQ">STAT 545 Episode 3-A: Reproducible Reports with R Markdown Some additional resources that you might find useful:</a></p></li>
-<li><p><a href="https://rmarkdown.rstudio.com/lesson-1.html">The Official R Markdown Tutorial</a> from the “Introduction” up to and including the “Inline Code” section.</p></li>
-<li><p><a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf">R Markdown cheat sheet</a></p></li>
-</ul>
+<section id="r-packages" class="slide level2">
+<h2>R Packages</h2>
+<p>We’ve been using various packages all semester, including <code>dplyr</code>. You can actually see the underlying package which is hosted on (pretends to be shocked) GitHub: https://github.com/tidyverse/dplyr.</p>
+<p>For this topic, we’ll be making an R package like the toy <a href="https://github.com/lucylgao/square">square package</a>, by following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -379,10 +176,26 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Many cheat sheets can be found from RStudio: go to “Help” -&gt; “Cheatsheets”.</p>
+<p>Many of the functions we call are from the <code>devtools</code> package in R. If you’re getting errors when trying to run some commands, try reloading <code>devtools</code> in the Console by running <code>library(devtools)</code>.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="components-of-an-r-package" class="slide level2">
+<h2>Components of an R Package</h2>
+<ul>
+<li><p>DESCRIPTION File: describes the package contents + licensing</p></li>
+<li><p>NAMESPACE file: lists functions available to users, or functions imported from other packages</p></li>
+<li><p>Function files: files containing self-made functions to be contained in the package</p></li>
+<li><p>Tests (using <code>testthat,</code> perhaps)</p></li>
+<li><p>Vignette: a long form descriptive document that acts like a tutorial</p></li>
+<li><p>README file: the front page of the GitHub repository</p></li>
+<li><p>NEWS file: a file used to update user on new versions and releases</p></li>
+</ul>
+</section>
+<section id="minimal-working-example" class="slide level2">
+<h2>Minimal Working Example</h2>
+<p>We will build an R Package that has functions for different powers, like squares and cubics.</p>
 
 
 <script type="ojs-module-contents">
@@ -408,19 +221,19 @@ W10=
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -620,9 +433,9 @@ W10=
     </script>
     <script type="module">
     if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-    window._ojs.paths.runtimeToDoc = "../../webpages/slides/slidefiles";
+    window._ojs.paths.runtimeToDoc = "../../webpages/slides";
     window._ojs.paths.runtimeToRoot = "../..";
-    window._ojs.paths.docToRoot = "../../..";
+    window._ojs.paths.docToRoot = "../..";
     window._ojs.selfContained = false;
     window._ojs.runtime.interpretFromScriptTags();
     </script>

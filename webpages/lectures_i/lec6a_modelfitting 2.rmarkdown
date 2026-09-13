@@ -4,17 +4,6 @@ subtitle: "October 7, 2025"
 date-modified: last-modified
 ---
 
-
-## Lecture Slides
-
-[Lecture 6a - Model Fitting Slides](../slides/lec6_modelfitting_slides.qmd)
-
-
-## Video Lecture
-
-{{< video https://www.youtube.com/watch?v=G80zo0V2ORM >}}
-
-
 ## Learning Objectives
 
 From today’s class, students are anticipated to be able to:
@@ -30,7 +19,13 @@ From today’s class, students are anticipated to be able to:
 Note that there is a new tidyverse-like framework of packages to help with modelling. It’s called [tidymodels](https://www.tidymodels.org/).
 
 
+## Video Lecture
 
+{{< video https://www.youtube.com/watch?v=G80zo0V2ORM >}}
+
+## Lecture Slides
+
+[Lecture 6a - Model Fitting Slides](../slides/slidefiles/lec6_modelfitting_slides.qmd)
 
 ## Set-up
 
@@ -308,5 +303,6 @@ We will now spend some time attempting questions on the last part of Worksheet A
 -   [An Introduction to Statistical Learning](https://www-bcf.usc.edu/~gareth/ISL/)
 
 -   [Mike Marin’s R playlist on YouTube](https://www.youtube.com/playlist?list=PLqzoL9-eJTNBlVXxWvJkq0dtVut2sICUW)
+
 
 

@@ -6,6 +6,16 @@ bibliography: ../bibliography.bib
 csl: ../../diabetologia.csl
 ---
 
+
+## Lecture Slides
+
+[Lecture 5  Slides](../slides/lec5_tidydata_slides.qmd)
+
+## Lecture Video
+
+{{< video https://www.youtube.com/watch?v=pO-dgdfMRZw >}}
+
+
 ## Learning Objectives
 
 From this topic, students are anticipated to be able to:
@@ -18,14 +28,7 @@ From this topic, students are anticipated to be able to:
 
 -   understand how to grapple with explicit missing values created by pivoting
 
-## Lecture Video
 
-{{< video https://www.youtube.com/watch?v=pO-dgdfMRZw >}}
-
-
-## Lecture Slides
-
-[Lecture 5 - Tidy Data Slides](../slides/slidefiles/lec5_tidydata_slides.qmd)
 
 ## Set Up
 

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<link href="../../../images/stat545_transparent.png" rel="icon" type="image/png">
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT545 – Lecture 4: Data Visualization with ggplot2</title>
+  <title>STAT545 – Lecture 3: Reproducibility with RMarkdown</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -97,11 +97,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
-  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -190,176 +190,203 @@
       margin-right: 0; 
     }
   </style>
-  <script type="module" src="../../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-  <link href="../../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 4: Data Visualization with ggplot2</h1>
-  <p class="subtitle">STAT 545 - Fall 2025</p>
+  <h1 class="title">Lecture 3: Reproducibility with RMarkdown</h1>
+  <p class="subtitle">STAT 545 - Fall 2026</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="todays-goals" class="slide level2">
-<h2>Today’s Goals</h2>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li><p>create effective data visualizations</p></li>
-<li><p>explore the grammar of <code>ggplot2</code></p></li>
-</ul>
-<p>Quick links:</p>
-<ul>
-<li><p><a href="https://youtu.be/vltlWkDoToo">Lecture Video</a></p></li>
-<li><p><a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec4_datavis.html">Lecture Notes</a></p></li>
+<li><p>Use basic markdown features.</p></li>
+<li><p>Write documents in markdown.</p></li>
+<li><p>Choose whether html or pdf is an appropriate output.</p></li>
+<li><p>Style an .Rmd document by editing the YAML header.</p></li>
+<li><p>Customize code chunk output using Rmd code chunk.</p></li>
+<li><p>Render your finalized document to HTML &amp; PDF.</p></li>
 </ul>
 </section>
-<section id="required-packages" class="slide level2">
-<h2>Required Packages</h2>
-<p>Install (if necessary) and load in the following packages:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(RColorBrewer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="motivating-example" class="slide level2 scrollable">
-<h2>Motivating Example</h2>
-<p>We want to investigate if there is a relationship between the number of cylinders (<code>cyl</code>), fuel efficiency (<code>mpg</code>), and horsepower (<code>hp</code>) in the <code>mtcars</code> data set.</p>
-<div class="cell">
-<div>
-<div id="webr-1" class="exercise-cell">
-
-</div>
-<script type="webr-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShrYWJsZUV4dHJhKVxuXG5tdGNhcnMgJT4lIHNlbGVjdChjeWwsIG1wZywgaHApICU+JVxuICBncm91cF9ieShjeWwpICU+JVxuICBhcnJhbmdlKGN5bCwgbXBnKSAlPiVcbiAga25pdHI6OmthYmxlKGNvbC5uYW1lcyA9IGMoXCJOdW1iZXIgb2YgQ3lsaW5kZXJzXCIsIFwiTWlsZXMgcGVyIEdhbGxvblwiLCBcIkhvcnNlcG93ZXJcIiksIFxuICAgICAgICAgICAgICAgYWxpZ24gPSBcImNcIiwgZm9ybWF0ID0gXCJodG1sXCIsICBcbiAgICAgICAgICAgICAgIHRhYmxlLmF0dHIgPSAnZGF0YS1xdWFydG8tZGlzYWJsZS1wcm9jZXNzaW5nPVwidHJ1ZVwiJykgJT4lXG4gIGthYmxlX3N0eWxpbmcoYm9vdHN0cmFwX29wdGlvbnMgPSBjKFwiaG92ZXJcIiwgXCJjb25kZW5zZWRcIiksXG4gICAgICAgICAgICAgICAgICAgIGZ1bGxfd2lkdGggPSBGQUxTRSwgZm9udF9zaXplID0gMTQpICU+JVxuICBrYWJsZUV4dHJhOjpjb2xsYXBzZV9yb3dzKGNvbHVtbnMgPSAxLCBsYXRleF9obGluZSA9IFwibWFqb3JcIiwgdmFsaWduID0gXCJ0b3BcIikifQ==
-</script>
-</div>
-</div>
-</section>
-<section id="motivating-example-1" class="slide level2">
-<h2>Motivating Example</h2>
+<section id="reproducibility" class="slide level2">
+<h2>Reproducibility</h2>
 <ul>
-<li>Was it easy to figure out the relationship I was trying to convey?</li>
+<li><p><em>Reproducibility</em> is the ability of an independent researcher to repeat an experiment using the <u>same data and workflow</u> to obtain the same results</p></li>
+<li><p>One way to ensure reproducible research is sharing clear details on the analysis and providing the code used to produce the results.</p></li>
+<li><p>Reproducibility is often confused with <em>replication</em>. However, replication is a separate concept where the results of a study should be validated on an independent study using new data.</p></li>
+<li><p>A “good” study is both replicable and reproducible.</p></li>
 </ul>
+</section>
+<section id="reproducibility-1" class="slide level2">
+<h2>Reproducibility</h2>
+<ul>
+<li><p>There are also ethical benefits to reproducible research. Performing open research can reduce the chance of data fabrication or other ethical issues such as <em>p-hacking</em>, where a researcher tests a number of hypotheses until they find one that is statistically significant.</p></li>
+<li><p>Open, transparent research poses a sense of accountability on the researcher(s).</p></li>
+<li><p>Of course, you can’t always share data (for example, health data containing personal identifying information), but you should share as much as is possible. Always check with your ethics board or principal investigator before sharing data online.</p></li>
+</ul>
+<p>Reproducible studies can also advance research by providing the code used for analysis. Not only can we reproduce the study to make the findings more trustworthy, but we can learn more about how the analysis was performed and possibly apply it to other studies.</p>
+</section>
+<section id="reproducibility-2" class="slide level2">
+<h2>Reproducibility</h2>
+<ul>
+<li><p>Reproducible research can also force you to have better, more automated workflows.</p></li>
+<li><p>The first analysis I (Grace) ever did in R, I was manually changing things in excel documents, and then saving them in a certain place, and then using R to fit a model, and then exporting the data, and then changing the worksheet format, and so on.</p></li>
+<li><p>I had a sticky note of instructions on how to produce the results on my desk. This was neither reproducible nor productive for my time. While automating some steps and using tools like GitHub for version control can be more work upfront, it can save you <em>a lot</em> of headaches down the road. It is something I personally wish I learned to use earlier in my career.</p></li>
+</ul>
+</section>
+<section id="r-markdown" class="slide level2">
+<h2>R Markdown</h2>
+<ul>
+<li><p>R Markdown lets you write a single “blueprint” for your analysis that includes everything - positioning/sizing/colouring/formatting, analysis/graph/table code and results, and text – and then “knit” all of those components together into a complete report with a single button press.</p></li>
+<li><p>There is a large community of R Markdown users, making it easy to find tutorials and blog posts about a ton of different types of documents. We’re going to start simple and dive right into R Markdown.</p></li>
+</ul>
+</section>
+<section id="getting-started-with-markdown" class="slide level2">
+<h2>Getting Started with Markdown</h2>
+<p>In lecture, we are going to work through <a href="https://www.markdowntutorial.com/">this online Markdown tutorial together</a> in small groups. Challenge yourself to meet someone new in the class!</p>
+<p>Take 15 minutes to start this tutorial, and then we will return to the lecture.</p>
+</section>
+<section id="getting-started-with-markdown-1" class="slide level2 scrollable">
+<h2>Getting Started with Markdown</h2>
+<p>After completing the tutorial, try making your own R Markdown document!</p>
+<ol type="1">
+<li><p>In RStudio, go to “File” -&gt; “New File” -&gt; “Markdown File”</p></li>
+<li><p>Write a Markdown document all about you that includes:</p>
+<ul>
+<li><p>A header</p></li>
+<li><p>A link to your GitHub profile</p></li>
+<li><p>A list of courses you’re taking this semester</p></li>
+</ul></li>
+<li><p>Click the “Preview” button to generate an output .html file from the source .md file.</p></li>
+</ol>
+</section>
+<section id="getting-started-with-markdown-2" class="slide level2 scrollable">
+<h2>Getting Started with Markdown</h2>
+<ol type="1">
+<li><p>To get started with using R Markdown, you’ll need to install the <code>rmarkdown</code> and <code>DT</code> R packages package.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">'rmarkdown'</span>)</span>
+<span id="cb1-2"><a></a><span class="fu">install.packages</span>(<span class="st">'DT'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
 <!-- -->
+<ol start="3" type="1">
+<li><p>Create an R Markdown file by going to File &gt; New File &gt; R Markdown..</p>
 <ul>
-<li>What about through a plot?</li>
+<li>Change the title to “STAT545 Lecture 2a” and save the defaults. Click OK.</li>
+</ul></li>
+<li><p>Click the “Knit” button to generate the default document.</p></li>
+</ol>
+</section>
+<section id="rmarkdown" class="slide level2">
+<h2>RMarkdown</h2>
+<p><strong>Things to notice:</strong></p>
+<ul>
+<li><p>The YAML header is contained between two — at the top of the .Rmd source, and contains metadata on the document. This is where you specify the output type to be HTML.</p></li>
+<li><p>Text is formatted using Markdown. There are three chunks of R code, and knitting executes the R code and displays the output in the output file.</p></li>
 </ul>
 </section>
-<section id="motivating-example-2" class="slide level2">
-<h2>Motivating Example</h2>
+<section id="rmarkdown-1" class="slide level2">
+<h2>RMarkdown</h2>
+<p><strong>How does it all work?</strong></p>
+<ul>
+<li><p>The key drivers under the hood are <code>knitr</code>and <code>Pandoc</code>!</p></li>
+<li><p>When you press “Knit”, R Markdown passes the .<code>Rmd</code>file to <code>knitr</code>, which executes all of the code and creates a new <code>.md</code> file including the code and output.</p></li>
+<li><p>Then, that <code>.md</code> file is processed into the final output format (e.g.&nbsp;<code>.html</code>) by pandoc.</p></li>
+</ul>
+</section>
+<section id="rmarkdown-2" class="slide level2">
+<h2>RMarkdown</h2>
+<p><strong>What if I want a PDF?</strong></p>
+<ul>
+<li>You’ll need to install LaTeX and set the document type as a PDF document. TinyTeX is recommended:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
+<span id="cb2-2"><a></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()  <span class="co"># install TinyTeX</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>For this lecture, we will be knitting to HTML.</li>
+</ul>
+</section>
+<section id="rmarkdown-3" class="slide level2">
+<h2>RMarkdown</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Exercise: Edit Your YAML in Small Groups:</strong></p>
+</div>
+<div class="callout-content">
+<p>Run <code>?html_document</code> from your R console and/or check out <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">Yihui Xie’s RMarkdown book</a> to:</p>
+<ul>
+<li><p>Add a floating table of contents</p></li>
+<li><p>Add a theme.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="rmarkdown-4" class="slide level2">
+<h2>RMarkdown</h2>
+<div class="callout callout-tip no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Instructor Demo</strong></p>
+</div>
+<div class="callout-content">
+<p>We will now demonstrate a few basics of RMarkdown using the <code>mtcars</code> dataset, including</p>
+<ul>
+<li><p>Headers</p></li>
+<li><p>Comments</p></li>
+<li><p>Code chunks (with options like echo and warning)</p></li>
+<li><p>Lists</p></li>
+<li><p>In-line r code using `r `</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="rmarkdown-5" class="slide level2 scrollable">
+<h2>RMarkdown</h2>
+<ul>
+<li>Just like YAML is metadata for the Rmd document, code chunk options are metadata for the code chunk. Specify them within the <code>{r}</code> at the top of a code chunk, separated by commas. For a list of chunk options, check out <a href="https://yihui.org/knitr/options/">Yihui Xie’s knitr book</a>. Let’s try some:</li>
+</ul>
+<ol type="1">
+<li><p>Hide the code from the output with <code>echo = FALSE.</code></p></li>
+<li><p>Change the figure width and height with <code>fig.width = 5</code> and <code>fig.height = 3</code>.</p></li>
+<li><p>Knit the results. Can you spot the differences?</p></li>
+</ol>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<p>Here are a number of resources that may help supplement you with today’s lesson:</p>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=ZzDSkBgt9xQ">STAT 545 Episode 3-A: Reproducible Reports with R Markdown Some additional resources that you might find useful:</a></p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/lesson-1.html">The Official R Markdown Tutorial</a> from the “Introduction” up to and including the “Inline Code” section.</p></li>
+<li><p><a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf">R Markdown cheat sheet</a></p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Many cheat sheets can be found from RStudio: go to “Help” -&gt; “Cheatsheets”.</p>
+</div>
+</div>
+</div>
 
-<img data-src="lec4_datavis_slides_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="motivating-example-3" class="slide level2">
-<h2>Motivating Example</h2>
-<ul>
-<li><p>We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon).</p></li>
-<li><p>Cars with higher horsepower also tend to have a higher number of cylinders.</p></li>
-<li><p>That was a lot easier to deduce than when we were reading numbers off of a large table. We will show how to build this exact plot in this lecture!</p></li>
-</ul>
-</section>
-<section id="effective-data-visualization" class="slide level2">
-<h2>Effective Data Visualization</h2>
-<ul>
-<li><p>Data visualizations are often preferred to aid with identify patterns and relationships and emphasizing important findings in a research projects</p>
-<ul>
-<li>This is especially true for presentations</li>
-</ul></li>
-<li><p>So, what’s the best visualization?</p>
-<ul>
-<li>Depends on what you need the data visualization to answer!</li>
-</ul></li>
-<li><p>Once you know what you want to show, we need to <strong>convey the message</strong> as clearly and simply as possible</p></li>
-</ul>
-</section>
-<section id="effective-data-visualizations-considerations" class="slide level2">
-<h2>Effective Data Visualizations: Considerations</h2>
-<ul>
-<li><p>Make it clear as a “standalone”</p>
-<ul>
-<li>Use labels, titles, and legends and make them informative and clear</li>
-</ul></li>
-<li><p>Minimize noise</p>
-<ul>
-<li><p>Don’t use colours randomly - it may cause us to see false patterns</p></li>
-<li><p>Don’t overlap plots</p></li>
-<li><p>Use as few plots as possible, but don’t be afraid to separate data to plot if it makes things clearer</p></li>
-</ul></li>
-<li><p>Consider the accessibility of your chart</p>
-<ul>
-<li><p>up to 10% of the population has colourblindness</p></li>
-<li><p>make it low-vision friendly and provide descriptions where possible</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="ggplot2-and-the-grammar-of-graphics" class="slide level2">
-<h2><code>ggplot2</code> and the Grammar of Graphics</h2>
-<p><code>ggplot2</code> is based on the grammar of graphics, which is a systematic approach for describing different components or aspects of a graph. It involves seven components (required components are indicated with the *):</p>
-<ul>
-<li><p>Data*</p>
-<ul>
-<li>the data you’re feeding into the plot, perhaps a tibble or dataframe</li>
-</ul></li>
-<li><p>Aesthetic mappings*</p>
-<ul>
-<li>a specification of how you will connect variables (for example, horizontal or vertical positioning, grouping, size, colour, shape)</li>
-</ul></li>
-<li><p>Geometric objects*</p>
-<ul>
-<li>a specification of what the object will be drawn as (for example, a scatter plot, line, bar chart)</li>
-</ul>
-<p>* = required component</p></li>
-</ul>
-</section>
-<section id="ggplot2-and-the-grammar-of-graphics-1" class="slide level2">
-<h2><code>ggplot2</code> and the Grammar of Graphics</h2>
-<ul>
-<li><p>Scales</p>
-<ul>
-<li>a specification of how a variable is mapped to its aesthetic</li>
-</ul></li>
-<li><p>Statistical transformations</p>
-<ul>
-<li>a specification of whether and how the data are combined or transformed. For example, is a bar chart plotting the values or a relative frequency?</li>
-</ul></li>
-<li><p>Coordinate system</p>
-<ul>
-<li>a specification of how the position aesthetics (x and y) are depicted in the plot. We typically use cartesian coordinates, though polar coordinates are also possible.</li>
-</ul></li>
-<li><p>Facet</p>
-<ul>
-<li>a specification of data variables that partition the data into smaller “sub plots” or panels</li>
-</ul></li>
-</ul>
-<p>It’s okay if you don’t quite understand all of these components yet. We will walk through examples of commonly used plots and discuss which components are necessary!</p>
-</section>
-<section id="example-scatterplot-on-mtcars" class="slide level2">
-<h2>Example: Scatterplot on <code>mtcars</code></h2>
-<p>Let’s say you’d like to see if there is a relationship between miles per gallon and horsepower of cars in the <code>mtcars</code> data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables.</p>
-</section>
-<section id="to-save-these-slides-with-your-code" class="slide level2">
-<h2>To Save These Slides With Your Code</h2>
-<p>To Print to PDF (with your code!), do the following:</p>
-<ul>
-<li><p>Open the in-browser print dialog <code>CMD/CTRL + P</code> or Right click &gt; Print</p></li>
-<li><p>Change the Destination setting to Save as PDF.</p></li>
-<li><p>Change the Layout to Landscape.</p></li>
-<li><p>Change the Margins to None. Enable the Background graphics option.</p></li>
-<li><p>Click Save 🎉</p></li>
-</ul>
-<p>In all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will <strong>not</strong> be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)</p>
 
-
-<script type="webr-data">
-eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjQvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImRwbHlyIiwidGlkeXZlcnNlIiwia25pdHIiLCJSQ29sb3JCcmV3ZXIiLCJnZ3Bsb3QyIl0sInJlcG9zIjpbXX0sInJlbmRlcl9kZiI6ImRlZmF1bHQifQ==
-</script>
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8xO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8xID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici1wcmVsdWRlIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoid2ViUk9qcyA9IHtcbiAgY29uc3QgeyBXZWJSLCBDaGFubmVsVHlwZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZS5XZWJSO1xuICBjb25zdCB7XG4gICAgV2ViUkV2YWx1YXRvcixcbiAgICBXZWJSRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoXG4gIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHN0YXR1c0NvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1zdGF0dXNcIik7XG4gIGNvbnN0IGluZGljYXRvckNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGluZGljYXRvckNvbnRhaW5lci5jbGFzc0xpc3QucmVtb3ZlKFwiZC1ub25lXCIpO1xuXG4gIGxldCBzdGF0dXNUZXh0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKVxuICBzdGF0dXNUZXh0LmNsYXNzTGlzdCA9IFwiZXhlcmNpc2UtbG9hZGluZy1kZXRhaWxzXCI7XG4gIHN0YXR1c1RleHQgPSBzdGF0dXNDb250YWluZXIuYXBwZW5kQ2hpbGQoc3RhdHVzVGV4dCk7XG4gIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5pdGlhbGlzZWA7XG5cbiAgLy8gSG9pc3QgaW5kaWNhdG9yIG91dCBmcm9tIGZpbmFsIHNsaWRlIHdoZW4gcnVubmluZyB1bmRlciByZXZlYWxcbiAgY29uc3QgcmV2ZWFsU3RhdHVzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgLmV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpZiAocmV2ZWFsU3RhdHVzKSB7XG4gICAgcmV2ZWFsU3RhdHVzLnJlbW92ZSgpO1xuICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsID4gLnNsaWRlc1wiKS5hcHBlbmRDaGlsZChyZXZlYWxTdGF0dXMpO1xuICB9XG5cbiAgLy8gTWFrZSBhbnkgcmV2ZWFsIHNsaWRlcyB3aXRoIGxpdmUgY2VsbHMgc2Nyb2xsYWJsZVxuICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKFwiLnJldmVhbCAuZXhlcmNpc2UtY2VsbFwiKS5mb3JFYWNoKChlbCkgPT4ge1xuICAgIGVsLmNsb3Nlc3QoJ3NlY3Rpb24uc2xpZGUnKS5jbGFzc0xpc3QuYWRkKFwic2Nyb2xsYWJsZVwiKTtcbiAgfSlcblxuICAvLyB3ZWJSIHN1cHBsZW1lbnRhbCBkYXRhIGFuZCBvcHRpb25zXG4gIGNvbnN0IGRhdGFDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItZGF0YVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKGI2NERlY29kZShkYXRhQ29udGVudCkpO1xuXG4gIC8vIEdyYWIgbGlzdCBvZiByZXNvdXJjZXMgdG8gYmUgZG93bmxvYWRlZFxuICBjb25zdCBmaWxlc0NvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwidmZzLWZpbGVcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBmaWxlcyA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGZpbGVzQ29udGVudCkpO1xuXG4gIC8vIFVzZSBQb3N0TWVzc2FnZSBjaGFubmVsIGZvciBhc3luYyBjb21tdW5pY2F0aW9uXG4gIC8vIFdlIGRvIG5vdCBleHBlY3QgdG8gdGFrZSBuZXN0ZWQgcHJvbXB0IGlucHV0IGluIFF1YXJ0byBMaXZlIGNlbGxzXG4gIGRhdGEub3B0aW9ucy5jaGFubmVsVHlwZSA9IENoYW5uZWxUeXBlLlBvc3RNZXNzYWdlO1xuXG4gIC8vIEluaXRpYWxpc2Ugd2ViUiBhbmQgc2V0dXAgZm9yIFIgY29kZSBldmFsdWF0aW9uXG4gIGxldCB3ZWJSUHJvbWlzZSA9IChhc3luYyAod2ViUikgPT4ge1xuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgd2ViUmA7XG4gICAgYXdhaXQgd2ViUi5pbml0KCk7XG5cbiAgICAvLyBJbnN0YWxsIHByb3ZpZGVkIGxpc3Qgb2YgcGFja2FnZXNcbiAgICAvLyBFbnN1cmUgd2ViUiBkZWZhdWx0IHJlcG8gaXMgaW5jbHVkZWRcbiAgICBkYXRhLnBhY2thZ2VzLnJlcG9zLnB1c2goXCJodHRwczovL3JlcG8uci13YXNtLm9yZ1wiKVxuICAgIGF3YWl0IGRhdGEucGFja2FnZXMucGtncy5tYXAoKHBrZykgPT4gKCkgPT4ge1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyBwYWNrYWdlOiAke3BrZ31gO1xuICAgICAgcmV0dXJuIHdlYlIuZXZhbFJWb2lkKGBcbiAgICAgICAgd2Vicjo6aW5zdGFsbChwa2csIHJlcG9zID0gcmVwb3MpXG4gICAgICAgIGxpYnJhcnkocGtnLCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG4gICAgICBgLCB7IGVudjoge1xuICAgICAgICBwa2c6IHBrZyxcbiAgICAgICAgcmVwb3M6IGRhdGEucGFja2FnZXMucmVwb3MsXG4gICAgICB9fSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICAvLyBEb3dubG9hZCBhbmQgaW5zdGFsbCByZXNvdXJjZXNcbiAgICBhd2FpdCBmaWxlcy5tYXAoKGZpbGUpID0+IGFzeW5jICgpID0+IHtcbiAgICAgIGNvbnN0IG5hbWUgPSBmaWxlLnN1YnN0cmluZyhmaWxlLmxhc3RJbmRleE9mKCcvJykgKyAxKTtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcmVzb3VyY2U6ICR7bmFtZX1gO1xuICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaChmaWxlKTtcbiAgICAgIGlmICghcmVzcG9uc2Uub2spIHtcbiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBDYW4ndCBkb3dubG9hZCBcXGAke2ZpbGV9XFxgLiBFcnJvciAke3Jlc3BvbnNlLnN0YXR1c306IFwiJHtyZXNwb25zZS5zdGF0dXNUZXh0fVwiLmApO1xuICAgICAgfVxuICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlc3BvbnNlLmFycmF5QnVmZmVyKCk7XG5cbiAgICAgIC8vIFN0b3JlIFVSTHMgaW4gdGhlIGN3ZCB3aXRob3V0IGFueSBzdWJkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBpZiAoZmlsZS5pbmNsdWRlcyhcIjovL1wiKSkge1xuICAgICAgICBmaWxlID0gbmFtZTtcbiAgICAgIH1cblxuICAgICAgLy8gQ29sbGFwc2UgaGlnaGVyIGRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGZpbGUgPSBjb2xsYXBzZVBhdGgoZmlsZSk7XG5cbiAgICAgIC8vIENyZWF0ZSBkaXJlY3RvcnkgdHJlZSwgaWdub3JpbmcgXCJkaXJlY3RvcnkgZXhpc3RzXCIgVkZTIGVycm9yc1xuICAgICAgY29uc3QgcGFydHMgPSBmaWxlLnNwbGl0KCcvJykuc2xpY2UoMCwgLTEpO1xuICAgICAgbGV0IHBhdGggPSAnJztcbiAgICAgIHdoaWxlIChwYXJ0cy5sZW5ndGggPiAwKSB7XG4gICAgICAgIHBhdGggKz0gcGFydHMuc2hpZnQoKSArICcvJztcbiAgICAgICAgY29uc3QgYW5hbHlzaXMgPSBhd2FpdCB3ZWJSLkZTLmFuYWx5emVQYXRoKHBhdGgpO1xuICAgICAgICBpZiAoIWFuYWx5c2lzLmV4aXN0cykge1xuICAgICAgICAgIHRyeSB7XG4gICAgICAgICAgICBhd2FpdCB3ZWJSLkZTLm1rZGlyKHBhdGgpO1xuICAgICAgICAgIH0gY2F0Y2ggKGUpIHtcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvcjogXCIke2UubWVzc2FnZX1cIi5gKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLy8gV3JpdGUgdGhpcyBmaWxlIHRvIHRoZSBWRlNcbiAgICAgIHJldHVybiBhd2FpdCB3ZWJSLkZTLndyaXRlRmlsZShmaWxlLCBuZXcgVWludDhBcnJheShkYXRhKSk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluc3RhbGxpbmcgd2ViUiBzaGltc2A7XG4gICAgYXdhaXQgd2ViUi5ldmFsUlZvaWQoYHdlYnI6OnNoaW1faW5zdGFsbCgpYCk7XG5cbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYFdlYlIgZW52aXJvbm1lbnQgc2V0dXBgO1xuICAgIGF3YWl0IHNldHVwUih3ZWJSLCBkYXRhKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiB3ZWJSO1xuICB9KShuZXcgV2ViUihkYXRhLm9wdGlvbnMpKTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3Qgd2ViUiA9IGF3YWl0IHdlYlJQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBXZWJSRXZhbHVhdG9yKHdlYlIsIGNvbnRleHQpXG4gICAgYXdhaXQgZXZhbHVhdG9yLnByb2Nlc3MoaW5wdXRzKTtcbiAgICByZXR1cm4gZXZhbHVhdG9yLmNvbnRhaW5lcjtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgcHJvY2VzcyxcbiAgICB3ZWJSUHJvbWlzZSxcbiAgICByZW5kZXJlZE9qcyxcbiAgfTtcbn1cbiJ9XX0=
+eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
 <div id="exercise-loading-status" class="d-flex gap-2">
@@ -381,19 +408,19 @@ W10=
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -593,9 +620,9 @@ W10=
     </script>
     <script type="module">
     if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-    window._ojs.paths.runtimeToDoc = "../../webpages/slides/slidefiles";
+    window._ojs.paths.runtimeToDoc = "../../webpages/slides";
     window._ojs.paths.runtimeToRoot = "../..";
-    window._ojs.paths.docToRoot = "../../..";
+    window._ojs.paths.docToRoot = "../..";
     window._ojs.selfContained = false;
     window._ojs.runtime.interpretFromScriptTags();
     </script>
