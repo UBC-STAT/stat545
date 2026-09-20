@@ -1384,16 +1384,15 @@
       "VignetteBuilder": "knitr",
       "URL": "https://github.com/diverse-data-hub/diversedata",
       "Config/roxygen2/version": "8.1.0",
+      "Author": "Katie Burak [aut, cre, cph], Elham E Khoda [aut, cph], Azin Piran [aut], Francisco Ramirez [aut], Siddarth Subrahmanian [aut], Stephanie Ta [ctb]",
+      "Maintainer": "Katie Burak <kburak@stat.ubc.ca>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "diversedata",
       "RemoteUsername": "diverse-data-hub",
       "RemotePkgRef": "diverse-data-hub/diversedata",
       "RemoteRef": "HEAD",
-      "RemoteSha": "508cbe2adb7ed958144c28c4dd48d136de1833dc",
-      "NeedsCompilation": "no",
-      "Author": "Katie Burak [aut, cre, cph], Elham E Khoda [aut, cph], Azin Piran [aut], Francisco Ramirez [aut], Siddarth Subrahmanian [aut], Stephanie Ta [ctb]",
-      "Maintainer": "Katie Burak <kburak@stat.ubc.ca>"
+      "RemoteSha": "508cbe2adb7ed958144c28c4dd48d136de1833dc"
     },
     "downloadthis": {
       "Package": "downloadthis",

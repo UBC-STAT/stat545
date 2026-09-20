@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 2B: Version Control – STAT545</title>
+<title>Lecture 3: Version Control – STAT545</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/lectures_i/lec3_versioncontrol.html">Lecture 2B: Version Control</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../webpages/lectures_i/lec3_versioncontrol.html">Lecture 3: Version Control</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -227,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../webpages/lectures_i/lec3_versioncontrol.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lecture 2B: Version Control</span></a>
+ <span class="menu-text">Lecture 3: Version Control</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -276,23 +276,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#video-lecture" id="toc-video-lecture" class="nav-link" data-scroll-target="#video-lecture">Video Lecture</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#get-acquainted-with-git-and-github" id="toc-get-acquainted-with-git-and-github" class="nav-link" data-scroll-target="#get-acquainted-with-git-and-github">Get Acquainted with Git and GitHub</a>
   <ul class="collapse">
   <li><a href="#repositories-organizations-and-personal-accounts" id="toc-repositories-organizations-and-personal-accounts" class="nav-link" data-scroll-target="#repositories-organizations-and-personal-accounts"><strong>Repositories, Organizations, and Personal Accounts</strong></a></li>
   <li><a href="#git-states-and-lingo" id="toc-git-states-and-lingo" class="nav-link" data-scroll-target="#git-states-and-lingo">Git States and Lingo</a></li>
   </ul></li>
-  <li><a href="#r-projects" id="toc-r-projects" class="nav-link" data-scroll-target="#r-projects">R Projects</a>
+  <li><a href="#syncing-rstudio-and-github" id="toc-syncing-rstudio-and-github" class="nav-link" data-scroll-target="#syncing-rstudio-and-github">Syncing RStudio and GitHub</a></li>
+  <li><a href="#syncing-rstudio-and-github-github-first" id="toc-syncing-rstudio-and-github-github-first" class="nav-link" data-scroll-target="#syncing-rstudio-and-github-github-first">Syncing RStudio and GitHub: “GITHUB FIRST”</a>
   <ul class="collapse">
-  <li><a href="#create-an-r-project" id="toc-create-an-r-project" class="nav-link" data-scroll-target="#create-an-r-project">Create an R Project</a></li>
-  <li><a href="#create-a-github-repository-for-your-existing-local-r-project" id="toc-create-a-github-repository-for-your-existing-local-r-project" class="nav-link" data-scroll-target="#create-a-github-repository-for-your-existing-local-r-project">Create a GitHub Repository for your Existing (Local) R Project</a></li>
-  <li><a href="#clone-a-github-repository-github-repository-already-exists-remotely" id="toc-clone-a-github-repository-github-repository-already-exists-remotely" class="nav-link" data-scroll-target="#clone-a-github-repository-github-repository-already-exists-remotely">Clone a GitHub Repository (GitHub Repository Already Exists Remotely)</a></li>
+  <li><a href="#step-1-create-a-github-repository" id="toc-step-1-create-a-github-repository" class="nav-link" data-scroll-target="#step-1-create-a-github-repository">Step 1: Create a GitHub Repository</a></li>
+  <li><a href="#step-2-clone-the-repository" id="toc-step-2-clone-the-repository" class="nav-link" data-scroll-target="#step-2-clone-the-repository">Step 2: Clone the Repository</a></li>
   </ul></li>
-  <li><a href="#syncing-your-r-project-with-github" id="toc-syncing-your-r-project-with-github" class="nav-link" data-scroll-target="#syncing-your-r-project-with-github">Syncing Your R Project with GitHub</a>
+  <li><a href="#syncing-rstudio-and-github-rstudio-first" id="toc-syncing-rstudio-and-github-rstudio-first" class="nav-link" data-scroll-target="#syncing-rstudio-and-github-rstudio-first">Syncing RStudio and GitHub: “RSTUDIO FIRST”</a>
   <ul class="collapse">
-  <li><a href="#from-rstudios-git-tab" id="toc-from-rstudios-git-tab" class="nav-link" data-scroll-target="#from-rstudios-git-tab">From RStudio’s “Git” Tab</a></li>
-  <li><a href="#from-rstudios-terminal" id="toc-from-rstudios-terminal" class="nav-link" data-scroll-target="#from-rstudios-terminal">From RStudio’s Terminal</a></li>
+  <li><a href="#step-1-create-a-new-r-project" id="toc-step-1-create-a-new-r-project" class="nav-link" data-scroll-target="#step-1-create-a-new-r-project">Step 1: Create a new R Project</a></li>
+  <li><a href="#step-2-create-a-github-repository-for-your-existing-r-project" id="toc-step-2-create-a-github-repository-for-your-existing-r-project" class="nav-link" data-scroll-target="#step-2-create-a-github-repository-for-your-existing-r-project">Step 2: Create a GitHub Repository for your Existing R Project</a></li>
+  </ul></li>
+  <li><a href="#syncing-your-changes-from-rstudio-pushing" id="toc-syncing-your-changes-from-rstudio-pushing" class="nav-link" data-scroll-target="#syncing-your-changes-from-rstudio-pushing">Syncing Your Changes from RStudio (PUSHING)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-make-a-change-on-rstudio" id="toc-step-1-make-a-change-on-rstudio" class="nav-link" data-scroll-target="#step-1-make-a-change-on-rstudio">Step 1: Make a Change on RStudio</a></li>
+  <li><a href="#step-2-send-the-changes-to-github" id="toc-step-2-send-the-changes-to-github" class="nav-link" data-scroll-target="#step-2-send-the-changes-to-github">Step 2: Send the Changes to GitHub</a></li>
+  </ul></li>
+  <li><a href="#syncing-your-changes-from-github-pulling" id="toc-syncing-your-changes-from-github-pulling" class="nav-link" data-scroll-target="#syncing-your-changes-from-github-pulling">Syncing Your Changes from GitHub (Pulling)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-make-a-change-on-github" id="toc-step-1-make-a-change-on-github" class="nav-link" data-scroll-target="#step-1-make-a-change-on-github">Step 1: Make a Change on GitHub</a></li>
   </ul></li>
   <li><a href="#more-on-git" id="toc-more-on-git" class="nav-link" data-scroll-target="#more-on-git">More on Git</a>
   <ul class="collapse">
@@ -309,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 2B: Version Control</h1>
+<h1 class="title">Lecture 3: Version Control</h1>
 </div>
 
 
@@ -321,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 13, 2026</p>
+      <p class="date-modified">September 20, 2026</p>
     </div>
   </div>
     
@@ -332,9 +342,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This lecture will be in two parts!</p>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="../../webpages/slides/lec3_versioncontrol_slides.html">Lecture 3 Slides</a></p>
+</section>
+<section id="video-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/TigD_OxpGao" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>From today’s topic, students are anticipated to be able to:</p>
+<p>From this week’s topic, students are anticipated to be able to:</p>
 <ul>
 <li><p>create an R Project,</p></li>
 <li><p>use git on their own computer (locally),</p></li>
@@ -344,10 +363,21 @@ ul.task-list li input[type="checkbox"] {
 <li><p>use collaborative GitHub features such as Issues and pull requests.</p></li>
 </ul>
 <p>After this class, you should be able to start working on your Collaborative Project.</p>
-</section>
-<section id="video-lecture" class="level2">
-<h2 class="anchored" data-anchor-id="video-lecture">Video Lecture</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/TigD_OxpGao" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>🚨 I need your GitHub username to add you to our STAT545 GitHub organization! 🚨</p>
+<p><strong>PLEASE INPUT YOUR GITHUB USERNAME INTO <a href="https://canvas.ubc.ca/courses/193398/assignments/2518781">THIS CANVAS ASSIGNMENT BOX</a> NOW</strong></p>
+<p>Thanks 😊</p>
+</div>
+</div>
 </section>
 <section id="get-acquainted-with-git-and-github" class="level2">
 <h2 class="anchored" data-anchor-id="get-acquainted-with-git-and-github">Get Acquainted with Git and GitHub</h2>
@@ -357,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 <p>A <em>repository</em> stores files and the history of the files; the usual convention is to use a single repository to organize a single project.</p>
 <p><strong>GitHub</strong> is a place where repositories can live online. Being online provides us a way to share and collaborate on projects. It also serves as a backup for your project.</p>
 <p><strong>Example 1:</strong> <a href="https://github.com/grcetmpk">Grace’s GitHub page</a></p>
-<p><strong>Example 1</strong>: <a href="https://github.com/UBC-STAT/STAT545.github.io">The STAT 545 GitHub page</a></p>
+<p><strong>Example 2</strong>: <a href="https://github.com/UBC-STAT/STAT545.github.io">The STAT 545 GitHub page</a></p>
 <p>The first repository lives under Grace’s personal Github account. The second repository lives under the <a href="https://github.com/UBC-STAT">UBC-STAT</a> organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.</p>
 <p>We can interact with and send data between GitHub and RStudio using Git.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -381,49 +411,114 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Using Branches</strong>: creating a separate line of development within your repository, allowing for isolated work on new features. This is a safe way to ensure you aren’t overwriting the main repository branch. Branches can be merged together later in development</li>
 <li><strong>Pull Requests</strong>: Git’s way of proposing changes to the repository’s main branch.</li>
 </ul>
-<div class="callout callout-style-simple callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Exercise 1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Go to your GitHub profile (mine is https://github.com/grcetmpk)</p>
-<p>Create a new GitHub repository by clicking the + symbol in the top bar and using the dropdown menu to create a new repository.</p>
-<p>Name your repository stat-545-demo-YOUR-NAME. In the description write “STAT 545 Demo”. Check the box for adding a README file.</p>
+</section>
+</section>
+<section id="syncing-rstudio-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-rstudio-and-github">Syncing RStudio and GitHub</h2>
+<p>While Git and GitHub can be useful for more than just R, we will demonstrate how Git and GitHub can be used within an R Project.</p>
+<p>Syncing your R analyses to GitHub is a smart idea, You can work on the project on multiple machines, back up your work, see previous versions of your work, and collaborate easily with others.</p>
+<p><strong>R Projects</strong> are useful for organizing files and resources specific to a project in a self-contained directory. R Projects allow for more reproducible workflows, and allow users to resume exactly where they left off within a project by keeping variables in the environment even after the session has closed. It also allows us to integrate version control with Git.</p>
+<p>There are really two (okay, more than that but we’ll focus on two here) ways that you can connect RStudio and Github. You can:</p>
+<ul>
+<li><p>Create a GitHub repository, and then sync that to an <strong>R Project</strong> in RStudio, OR</p></li>
+<li><p>Create an <strong>R Project</strong> in RStudio, and then sync it to GitHub.</p></li>
+</ul>
+<p>I will show you both ways.</p>
+<p><em>Side note here: the newer version of RStudio (called Positron) does not use R Projects. Instead, you can create a “folder” (which is essentially a folder that contains all of your files). All other steps will be pretty much the same!</em></p>
+</section>
+<section id="syncing-rstudio-and-github-github-first" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-rstudio-and-github-github-first">Syncing RStudio and GitHub: “GITHUB FIRST”</h2>
+<section id="step-1-create-a-github-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-a-github-repository">Step 1: Create a GitHub Repository</h3>
+<ul>
+<li><p>1.1: Go to your GitHub profile (mine is https://github.com/grcetmpk)</p></li>
+<li><p>1.2: Create a new GitHub repository by clicking the + symbol in the top bar and using the dropdown menu to create a new repository.</p></li>
+<li><p>1.3: Name your repository “demo-github-first-[initials]”. In the description write “STAT 545 Demo”. Check the box for adding a README file.</p></li>
+</ul>
 <p>You are now redirected to the repository main page. The repository page tells you you have 1 commit. Click on it to get to the history page. This tells you all the changes that have been tracked for the files in the repository so far.</p>
-<p>Go back to your repository main page. Click on README.md, then click the pencil icon (“Edit this file”_. Add the following information into the README.md file:</p>
+<ul>
+<li><p>1.4: Go back to your repository main page. Click on README.md, then click the pencil icon (“Edit this file”). Add the following information into the README.md file:</p>
 <ul>
 <li><p>Your Name</p></li>
 <li><p>Your Program</p></li>
+</ul></li>
+<li><p>1.5: Commit your changes by clicking the commit changes button, and briefly summarize the changes you’ve made in the Commit message.</p></li>
 </ul>
-<p>Commit your changes: click the commit changes button, and briefly summarize the changes you’ve made in the Commit message.</p>
-<p>Check out the Github commit history again. Has anything changed?</p>
+<p>Now, look at the GitHub commit history again. <strong>Has anything changed?</strong></p>
+</section>
+<section id="step-2-clone-the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-clone-the-repository">Step 2: Clone the Repository</h3>
+<p>Now it’s time to turn the repository into an RProject. We do this by <strong>cloning</strong>.</p>
+<ul>
+<li><p>2.1: In RStudio, go to “File &gt; New Project”</p></li>
+<li><p>2.2: Click on “Version Control: Checkout a project from a version control repository”</p></li>
+<li><p>2.3: Click on “Git: Clone a project from a repository”</p></li>
+<li><p>2.4: Fill in the info: URL: use HTTPS address (found on GitHub when clicking the green “Code” button) Create as a subdirectory of: Browse to where you would like to save this repository on your machine (creates a new folder in the location you select)</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitclonehttps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
 </div>
-</div>
+<p>Now you have a local version of this project! And can make changes on both RStudio or GitHub, which is described in the “Syncing Your Changes” section below.</p>
+<p><em>Side note: you can clone any public project, however you need to be added as a collaborator to push those changes to GitHub. If you’d like to play around with existing repositories, you could “Fork” it. A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. More info here: <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo</a>.</em></p>
 </section>
 </section>
-<section id="r-projects" class="level2">
-<h2 class="anchored" data-anchor-id="r-projects">R Projects</h2>
-<p>While Git and GitHub can be useful for more than just R, we will demonstrate how Git and GitHub can be used within an R Project.</p>
-<p>R Projects are useful for organizing files and resources specific to a project in a self-contained directory. R Projects allow for more reproducible workflows, and allow users to resume exactly where they left off within a project by keeping variables in the environment even after the session has closed. It also allows us to integrate version control with Git.</p>
-<section id="create-an-r-project" class="level3">
-<h3 class="anchored" data-anchor-id="create-an-r-project">Create an R Project</h3>
-<ol type="1">
-<li><p>Open RStudio.</p></li>
-<li><p>Go to “File” &gt; “New R Project…”.</p></li>
-<li><p>Select “New Directory”, “New Project”, and enter a name for your project. For our example, I’ll be creating “STAT545_Example_Project”. Select “Browse” and find a location where you’d like to save your project (a new folder the same name as your project will be created). I chose the Desktop as an example. Ensure “Create a Git Repository” is selected. Click “Create Project”.</p></li>
-</ol>
+<section id="syncing-rstudio-and-github-rstudio-first" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-rstudio-and-github-rstudio-first">Syncing RStudio and GitHub: “RSTUDIO FIRST”</h2>
+<section id="step-1-create-a-new-r-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-create-a-new-r-project">Step 1: Create a new R Project</h3>
+<ul>
+<li><p>1.1: Open RStudio.</p></li>
+<li><p>1.2: Go to “File” &gt; “New R Project…”.</p></li>
+<li><p>1.3: Select “New Directory”, “New Project”, and name it “demo-rstudio-first-[initials]”. Select “Browse” and find a location where you’d like to save your project (a new folder the same name as your project will be created). I chose the Desktop as an example. Ensure “Create a Git Repository” is selected. Click “Create Project”.</p></li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/NewRProject.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 <p>RStudio will refresh. You will now see at the top of RStudio that the name of your project is displayed.</p>
-<p><strong>To add a new R Script to your R Project</strong>, go to “File” &gt; “New File” &gt; “R Script”. Write your code. “File” &gt; “Save as” and name your file and ensure it’s saved in your project folder. Let’s add one called <code>analysis.R</code> with some simple code:</p>
+<p>RStudio doesn’t automatically create a README, but we can add one quickly.</p>
+<ul>
+<li>1.4: Go to File &gt; New File &gt; Markdown. Add some random markdown (text) to the document (maybe your name). Save the file exactly as “README.md”.</li>
+</ul>
+</section>
+<section id="step-2-create-a-github-repository-for-your-existing-r-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-a-github-repository-for-your-existing-r-project">Step 2: Create a GitHub Repository for your Existing R Project</h3>
+<ul>
+<li><p>2.1: In the R Console, load in the <code>usethis</code> package by calling <code>library(usethis)</code></p>
+<ul>
+<li>Getting an error? run <code>install.packages("usethis")</code> first)</li>
+</ul></li>
+<li><p>2.2: In the R Console, run <code>use_git()</code>.</p>
+<ul>
+<li>When asked if it’s okay to commit some changes, select an option that means yes (it could be “OK” or “For sure” or “Yes”, for example) by writing the number in the console and hitting Enter. If it prompts you to restart RStudio, you can do so.</li>
+</ul></li>
+<li><p>2.3: If you restarted RStudio, call <code>library(usethis)</code> again. Then, in the Console call <code>use_github()</code>. A new repository on your GitHub account should be created! You should see your file <code>README.md</code> as one of the items in your repository.</p></li>
+</ul>
+<p><em>If you have issues, see the last section of <a href="../../webpages/lectures_i/lec1a_installation.html">Lecture 1A: Installation</a> to set up your GitHub credentials on RStudio.</em></p>
+</section>
+</section>
+<section id="syncing-your-changes-from-rstudio-pushing" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-your-changes-from-rstudio-pushing">Syncing Your Changes from RStudio (PUSHING)</h2>
+<p>One way or another, you have a GitHub repository connected to RStudio. <strong>At this point, regardless of whether you started with RStudio or GitHub, the steps are the same.</strong></p>
+<p>Now…. what happens when we edit our project on our computer? Or on GitHub? Well, we need to sync those changes, and spoiler alert: <strong>it’s not automatic</strong>.</p>
+<ul>
+<li>If we made a change on RStudio, we need to <strong>PUSH</strong> it to GitHub.</li>
+</ul>
+<pre><code>-  If we made a change on GitHub, we need to **PULL** it to RStudio. </code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GitHubFullFlow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<section id="step-1-make-a-change-on-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-make-a-change-on-rstudio">Step 1: Make a Change on RStudio</h3>
+<p>Let’s make some changes to one of our example projects! Let’s <strong>add a new R Script to your R Project</strong></p>
+<ul>
+<li><p>go to “File” &gt; “New File” &gt; “R Script”.</p></li>
+<li><p>Write some code:</p>
 <pre><code># view the first few rows of mtcars dataset
 head(mtcars)
 
@@ -431,77 +526,22 @@ head(mtcars)
 mean_mpg &lt;- mean(mtcars$mpg)
 
 # print the mean mpg
-mean_mpg</code></pre>
-<p>After running this code, you’ll notice <code>mean_mpg</code> is in your environment. The cool thing about R Projects is that the next time you open your project, you’ll continue exactly where you’re left off! All variables you created will have been saved, as if you never closed R Studio.</p>
-<p>You can add multiple files to projects, and save things like images/pdfs of plots, multiple R Scripts (code), and data sets. Really, anything that you can save in the R Project folder will be contained in the R Project.</p>
+mean_mpg</code></pre></li>
+<li><p>Save your changes. “File” &gt; “Save as” and name your file <code>analysis.R</code>, and make usre it’s <strong>saved in your project folder!</strong></p></li>
+</ul>
+<p><em>Note: After running this code, you’ll notice <code>mean_mpg</code> is in your environment. The cool thing about R Projects is that the next time you open your project, you’ll continue exactly where you’re left off! All variables you created will have been saved, as if you never closed R Studio.</em></p>
+<p><em>You can add multiple files to projects, and save things like images/pdfs of plots, multiple R Scripts (code), and data sets. Really, anything that you can save in the R Project folder will be contained in the R Project.</em></p>
 </section>
-<section id="create-a-github-repository-for-your-existing-local-r-project" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-github-repository-for-your-existing-local-r-project">Create a GitHub Repository for your Existing (Local) R Project</h3>
-<p>Syncing your R Project to GitHub is a smart idea! You can work on the project on multiple machines, back up your work, see previous versions of your work, and collaborate easily with others.</p>
-<p>In this lecture, we will assume an R Project already exists and we want to create a new GitHub repository for it. Previously, we created an R Project “STAT545_Example_Project” with the R Script <code>analysis.R</code>. Let’s sync this project to GitHub!</p>
-<ol type="1">
-<li><p>In the R Console, load in the <code>usethis</code> package by calling <code>library(usethis)</code></p></li>
-<li><p>In the R Console, call <code>use_git()</code>. When asked if it’s okay to commit some changes, select an option that means yes (it could be “OK” or “For sure” or “Yes”, for example) by writing the number in the console and hitting Enter. If it prompts you to restart RStudio, you can do so.</p></li>
-<li><p>If you restarted RStudio, call <code>library(usethis)</code> again. Then, in the Console call <code>use_github()</code>. A new repository on your GitHub account should be created! You should see your code <code>analysis.R</code> as one of the items in your repository.</p></li>
-</ol>
-<p><em>If you have issues, see the last section of <a href="../../webpages/lectures_i/lec1a_installation.html">Lecture 1A: Installation</a> to set up your GitHub credentials on RStudio.</em></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>🚨 I need your GitHub username to add you to our STAT545 GitHub organization! 🚨</p>
-<p><strong>PLEASE INPUT YOUR GITHUB USERNAME INTO <a href="https://canvas.ubc.ca/courses/193398/assignments/2518781">THIS CANVAS ASSIGNMENT BOX</a> NOW</strong></p>
-<p>Thanks 😊</p>
-</div>
-</div>
-</section>
-<section id="clone-a-github-repository-github-repository-already-exists-remotely" class="level3">
-<h3 class="anchored" data-anchor-id="clone-a-github-repository-github-repository-already-exists-remotely">Clone a GitHub Repository (GitHub Repository Already Exists Remotely)</h3>
-<p>What if you want to use an existing R Project that is on GitHub in a repository? We can clone it!</p>
-<ol type="1">
-<li><p>In RStudio, go to “File &gt; New Project”</p></li>
-<li><p>Click on “Version Control: Checkout a project from a version control repository”</p></li>
-<li><p>Click on “Git: Clone a project from a repository”</p></li>
-<li><p>Fill in the info: URL: use HTTPS address (found on GitHub when clicking the green “Code” button) Create as a subdirectory of: Browse to where you would like to save this repository on your machine (creates a new folder in the location you select)</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/gitclonehttps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
-</figure>
-</div>
-<p>Now you have a local version of this project! You can interact with it using the instructions in the following section.</p>
-<p><em>Side note: you can clone any public project, however you need to be added as a collaborator to push those changes to GitHub. If you’d like to play around with existing repositories, you could “Fork” it. A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. More info here: <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo</a>.</em></p>
-</section>
-</section>
-<section id="syncing-your-r-project-with-github" class="level2">
-<h2 class="anchored" data-anchor-id="syncing-your-r-project-with-github">Syncing Your R Project with GitHub</h2>
-<p>You’ve created a repository for your R Project - but what happens when we edit our project on our computer? Well, we need to send those changes to our GitHub repository (it’s not automatic).</p>
-<p>Let’s make some changes to our STAT545_Example_Project! Adding a README file could be a nice addition. Whatever is written in this file will appear on the home page of our repository and can provide useful information about our repository.</p>
-<p>Let’s create an Markdown (<strong>NOT RMARKDOWN</strong>!) document called “README.md” (“File” &gt; “New File” &gt; “Markdown File”). Set the title to “README”.</p>
-<p>Let’s add the following to the file:</p>
-<pre><code>## STAT545 Example Project
-
-This is my first R Project, synced to GitHub! It follows the lecture notes at &lt;https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec2b_versioncontrol.html&gt;
-</code></pre>
-<p>Save this file as “README.md”.</p>
-<p>Let’s also change something in our <code>analysis.R</code> file. Let’s add the following to our file:</p>
-<pre><code># plot wt vs mpg
-plot(mtcars$wt, mtcars$mpg)</code></pre>
-<p>Save the changes.</p>
+<section id="step-2-send-the-changes-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-send-the-changes-to-github">Step 2: Send the Changes to GitHub</h3>
 <p>Now, there are two ways that I’ll show you how to interact with GitHub through RStudio.</p>
 <ul>
 <li><p>Using RStudio’s “Git” Tab</p></li>
 <li><p>Using the Terminal</p></li>
 <li><p>(Secret third option: using GitHub Desktop. I won’t show this in detail but it is an option!)</p></li>
 </ul>
-<section id="from-rstudios-git-tab" class="level3">
-<h3 class="anchored" data-anchor-id="from-rstudios-git-tab">From RStudio’s “Git” Tab</h3>
+<section id="option-1-from-rstudios-git-tab" class="level4">
+<h4 class="anchored" data-anchor-id="option-1-from-rstudios-git-tab">(Option 1) From RStudio’s “Git” Tab</h4>
 <p>When you navigate to the “Git” tab in RStudio, you will see that <code>README.Rmd</code> and <code>analysis.R</code> are listed. This is because these files have changes! <code>README.Rmd</code> was added, and <code>analysis.R</code> was modified.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -538,27 +578,31 @@ To https://github.com/&lt;yourGitHubusername/STAT545_Example_Project.git
 <p><img src="images/repowithchanges.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="600"></p>
 </figure>
 </div>
-<p>We can also Pull from the repository using the “Pull” button on the Git pane. This allows us to sync changes that are in our GitHub repository but not on out local machine (yet!). Simply use the “Pull” button in the Git pane on RStudio.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/GitHubFullFlow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
-</figure>
-</div>
 </section>
-<section id="from-rstudios-terminal" class="level3">
-<h3 class="anchored" data-anchor-id="from-rstudios-terminal">From RStudio’s Terminal</h3>
+<section id="option-2-from-rstudios-terminal" class="level4">
+<h4 class="anchored" data-anchor-id="option-2-from-rstudios-terminal">(Option 2) From RStudio’s Terminal</h4>
 <p>Instead of using the Git pane, we can write out commands for Git in the Terminal.</p>
 <ol type="1">
 <li><p><strong>Stage Changes</strong>: <code>git add .</code> stages <strong>all</strong> of your modified files (can also just name the files you want to commit instead of using <code>.</code>)</p></li>
 <li><p><strong>Commit Changes</strong>: <code>git commit -m "some message"</code> commits your changes, along with a message summarizing the changes</p></li>
 <li><p><strong>Push Changes</strong>: <code>git push origin main</code> pushes your changes to the GitHub repo (main branch, which is typically the default)</p></li>
 </ol>
-<p>Other useful Terminal commands include:</p>
+</section>
+</section>
+</section>
+<section id="syncing-your-changes-from-github-pulling" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-your-changes-from-github-pulling">Syncing Your Changes from GitHub (Pulling)</h2>
+<p>Sometimes, files get edited directly on GitHub (or perhaps someone else changed some files, sent them to GitHub, and you don’t have those important changes on your computer!)</p>
+<section id="step-1-make-a-change-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-make-a-change-on-github">Step 1: Make a Change on GitHub</h3>
+<p>Let’s edit the README.md file. Click the pencil icon at the bottom of the repository where the README appears, change or add some text, and click the green “Commit Changes” button.</p>
+<p>The changes <strong>only exist</strong> on GitHub! If you look at your README.md file on your computer or in RStudio, it is not updated.</p>
+<p>To get changes from GitHub to RStudio, we PULL. We do this by either:</p>
 <ul>
-<li><code>git status</code>: see which of your changes have been tracked, staged, and committed</li>
-<li><code>git checkout</code>: see what branch you’re on, or change branches</li>
-<li><code>git pull</code>: pull changes from the remote repository (GitHub) to your local computer</li>
+<li>Clicking the down arrow beside the PUSH arrow, or</li>
+<li>Running <code>git pull</code> in the terminal</li>
 </ul>
+<p>After doing either of these, your changes should appear in your project!</p>
 </section>
 </section>
 <section id="more-on-git" class="level2">
@@ -624,7 +668,7 @@ STAT 777 @ UBC
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 526363991d21ed20e7e0c57b5e99d944ac5ce5aa</code></pre>
 <ol start="3" type="1">
 <li><p>The stuff below the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and above the <code>=======</code> is what was in your local version; the stuff above the <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> and below the <code>=======</code> is what was in the remote conflicting version. Decide what you want to have on the offending line (e.g.&nbsp;“STAT 555 @ UBC”), and replace the whole block of text above with that.</p></li>
-<li><p>Save and commit the file. (An informative message here might be “Fixing a merge conflict.”) You should now be able to successfully push!</p></li>
+<li><p>Save and commit the file. message here might be “Fixing a merge conflict.”) You should now be able to successfully push!</p></li>
 </ol>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -639,8 +683,8 @@ STAT 777 @ UBC
 <p>Find a partner. In this exercise, we will learn how to have different team members save their work separately on <em>branches</em>, and how to <em>merge</em> those changes to the <em>main</em> project branch.</p>
 <ol type="1">
 <li><p>Teammate A adds Teammate B to their “stat545-demo” repository as a collaborator. (Go to Settings from the main repo page, then Access &gt; Collaborators). This should send Teammate B an email with a collaboration invitation; accept that invitation.</p></li>
-<li><p>Teammate B clones Teammate A’s “stat545-demo” repository.</p></li>
-<li><p>On their own computer, Teammate B will make a new branch in Teammate A’s <code>stat545-demo</code> repository. You can do this either on Github by clicking on “1 branch” on the repo homepage then the green “New branch” button, or on your own computer in R Studio with the “New Branch” button.</p></li>
+<li><p>Teammate B clones Teammate A’s demo repository they made in class today/last class.</p></li>
+<li><p>On their own computer, Teammate B will make a new branch in Teammate A’s demo repository. You can do this either on Github by clicking on “1 branch” on the repo homepage then the green “New branch” button, or on your own computer in R Studio with the “New Branch” button.</p></li>
 <li><p>On their own computer, Teammate B will create a new file in the newly created branch, then commit and push it.</p></li>
 <li><p>Teammate B will start a pull request (basically a request to merge content onto the main branch) on GitHub, by going to “Pull Requests” -&gt; “New Pull Request”, and selecting the branch you intend to merge to the main branch. In this pull request, include a comment and title indicating (at a high level) what the change made is about.</p></li>
 <li><p>Teammate A will follow the instructions <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request">here</a> to merge the pull request.</p></li>
@@ -652,8 +696,7 @@ STAT 777 @ UBC
 <h3 class="anchored" data-anchor-id="other-tips">Other Tips</h3>
 <ul>
 <li><p>Commit changes OFTEN! Commit them as often as you would save your work!</p></li>
-<li><p>Be careful when working with data containing personal identifying information (PII). This should NOT be stored on GitHub.</p></li>
-<li><p>All of your projects in this class will live in the <a href="https://github.com/stat545ubc-2025">STAT 545 @ UBC Organization</a>.</p></li>
+<li><p>Be careful when working with data containing personal identifying information (PII). <strong>This should NOT be stored on GitHub.</strong></p></li>
 <li><p>When you watch a Github repo, you get notifications when things happen in them. So if you “Watch” the STAT 545 webpage repo, then you will get email notifications when I update the site!</p></li>
 </ul>
 </section>
@@ -662,7 +705,6 @@ STAT 777 @ UBC
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <p>Today’s class is a digest of the following resources:</p>
 <ul>
-<li><p>Grace’s Video Lecture: <a href="https://youtu.be/TigD_OxpGao" class="uri">https://youtu.be/TigD_OxpGao</a></p></li>
 <li><p>Online tutorials:</p>
 <ul>
 <li><p>The basic version control workflow (without branching): <a href="https://happygitwithr.com/git-basics.html">Happy git w R: Chapter 20</a>.</p></li>

@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../images/stat545_transparent.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <title>STAT545 – Lecture 3: Version Control</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Lecture 3: Version Control</h1>
+  <p class="subtitle">STAT 545 - Fall 2026</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section class="slide level2">
+
+<p>From this week’s topic, students are anticipated to be able to:</p>
+<ul>
+<li><p>create an R Project,</p></li>
+<li><p>use git on their own computer (locally),</p></li>
+<li><p>connect between a local git repository and that repository on GitHub, using RStudio,</p></li>
+<li><p>make commits in git using RStudio,</p></li>
+<li><p>make a branch in git using RStudio or GitHub, and</p></li>
+<li><p>use collaborative GitHub features such as Issues and pull requests.</p></li>
+</ul>
+<p>After this class, you should be able to start working on your Collaborative Project.</p>
+</section>
+<section id="please-enter-your-gh-username" class="slide level2">
+<h2>Please Enter Your GH Username!</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>🚨 I need your GitHub username to add you to our STAT545 GitHub organization! 🚨</p>
+<p><strong>PLEASE INPUT YOUR GITHUB USERNAME INTO <a href="https://canvas.ubc.ca/courses/193398/assignments/2518781">THIS CANVAS ASSIGNMENT BOX</a> NOW</strong></p>
+<p>Thanks 😊</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section id="what-is-git-and-github" class="title-slide slide level1 center">
+<h1>What is Git and GitHub?</h1>
+
+</section>
+<section id="get-acquainted-with-git-and-github" class="slide level2">
+<h2>Get Acquainted with Git and GitHub</h2>
+<ul>
+<li><p>“Git” is a version control system designed to track changes.</p></li>
+<li><p>Git essentially creates “snapshots” of your work as you progress through a project.</p></li>
+<li><p>This is what GitHub uses!</p></li>
+</ul>
+</section>
+<section id="repositories-organizations-and-personal-accounts" class="slide level2">
+<h2>Repositories, Organizations, and Personal Accounts</h2>
+<ul>
+<li><p>A <em>repository</em> stores files and the history of the files; the usual convention is to use a single repository to organize a single project.</p></li>
+<li><p><strong>GitHub</strong> is a place where repositories can live online. Being online provides us a way to share and collaborate on projects. It also serves as a backup for your project.</p>
+<ul>
+<li><p><strong>Example 1:</strong> <a href="https://github.com/grcetmpk">Grace’s GitHub page</a></p></li>
+<li><p><strong>Example 2</strong>: <a href="https://github.com/UBC-STAT/STAT545.github.io">The STAT 545 GitHub page</a></p></li>
+</ul></li>
+<li><p>The first repository lives under Grace’s personal Github account. The second repository lives under the <a href="https://github.com/UBC-STAT">UBC-STAT</a> organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.</p></li>
+</ul>
+</section>
+<section id="git-states-and-lingo" class="slide level2">
+<h2>Git States and Lingo</h2>
+<p>We can interact with and send data between GitHub and RStudio using Git.</p>
+
+<img data-src="../lectures_i/images/GitHubBasic.png" class="quarto-figure quarto-figure-center r-stretch" width="800"></section>
+<section id="git-states-and-lingo-1" class="slide level2">
+<h2>Git States and Lingo</h2>
+<p>To use Git, we should first understand the primary states that files can be in. These are:</p>
+<ul>
+<li><strong>Modified</strong>: you’ve changed something in the files, but Git hasn’t accounted for them yet.</li>
+<li><strong>Staged</strong>: Git has tracked the changes you’ve made, but they haven’t been accounted for in the latest snapshot of your work.</li>
+<li><strong>Committed</strong>: the changes you’ve made have been stored and updated as the latest snapshot of your project.</li>
+</ul>
+</section>
+<section id="git-states-and-lingo-2" class="slide level2">
+<h2>Git States and Lingo</h2>
+<ul>
+<li><p>After changes are committed locally (on your computer), we can <strong>push</strong> them to a GitHub repository.</p></li>
+<li><p>This sends the changes and updates the most recent version of your project on GitHub.</p></li>
+<li><p>We can also <strong>pull</strong> changes from GitHub to your local machine. This is useful when multiple people (or perhaps one person on multiple devices) are working on a project.</p></li>
+</ul>
+</section>
+<section id="git-states-and-lingo-3" class="slide level2">
+<h2>Git States and Lingo</h2>
+<p>Other useful Git features include:</p>
+<ul>
+<li><strong>Cloning a repository</strong>: copying an existing GitHub repository to your local machine. You can push and pull changes after cloning.</li>
+<li><strong>Using Branches</strong>: creating a separate line of development within your repository, allowing for isolated work on new features. This is a safe way to ensure you aren’t overwriting the main repository branch. Branches can be merged together later in development</li>
+<li><strong>Pull Requests</strong>: Git’s way of proposing changes to the repository’s main branch.</li>
+</ul>
+</section>
+<section id="syncing-rstudio-and-github" class="slide level2">
+<h2>Syncing RStudio and GitHub</h2>
+<ul>
+<li><p>We will demonstrate how Git and GitHub can be used within an <strong>R Project</strong>.</p></li>
+<li><p>R Projects are useful for organizing files and resources specific to a project in a self-contained directory.</p></li>
+<li><p>R Projects allow for more reproducible workflows, and allow users to resume exactly where they left off within a project by keeping variables in the environment even after the session has closed.</p></li>
+<li><p>There are really two (okay, more than that but we’ll focus on two here) ways that you can connect RStudio and Github. You can:</p></li>
+<li><p>Create a GitHub repository, and then sync that to an <strong>R Project</strong> in RStudio, OR</p></li>
+<li><p>Create an <strong>R Project</strong> in RStudio, and then sync it to GitHub.</p></li>
+</ul>
+<p>I will show you both ways.</p>
+<p><em>Side note here: the newer version of RStudio (called Positron) does not use R Projects. Instead, you can create a “folder”. All other steps will be pretty much the same!</em></p>
+</section></section>
+<section>
+<section id="syncing-github-and-rstudio-github-first" class="title-slide slide level1 center">
+<h1>Syncing GitHub and RStudio: “GitHub First”</h1>
+
+</section>
+<section id="syncing-github-first" class="slide level2">
+<h2>Syncing: “GITHUB FIRST”</h2>
+<h3 id="step-1-create-a-github-repository">Step 1: Create a GitHub Repository</h3>
+<ul>
+<li><p>1.1: Go to your GitHub profile (mine is at https://github.com/grcetmpk)</p></li>
+<li><p>1.2: Create a new GitHub repository by clicking the + symbol in the top bar and using the dropdown menu to create a new repository.</p></li>
+<li><p>1.3: Name your repository “demo-github-first-[initials]”. In the description write “STAT 545 Demo”. Check the box for adding a README file.</p></li>
+</ul>
+<p>You are now redirected to the repository main page. The repository page tells you you have 1 commit.</p>
+<p>Click on it to get to the history page. This tells you all the changes that have been tracked for the files in the repository so far.</p>
+</section>
+<section id="syncing-github-first-1" class="slide level2">
+<h2>Syncing: “GITHUB FIRST”</h2>
+<ul>
+<li><p>1.4: Go back to your repository main page. Click on README.md, then click the pencil icon (“Edit this file”). Add the following information into the README.md file:</p>
+<ul>
+<li><p>Your Name</p></li>
+<li><p>Your Program</p></li>
+</ul></li>
+<li><p>1.5: Commit your changes by clicking the commit changes button, and briefly summarize the changes you’ve made in the Commit message.</p></li>
+</ul>
+<p>Now, look at the GitHub commit history again. <strong>Has anything changed?</strong></p>
+</section>
+<section id="syncing-github-first-2" class="slide level2">
+<h2>Syncing: “GITHUB FIRST”</h2>
+<h3 id="step-2-clone-the-repository">Step 2: Clone the Repository</h3>
+<p>Now it’s time to turn the repository into an RProject. We do this by <strong>cloning</strong>.</p>
+<ul>
+<li><p>2.1: In RStudio, go to “File &gt; New Project”</p></li>
+<li><p>2.2: Click on “Version Control: Checkout a project from a version control repository”</p></li>
+<li><p>2.3: Click on “Git: Clone a project from a repository”</p></li>
+</ul>
+</section>
+<section id="syncing-github-first-3" class="slide level2">
+<h2>Syncing: “GITHUB FIRST”</h2>
+<ul>
+<li>2.4: Fill in the info: URL: use HTTPS address (found on GitHub when clicking the green “Code” button) Create as a subdirectory of: Browse to where you would like to save this repository on your machine (creates a new folder in the location you select)</li>
+</ul>
+
+<img data-src="../lectures_i/images/gitclonehttps.png" class="quarto-figure quarto-figure-center r-stretch" width="800"></section>
+<section id="syncing-github-first-4" class="slide level2">
+<h2>Syncing: “GITHUB FIRST”</h2>
+<p>Now you have a local version of this project! And can make changes on both RStudio or GitHub, which is described in the “Syncing Your Changes” section below.</p>
+<p><em>Side note:</em></p>
+<ul>
+<li>you can clone any public project, however you need to be added as a collaborator to push those changes to GitHub.</li>
+<li>If you’d like to play around with existing repositories, you could “Fork” it. A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. More info here: <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo" class="uri">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo</a>.*</li>
+</ul>
+</section></section>
+<section>
+<section id="syncing-github-and-rstudio-rstudio-first" class="title-slide slide level1 center">
+<h1>Syncing GitHub and RStudio: “RStudio First”</h1>
+
+</section>
+<section id="syncing-rstudio-first" class="slide level2">
+<h2>Syncing: “RSTUDIO FIRST”</h2>
+<h3 id="step-1-create-a-new-r-project">Step 1: Create a new R Project</h3>
+<ul>
+<li><p>1.1: Open RStudio.</p></li>
+<li><p>1.2: Go to “File” &gt; “New R Project…”.</p></li>
+<li><p>1.3: Select “New Directory”, “New Project”, and name it “demo-rstudio-first-[initials]”.</p>
+<ul>
+<li>Select “Browse” and find a location where you’d like to save your project (a new folder the same name as your project will be created).</li>
+<li>I chose the Desktop as an example. Ensure “Create a Git Repository” is selected. Click “Create Project”.</li>
+</ul></li>
+</ul>
+
+<img data-src="../lectures_i/images/NewRProject.png" class="quarto-figure quarto-figure-center r-stretch" width="400"></section>
+<section id="syncing-rstudio-first-1" class="slide level2">
+<h2>Syncing: “RSTUDIO FIRST”</h2>
+<p>RStudio will refresh. You will now see at the top of RStudio that the name of your project is displayed.</p>
+<p>RStudio doesn’t automatically create a README, but we can add one quickly.</p>
+<ul>
+<li>1.4: Go to File &gt; New File &gt; Markdown. Add some random markdown (text) to the document (maybe your name). Save the file exactly as “README.md”.</li>
+</ul>
+</section>
+<section id="syncing-rstudio-first-2" class="slide level2">
+<h2>Syncing: “RSTUDIO FIRST”</h2>
+<h3 id="step-2-create-a-github-repository">Step 2: Create a GitHub Repository</h3>
+<ul>
+<li><p>2.1: In the R Console, load in the <code>usethis</code> package by calling <code>library(usethis)</code></p>
+<ul>
+<li>Getting an error? run <code>install.packages("usethis")</code> first)</li>
+</ul></li>
+<li><p>2.2: In the R Console, run <code>use_git()</code>.</p>
+<ul>
+<li>When asked if it’s okay to commit some changes, select an option that means yes (it could be “OK” or “For sure” or “Yes”, for example) by writing the number in the console and hitting Enter. If it prompts you to restart RStudio, you can do so.</li>
+</ul></li>
+<li><p>2.3: If you restarted RStudio, call <code>library(usethis)</code> again. Then, in the Console call <code>use_github()</code>. A new repository on your GitHub account should be created! You should see your file <code>README.md</code> as one of the items in your repository.</p></li>
+</ul>
+<p><em>If you have issues, see the last section of <a href="../../webpages/lectures_i/lec1a_installation.html">Lecture 1A: Installation</a> to set up your GitHub credentials on RStudio.</em></p>
+</section></section>
+<section>
+<section id="syncing-your-changes-between-rstudioand-github" class="title-slide slide level1 center">
+<h1>Syncing Your Changes Between RStudioand GitHub</h1>
+
+</section>
+<section id="syncing-your-changes" class="slide level2">
+<h2>Syncing Your Changes</h2>
+<p><strong>At this point, regardless of whether you started with RStudio or GitHub, the steps are the same.</strong></p>
+<ul>
+<li><p>One way or another, you have a GitHub repository connected to RStudio.</p></li>
+<li><p>Now…. what happens when we edit our project on our computer? Or on GitHub? Well, we need to sync those changes, and spoiler alert: <strong>it’s not automatic</strong>.</p>
+<ul>
+<li><p>If we made a change on RStudio, we need to <strong>PUSH</strong> it to GitHub.</p></li>
+<li><p>If we made a change on GitHub, we need to <strong>PULL</strong> it to RStudio.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="syncing-your-changes-1" class="slide level2">
+<h2>Syncing Your Changes</h2>
+
+<img data-src="../lectures_i/images/GitHubFullFlow.png" class="quarto-figure quarto-figure-center r-stretch" width="800"></section>
+<section id="pushing" class="slide level2">
+<h2>PUSHING</h2>
+<p>Let’s make some changes to one of our example projects! Let’s <strong>add a new R Script to your R Project</strong></p>
+<ul>
+<li><p>go to “File” &gt; “New File” &gt; “R Script”.</p></li>
+<li><p>Write some code:</p>
+<pre><code># view the first few rows of mtcars dataset
+head(mtcars)
+
+# calculate the average mpg among all cars, save it as a variable
+mean_mpg &lt;- mean(mtcars$mpg)
+
+# print the mean mpg
+mean_mpg</code></pre></li>
+</ul>
+</section>
+<section id="pushing-1" class="slide level2">
+<h2>PUSHING</h2>
+<ul>
+<li>Save your changes. “File” &gt; “Save as” and name your file <code>analysis.R</code>, and make usre it’s <strong>saved in your project folder!</strong></li>
+</ul>
+<p><em>Note: After running this code, you’ll notice <code>mean_mpg</code> is in your environment. The cool thing about R Projects is that the next time you open your project, you’ll continue exactly where you’re left off! All variables you created will have been saved, as if you never closed R Studio.</em></p>
+<p><em>You can add multiple files to projects, and save things like images/pdfs of plots, multiple R Scripts (code), and data sets. Really, anything that you can save in the R Project folder will be contained in the R Project.</em></p>
+</section>
+<section id="pushing-2" class="slide level2">
+<h2>PUSHING</h2>
+<p>Now we need to push this to GitHub.</p>
+<p>There are two ways that I’ll show you how to interact with GitHub through RStudio.</p>
+<ul>
+<li><p>Using RStudio’s “Git” Tab</p></li>
+<li><p>Using the Terminal</p></li>
+<li><p>(Secret third option: using GitHub Desktop. I won’t show this in detail but it is an option!)</p></li>
+</ul>
+</section>
+<section id="pushing-3" class="slide level2">
+<h2>PUSHING</h2>
+<h4 id="option-1-from-rstudios-git-tab">(Option 1) From RStudio’s “Git” Tab</h4>
+<p>When you navigate to the “Git” tab in RStudio, you will see that <code>README.Rmd</code> and <code>analysis.R</code> are listed. This is because these files have changes! <code>README.Rmd</code> was added, and <code>analysis.R</code> was modified.</p>
+
+<img data-src="../lectures_i/images/gitpane.png" class="quarto-figure quarto-figure-center r-stretch" width="400"></section>
+<section id="pushing-4" class="slide level2 scrollable">
+<h2>PUSHING</h2>
+<h4 id="option-1-from-rstudios-git-tab-1">(Option 1) From RStudio’s “Git” Tab</h4>
+<p>We need to stage the files, commit the changes, and then push the changes to the remote GitHub version.</p>
+<ol type="1">
+<li><strong>Stage Files</strong>: Select the files you want to stage by selecting them. You will see symbols beside them - “A” stands for “Added” and “M” stands for “modified”. If you were to delete a file, you would see a red “D”.</li>
+</ol>
+
+<img data-src="../lectures_i/images/staging.png" class="quarto-figure quarto-figure-center r-stretch" width="400"></section>
+<section id="pushing-5" class="slide level2 scrollable">
+<h2>PUSHING</h2>
+<h4 id="option-1-from-rstudios-git-tab-2">(Option 1) From RStudio’s “Git” Tab</h4>
+<ol start="2" type="1">
+<li><strong>Commit Changes</strong>: Click the Commit button. In the pop-up, you can scan through and see the changes (additions, deletions, modifications) for each file that has been staged in Step 1. Add a message explaining the changes, and click Commit. You will get a message that says 2 files have changed. Close this.</li>
+</ol>
+
+<img data-src="../lectures_i/images/commit.png" class="quarto-figure quarto-figure-center r-stretch" width="900"></section>
+<section id="pushing-6" class="slide level2 scrollable">
+<h2>PUSHING</h2>
+<h4 id="option-1-from-rstudios-git-tab-3">(Option 1) From RStudio’s “Git” Tab</h4>
+<ol start="3" type="1">
+<li><p><strong>Push</strong>: You now have nothing to commit, as all changes have been tracked. You will see an information message saying “Your branch is ahead of”origin/main” by 1 commit. Time to Push! Click the Push button. If successful, the following message will appear:</p>
+<pre><code>&gt;&gt;&gt; /usr/bin/git push origin HEAD:refs/heads/main
+To https://github.com/&lt;yourGitHubusername/STAT545_Example_Project.git
+  37b4ec8..7b32df4  HEAD -&gt; main</code></pre></li>
+</ol>
+<p>Close this pop-up, and the “GitHub interface.”Review Changes” pop-up.</p>
+</section>
+<section id="pushing-7" class="slide level2">
+<h2>PUSHING</h2>
+<p>Now, when you go to your GitHub account, you should see some changes to your STAT545_Example_Project repository! You can see when the changes were pushed, and now a README appears below the files!</p>
+
+<img data-src="../lectures_i/images/repowithchanges.png" class="quarto-figure quarto-figure-center r-stretch" width="600"></section>
+<section id="pushing-8" class="slide level2 scrollable">
+<h2>PUSHING</h2>
+<h4 id="option-2-from-rstudios-terminal">(Option 2) From RStudio’s Terminal</h4>
+<p>Instead of using the Git pane, we can write out commands for Git in the Terminal.</p>
+<ol type="1">
+<li><p><strong>Stage Changes</strong>: <code>git add .</code> stages <strong>all</strong> of your modified files (can also just name the files you want to commit instead of using <code>.</code>)</p></li>
+<li><p><strong>Commit Changes</strong>: <code>git commit -m "some message"</code> commits your changes, along with a message summarizing the changes</p></li>
+<li><p><strong>Push Changes</strong>: <code>git push origin main</code> pushes your changes to the GitHub repo (main branch, which is typically the default)</p></li>
+</ol>
+</section></section>
+<section>
+<section id="syncing-your-changes-from-github-pulling" class="title-slide slide level1 center">
+<h1>Syncing Your Changes from GitHub (Pulling)</h1>
+
+</section>
+<section id="pulling" class="slide level2">
+<h2>PULLING</h2>
+<p>Sometimes, files get edited directly on GitHub (or perhaps someone else changed some files, sent them to GitHub, and you don’t have those important changes on your computer!)</p>
+</section>
+<section id="pulling-1" class="slide level2">
+<h2>PULLING</h2>
+<p>Let’s edit the README.md file on GitHub. Click the pencil icon at the bottom of the repository where the README appears, change or add some text, and click the green “Commit Changes” button.</p>
+<p>The changes <strong>only exist</strong> on GitHub! If you look at your README.md file on your computer or in RStudio, it is not updated.</p>
+<p>To get changes from GitHub to RStudio, we PULL. We do this by either:</p>
+<ul>
+<li>Clicking the down arrow beside the PUSH arrow, or</li>
+<li>Running <code>git pull</code> in the terminal</li>
+</ul>
+<p>After doing either of these, your changes should appear in your project!</p>
+</section>
+<section id="more-on-git" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="branches">Branches</h3>
+<ul>
+<li><p>Branches allow for parallel development within a repository. Branches are also a safe way to test out new features, fix bugs, or experiment with new ideas.</p></li>
+<li><p>When creating a repository, a default branch is created. This is typically named “main” (or in older repositories, “master”).</p></li>
+<li><p>The default branch is the branch that GitHub displays when anyone visits your repository.</p></li>
+<li><p>The default branch is also the initial branch that Git checks out locally when someone clones the repository.</p></li>
+<li><p>Unless you specify a different branch, the default branch in a repository is the base branch for new pull requests and code commits.</p></li>
+</ul>
+</section>
+<section id="more-on-git-1" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="branches-1">Branches</h3>
+<ul>
+<li>To create a new branch, you can either navigate to the Git pane and click the icon with two purple rectangles connected to a white diamond.</li>
+<li>Here, you can create a new branch and name it. Then, you can switch between branches using the drop down menu beside it (see below).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../lectures_i/images/createbranch.png" class="quarto-figure quarto-figure-center" width="800"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../lectures_i/images/switchbranch.png" class="quarto-figure quarto-figure-center" width="800"></p>
+</figure>
+</div>
+</section>
+<section id="more-on-git-2" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="branches-2">Branches</h3>
+<p>You can make changes on your new branch, and push them to that branch on GitHub.</p>
+<ul>
+<li>NOTE: if using Terminal, you can create a new branch using <code>git checkout -b &lt;new-branch-name&gt;</code> and switch branches using <code>git checkout &lt;new-branch-name&gt;</code>. You can push changes to the new branch using <code>git push origin &lt;new-branch-name&gt;</code>, where <code>&lt;new-branch-name&gt;</code> is the name of your branch</li>
+</ul>
+</section>
+<section id="more-on-git-3" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="branches-3">Branches</h3>
+<p>After pushing changes to a branch, you will see a message on GitHub.</p>
+
+<img data-src="../lectures_i/images/githubmessage.png" class="quarto-figure quarto-figure-center r-stretch" width="800"></section>
+<section id="more-on-git-4" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="branches-4">Branches</h3>
+<p><strong>If this message does not appear, click “main” and switch the branch to the new one you just made. You will see a message that says “this branch is one commit ahead of main”. Click that message.</strong></p>
+<ul>
+<li><p>Click “Compare and pull request”. Here, you can see the changes between the main and new branch.</p></li>
+<li><p>If you’re satisfied with the changes, you can click “Create pull request” to begin the merge the changes from your new branch to main.</p></li>
+<li><p>If no conflicts exist, click “Merge pull request”. Now, the changes will be on the main (default) branch!</p></li>
+<li><p>Click “Confirm merge”.</p></li>
+</ul>
+</section>
+<section id="more-on-git-5" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="merging-conflicts">Merging Conflicts</h3>
+<p>Merge conflicts happen when we’ve created multiple versions of files that can’t be obviously combined into one definitive version.</p>
+<p>Here is an example of something that would <strong>not</strong> cause a merge conflict:</p>
+<ul>
+<li><p>At 9am, my TA pulls from the STAT 545 repository, makes a local change to the course dashboard, and commits and pushes her changes.</p></li>
+<li><p>At 10am, I forget to pull from the STAT 545 repository, and start working on the Day 1 notes locally.</p></li>
+<li><p>When I commit and push, Git is a bit confused, because I wasn’t working off of the “freshest” version of the STAT 545 repository - but since my TA and I were working on different lines of code, it will fairly seamlessly figure out that the right thing to do is to add my changes to the Day 1 notes to the current version of the STAT 545 repository online.</p></li>
+</ul>
+</section>
+<section id="more-on-git-6" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="merging-conflicts-1">Merging Conflicts</h3>
+<p>Here is an example of something that <strong>WOULD</strong> cause a merge conflict:</p>
+<ul>
+<li><p>At 9am, my TA and I both pull from the STAT 545 repository.</p></li>
+<li><p>At 10am, my TA changes the front page to say “STAT 555 @ UBC”, and commits/pushes those changes.</p></li>
+<li><p>At 11am, I change the front page (without pulling!!!) to say “STAT 777 @ UBC”.</p></li>
+<li><p>When I commit and push, Git doesn’t know what to do. Should it make the version that says “STAT 555 @ UBC” or “STAT 777 @ UBC” the definitive version? The push will fail, and Git will tell us we need to fix the conflict and then commit the result.</p></li>
+</ul>
+</section>
+<section id="more-on-git-7" class="slide level2 scrollable">
+<h2>More on Git</h2>
+<h3 id="merging-conflicts-2">Merging Conflicts</h3>
+<p>How do we fix this?</p>
+<ol type="1">
+<li><p>Pull.</p></li>
+<li><p>Open the file that caused the merge conflict. You should see something like this:</p></li>
+</ol>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+STAT 555 @ UBC
+=======
+STAT 777 @ UBC
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 526363991d21ed20e7e0c57b5e99d944ac5ce5aa</code></pre>
+<ol start="3" type="1">
+<li><p>The stuff below the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and above the <code>=======</code> is what was in your local version; the stuff above the <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> and below the <code>=======</code> is what was in the remote conflicting version. Decide what you want to have on the offending line (e.g.&nbsp;“STAT 555 @ UBC”), and replace the whole block of text above with that.</p></li>
+<li><p>Save and commit the file. message here might be “Fixing a merge conflict.” You should now be able to successfully push!</p></li>
+</ol>
+</section>
+<section id="more-on-git-8" class="slide level2 scrollable">
+<h2>More on Git</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exercise</strong></p>
+</div>
+<div class="callout-content">
+<p>Find a partner. In this exercise, we will learn how to have different team members save their work separately on <em>branches</em>, and how to <em>merge</em> those changes to the <em>main</em> project branch.</p>
+<ol type="1">
+<li><p>Teammate A adds Teammate B to their “stat545-demo” repository as a collaborator. (Go to Settings from the main repo page, then Access &gt; Collaborators). This should send Teammate B an email with a collaboration invitation; accept that invitation.</p></li>
+<li><p>Teammate B clones Teammate A’s demo repository they made in class today/last class.</p></li>
+<li><p>On their own computer, Teammate B will make a new branch in Teammate A’s demo repository. You can do this either on Github by clicking on “1 branch” on the repo homepage then the green “New branch” button, or on your own computer in R Studio with the “New Branch” button.</p></li>
+<li><p>On their own computer, Teammate B will create a new file in the newly created branch, then commit and push it.</p></li>
+<li><p>Teammate B will start a pull request (basically a request to merge content onto the main branch) on GitHub, by going to “Pull Requests” -&gt; “New Pull Request”, and selecting the branch you intend to merge to the main branch. In this pull request, include a comment and title indicating (at a high level) what the change made is about.</p></li>
+<li><p>Teammate A will follow the instructions <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request">here</a> to merge the pull request.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="more-on-git-9" class="slide level2">
+<h2>More on Git</h2>
+<h3 id="other-tips">Other Tips</h3>
+<ul>
+<li><p>Commit changes OFTEN! Commit them as often as you would save your work!</p></li>
+<li><p>Be careful when working with data containing personal identifying information (PII). <strong>This should NOT be stored on GitHub.</strong></p></li>
+<li><p>When you watch a Github repo, you get notifications when things happen in them. So if you “Watch” the STAT 545 webpage repo, then you will get email notifications when I update the site!</p></li>
+</ul>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<p>Today’s class is a digest of the following resources:</p>
+<ul>
+<li><p>Online tutorials:</p>
+<ul>
+<li><p>The basic version control workflow (without branching): <a href="https://happygitwithr.com/git-basics.html">Happy git w R: Chapter 20</a>.</p></li>
+<li><p>Starting with GitHub: <a href="https://happygitwithr.com/new-github-first.html">Chapter 15: New project, GitHub first</a></p></li>
+<li><p>Starting with files on your computer, and didn’t set up git: <a href="https://happygitwithr.com/existing-github-first.html">Chapter 16: Existing project, GitHub first</a></p></li>
+<li><p>Starting with files on your computer, and <em>did</em> set up git: <a href="https://happygitwithr.com/existing-github-last.html">Chapter 17: Existing project, GitHub Last</a></p></li>
+</ul></li>
+</ul>
+<p>Some additional resources that you might find useful:</p>
+<ul>
+<li>Read the <a href="https://guides.github.com/introduction/flow/">Understanding the GitHub flow</a> to get a sense of branching.</li>
+</ul>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"right","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide"},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W119
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../webpages/slides";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "../..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

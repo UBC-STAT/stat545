@@ -1,16 +1,16 @@
 ---
-title: "Lecture 4: Data Visualization"
-subtitle: "September 23, 2025"
+title: "Lecture 4: Data Visualization "
 date-modified: last-modified
 bibliography: ../bibliography.bib
 csl: ../../diabetologia.csl
 ---
 
+This lecture will be in two parts!
 
 
 ## Lecture Slides
 
-[Lecture 4 Slides](../slides/lec4_datavis_slides.qmd)
+[Lecture 4A Slides](../slides/lec4a_datavis_slides.qmd)
 
 ## Lecture Video
 
@@ -26,7 +26,8 @@ From this topic, students are anticipated to be able to:
 
 -   Customize the look of `ggplot2` graphs.
 
--   Choose an appropriate plot type for analysis, based on an understanding of what makes a graph effective.
+-   Choose an appropriate plot type for analysis, based on a research question and an understanding of what makes a graph effective.
+
 
 
 

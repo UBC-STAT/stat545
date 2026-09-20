@@ -1,21 +1,15 @@
 ---
-title: "Lecture 3: Version Control "
-date-modified: last-modified
+title: "Lecture 3: Version Control"
+subtitle: "STAT 545 - Fall 2026"
+format: 
+  live-revealjs:
+    scrollable: true
+    slide-number: true
+    smaller: true
+    menu: 
+      side: right
+      width: wide
 ---
-
-This lecture will be in two parts! 
-
-
-## Slides
-
-[Lecture 3 Slides](../slides/lec3_versioncontrol_slides.qmd)
-
-## Video Lecture 
-
-
-{{< video https://youtu.be/TigD_OxpGao >}}
-
-## Learning Objectives 
 
 From this week's topic, students are anticipated to be able to:
 
@@ -34,6 +28,7 @@ From this week's topic, students are anticipated to be able to:
 After this class, you should be able to start working on your Collaborative Project.
 
 
+## Please Enter Your GH Username!
 
 :::{.callout-important}
 
@@ -47,30 +42,40 @@ Thanks 😊
 :::
 
 
+# What is Git and GitHub?
+
 ## Get Acquainted with Git and GitHub
 
-"Git" is a version control system designed to track changes. This is what GitHub uses! Git essentially creates "snapshots" of your work as you progress through a project. 
+-  "Git" is a version control system designed to track changes. 
+
+-  Git essentially creates "snapshots" of your work as you progress through a project. 
+
+-  This is what GitHub uses! 
 
 
-### **Repositories, Organizations, and Personal Accounts**
 
-A *repository* stores files and the history of the files; the usual convention is to use a single repository to organize a single project.
+## Repositories, Organizations, and Personal Accounts
 
-**GitHub** is a place where repositories can live online. Being online provides us a way to share and collaborate on projects. It also serves as a backup for your project.
+-  A *repository* stores files and the history of the files; the usual convention is to use a single repository to organize a single project.
 
-**Example 1:** [Grace's GitHub page](https://github.com/grcetmpk)
+-  **GitHub** is a place where repositories can live online. Being online provides us a way to share and collaborate on projects. It also serves as a backup for your project.
 
-**Example 2**: [The STAT 545 GitHub page](https://github.com/UBC-STAT/STAT545.github.io)
+    -  **Example 1:** [Grace's GitHub page](https://github.com/grcetmpk)
 
-The first repository lives under Grace's personal Github account. The second repository lives under the [UBC-STAT](https://github.com/UBC-STAT) organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.
+    -  **Example 2**: [The STAT 545 GitHub page](https://github.com/UBC-STAT/STAT545.github.io)
+
+-  The first repository lives under Grace's personal Github account. The second repository lives under the [UBC-STAT](https://github.com/UBC-STAT) organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.
+
+
+## Git States and Lingo
 
 
 We can interact with and send data between GitHub and RStudio using Git.
 
-![](images/GitHubBasic.png){width=800 fig-align="center"} 
+![](../lectures_i/images/GitHubBasic.png){width=800 fig-align="center"} 
 
 
-### Git States and Lingo
+## Git States and Lingo
 
 To use Git, we should first understand the primary states that files can be in. These are:
 
@@ -78,7 +83,16 @@ To use Git, we should first understand the primary states that files can be in. 
 * **Staged**: Git has tracked the changes you've made, but they haven't been accounted for in the latest snapshot of your work. 
 * **Committed**: the changes you've made have been stored and updated as the latest snapshot of your project. 
 
-After changes are committed locally (on your computer), we can **push** them to a GitHub repository. This sends the changes and updates the most recent version of your project on GitHub. We can also **pull** changes from GitHub to your local machine. This is useful when multiple people (or perhaps one person on multiple devices) are working on a project. 
+## Git States and Lingo
+
+-  After changes are committed locally (on your computer), we can **push** them to a GitHub repository. 
+
+-  This sends the changes and updates the most recent version of your project on GitHub. 
+
+-  We can also **pull** changes from GitHub to your local machine. This is useful when multiple people (or perhaps one person on multiple devices) are working on a project. 
+
+
+## Git States and Lingo
 
 Other useful Git features include:
 
@@ -89,35 +103,41 @@ Other useful Git features include:
 
 ## Syncing RStudio and GitHub
 
-While Git and GitHub can be useful for more than just R, we will demonstrate how Git and GitHub can be used within an R Project.
+-  We will demonstrate how Git and GitHub can be used within an **R Project**.
 
-Syncing your R analyses to GitHub is a smart idea, You can work on the project on multiple machines, back up your work, see previous versions of your work, and collaborate easily with others. 
+  -  R Projects are useful for organizing files and resources specific to a project in a self-contained directory. 
+  -  R Projects allow for more reproducible workflows, and allow users to resume exactly where they left off within a project by keeping variables in the environment even after the session has closed.
 
-**R Projects** are useful for organizing files and resources specific to a project in a self-contained directory. R Projects allow for more reproducible workflows, and allow users to resume exactly where they left off within a project by keeping variables in the environment even after the session has closed. It also allows us to integrate version control with Git. 
+-  There are really two (okay, more than that but we'll focus on two here) ways that you can connect RStudio and Github. You can:
 
-There are really two (okay, more than that but we'll focus on two here) ways that you can connect RStudio and Github. You can:
-
--  Create a GitHub repository, and then sync that to an **R Project** in RStudio, OR
-
--  Create an **R Project** in RStudio, and then sync it to GitHub.
+  -  Create a GitHub repository, and then sync that to an **R Project** in RStudio, OR
+  -  Create an **R Project** in RStudio, and then sync it to GitHub.
 
 I will show you both ways. 
 
-*Side note here: the newer version of RStudio (called Positron) does not use R Projects. Instead, you can create a "folder" (which is essentially a folder that contains all of your files). All other steps will be pretty much the same!*
+*Side note here: the newer version of RStudio (called Positron) does not use R Projects. Instead, you can create a "folder". All other steps will be pretty much the same!*
+
+# Syncing GitHub and RStudio: "GitHub First"
 
 
-
-## Syncing RStudio and GitHub: "GITHUB FIRST"
+## Syncing: "GITHUB FIRST"
 
 ### Step 1: Create a GitHub Repository
 
--  1.1: Go to your GitHub profile (mine is https://github.com/grcetmpk)
+-  1.1: Go to your GitHub profile (mine is at https://github.com/grcetmpk)
 
 -  1.2:   Create a new GitHub repository by clicking the + symbol in the top bar and using the dropdown menu to create a new repository.
 
 -  1.3:  Name your repository "demo-github-first-[initials]". In the description write “STAT 545 Demo”. Check the box for adding a README file.
 
-You are now redirected to the repository main page. The repository page tells you you have 1 commit. Click on it to get to the history page. This tells you all the changes that have been tracked for the files in the repository so far.
+You are now redirected to the repository main page. The repository page tells you you have 1 commit. 
+
+Click on it to get to the history page. This tells you all the changes that have been tracked for the files in the repository so far.
+
+
+
+
+## Syncing: "GITHUB FIRST"
 
 -  1.4: Go back to your repository main page. Click on README.md, then click the pencil icon (“Edit this file”). Add the following information into the README.md file:
 
@@ -131,12 +151,11 @@ You are now redirected to the repository main page. The repository page tells yo
 
 Now, look at the GitHub commit history again. **Has anything changed?**
 
+## Syncing: "GITHUB FIRST"
 
 ### Step 2: Clone the Repository 
 
 Now it's time to turn the repository into an RProject. We do this by **cloning**. 
-
-
 
 - 2.1: In RStudio, go to “File > New Project”
 
@@ -144,21 +163,31 @@ Now it's time to turn the repository into an RProject. We do this by **cloning**
 
 - 2.3: Click on “Git: Clone a project from a repository”
 
+## Syncing: "GITHUB FIRST"
+
+
 - 2.4: Fill in the info:
       URL: use HTTPS address (found on GitHub when clicking the green "Code" button)
       Create as a subdirectory of: Browse to where you would like to save this repository on your machine (creates a new folder in the location you select)
 
-![](images/gitclonehttps.png){width=800 fig-align="center"}
+![](../lectures_i/images/gitclonehttps.png){width=800 fig-align="center"}
+
+
+## Syncing: "GITHUB FIRST"
 
 Now you have a local version of this project! And can make changes on both RStudio or GitHub, which is described in the "Syncing Your Changes" section below. 
 
-*Side note: you can clone any public project, however you need to be added as a collaborator to push those changes to GitHub. If you'd like to play around with existing repositories, you could "Fork" it. A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. More info here: <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo>.* 
+*Side note:* 
+
+- you can clone any public project, however you need to be added as a collaborator to push those changes to GitHub. 
+- If you'd like to play around with existing repositories, you could "Fork" it. A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. More info here: <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo>.* 
 
 
 
+# Syncing GitHub and RStudio: "RStudio First"
 
 
-## Syncing RStudio and GitHub: "RSTUDIO FIRST"
+## Syncing: "RSTUDIO FIRST"
 
 
 ### Step 1: Create a new R Project
@@ -167,9 +196,16 @@ Now you have a local version of this project! And can make changes on both RStud
 
 -  1.2:  Go to "File" > "New R Project...". 
 
--  1.3:  Select "New Directory", "New Project", and name it "demo-rstudio-first-[initials]". Select "Browse" and find a location where you'd like to save your project (a new folder the same name as your project will be created). I chose the Desktop as an example. Ensure "Create a Git Repository" is selected. Click "Create Project".
+-  1.3:  Select "New Directory", "New Project", and name it "demo-rstudio-first-[initials]". 
 
-![](images/NewRProject.png){width=400 fig-align="center"}
+    -  Select "Browse" and find a location where you'd like to save your project (a new folder the same name as your project will be created). 
+    -  I chose the Desktop as an example. Ensure "Create a Git Repository" is selected. Click "Create Project".
+
+![](../lectures_i/images/NewRProject.png){width=400 fig-align="center"}
+
+
+## Syncing: "RSTUDIO FIRST"
+
 
 RStudio will refresh. You will now see at the top of RStudio that the name of your project is displayed. 
 
@@ -177,8 +213,9 @@ RStudio doesn't automatically create a README, but we can add one quickly.
 
 -  1.4: Go to File > New File > Markdown. Add some random markdown (text) to the document (maybe your name). Save the file exactly as "README.md". 
 
+## Syncing: "RSTUDIO FIRST"
 
-### Step 2: Create a GitHub Repository for your Existing  R Project 
+### Step 2: Create a GitHub Repository
 
 
 - 2.1: In the R Console, load in the `usethis` package by calling `library(usethis)` 
@@ -191,28 +228,34 @@ RStudio doesn't automatically create a README, but we can add one quickly.
 
 - 2.3:  If you restarted RStudio, call `library(usethis)` again. Then, in the Console call `use_github()`. A new repository on your GitHub account should be created! You should see your file `README.md` as one of the items in your repository. 
 
-*If you have issues, see the last section of [Lecture 1A: Installation](lec1a_installation.qmd) to set up your GitHub credentials on RStudio.*
+*If you have issues, see the last section of [Lecture 1A: Installation](../lectures_i/lec1a_installation.qmd) to set up your GitHub credentials on RStudio.*
 
 
 
 
 
+# Syncing Your Changes Between RStudioand GitHub
 
+## Syncing Your Changes
 
-## Syncing Your Changes from RStudio (PUSHING)
+**At this point, regardless of whether you started with RStudio or GitHub, the steps are the same.**
 
-One way or another, you have a GitHub repository connected to RStudio. **At this point, regardless of whether you started with RStudio or GitHub, the steps are the same.**
+-  One way or another, you have a GitHub repository connected to RStudio. 
 
-Now.... what happens when we edit our project on our computer? Or on GitHub? Well, we need to sync those changes, and spoiler alert: **it's not automatic**. 
+-  Now.... what happens when we edit our project on our computer? Or on GitHub? Well, we need to sync those changes, and spoiler alert: **it's not automatic**. 
 
-   -  If we made a change on RStudio, we need to **PUSH** it to GitHub. 
+    -  If we made a change on RStudio, we need to **PUSH** it to GitHub. 
 
     -  If we made a change on GitHub, we need to **PULL** it to RStudio. 
 
 
-![](images/GitHubFullFlow.png){width=800 fig-align="center"}
+## Syncing Your Changes
 
-### Step 1: Make a Change on RStudio
+
+![](../lectures_i/images/GitHubFullFlow.png){width=800 fig-align="center"}
+
+## PUSHING
+
 
 Let's make some changes to one of our example projects! Let's **add a new R Script to your R Project**
 
@@ -231,6 +274,9 @@ Let's make some changes to one of our example projects! Let's **add a new R Scri
     mean_mpg
     ```
 
+## PUSHING
+
+
 - Save your changes. "File" > "Save as" and name your file `analysis.R`, and make usre it's **saved in your project folder!** 
 
 
@@ -239,10 +285,11 @@ Let's make some changes to one of our example projects! Let's **add a new R Scri
 *You can add multiple files to projects, and save things like images/pdfs of plots, multiple R Scripts (code), and data sets. Really, anything that you can save in the R Project folder will be contained in the R Project.*
 
 
+## PUSHING
 
-### Step 2: Send the Changes to GitHub
+Now we need to push this to GitHub.
 
-Now, there are two ways that I'll show you how to interact with GitHub through RStudio.
+There are two ways that I'll show you how to interact with GitHub through RStudio.
 
 * Using RStudio's "Git" Tab
 
@@ -250,41 +297,57 @@ Now, there are two ways that I'll show you how to interact with GitHub through R
 
 * (Secret third option: using GitHub Desktop. I won't show this in detail but it is an option!)
 
+## PUSHING
 
 #### (Option 1) From RStudio's "Git" Tab
 
 When you navigate to the "Git" tab in RStudio, you will see that `README.Rmd` and `analysis.R` are listed. This is because these files have changes! `README.Rmd` was added, and `analysis.R` was modified. 
 
 
-![](images/gitpane.png){width=400 fig-align="center"}
+![](../lectures_i/images/gitpane.png){width=400 fig-align="center"}
+
+## PUSHING
+
+#### (Option 1) From RStudio's "Git" Tab
 
 We need to stage the files, commit the changes, and then push the changes to the remote GitHub version.  
 
 1. **Stage Files**: Select the files you want to stage by selecting them. You will see symbols beside them - "A" stands for "Added" and "M" stands for "modified". If you were to delete a file, you would see a red "D". 
 
-![](images/staging.png){width=400 fig-align="center"}
+![](../lectures_i/images/staging.png){width=400 fig-align="center"}
 
+## PUSHING
+
+#### (Option 1) From RStudio's "Git" Tab
 
 2. **Commit Changes**: Click the Commit button. In the pop-up, you can scan through and see the changes (additions, deletions, modifications) for each file that has been staged in Step 1. Add a message explaining the changes, and click Commit. You will get a message that says 2 files have changed. Close this. 
 
-![](images/commit.png){width=800 fig-align="center"}
+![](../lectures_i/images/commit.png){width=900 fig-align="center"}
+
+## PUSHING
+
+#### (Option 1) From RStudio's "Git" Tab
 
 3. **Push**: You now have nothing to commit, as all changes have been tracked. You will see an information message saying "Your branch is ahead of "origin/main" by 1 commit. Time to Push! Click the Push button. If successful, the following message will appear:
-```
->>> /usr/bin/git push origin HEAD:refs/heads/main
-To https://github.com/<yourGitHubusername/STAT545_Example_Project.git
-   37b4ec8..7b32df4  HEAD -> main
-```
+
+    ```
+    >>> /usr/bin/git push origin HEAD:refs/heads/main
+    To https://github.com/<yourGitHubusername/STAT545_Example_Project.git
+      37b4ec8..7b32df4  HEAD -> main
+    ```
+    
 Close this pop-up, and the "GitHub interface. "Review Changes" pop-up.
 
+## PUSHING
 
 Now, when you go to your GitHub account, you should see some changes to your STAT545_Example_Project repository! You can see when the changes were pushed, and now a README appears below the files!
 
-![](images/repowithchanges.png){width=600 fig-align="center"}
+![](../lectures_i/images/repowithchanges.png){width=600 fig-align="center"}
 
 
 
 
+## PUSHING
 
 #### (Option 2) From RStudio's Terminal
 
@@ -298,15 +361,15 @@ Instead of using the Git pane, we can write out commands for Git in the Terminal
 3. **Push Changes**: `git push origin main` pushes your changes to the GitHub repo (main branch, which is typically the default)
 
 
+# Syncing Your Changes from GitHub (Pulling)
 
-## Syncing Your Changes from GitHub (Pulling)
+## PULLING
 
 Sometimes, files get edited directly on GitHub (or perhaps someone else changed some files, sent them to GitHub, and you don't have those important changes on your computer!)
 
+## PULLING
 
-### Step 1: Make a Change on GitHub
-
-Let's edit the README.md file. Click the pencil icon at the bottom of the repository where the README appears, change or add some text, and click the green "Commit Changes" button. 
+Let's edit the README.md file on GitHub. Click the pencil icon at the bottom of the repository where the README appears, change or add some text, and click the green "Commit Changes" button. 
 
 
 The changes **only exist** on GitHub! If you look at your README.md file on your computer or in RStudio, it is not updated. 
@@ -316,11 +379,7 @@ To get changes from GitHub to RStudio, we PULL. We do this by either:
 * Clicking the down arrow beside the PUSH arrow, or 
 * Running `git pull` in the terminal
 
-
 After doing either of these, your changes should appear in your project!
-
-
-
 
 
 
@@ -329,27 +388,49 @@ After doing either of these, your changes should appear in your project!
 
 ### Branches
 
-Branches allow for parallel development within a repository. Branches are also a safe way to test out new features, fix bugs, or experiment with new ideas. 
+-  Branches allow for parallel development within a repository. Branches are also a safe way to test out new features, fix bugs, or experiment with new ideas. 
 
-When creating a repository, a default branch is created. This is typically named "main" (or in older repositories, "master"). The default branch is the branch that GitHub displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. Unless you specify a different branch, the default branch in a repository is the base branch for new pull requests and code commits.
+-  When creating a repository, a default branch is created. This is typically named "main" (or in older repositories, "master"). 
+  -  The default branch is the branch that GitHub displays when anyone visits your repository. 
+  -  The default branch is also the initial branch that Git checks out locally when someone clones the repository. 
+  -  Unless you specify a different branch, the default branch in a repository is the base branch for new pull requests and code commits.
 
-To create a new branch, you can either navigate to the Git pane and click the icon with two purple rectangles connected to a white diamond. Here, you can create a new branch and name it. Then, you can switch between branches using the drop down menu beside it (see below). 
+## More on Git
+
+### Branches
+-  To create a new branch, you can either navigate to the Git pane and click the icon with two purple rectangles connected to a white diamond. 
+-  Here, you can create a new branch and name it. Then, you can switch between branches using the drop down menu beside it (see below). 
 
 
-![](images/createbranch.png){width=800 fig-align="center"}
+![](../lectures_i/images/createbranch.png){width=800 fig-align="center"}
 
 
-![](images/switchbranch.png){width=800 fig-align="center"}
+![](../lectures_i/images/switchbranch.png){width=800 fig-align="center"}
 
-You can make changes on your new branch, and push them to GitHub. 
 
-* NOTE: if using Terminal, you can create a new branch using ` git checkout -b <new-branch-name>` and switch branches using `git checkout <new-branch-name>`. You can push changes to the new branch using `git push origin <new-branch-name>`, where `<new-branch-name>` is the name of your branch)
+## More on Git
+
+### Branches
+
+You can make changes on your new branch, and push them to that branch on GitHub. 
+
+* NOTE: if using Terminal, you can create a new branch using ` git checkout -b <new-branch-name>` and switch branches using `git checkout <new-branch-name>`. You can push changes to the new branch using `git push origin <new-branch-name>`, where `<new-branch-name>` is the name of your branch
+
+## More on Git
+
+### Branches
+
 
 After pushing changes to a branch, you will see a message on GitHub. 
 
-![](images/githubmessage.png){width=800 fig-align="center"}
+![](../lectures_i/images/githubmessage.png){width=800 fig-align="center"}
 
-**If this message does not appear, click "main" and switch the branch to the new one you just made. You will see a message that says "this branch is one commit ahead of main"). Click that message.** 
+
+## More on Git
+
+### Branches
+
+**If this message does not appear, click "main" and switch the branch to the new one you just made. You will see a message that says "this branch is one commit ahead of main". Click that message.** 
 
 * Click "Compare and pull request". Here, you can see the changes between the main and new branch. 
 
@@ -359,13 +440,13 @@ After pushing changes to a branch, you will see a message on GitHub.
 
 * Click "Confirm merge".
 
-
+## More on Git
 
 ### Merging Conflicts
 
 Merge conflicts happen when we’ve created multiple versions of files that can’t be obviously combined into one definitive version.
 
-Here is an example of something that would not cause a merge conflict:
+Here is an example of something that would **not** cause a merge conflict:
 
 -   At 9am, my TA pulls from the STAT 545 repository, makes a local change to the course dashboard, and commits and pushes her changes.
 
@@ -373,7 +454,11 @@ Here is an example of something that would not cause a merge conflict:
 
 -   When I commit and push, Git is a bit confused, because I wasn’t working off of the “freshest” version of the STAT 545 repository - but since my TA and I were working on different lines of code, it will fairly seamlessly figure out that the right thing to do is to add my changes to the Day 1 notes to the current version of the STAT 545 repository online.
 
-Here is an example of something that WOULD cause a merge conflict:
+## More on Git
+
+### Merging Conflicts
+
+Here is an example of something that **WOULD** cause a merge conflict:
 
 -   At 9am, my TA and I both pull from the STAT 545 repository.
 
@@ -383,6 +468,10 @@ Here is an example of something that WOULD cause a merge conflict:
 
 -   When I commit and push, Git doesn’t know what to do. Should it make the version that says “STAT 555 \@ UBC” or “STAT 777 \@ UBC” the definitive version? The push will fail, and Git will tell us we need to fix the conflict and then commit the result.
 
+
+## More on Git
+
+### Merging Conflicts
 How do we fix this?
 
 1.  Pull.
@@ -399,10 +488,14 @@ STAT 777 @ UBC
 
 3.  The stuff below the `<<<<<<<` and above the `=======` is what was in your local version; the stuff above the `>>>>>>>` and below the `=======` is what was in the remote conflicting version. Decide what you want to have on the offending line (e.g. “STAT 555 \@ UBC"), and replace the whole block of text above with that.
 
-4.  Save and commit the file.  message here might be “Fixing a merge conflict.”) You should now be able to successfully push!
 
-::: {.callout-warning icon="false" appearance="minimal"}
 
+4.  Save and commit the file.  message here might be “Fixing a merge conflict.” You should now be able to successfully push!
+
+
+## More on Git
+
+::: {.callout-note}
 ### Exercise
 
 Find a partner. In this exercise, we will learn how to have different team members save their work separately on *branches*, and how to *merge* those changes to the *main* project branch.
@@ -426,6 +519,7 @@ Find a partner. In this exercise, we will learn how to have different team membe
 
 
 
+## More on Git
 
 ### Other Tips
 
