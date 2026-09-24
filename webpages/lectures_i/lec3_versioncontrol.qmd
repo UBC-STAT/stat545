@@ -424,7 +424,15 @@ Find a partner. In this exercise, we will learn how to have different team membe
 :::
 
 
+### Merging Changes from `main` to your branch
 
+If you have changes on `main` that aren't on your branch, you can merge them by doing the following:
+
+-  Switch to your `main` branch on RStudio and pull in the changes
+
+-  Switch to your branch
+
+-  Run `git merge main` in the terminal to merge the changes in `main` to changes in your branch
 
 
 ### Other Tips
