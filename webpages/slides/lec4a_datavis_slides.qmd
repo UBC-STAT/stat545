@@ -173,8 +173,150 @@ It's okay if you don't quite understand all of these components yet. We will wal
 
 Let's say you'd like to see if there is a relationship between miles per gallon and horsepower of cars in the `mtcars` data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables.
 
-```{r, include = F, echo = F}
 
+## Example Scatterplot on `mtcars`
+
+-  Let's say you'd like to see if there is a relationship between miles per gallon and horsepower of cars in the `mtcars` data set. As both of these variables are numeric, we could build a **scatterplot** (more on this next class).
+
+-  The `ggplot()` function takes two arguments: 
+
+  -  `data` (the data frame or tibble containing your data that you'd like to plot)
+  -  `mapping` (aesthetic mappings applied to the entire plot. We use the `aes()` function inside of this argument.).
+
+## Example Scatterplot on `mtcars`
+
+Let's start building the scatterplot! Let's plot `mpg` (miles per gallon) on the x axis and `hp` on the y axis by *piping* the dataset into the ggplot function:
+
+```{webr}
+mtcars %>% 
+  ggplot(aes(x = hp, y = mpg))
+```
+
+Notice that we haven't actually plotted anything! `ggplot` doesn't know what type of plot we want to draw, only that we want `mpg` on the x axis and `hp` on the y axis from the `mtcars` data we provided.
+
+## Example Scatterplot on `mtcars`
+
+To tell `ggplot` that we want a scatterplot, we are going to add a *layer* to the plot using the `+` at the end of the previous line. `geom_point()` is the geometric object we'd like to add (i.e., a scatterplot):
+
+```{webr}
+mtcars %>% 
+  ggplot(aes(x = hp, y = mpg)) + 
+  ...
+```
+
+We now have created a scatterplot! It's *fine*, but we can elevate this. 
+
+
+## Example Scatterplot on `mtcars`
+
+Let's colour the points by the number of cylinders!
+
+```{webr}
+mtcars %>% 
+  ggplot(aes(x = hp, y = mpg, color = ... )) + 
+    geom_point()
+```
+
+Note: because `cyl` is written as a number, R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable! 
+
+## Example Scatterplot on `mtcars`
+
+
+We can treat `cyl` as a categorical variable with `mutate`, where we overwrite the `cyl` variable as a factor. Then, we use `color = cyl` in the `aes()` function to tell ggplot to colour by this category!
+
+```{webr}
+mtcars %>% 
+  mutate(cyl = as.factor(...)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl)) + 
+    geom_point()
+```
+
+Cool! But... this isn't super colourblind-friendly.
+
+
+## Example Scatterplot on `mtcars`
+
+ Let's turn to the `RColorBrewer` package to select a friendlier colour scheme. The colour palette "Set2" is more colourblind-friendly:
+
+```{webr}
+mtcars %>% 
+  mutate(cyl = as.factor(cyl)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl)) + 
+    geom_point() + 
+    scale_color_brewer(palette = "...") 
+
+```
+
+
+## Example Scatterplot on `mtcars`
+
+To be even more accessible, let's change the shape of the points by cylinder type by adding `shape = cyl` to the `aes()`!
+
+```{webr}
+mtcars %>% 
+  mutate(cyl = as.factor(cyl)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl, shape = ...)) + 
+    geom_point() + 
+    scale_color_brewer(palette = "Set2") 
+```
+
+
+## Example Scatterplot on `mtcars`
+
+
+Now, let's add better labels to our X and Y axes:
+
+
+```{webr}
+mtcars %>% 
+  mutate(cyl = as.factor(cyl)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl, shape = cyl)) + 
+    geom_point() + 
+    scale_color_brewer(palette = "Set2")  +
+    ...("Horsepower") + 
+    ...("Miles Per Gallon") 
+```
+
+## Example Scatterplot on `mtcars`
+
+
+We can also change the title of our legend. We'll have to specify the title twice as we've grouped by colour and shape:
+
+```{webr}
+mtcars %>% 
+  mutate(cyl = as.factor(cyl)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl, shape = cyl)) + 
+    geom_point() + 
+    scale_color_brewer(palette = "Set2")  +
+    xlab("Horsepower") + 
+    ylab("Miles Per Gallon") +
+    ...(color = "Number of Cylinders", shape = "Number of Cylinders")
+
+```
+
+## Example Scatterplot on `mtcars`
+
+The grey background is still a bit distracting, so we could remove it by giving out ggplot a more minimal theme:
+
+```{webr}
+mtcars %>% 
+  mutate(cyl = as.factor(cyl)) %>%
+  ggplot(aes(x = hp, y = mpg, color = cyl, shape = cyl)) + 
+    geom_point() + 
+    scale_color_brewer(palette = "Set2")  +
+    xlab("Horsepower") + 
+    ylab("Miles Per Gallon") +
+    labs(color = "Number of Cylinders", shape = "Number of Cylinders") +
+    ...()
+
+```
+
+
+## Example Scatterplot on `mtcars`
+
+And finally, let's add a descriptive title!
+
+```{webr}
 mtcars %>% 
   mutate(cyl = as.factor(cyl)) %>%
   ggplot(aes(x = hp, y = mpg, color = cyl, shape = cyl)) + 
@@ -184,9 +326,37 @@ mtcars %>%
     ylab("Miles Per Gallon") +
     labs(color = "Number of Cylinders", shape = "Number of Cylinders") +
     theme_minimal() + 
-    ggtitle("Relationship between Number of Cylinders, Miles per Gallon, \nand Horsepower on the mtcars Dataset")
-
+    ...("Relationship between Number of Cylinders, Miles per Gallon, \nand Horsepower on the mtcars Dataset")
 ```
+
+
+
+Now, this is a nice visualization! We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon). Cars with higher horsepower also tend to have a higher number of cylinders.
+
+## Example Scatterplot on `mtcars`
+
+::: callout-tip
+
+The `\n` in the title is a special character that allows the line to break and fit on this size of plot.
+
+Names of axes should have quotations "" around them.
+
+The order of the layers doesn't matter after the `geom_layer()` layer.
+:::
+
+
+
+## Advice for `ggplot`
+
+-  Google is *absolutely* your friend when building `ggplots`. 
+
+-  I don't think I've ever made a plot without googling how to do it. `ggplot` is extremely powerful, flexible, and a bit scary to learn! 
+
+-  If you need to build a plot, search it! Need to plot two histograms, separated by groups (say, gender), side by side? I'd google: "ggplot histogram grouped by variable". This brings me to [this blog post by R Charts](https://r-charts.com/distribution/histogram-group-ggplot2/) that has a TON of different side by side histograms with code! `ggplot` is very much a "learn by doing" skill.
+
+
+
+
 
 ## To Save These Slides With Your Code
 

@@ -629,6 +629,97 @@
     "text": "Example: Scatterplot on mtcars\nLet’s say you’d like to see if there is a relationship between miles per gallon and horsepower of cars in the mtcars data set. As both of these variables are numeric, we could build a scatterplot as we are comparing two quantitative/numeric variables."
   },
   {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-1",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-1",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\n\nLet’s say you’d like to see if there is a relationship between miles per gallon and horsepower of cars in the mtcars data set. As both of these variables are numeric, we could build a scatterplot (more on this next class).\nThe ggplot() function takes two arguments:\ndata (the data frame or tibble containing your data that you’d like to plot)\nmapping (aesthetic mappings applied to the entire plot. We use the aes() function inside of this argument.)."
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-2",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-2",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nLet’s start building the scatterplot! Let’s plot mpg (miles per gallon) on the x axis and hp on the y axis by piping the dataset into the ggplot function:\n\n\n\n\n\n\n\n\nNotice that we haven’t actually plotted anything! ggplot doesn’t know what type of plot we want to draw, only that we want mpg on the x axis and hp on the y axis from the mtcars data we provided."
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-3",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-3",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nTo tell ggplot that we want a scatterplot, we are going to add a layer to the plot using the + at the end of the previous line. geom_point() is the geometric object we’d like to add (i.e., a scatterplot):\n\n\n\n\n\n\n\n\nWe now have created a scatterplot! It’s fine, but we can elevate this."
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-4",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-4",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nLet’s colour the points by the number of cylinders!\n\n\n\n\n\n\n\n\nNote: because cyl is written as a number, R is probably going to read it as a numeric value. However, we only have three possible categories for the number of cylinders, so we first should tell R to treat this as a categorical variable!"
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-5",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-5",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nWe can treat cyl as a categorical variable with mutate, where we overwrite the cyl variable as a factor. Then, we use color = cyl in the aes() function to tell ggplot to colour by this category!\n\n\n\n\n\n\n\n\nCool! But… this isn’t super colourblind-friendly."
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-6",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-6",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nLet’s turn to the RColorBrewer package to select a friendlier colour scheme. The colour palette “Set2” is more colourblind-friendly:"
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-7",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-7",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nTo be even more accessible, let’s change the shape of the points by cylinder type by adding shape = cyl to the aes()!"
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-8",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-8",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nNow, let’s add better labels to our X and Y axes:"
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-9",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-9",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nWe can also change the title of our legend. We’ll have to specify the title twice as we’ve grouped by colour and shape:"
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-10",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-10",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nThe grey background is still a bit distracting, so we could remove it by giving out ggplot a more minimal theme:"
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-11",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-11",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\nAnd finally, let’s add a descriptive title!\n\n\n\n\n\n\n\n\nNow, this is a nice visualization! We can clearly see that cars with higher horsepower tend to be less fuel efficient (have lower miles per gallon). Cars with higher horsepower also tend to have a higher number of cylinders."
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-12",
+    "href": "webpages/slides/lec4a_datavis_slides.html#example-scatterplot-on-mtcars-12",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Example Scatterplot on mtcars",
+    "text": "Example Scatterplot on mtcars\n\n\n\n\n\n\nTip\n\n\nThe \\n in the title is a special character that allows the line to break and fit on this size of plot.\nNames of axes should have quotations “” around them.\nThe order of the layers doesn’t matter after the geom_layer() layer."
+  },
+  {
+    "objectID": "webpages/slides/lec4a_datavis_slides.html#advice-for-ggplot",
+    "href": "webpages/slides/lec4a_datavis_slides.html#advice-for-ggplot",
+    "title": "Lecture 4: Data Visualization with ggplot2",
+    "section": "Advice for ggplot",
+    "text": "Advice for ggplot\n\nGoogle is absolutely your friend when building ggplots.\nI don’t think I’ve ever made a plot without googling how to do it. ggplot is extremely powerful, flexible, and a bit scary to learn!\nIf you need to build a plot, search it! Need to plot two histograms, separated by groups (say, gender), side by side? I’d google: “ggplot histogram grouped by variable”. This brings me to this blog post by R Charts that has a TON of different side by side histograms with code! ggplot is very much a “learn by doing” skill."
+  },
+  {
     "objectID": "webpages/slides/lec4a_datavis_slides.html#to-save-these-slides-with-your-code",
     "href": "webpages/slides/lec4a_datavis_slides.html#to-save-these-slides-with-your-code",
     "title": "Lecture 4: Data Visualization with ggplot2",
@@ -3160,7 +3251,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 20\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 22\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 14\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 9\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 17\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 14\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]
