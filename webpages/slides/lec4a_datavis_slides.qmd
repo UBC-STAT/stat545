@@ -3,6 +3,8 @@ title: "Lecture 4: Data Visualization with ggplot2"
 subtitle: "STAT 545 - Fall 2025"
 format: 
   live-revealjs:
+    resources: 
+      - datasets/gapminder.csv
     scrollable: true
     slide-number: true
     smaller: true
@@ -25,6 +27,47 @@ engine: webr
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+# Part 1: Plotting in R with `ggplot2`
+
+```{webr}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: setup
+
+# Run before lecture to load datasets and do simple prep
+library(tidyverse) #all our data wrangling/plotting
+options(repr.matrix.max.rows = 6)
+
+# Making scatter points a bit bigger so that students can see them
+update_geom_defaults("point", list(size = 3))
+
+#Mauna Loa
+co2_df <- tibble(
+    concentration = as.vector(co2),
+    date = lubridate::date_decimal(as.numeric(time(co2)))
+)
+
+#Top 12 Island landmasses
+islands_df <- enframe(islands)
+colnames(islands_df) <- c('landmass', 'size')
+islands_df = top_n(islands_df, 12, size)
+
+continents <- c('Africa', 'Antarctica', 'Asia', 'Australia', 'Europe', 'North America', 'South America')
+islands_df <- mutate(islands_df, is_continent = ifelse(landmass %in% continents, 'Continent', 'Other'))
+
+gapminder <- read_csv("datasets/gapminder.csv")
+gapminder_2016 <- gapminder  |>
+    select(country, year, continent, life_expectancy) |>
+    filter(year == 2016)
+
+
+#old faithful, mtcars -- nothing to do
+#these cleaned data sets are now also in the datasets/ folder. 
+
+```
+
 
 ## Today's Goals
 
@@ -356,7 +399,129 @@ The order of the layers doesn't matter after the `geom_layer()` layer.
 
 
 
+# Part 2: Choosing a Visualization
 
+## Choosing a Visualization
+
+**Ask a question, then answer it**
+
+-   The purpose of a visualization is to *answer a question* about a dataset of interest. 
+
+-   A good visualization answers the question clearly. A *great* visualization also hints at the question itself.
+
+## Designing a Visualization
+
+Visualizations alone help us answer two types of questions:
+
+-   **descriptive:** What are the largest 7 landmasses on Earth?
+-   **exploratory:** Is there a relationship between penguin body mass and bill length?
+-   ~~inferential~~
+-   ~~predictive~~
+-   ~~causal~~
+-   ~~mechanistic~~
+
+(we need more tools + visualizations to answer the others)
+
+## Types of Variables
+
+A **variable** refers to a characteristic of interest and can be:
+
+1.  Categorical: can be divided into groups (categories) e.g. marital status
+2.  Quantitative: measured on a numeric scale (usually units are attached) e.g. height
+
+</br>
+
+The types of variables (along with the question we wish to answer/explore) we have may depict the type of data visualization we should use.
+
+## Scatter Plots
+
+**Scatterplots are used to visualize the relationship between two quantitative variables**
+
+-   Example: Is there a relationship between horsepower and fuel economy of an engine? Does the number of cylinders affect that relationship?
+
+The  scatterplot we made last class helped us determine that there was a relationship between these three variables!
+
+
+
+## Line Plots
+
+**Line plots are used to visualize trends with respect to an independent quantity**
+
+-   Example: How has atmospheric carbon dioxide changed over the last 40 years?
+
+
+```{webr}
+#| persist: true
+#| label: exercise-lineplot 
+
+
+# Inspect the data
+head(co2_df)
+
+# How does atmospheric CO2 concentration change over time?
+
+ggplot(co2_df, aes(x=date, y=concentration)) +
+  geom_point(alpha = 0.2) +
+  geom_line() + 
+  labs(x = "Date", y = "CO2 Concentration")
+```
+
+
+
+## Bar Plots
+
+**Barplots are used to visualize the comparison of amounts**
+
+-   Example: Which are the largest 12 island landmasses on Earth? Are they all continents or are there some other islands with large landmasses as well?
+
+
+
+```{webr}
+#| persist: true
+#| label: exercise-barchart 
+
+
+# Inspect the data
+islands_df
+
+# What are the largest 12 island landmasses on Earth?
+
+ggplot(islands_df, aes(x = landmass, y = size)) +
+    geom_bar(stat = "identity") +
+    coord_flip() + 
+    labs(x = 'Landmass', y = 'Size')
+
+```
+
+
+
+## Histograms
+
+**Histograms are used to visualize the distribution of a single quantitative variable**
+
+-   Example: Was there a difference in life expectancy across different continents in 2016?
+
+
+
+```{webr}
+#| persist: true
+#| label: exercise-histogram 
+
+ggplot(gapminder_2016, aes(x = life_expectancy, fill = continent)) +
+    geom_histogram() +
+    facet_grid(rows = vars(continent)) +
+    labs(x = "Life Expectancy", y = "Count")
+```
+
+
+## Other Visualizations
+
+This list is not exhaustive, but the following are banned from this class: 
+
+-  anything "3D"
+
+-  pie charts
+  
 
 ## To Save These Slides With Your Code
 
