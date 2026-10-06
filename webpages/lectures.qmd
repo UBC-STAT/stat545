@@ -21,9 +21,9 @@ All due dates are at 11:59pm PT (local time, Vancouver).
 |  | Thurs Sept 24 | [Version Control II](lectures_i/lec3_versioncontrol.qmd) | Worksheet A2  |
 | 4 | Tues Sept 29 | [Data Visualization I](lectures_i/lec4_datavis.qmd) | |  |
 |  | Thurs Oct 01 | [Data Visualization II](lectures_i/lec4_datavis.qmd)  | Collaborative Project |
-| 5 | Tues Oct 06 | [Tidy Data](lectures_i/lec5_tidydata.qmd)  | Worksheet A3 |
-|  | Thurs Oct 08 | [Model Fitting](lectures_i/lec6a_modelfitting.qmd)  |  |
-| 6 | Tues Oct 13 | [Factors](lectures_i/lec6b_factorsanddates.qmd)  | Mini Data Analysis I |
+| 5 | Tues Oct 06 | [Tidy Data](lectures_i/lec5a_tidydata.qmd)  | Worksheet A3 |
+|  | Thurs Oct 08 | [Model Fitting](lectures_i/lec5b_modelfitting.qmd)  |  |
+| 6 | Tues Oct 13 | [Factors](lectures_i/lec6_factorsanddates.qmd)  | Mini Data Analysis I |
 |  | Thurs Oct 15 |  | Worksheet A4 |
 | 7 | Tues Oct 20 | [Reading/Writing](lectures_i/lec7a_readwritedata.qmd) , [Tibble Joins](lectures_i/lec7b_joiningtibbles.qmd) |  |
 |  | Thurs Oct 22 |  | Worksheet A5 |

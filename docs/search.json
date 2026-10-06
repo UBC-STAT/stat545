@@ -398,156 +398,156 @@
     "text": "Next Class: Worksheet A5/MDA Session\nThis is the last lecture of STAT545A! Goodbye to those not continuing onto STAT545B!\nFeel free to stay in touch:\n\nhttps://www.linkedin.com/in/grace-e-tompkins/\ngrace@stat.ubc.ca\n\n\n\nWave Bye Stickerfrom Wave Stickers"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#learning-objectives",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#learning-objectives",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#learning-objectives",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#learning-objectives",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nFrom today’s class, students are anticipated to be able to:\n\nmake a model object in R, using lm() as an example.\nwrite a formula in R.\npredict on a model object with the broom::augment() and predict() functions.\nextract information from a model object using broom::tidy(), broom::glance(), and traditional means.\n\nNote that there is a new tidyverse-like framework of packages to help with modelling. It’s called tidymodels.\nYouTube Video\nLecture Notes:"
+    "text": "Learning Objectives\nFrom today’s class, students are anticipated to be able to:\n\nmake a model object in R, using lm() as an example.\nwrite a formula in R.\npredict on a model object with the broom::augment() and predict() functions.\nextract information from a model object using broom::tidy(), broom::glance(), and traditional means.\n\nNote that there is a new tidyverse-like framework of packages to help with modelling. It’s called tidymodels.\nYouTube Video"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#set-up",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#set-up",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#set-up",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#set-up",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Set-up",
     "text": "Set-up\nThe following packages will be used throughout this lecture:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#model-fitting-in-r",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#model-fitting-in-r",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#model-fitting-in-r",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#model-fitting-in-r",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Model Fitting in R",
     "text": "Model Fitting in R\nWe cannot rely only on plotting to:\n\nInvestigate the relationship between two or more variables\nPredict the outcome of a variable given information about other variables\n\nThese typically involve fitting models.\n\n\nNOTE: This lecture is not about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value. The focus of this lecture will be on how we fit models in R.\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#example-linear-model",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#example-linear-model",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#example-linear-model",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#example-linear-model",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Example: Linear Model",
     "text": "Example: Linear Model\n\nDescribes a relationship between:\n\nan outcome y, and\nvariable(s) (or covariate(s), predictor(s), dependent variable(s)) x.\n\nLike a line of best fit\nCan be used for both inference and prediction"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#example-linear-model-1",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#example-linear-model-1",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#example-linear-model-1",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#example-linear-model-1",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Example: Linear Model",
     "text": "Example: Linear Model\nHere are a couple questions that a linear model could be used to answer:\n\nWhat is the predicted fuel efficiency (mpg) for a 4000lb car?\nDoes the weight of a car influence its mpg?\nHow many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?\n\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#example-linear-model-2",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#example-linear-model-2",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#example-linear-model-2",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#example-linear-model-2",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Example: Linear Model",
     "text": "Example: Linear Model\nA simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the mtcars dataset in the datasets package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.\n\n\n\n\n\n\n\n\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#fitting-a-model-in-r",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#fitting-a-model-in-r",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#fitting-a-model-in-r",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#fitting-a-model-in-r",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Fitting a Model in R",
     "text": "Fitting a Model in R\nFitting a model in R typically involves using a function in the following format: method(formula, data, options)\nMethod: A function such as:\n\nLinear Regression: lm\nGeneralized Linear Regression: glm\nLocal regression: loess\n…\n\nFormula: In R, takes the form y ~ x1 + x2 + ... + xp (use column names in your data frame), where y here means the outcome variable you’re interested in viewing in relation to other variables x1, x2, …\nData: The data frame or tibble. (can omit, if variables in the formula are defined in environment)\nOptions: Specific to the method, and include ways to customize the model."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#fitting-a-model-in-r-1",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#fitting-a-model-in-r-1",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#fitting-a-model-in-r-1",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#fitting-a-model-in-r-1",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Fitting a Model in R",
     "text": "Fitting a Model in R\nRunning the code returns an object – usually a special type of list – that you can then work with to extract results.\nExample: linear model of car’s mileage per gallon (mpg, “Y” variable) and the car’s weight (wt, “X” variable).\n\n\n\n\n\n\n\n\n\nmy_lm contains a lot more than what’s printed! Let’s explore it."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model with broom",
     "text": "Summarizing the Model with broom\nNow that you have the model object, there are typically three ways in which it’s useful to probe and use the model object. The broom package has three crown functions that make it easy to extract each piece of information by converting your model into a tibble:\n\ntidy: extract statistical summaries about each “component” of the model.\naugment: add columns to the original data frame containing predictions.\nglance: extract statistical summaries about the model as a whole (a 1-row tibble)."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom-1",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom-1",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom-1",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom-1",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model with broom",
     "text": "Summarizing the Model with broom\ntidy()\nUse the tidy() function for a statistical summary of each component of your model, where each component gets a row in the output tibble. For lm(), tidy() gives one row per regression coefficient (slope and intercept).\n\n\n\n\n\n\n\n\n\ntidy() only works if it makes sense to talk about model “components”."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom-2",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom-2",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom-2",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom-2",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model with broom",
     "text": "Summarizing the Model with broom\naugment()\nUse the augment() function to make predictions on a dataset by augmenting predictions as a new column to your data. By default, augment() uses the dataset that was used to fit the model.\n\n\n\n\n\n\n\n\n\nWe can also predict on new datasets. Here are predictions of mpg for cars weighing 3, 4, and 5 thousand lbs. In the following code, we make a predictor for wt = 3, 4, and 5.\n\n\n\n\n\n\n\n\n\nNotice that only the “X” variables are needed in the input tibble (wt), and that since the “Y” variable (mpg) wasn’t provided, augment() couldn’t calculate anything besides a prediction"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom-3",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-with-broom-3",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom-3",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-with-broom-3",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model with broom",
     "text": "Summarizing the Model with broom\nglance()\nUse the glance() function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model Without broom",
     "text": "Summarizing the Model Without broom\nIn order for a model to work with the broom package, someone has to go out of their way to contribute to the broom package for that model. While this has happened for many common models, many others remain without broom compatibility.\nHere’s how to work with these model objects in that case."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-prediction",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-prediction",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model Without broom: Prediction",
     "text": "Summarizing the Model Without broom: Prediction\nIf broom::augment() doesn’t work, then the developer of the model almost surely made it so that the predict() function works (not part of the broom package). The predict() function typically takes the same format of the augment() function, but usually doesn’t return a tibble.\nHere are the first 5 predictions of mpg on the my_lm object, defaulting to predictions made on the original data:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction-1",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-prediction-1",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-prediction-1",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-prediction-1",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model Without broom: Prediction",
     "text": "Summarizing the Model Without broom: Prediction\nHere are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:\n\n\n\n\n\n\n\n\nChecking the documentation of the predict() function for your model isn’t obvious, because the predict() function is a “generic” function. Your best bet is to append the model name after a dot. For example:\n\nFor a model fit with lm(), try ?predict.lm\nFor a model fit with rq(), try ?predict.rq (from the quantreg package)\n\nIf that doesn’t work, just google it: \"Predict function for rq\""
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-inference",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-inference",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model Without broom: Inference",
     "text": "Summarizing the Model Without broom: Inference\nWe can extract model information using summary() on the linear model:\n\n\n\n\n\n\n\n\nThere’s a lot of information here. To extract a specific piece, we use $. For example,\n\n\n\n\n\n\n\n\nThis outputs a data frame of some of the model output regarding the regression coefficients."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference-1",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summarizing-the-model-without-broom-inference-1",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-inference-1",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summarizing-the-model-without-broom-inference-1",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summarizing the Model Without broom: Inference",
     "text": "Summarizing the Model Without broom: Inference\nThere are a ton of other items we can access, and to see them we can call names()\n\n\n\n\n\n\n\n\nFor another example, wo see the adjusted R-squared valued of the model we can use"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#example-gapminder",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#example-gapminder",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#example-gapminder",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#example-gapminder",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Example: gapminder",
     "text": "Example: gapminder\nLet’s visualize some relationships in the gapminder dataset.\nLet’s inspect Zimbabwe, which has a unique behavior in the lifeExp and year relationship."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#example-gapminder-1",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#example-gapminder-1",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#example-gapminder-1",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#example-gapminder-1",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Example: gapminder",
     "text": "Example: gapminder\nNow, let’s try fitting a linear model to this relationship\n\n\n\n\n\n\n\n\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#example-gapminder-2",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#example-gapminder-2",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#example-gapminder-2",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#example-gapminder-2",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Example: gapminder",
     "text": "Example: gapminder\nNow we will try to fit a second degree polynomial and see what would that look like.\n\n\n\n\n\n\n\n\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#summary",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#summary",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#summary",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#summary",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Summary",
     "text": "Summary\nWhile this lecture only focused on two-dimensonal data (one y and one x), more sophisticaed statistical models can certainly handle more complexity and higher-dimensional data. If you’re interested, head to the Resources section at the end of this lecture notes to learn more.\n\nfunction(formula, data, options) - most models in R follow this structure.\nbroom::augment() - uses a fitted model to obtain predictions. Puts this in a new column in existing tibble. Equivalent base-r function is predict().\nbroom::tidy() - used to extract statistical information on each component of a model. Equivalent is coef(summary(lm_object)).\nbroom::glance() - used to extract statistical summaries on the whole model. Always returns a 1-row tibble.\ngeom_smooth() - used to add geom_layer that shows a fitted line to the data. method and formula arguments can be used to customize model."
   },
   {
-    "objectID": "webpages/slides/lec6_modelfitting_slides.html#worksheet-a4",
-    "href": "webpages/slides/lec6_modelfitting_slides.html#worksheet-a4",
-    "title": "Lecture 6a: Model Fitting",
+    "objectID": "webpages/slides/lec5b_modelfitting_slides.html#worksheet-a4",
+    "href": "webpages/slides/lec5b_modelfitting_slides.html#worksheet-a4",
+    "title": "Lecture 5b: Model Fitting",
     "section": "Worksheet A4",
     "text": "Worksheet A4\nWe will now spend some time attempting questions on the last part of Worksheet A4."
   },
@@ -1633,204 +1633,144 @@
     ]
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html",
     "title": "Lecture 6B: Factors",
     "section": "",
-    "text": "Lecture 6b Slides",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Lecture 6b Slides"
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#lecture-slides",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html#lecture-slides",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html#lecture-slides",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html#lecture-slides",
     "title": "Lecture 6B: Factors",
     "section": "",
-    "text": "Lecture 6b Slides",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Lecture 6b Slides"
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#video-lecture",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html#video-lecture",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html#video-lecture",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html#video-lecture",
     "title": "Lecture 6B: Factors",
     "section": "Video Lecture",
-    "text": "Video Lecture\n\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Video Lecture\n\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles"
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#set-up",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html#set-up",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html#set-up",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html#set-up",
     "title": "Lecture 6B: Factors",
     "section": "Set-up",
-    "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:\n\nlibrary(tidyverse) #also loads forcats!\nlibrary(palmerpenguins)\nlibrary(gapminder)",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:\n\nlibrary(tidyverse) #also loads forcats!\nlibrary(palmerpenguins)\nlibrary(gapminder)"
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#factors",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html#factors",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html#factors",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html#factors",
     "title": "Lecture 6B: Factors",
     "section": "Factors",
-    "text": "Factors\n\n“There is no other object that creates as much trouble as factors.” - Patrick Burns, “The R Inferno”.\n\nIn R, we use factors to represent categorical variables: variables that take on a fixed number of known values (i.e. levels). For example, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:\n\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nor we can explicitly look at the class and levels of the variable of interest by:\n\nclass(penguins$species)\n\n[1] \"factor\"\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nUnder the hood, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.\nThis is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:\n\nset.seed(100) #make reproducible (more on this later)\n\npenguins %&gt;% \n  slice_sample(n=10) %&gt;% #take 10 random rows\n  pull(species) #output the species only\n\n [1] Gentoo    Adelie    Gentoo    Adelie    Chinstrap Chinstrap Adelie   \n [8] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nThis dual nature of factors creates a whole slew of hidden traps and headaches, especially for new R users!\n\n\n\n\n\n\nCaution\n\n\n\nSometimes factors are coded (i.e., written) in the data as integers. Without explicitly telling R, R will assume any numeric data are just regular old numbers.\nAlways ensure that factors are explicit in your code!\n\n\nFor example, suppose in the penguins data set than instead of their names, species had levels “1”, “2”, and “3’ where”1” could represent Gentoo, “2” Adelie, and 3 “Chinstrap” penguins. So, instead of having the names of penguin species as strings, they are coded as numeric values.\n\npenguins2 &lt;- penguins %&gt;%\n  mutate(species = recode(species, \"Gentoo\" = 1, \"Adelie\" = 2, \"Chinstrap\" = 3))\n\nstr(penguins2)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : num [1:344] 2 2 2 2 2 2 2 2 2 2 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. To ensure R knows that species is categorical, we can use:\n\npenguins2 &lt;- penguins2 %&gt;% #overwrite existing tibble\n  mutate(species = as.factor(species)) #overwrite species to be a factor using as.factor\n\nstr(penguins2)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"1\",\"2\",\"3\": 2 2 2 2 2 2 2 2 2 2 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nNow we see that species is a factor with three levels!\nNevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either ggplot2 or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse.\n\nReordering Factor Levels\nBy default, factors are ordered alphabetically or numerically. However, in many cases factors have a logical ordering they should follow. For example, you may have an education variable dictating the level of schooling a student is currently in (i.e., elementary, secondary, post-secondary, graduate). It is natural to order the factor in this way. In other cases, you may just want to reorder the levels of a factor so that it plots a certain way. Reordering data can be useful for both data visualization and model fitting.\nTo see the current ordering of a factor variable, we can call levels().\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nWe see here, the levels of the factor are ordered alphabetically.\n\nReordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\npenguins3 &lt;- penguins %&gt;%\n  mutate(species = ordered(species, levels = c(\"Gentoo\", \"Chinstrap\", \"Adelie\"))) #change species to an ordered factor with the specified ordering\n\nlevels(penguins3$species) #see the levels of species\n\n[1] \"Gentoo\"    \"Chinstrap\" \"Adelie\"   \n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:\n\nstr(penguins3)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Ord.factor w/ 3 levels \"Gentoo\"&lt;\"Chinstrap\"&lt;..: 3 3 3 3 3 3 3 3 3 3 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\n\n\nReordering Levels of a Factors Based on a Condition Using forcats\nPerhaps we want to reorder levels based on some condition, perhaps the ordering levels by frequency, or perhaps by the another summary statistic (which could be useful for effective data visualization!). We can easily do so using the forcats package. Let’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\nggplot(penguins, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend\n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nThis data visualization is fine. But there’s one step we can do to make it even better: order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common. This is especially useful when the number of levels is large!\nWe can do this in two ways: edit the original tibble to have new factor ordering, or order the factors directly in the ggplot2 call so that the original tibble isn’t overwritted. We will show both ways. We will use the forcats package in both examples.\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble, we can use fct_reorder():\n\npenguins4 &lt;- penguins %&gt;% #initialize a new dataset \n  mutate(species = fct_infreq(species))\n\nlevels(penguins4$species)\n\n[1] \"Adelie\"    \"Gentoo\"    \"Chinstrap\"\n\n\nWe see the ordering is Adelie, Gentoo, and then Chinstrap. If you look at the previous plot, you’ll see that these are ordered from smallest to largest frequencies. The original ordering was alphabetical.\nTo order from smallest to largest, we had fct_rev() to the chain:\n\npenguins4 &lt;- penguins %&gt;% #initialize a new dataset \n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;%\n           fct_rev())\n\n\nlevels(penguins4$species)\n\n[1] \"Chinstrap\" \"Gentoo\"    \"Adelie\"   \n\n\nNow the levels are reversed!\nWe can then plot our data using penguins4:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nOf course, an even better visualization would involve flipping the axes:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") + #add a title\n  coord_flip()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIt may look like they are ordered from largest to smallest, but they are actually ordered from smallest to largest. When flipped, ggplot puts the first level on the bottom.\n\n\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;% #order by frequency\n           fct_rev()) %&gt;%  #reverse ordering\n  ggplot( aes(x = species, fill = species)) + #no longer specify the data set in ggplot() as this is passed in by the pipe %&gt;%\n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip()\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors.\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\n\n\n\n\n\n\nWarningExercise\n\n\n\nThe gapminder dataset contains information on GDP per capita (gdpPercap) by country. Add to the following ggplot to visualize the GDP per capita, ordered by GDP per capita, for countries in Asia in 2007. Copy the code block to edit and run it in R.\nlibrary(gapminder)\nlibrary(tidyverse)\n\ngapminder %&gt;%\n  filter( ) %&gt;% #FILL THIS IN: filter by countries in Asia\n  mutate() %&gt;% #FILL THIS IN: change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n  \n\n\nAnswer below! No peaking until you’ve attempted this problem!\n\ngapminder %&gt;%\n  filter(continent == \"Asia\", year == 2007) %&gt;% #filter by countries in Asia\n  mutate(country = fct_reorder(country, gdpPercap)) %&gt;% #change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n\n\n\n\n\n\n\n\n\n\n\nExpanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_expand(\"King\", \"Emperor\") %&gt;% #NEW: expand levels to include king and emperor\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data.\n\nRemoving Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:\n\npenguins_no_gentoo &lt;- penguins %&gt;%\n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;%\n  droplevels()\n\nlevels(penguins_no_gentoo$species)\n\n[1] \"Adelie\"    \"Chinstrap\"\n\n\nWe can also do this along with the ggplot call by:\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;% #NEW: filter only these species\n  droplevels() %&gt;% #NEW: drop if not adelie or chinstrap species\n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Factors\n\n“There is no other object that creates as much trouble as factors.” - Patrick Burns, “The R Inferno”.\n\nIn R, we use factors to represent categorical variables: variables that take on a fixed number of known values (i.e. levels). For example, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:\n\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nor we can explicitly look at the class and levels of the variable of interest by:\n\nclass(penguins$species)\n\n[1] \"factor\"\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nUnder the hood, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.\nThis is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:\n\nset.seed(100) #make reproducible (more on this later)\n\npenguins %&gt;% \n  slice_sample(n=10) %&gt;% #take 10 random rows\n  pull(species) #output the species only\n\n [1] Gentoo    Adelie    Gentoo    Adelie    Chinstrap Chinstrap Adelie   \n [8] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nThis dual nature of factors creates a whole slew of hidden traps and headaches, especially for new R users!\n\n\n\n\n\n\nCaution\n\n\n\nSometimes factors are coded (i.e., written) in the data as integers. Without explicitly telling R, R will assume any numeric data are just regular old numbers.\nAlways ensure that factors are explicit in your code!\n\n\nFor example, suppose in the penguins data set than instead of their names, species had levels “1”, “2”, and “3’ where”1” could represent Gentoo, “2” Adelie, and 3 “Chinstrap” penguins. So, instead of having the names of penguin species as strings, they are coded as numeric values.\n\npenguins2 &lt;- penguins %&gt;%\n  mutate(species = recode(species, \"Gentoo\" = 1, \"Adelie\" = 2, \"Chinstrap\" = 3))\n\nstr(penguins2)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : num [1:344] 2 2 2 2 2 2 2 2 2 2 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. To ensure R knows that species is categorical, we can use:\n\npenguins2 &lt;- penguins2 %&gt;% #overwrite existing tibble\n  mutate(species = as.factor(species)) #overwrite species to be a factor using as.factor\n\nstr(penguins2)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"1\",\"2\",\"3\": 2 2 2 2 2 2 2 2 2 2 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nNow we see that species is a factor with three levels!\nNevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either ggplot2 or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse.\n\nReordering Factor Levels\nBy default, factors are ordered alphabetically or numerically. However, in many cases factors have a logical ordering they should follow. For example, you may have an education variable dictating the level of schooling a student is currently in (i.e., elementary, secondary, post-secondary, graduate). It is natural to order the factor in this way. In other cases, you may just want to reorder the levels of a factor so that it plots a certain way. Reordering data can be useful for both data visualization and model fitting.\nTo see the current ordering of a factor variable, we can call levels().\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nWe see here, the levels of the factor are ordered alphabetically.\n\nReordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\npenguins3 &lt;- penguins %&gt;%\n  mutate(species = ordered(species, levels = c(\"Gentoo\", \"Chinstrap\", \"Adelie\"))) #change species to an ordered factor with the specified ordering\n\nlevels(penguins3$species) #see the levels of species\n\n[1] \"Gentoo\"    \"Chinstrap\" \"Adelie\"   \n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:\n\nstr(penguins3)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Ord.factor w/ 3 levels \"Gentoo\"&lt;\"Chinstrap\"&lt;..: 3 3 3 3 3 3 3 3 3 3 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\n\n\nReordering Levels of a Factors Based on a Condition Using forcats\nPerhaps we want to reorder levels based on some condition, perhaps the ordering levels by frequency, or perhaps by the another summary statistic (which could be useful for effective data visualization!). We can easily do so using the forcats package. Let’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\nggplot(penguins, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend\n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nThis data visualization is fine. But there’s one step we can do to make it even better: order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common. This is especially useful when the number of levels is large!\nWe can do this in two ways: edit the original tibble to have new factor ordering, or order the factors directly in the ggplot2 call so that the original tibble isn’t overwritted. We will show both ways. We will use the forcats package in both examples.\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble, we can use fct_reorder():\n\npenguins4 &lt;- penguins %&gt;% #initialize a new dataset \n  mutate(species = fct_infreq(species))\n\nlevels(penguins4$species)\n\n[1] \"Adelie\"    \"Gentoo\"    \"Chinstrap\"\n\n\nWe see the ordering is Adelie, Gentoo, and then Chinstrap. If you look at the previous plot, you’ll see that these are ordered from smallest to largest frequencies. The original ordering was alphabetical.\nTo order from smallest to largest, we had fct_rev() to the chain:\n\npenguins4 &lt;- penguins %&gt;% #initialize a new dataset \n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;%\n           fct_rev())\n\n\nlevels(penguins4$species)\n\n[1] \"Chinstrap\" \"Gentoo\"    \"Adelie\"   \n\n\nNow the levels are reversed!\nWe can then plot our data using penguins4:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nOf course, an even better visualization would involve flipping the axes:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") + #add a title\n  coord_flip()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIt may look like they are ordered from largest to smallest, but they are actually ordered from smallest to largest. When flipped, ggplot puts the first level on the bottom.\n\n\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;% #order by frequency\n           fct_rev()) %&gt;%  #reverse ordering\n  ggplot( aes(x = species, fill = species)) + #no longer specify the data set in ggplot() as this is passed in by the pipe %&gt;%\n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip()\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors.\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\n\n\n\n\n\n\nWarningExercise\n\n\n\nThe gapminder dataset contains information on GDP per capita (gdpPercap) by country. Add to the following ggplot to visualize the GDP per capita, ordered by GDP per capita, for countries in Asia in 2007. Copy the code block to edit and run it in R.\nlibrary(gapminder)\nlibrary(tidyverse)\n\ngapminder %&gt;%\n  filter( ) %&gt;% #FILL THIS IN: filter by countries in Asia\n  mutate() %&gt;% #FILL THIS IN: change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n  \n\n\nAnswer below! No peaking until you’ve attempted this problem!\n\ngapminder %&gt;%\n  filter(continent == \"Asia\", year == 2007) %&gt;% #filter by countries in Asia\n  mutate(country = fct_reorder(country, gdpPercap)) %&gt;% #change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n\n\n\n\n\n\n\n\n\n\n\nExpanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_expand(\"King\", \"Emperor\") %&gt;% #NEW: expand levels to include king and emperor\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data.\n\nRemoving Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:\n\npenguins_no_gentoo &lt;- penguins %&gt;%\n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;%\n  droplevels()\n\nlevels(penguins_no_gentoo$species)\n\n[1] \"Adelie\"    \"Chinstrap\"\n\n\nWe can also do this along with the ggplot call by:\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;% #NEW: filter only these species\n  droplevels() %&gt;% #NEW: drop if not adelie or chinstrap species\n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels"
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#worksheet-a5",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html#worksheet-a5",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html#worksheet-a5",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html#worksheet-a5",
     "title": "Lecture 6B: Factors",
     "section": "Worksheet A5",
-    "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice.",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice."
   },
   {
-    "objectID": "webpages/lectures_i/lec6b_factorsanddates.html#additional-resources",
-    "href": "webpages/lectures_i/lec6b_factorsanddates.html#additional-resources",
+    "objectID": "webpages/lectures_i/lec6_factorsanddates.html#additional-resources",
+    "href": "webpages/lectures_i/lec6_factorsanddates.html#additional-resources",
     "title": "Lecture 6B: Factors",
     "section": "Additional Resources",
-    "text": "Additional Resources\n\nVideo lecture: Special Data Types in R: Dates, Times, and Factors\nChapter IV of https://stat545.com/\nThe forcats package page and reference guide on page.",
-    "crumbs": [
-      "Lecture 6B: Factors"
-    ]
+    "text": "Additional Resources\n\nVideo lecture: Special Data Types in R: Dates, Times, and Factors\nChapter IV of https://stat545.com/\nThe forcats package page and reference guide on page."
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html",
-    "href": "webpages/lectures_i/lec5_tidydata.html",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html",
+    "href": "webpages/lectures_i/lec5a_tidydata.html",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "",
-    "text": "Lecture 5 Slides",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Lecture 5A Slides"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#lecture-slides",
-    "href": "webpages/lectures_i/lec5_tidydata.html#lecture-slides",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#lecture-slides",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#lecture-slides",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "",
-    "text": "Lecture 5 Slides",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Lecture 5A Slides"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#lecture-video",
-    "href": "webpages/lectures_i/lec5_tidydata.html#lecture-video",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#lecture-video",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#lecture-video",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Lecture Video",
-    "text": "Lecture Video",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Lecture Video"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#learning-objectives",
-    "href": "webpages/lectures_i/lec5_tidydata.html#learning-objectives",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#learning-objectives",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#learning-objectives",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nFrom this topic, students are anticipated to be able to:\n\nrecognize whether a given data set is ‘tidy’ or ‘untidy’ for their analysis\nunderstand why ‘tidy’ data can be useful\nreshape a data set between ‘long’ and ‘wide’ formats, using tidyr::pivot_longer() and tidyr::pivot_wider()\nunderstand how to grapple with explicit missing values created by pivoting",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Learning Objectives\nFrom this topic, students are anticipated to be able to:\n\nrecognize whether a given data set is ‘tidy’ or ‘untidy’ for their analysis\nunderstand why ‘tidy’ data can be useful\nreshape a data set between ‘long’ and ‘wide’ formats, using tidyr::pivot_longer() and tidyr::pivot_wider()\nunderstand how to grapple with explicit missing values created by pivoting"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#set-up",
-    "href": "webpages/lectures_i/lec5_tidydata.html#set-up",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#set-up",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#set-up",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Set Up",
-    "text": "Set Up\nWe will be using the following packages for this lecture:\n\nlibrary(fivethirtyeight)\nlibrary(tidyverse)",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Set Up\nWe will be using the following packages for this lecture:\n\nlibrary(fivethirtyeight)\nlibrary(tidyverse)"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#tidy-data-and-the-tidyverse",
-    "href": "webpages/lectures_i/lec5_tidydata.html#tidy-data-and-the-tidyverse",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#tidy-data-and-the-tidyverse",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#tidy-data-and-the-tidyverse",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Tidy Data and the Tidyverse",
-    "text": "Tidy Data and the Tidyverse\nIn the last two weeks, we learned about the dplyr package for data manipulation and the ggplot2 package for graphing. These two packages are part of the “tidyverse”: a collection of data science packages that are designed to have input data frames and output data frames that are tidy. In fact, we can load all packages in the tidyverse at once with the single command library(tidyverse).\nHere, we are using the word “tidy” in a technical sense - we’re not talking about how “neat” or “organized” your data is. Instead, “tidy” is a very specific set of rules for storing data.\nTidy data is defined as data where\n\neach variables form a column,\neach observation forms a row, and\neach cell is a single measurement. [1]\n\nSo why do we want to use it?\n\n\n\nArtwork by Allison Horst (@allisonhorst)\n\n\n\n\n\nArtwork by Allison Horst (@allisonhorst)\n\n\nFor example, the following data set containing cat and dog names by family is not tidy. We have multiple observations per row (a cat, and a dog observation):\n\n\n\nOwner\nPet 1\nPet 2\n\n\n\n\nAsfar\nCosmo (Orange Cat)\nZuko (Grey Dog)\n\n\nGrace\nDorito (Brown Chipmunk)\n\n\n\nZifu\nBooger (Black and White Dog)\n\n\n\nFlora\nMimi (White Cat)\n\n\n\nYvette\nMia (Beige and White Cat)\n\n\n\nAlexandra\nBambi (Black and White Dog)\n\n\n\nErick\nMaisy (Brown Cat)\n\n\n\nSolana\nSuki (White and Brown Cat)\n\n\n\nDanielle\nEnzo (Black Cat)\n\n\n\nKisa\nRio (Multicoloured Parrot)\n\n\n\n\nInstead, a tidy version of this data set may look like this:\n\n\n\nPet Name\nType\nOwner\nColour\n\n\n\n\nCosmo\nCat\nAsfar\nOrange\n\n\nZuko\nDog\nAsfar\nGrey\n\n\nDorito\nChipmunk\nGrace\nBrown\n\n\nBooger\nDog\nZifu\nBlack and White\n\n\nMimi\nCat\nFlora\nWhite\n\n\nMia\nCat\nYvette\nBeige and White\n\n\nBambi\nDog\nAlexandra\nBlack and White\n\n\nMaisy\nCat\nErick\nBrown\n\n\nEnzo\nCat\nDanielle\nBlack\n\n\nRio\nParrot\nKisa\nMulticoloured\n\n\n\nEach row is an observation, each variable is a column, and each cell is a single measurement. Our data is tidy!\nAll of the data we used before this week were already tidy. This made it easy to use the tidyverse packages dplyr and ggplot2 to do what we needed to do. Oftentimes however, data is not collected in a tidy way. So, what happens do we do when we have untidy data? Let’s explore it!\n\nExample: Drinks\nThe fivethirtyeight R package contains a dataset called drinks. This dataset was compiled as part of a FiveThirtyEight article that explored (among other things) which countries consumes the most alcohol. Let’s look at a subset of the data:\n\ndrinks_tbl1 &lt;- as_tibble(drinks) %&gt;% \n  select(-total_litres_of_pure_alcohol) #remove total liters variable\n\nhead(drinks_tbl1) #view the first few rows of the data\n\n# A tibble: 6 × 4\n  country           beer_servings spirit_servings wine_servings\n  &lt;chr&gt;                     &lt;int&gt;           &lt;int&gt;         &lt;int&gt;\n1 Afghanistan                   0               0             0\n2 Albania                      89             132            54\n3 Algeria                      25               0            14\n4 Andorra                     245             138           312\n5 Angola                      217              57            45\n6 Antigua & Barbuda           102             128            45\n\n\nThe following graphic was made from the drinks dataset.\n\n\n\n\n\nIt’s clear from the definition that tidiness is an attribute of a dataset. But did you know that tidiness also depends on what you are planning to do with the data? That’s because what’s an observation and what’s a variable depends on the data analysis plan!\n\n\n\n\n\n\nWarningExercise 1\n\n\n\nWith a partner or a small group discuss the following questions think about if the data is tidy or untidy. If tidy, what would the ggplot code look like to reproduce this graph? If untidy, what would the tidy format look like? Sketch the first few rows of the data. Now, what would the ggplot code look like to reproduce this graph?",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Tidy Data and the Tidyverse\nIn the last two weeks, we learned about the dplyr package for data manipulation and the ggplot2 package for graphing. These two packages are part of the “tidyverse”: a collection of data science packages that are designed to have input data frames and output data frames that are tidy. In fact, we can load all packages in the tidyverse at once with the single command library(tidyverse).\nHere, we are using the word “tidy” in a technical sense - we’re not talking about how “neat” or “organized” your data is. Instead, “tidy” is a very specific set of rules for storing data.\nTidy data is defined as data where\n\neach variables form a column,\neach observation forms a row, and\neach cell is a single measurement. [1]\n\nSo why do we want to use it?\n\n\n\nArtwork by Allison Horst (@allisonhorst)\n\n\n\n\n\nArtwork by Allison Horst (@allisonhorst)\n\n\nFor example, the following data set containing cat and dog names by family is not tidy. We have multiple observations per row (a cat, and a dog observation):\n\n\n\nOwner\nPet 1\nPet 2\n\n\n\n\nAsfar\nCosmo (Orange Cat)\nZuko (Grey Dog)\n\n\nGrace\nDorito (Brown Chipmunk)\n\n\n\nZifu\nBooger (Black and White Dog)\n\n\n\nFlora\nMimi (White Cat)\n\n\n\nYvette\nMia (Beige and White Cat)\n\n\n\nAlexandra\nBambi (Black and White Dog)\n\n\n\nErick\nMaisy (Brown Cat)\n\n\n\nSolana\nSuki (White and Brown Cat)\n\n\n\nDanielle\nEnzo (Black Cat)\n\n\n\nKisa\nRio (Multicoloured Parrot)\n\n\n\n\nInstead, a tidy version of this data set may look like this:\n\n\n\nPet Name\nType\nOwner\nColour\n\n\n\n\nCosmo\nCat\nAsfar\nOrange\n\n\nZuko\nDog\nAsfar\nGrey\n\n\nDorito\nChipmunk\nGrace\nBrown\n\n\nBooger\nDog\nZifu\nBlack and White\n\n\nMimi\nCat\nFlora\nWhite\n\n\nMia\nCat\nYvette\nBeige and White\n\n\nBambi\nDog\nAlexandra\nBlack and White\n\n\nMaisy\nCat\nErick\nBrown\n\n\nEnzo\nCat\nDanielle\nBlack\n\n\nRio\nParrot\nKisa\nMulticoloured\n\n\n\nEach row is an observation, each variable is a column, and each cell is a single measurement. Our data is tidy!\nAll of the data we used before this week were already tidy. This made it easy to use the tidyverse packages dplyr and ggplot2 to do what we needed to do. Oftentimes however, data is not collected in a tidy way. So, what happens do we do when we have untidy data? Let’s explore it!\n\nExample: Drinks\nThe fivethirtyeight R package contains a dataset called drinks. This dataset was compiled as part of a FiveThirtyEight article that explored (among other things) which countries consumes the most alcohol. Let’s look at a subset of the data:\n\ndrinks_tbl1 &lt;- as_tibble(drinks) %&gt;% \n  select(-total_litres_of_pure_alcohol) #remove total liters variable\n\nhead(drinks_tbl1) #view the first few rows of the data\n\n# A tibble: 6 × 4\n  country           beer_servings spirit_servings wine_servings\n  &lt;chr&gt;                     &lt;int&gt;           &lt;int&gt;         &lt;int&gt;\n1 Afghanistan                   0               0             0\n2 Albania                      89             132            54\n3 Algeria                      25               0            14\n4 Andorra                     245             138           312\n5 Angola                      217              57            45\n6 Antigua & Barbuda           102             128            45\n\n\nThe following graphic was made from the drinks dataset.\n\n\n\n\n\nIt’s clear from the definition that tidiness is an attribute of a dataset. But did you know that tidiness also depends on what you are planning to do with the data? That’s because what’s an observation and what’s a variable depends on the data analysis plan!\n\n\n\n\n\n\nWarningExercise 1\n\n\n\nWith a partner or a small group discuss the following questions think about if the data is tidy or untidy. If tidy, what would the ggplot code look like to reproduce this graph? If untidy, what would the tidy format look like? Sketch the first few rows of the data. Now, what would the ggplot code look like to reproduce this graph?"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#basic-pivoting",
-    "href": "webpages/lectures_i/lec5_tidydata.html#basic-pivoting",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#basic-pivoting",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#basic-pivoting",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Basic Pivoting",
-    "text": "Basic Pivoting\nOnce you have figured out what’s tidy for you, you may come to realize that your data is not tidy. As we have discussed, it will typically save you time and frustration to tidy it before moving on in your analysis.\nVery often this will involve using “pivoting” type functions. For example, the tidyr package in the tidyverse has two main pivoting functions:\n\npivot_longer() makes datasets longer: it moves some information in the columns into new rows, thereby increasing the number of rows of the dataset.\npivot_wider() makes datasets wider: it moves some information in the rows into new columns, thereby decreasing the number of rows of the dataset.\n\n\nPivoting Wider\nHere is an example of (artificial) data that is currently in “long” format, looking grades before and after active learning was incorporated into their math and science lectures:\n\ngrades_long &lt;- tibble(\n  student_id = c(1, 1, 1, 1, 2, 2,2, 2, 3, 3, 3, 3),\n  time = c(\"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\"),\n  subject = c(\"Math\", \"Math\", \"Science\", \"Science\", \"Math\", \"Math\", \"Science\",\"Science\",  \"Math\", \"Math\", \"Science\", \"Science\"),\n  score = c(85, 86, 92, 92, 78, 82, 88, 89, 95, 94, 90, 90)\n)\n\nhead(grades_long)\n\n# A tibble: 6 × 4\n  student_id time   subject score\n       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n1          1 Before Math       85\n2          1 After  Math       86\n3          1 Before Science    92\n4          1 After  Science    92\n5          2 Before Math       78\n6          2 After  Math       82\n\n\nSometimes, we require data involving time to have row for each observation, and one column for each time point (i.e., wide data). While this isn’t our “standard” definition of tidy, sometimes this is what is required for longitudinal data (i.e., data involving measures repeated over time). Nevertheless, let’s try to pivot this table!\nWe can solve this problem using pivot_wider, which needs three pieces of information.\n\nWhat is a set of columns that uniquely identifies each observation? Put their names in the id_cols argument.\nWhere should the names for the new columns come from? Put the name of the column you want to take the new variable names from in the names_from argument.\nWhat values should the new columns contain? Put the name of the columns you want to take the values from to values_from in the values_from argument.\n\nNote that if you don’t specify an id_cols argument, pivot_wider will assume that you want it to be every column except those in names_from and values_from. Further, any columns not included in id_cols, names_from, and values_from (e.g., ep_id) will simply be dropped.\nWe can pivot the grades_long table wider so that we have a columns “Scores_Before” and “Scores_After” for each student_id and subject:\n\ngrades_wide &lt;- grades_long %&gt;% #assign new variable\n  pivot_wider(names_from = time, #get column names from time\n              values_from = score, #fill in values from score\n              names_prefix = \"Scores_\") #add \"scores_\" to new column names\n\nhead(grades_wide)\n\n# A tibble: 6 × 4\n  student_id subject Scores_Before Scores_After\n       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;        &lt;dbl&gt;\n1          1 Math               85           86\n2          1 Science            92           92\n3          2 Math               78           82\n4          2 Science            88           89\n5          3 Math               95           94\n6          3 Science            90           90\n\n\n\n\nPivoting Longer\n\nThe Basics: Column Names Contain Variable Values\nHere is a snippet of WHO data on the number of tuberculosis cases in different years in different countries.\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\nIIf we wanted to compare tuberculosis cases over time by country (e.g. by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. There should be one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.\n(Aside: if we had measured more data, then perhaps there would be more units within each population! Imagine if we had case-level information, like severity. Then we could view cases as observations within the country-year populations, and we would have variables like country, year, case ID, and severity.)\nSo the tidy format here puts the variables (the year, the country, and the case counts) on the columns. There are 6 rows, one for each unique country-year combination. In this example, the tidy format is longer. That means to produce it using who_wide, we need to lengthen it by moving some information in the column names (the info about the measurement year) into new rows.\nWe can solve this problem using pivot_longer, which needs three pieces of information.\n\nWhich are the columns that we want to expand into more rows? Put their names in the cols argument.\nWe want to save the information in the names of those columns as values in new column(s) of our dataset. What should we name these new column(s)? This is the names_to argument.\nWe also want to preserve the information in the values of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the values_to argument.\n\n\nwho_long &lt;- who_wide %&gt;% pivot_longer(cols = c('1999', '2000'), #pivot these columns\n                         names_to = \"year\", #new column name is year\n                         values_to = \"cases\") #use cases as the values of the column\n\nwho_long\n\n# A tibble: 6 × 3\n  country     year   cases\n  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;\n1 Afghanistan 1999     745\n2 Afghanistan 2000    2666\n3 Brazil      1999   37737\n4 Brazil      2000   80488\n5 China       1999  212258\n6 China       2000  213766\n\n\nNow our data is tidy!\n\n\nExample: Column Names Contain Multiple Variable Values\nHere’s a more realistic (but still simplified) look at the WHO Tuberculosis data.\n\nwho_demo &lt;- who2 %&gt;% \n  select(country, year, starts_with(\"sp\")) %&gt;%\n  rename_with(function(x) \n    str_remove(x, pattern=\"sp_\"), \n    starts_with(\"sp\")) %&gt;% \n  filter(year %in% c(1999, 2000)) %&gt;% \n  filter(country %in% c(\"Afghanistan\", \"Brazil\", \"China\"))\n\nhead(who_demo)\n\n# A tibble: 6 × 16\n  country      year m_014 m_1524 m_2534 m_3544 m_4554 m_5564  m_65 f_014 f_1524\n  &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan  1999     8     55     55     47     34     21     8    25    139\n2 Afghanistan  2000    52    228    183    149    129     94    80    93    414\n3 Brazil       1999   301   3662   5401   5827   4630   2634  2121   372   2909\n4 Brazil       2000  1894   7268  11568  11906   8623   5085  4494  1859   6719\n5 China        1999  1247  18961  29328  25095  24239  21564 21367  1431  15178\n6 China        2000  1131  19111  29399  25206  25593  21429 21771  1420  14536\n# ℹ 5 more variables: f_2534 &lt;dbl&gt;, f_3544 &lt;dbl&gt;, f_4554 &lt;dbl&gt;, f_5564 &lt;dbl&gt;,\n#   f_65 &lt;dbl&gt;\n\n\nThis time, cases are broken down by gender (f/m) and by age range (014\\1524\\2534\\3544\\4554\\5564\\65).\nSuppose now that we are interested in comparing tuberculosis rates over time across (potentially) gender, age, and country. Then the most granular population we are trying to describe is a country, gender, age, and year combination, and like in the last example, we have no measured sub-units within that population, so an observation is a unique combination of country, gender, age, and year. (What a mouthful!)\nOnce we’ve sorted that out, the variables fall into place: country, year, gender, age range, and case count. Values for gender and age range are currently located in the column names of who_demo, and values for case count are currently spread across multiple columns. So to tidy who_demo up, we need to use pivot_longer() to move the info in the columns into new rows.\nConceptually, this is pretty similar to the last example: we want to use the information in m_014, m_1524, etc. to create new rows. So we should put those column names into the cols argument. But now, we want the information in their column names - the gender and age - to go into two new columns: gender and age. We can do this by specifying two column names in the names_to argument: gender and age.\nBut how is pivot_longer() to know which part of the column name m_014 corresponds to the gender, and which part corresponds to the age? You need to tell it that the pieces of information are separated by the “_” character using the names_sep argument.\nFinally, we can specify the name of the new column we want the values in the m_014, m_1524, etc. columns to go into with the values_to argument.\n\nwho_demo %&gt;% pivot_longer(cols = !(country:year), # all columns aside from country to year\n                          names_to = c(\"gender\", \"age\"), #new columns named age and gender\n                          names_sep = \"_\",#current gender and age are a single variable separated by _\n                          values_to = \"cases\") #use the cases column for the values\n\n# A tibble: 84 × 5\n   country      year gender age   cases\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;\n 1 Afghanistan  1999 m      014       8\n 2 Afghanistan  1999 m      1524     55\n 3 Afghanistan  1999 m      2534     55\n 4 Afghanistan  1999 m      3544     47\n 5 Afghanistan  1999 m      4554     34\n 6 Afghanistan  1999 m      5564     21\n 7 Afghanistan  1999 m      65        8\n 8 Afghanistan  1999 f      014      25\n 9 Afghanistan  1999 f      1524    139\n10 Afghanistan  1999 f      2534    160\n# ℹ 74 more rows\n\n\n\n\nExample: Column Names Contain Variable Names And Values\nSo far we have seen examples where the column names contain variable values. But what if they contain names AND values?\nLet’s have a look at the household dataset (loaded with the tidyr package), which has the date of birth and names of two children in families. Let’s say that we wanted to investigate how children names relate to their date of birth.\n\nhead(household)\n\n# A tibble: 5 × 5\n  family dob_child1 dob_child2 name_child1 name_child2\n   &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;      \n1      1 1998-11-26 2000-01-29 Susan       Jose       \n2      2 1996-06-22 NA         Mark        &lt;NA&gt;       \n3      3 2002-07-11 2004-04-05 Sam         Seth       \n4      4 2004-10-10 2009-08-27 Craig       Khai       \n5      5 2000-12-05 2005-02-28 Parker      Gracie     \n\n\nWe are trying to learn about the population from which these children belong; it is hard to say precisely what that is without having more information about how this data was collected, but it is likely something like “all children living in a particular place in a particular year”. The units in this population are children. So to tidy this data, we’d want “date of birth” and “name” to be two variables/columns associated with an observation/row (a child). We know we want to use pivot_longer(), because we want to make household longer by creating new variables. But wait! The names of the “date of birth”/“name” variables AND the values of the “child” variable are BOTH in the column names of household!\nInspecting the documentation for pivot_longer() very carefully reveals that you can use a special specification of the names_to argument to resolve this problem.\n\nhousehold %&gt;% pivot_longer(cols = -family, # all columns except family\n                           names_to = c(\".value\", \"child\"), #change column names, .value is a placeholder\n                           names_sep = \"_\") # dob and child are currently separated by _ in one single variable\n\n# A tibble: 10 × 4\n   family child  dob        name  \n    &lt;int&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt; \n 1      1 child1 1998-11-26 Susan \n 2      1 child2 2000-01-29 Jose  \n 3      2 child1 1996-06-22 Mark  \n 4      2 child2 NA         &lt;NA&gt;  \n 5      3 child1 2002-07-11 Sam   \n 6      3 child2 2004-04-05 Seth  \n 7      4 child1 2004-10-10 Craig \n 8      4 child2 2009-08-27 Khai  \n 9      5 child1 2000-12-05 Parker\n10      5 child2 2005-02-28 Gracie\n\n\nThe special \".value\" specification says that we want to use the first component of the pivoted column name as a variable name, and make a new column with values coming from the second component of the pivoted column name. The second thing we pass into names_to names that new column.\nThis process is best described by Figure 6.7 from R4DS.\nBut wait! Row 4 is a bunch of NAs! Does that mean this data isn’t tidy??\nThe fact that there is an NA does not necessarily mean that this data is untidy. To be clear: for the purpose of the tidy data definition, an indicator for a missing value is a value.\nWhether this data is untidy depends on the data context. Essentially, the question we should ask is: “Is row 4 an observation that we are missing information about? Or is it simply an artifact of our pivoting procedure?”\nSuppose this study was designed to only sample families with two children. Then, row 4 could be a real observation that we are missing information about: family 2 should have only been included if they had two children. Perhaps this reflects family 2 filling out a survey that asks them the number of children (in which they listed 2), but then getting distracted and forgetting to fill out the information for their second child. In this case, our data is tidy, and the tidy data format is a real advantage: it reveals missing information in our data set that was not obvious from the original untidy format.\nNow suppose this study just samples families at large. We know from experience about the world that some families have one children, some families have two, and some families have more. Then, it seems possible that row 4 is not a real observation: family 2 might just have a single child. In this case, we have a row for something that is not an observation, so we would like to tidy up by dropping it. We could actually have done this by altering our original pivot_wider() call as follows:\n\nhousehold %&gt;% pivot_longer(cols = -family, \n                           names_to = c(\".value\", \"child\"), \n                           names_sep = \"_\", \n                           values_drop_na = TRUE) #remove NAs\n\n# A tibble: 9 × 4\n  family child  dob        name  \n   &lt;int&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt; \n1      1 child1 1998-11-26 Susan \n2      1 child2 2000-01-29 Jose  \n3      2 child1 1996-06-22 Mark  \n4      3 child1 2002-07-11 Sam   \n5      3 child2 2004-04-05 Seth  \n6      4 child1 2004-10-10 Craig \n7      4 child2 2009-08-27 Khai  \n8      5 child1 2000-12-05 Parker\n9      5 child2 2005-02-28 Gracie\n\n\nThis discussion highlights the importance of knowing the context in which your data is collected for tidying (and for your analysis at large). Here and elsewhere, it really pays to be in close contact with the people who generated your data.",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Basic Pivoting\nOnce you have figured out what’s tidy for you, you may come to realize that your data is not tidy. As we have discussed, it will typically save you time and frustration to tidy it before moving on in your analysis.\nVery often this will involve using “pivoting” type functions. For example, the tidyr package in the tidyverse has two main pivoting functions:\n\npivot_longer() makes datasets longer: it moves some information in the columns into new rows, thereby increasing the number of rows of the dataset.\npivot_wider() makes datasets wider: it moves some information in the rows into new columns, thereby decreasing the number of rows of the dataset.\n\n\nPivoting Wider\nHere is an example of (artificial) data that is currently in “long” format, looking grades before and after active learning was incorporated into their math and science lectures:\n\ngrades_long &lt;- tibble(\n  student_id = c(1, 1, 1, 1, 2, 2,2, 2, 3, 3, 3, 3),\n  time = c(\"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\", \"Before\", \"After\"),\n  subject = c(\"Math\", \"Math\", \"Science\", \"Science\", \"Math\", \"Math\", \"Science\",\"Science\",  \"Math\", \"Math\", \"Science\", \"Science\"),\n  score = c(85, 86, 92, 92, 78, 82, 88, 89, 95, 94, 90, 90)\n)\n\nhead(grades_long)\n\n# A tibble: 6 × 4\n  student_id time   subject score\n       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n1          1 Before Math       85\n2          1 After  Math       86\n3          1 Before Science    92\n4          1 After  Science    92\n5          2 Before Math       78\n6          2 After  Math       82\n\n\nSometimes, we require data involving time to have row for each observation, and one column for each time point (i.e., wide data). While this isn’t our “standard” definition of tidy, sometimes this is what is required for longitudinal data (i.e., data involving measures repeated over time). Nevertheless, let’s try to pivot this table!\nWe can solve this problem using pivot_wider, which needs three pieces of information.\n\nWhat is a set of columns that uniquely identifies each observation? Put their names in the id_cols argument.\nWhere should the names for the new columns come from? Put the name of the column you want to take the new variable names from in the names_from argument.\nWhat values should the new columns contain? Put the name of the columns you want to take the values from to values_from in the values_from argument.\n\nNote that if you don’t specify an id_cols argument, pivot_wider will assume that you want it to be every column except those in names_from and values_from. Further, any columns not included in id_cols, names_from, and values_from (e.g., ep_id) will simply be dropped.\nWe can pivot the grades_long table wider so that we have a columns “Scores_Before” and “Scores_After” for each student_id and subject:\n\ngrades_wide &lt;- grades_long %&gt;% #assign new variable\n  pivot_wider(names_from = time, #get column names from time\n              values_from = score, #fill in values from score\n              names_prefix = \"Scores_\") #add \"scores_\" to new column names\n\nhead(grades_wide)\n\n# A tibble: 6 × 4\n  student_id subject Scores_Before Scores_After\n       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;        &lt;dbl&gt;\n1          1 Math               85           86\n2          1 Science            92           92\n3          2 Math               78           82\n4          2 Science            88           89\n5          3 Math               95           94\n6          3 Science            90           90\n\n\n\n\nPivoting Longer\n\nThe Basics: Column Names Contain Variable Values\nHere is a snippet of WHO data on the number of tuberculosis cases in different years in different countries.\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\nIIf we wanted to compare tuberculosis cases over time by country (e.g. by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. There should be one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.\n(Aside: if we had measured more data, then perhaps there would be more units within each population! Imagine if we had case-level information, like severity. Then we could view cases as observations within the country-year populations, and we would have variables like country, year, case ID, and severity.)\nSo the tidy format here puts the variables (the year, the country, and the case counts) on the columns. There are 6 rows, one for each unique country-year combination. In this example, the tidy format is longer. That means to produce it using who_wide, we need to lengthen it by moving some information in the column names (the info about the measurement year) into new rows.\nWe can solve this problem using pivot_longer, which needs three pieces of information.\n\nWhich are the columns that we want to expand into more rows? Put their names in the cols argument.\nWe want to save the information in the names of those columns as values in new column(s) of our dataset. What should we name these new column(s)? This is the names_to argument.\nWe also want to preserve the information in the values of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the values_to argument.\n\n\nwho_long &lt;- who_wide %&gt;% pivot_longer(cols = c('1999', '2000'), #pivot these columns\n                         names_to = \"year\", #new column name is year\n                         values_to = \"cases\") #use cases as the values of the column\n\nwho_long\n\n# A tibble: 6 × 3\n  country     year   cases\n  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;\n1 Afghanistan 1999     745\n2 Afghanistan 2000    2666\n3 Brazil      1999   37737\n4 Brazil      2000   80488\n5 China       1999  212258\n6 China       2000  213766\n\n\nNow our data is tidy!\n\n\nExample: Column Names Contain Multiple Variable Values\nHere’s a more realistic (but still simplified) look at the WHO Tuberculosis data.\n\nwho_demo &lt;- who2 %&gt;% \n  select(country, year, starts_with(\"sp\")) %&gt;%\n  rename_with(function(x) \n    str_remove(x, pattern=\"sp_\"), \n    starts_with(\"sp\")) %&gt;% \n  filter(year %in% c(1999, 2000)) %&gt;% \n  filter(country %in% c(\"Afghanistan\", \"Brazil\", \"China\"))\n\nhead(who_demo)\n\n# A tibble: 6 × 16\n  country      year m_014 m_1524 m_2534 m_3544 m_4554 m_5564  m_65 f_014 f_1524\n  &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan  1999     8     55     55     47     34     21     8    25    139\n2 Afghanistan  2000    52    228    183    149    129     94    80    93    414\n3 Brazil       1999   301   3662   5401   5827   4630   2634  2121   372   2909\n4 Brazil       2000  1894   7268  11568  11906   8623   5085  4494  1859   6719\n5 China        1999  1247  18961  29328  25095  24239  21564 21367  1431  15178\n6 China        2000  1131  19111  29399  25206  25593  21429 21771  1420  14536\n# ℹ 5 more variables: f_2534 &lt;dbl&gt;, f_3544 &lt;dbl&gt;, f_4554 &lt;dbl&gt;, f_5564 &lt;dbl&gt;,\n#   f_65 &lt;dbl&gt;\n\n\nThis time, cases are broken down by gender (f/m) and by age range (014\\1524\\2534\\3544\\4554\\5564\\65).\nSuppose now that we are interested in comparing tuberculosis rates over time across (potentially) gender, age, and country. Then the most granular population we are trying to describe is a country, gender, age, and year combination, and like in the last example, we have no measured sub-units within that population, so an observation is a unique combination of country, gender, age, and year. (What a mouthful!)\nOnce we’ve sorted that out, the variables fall into place: country, year, gender, age range, and case count. Values for gender and age range are currently located in the column names of who_demo, and values for case count are currently spread across multiple columns. So to tidy who_demo up, we need to use pivot_longer() to move the info in the columns into new rows.\nConceptually, this is pretty similar to the last example: we want to use the information in m_014, m_1524, etc. to create new rows. So we should put those column names into the cols argument. But now, we want the information in their column names - the gender and age - to go into two new columns: gender and age. We can do this by specifying two column names in the names_to argument: gender and age.\nBut how is pivot_longer() to know which part of the column name m_014 corresponds to the gender, and which part corresponds to the age? You need to tell it that the pieces of information are separated by the “_” character using the names_sep argument.\nFinally, we can specify the name of the new column we want the values in the m_014, m_1524, etc. columns to go into with the values_to argument.\n\nwho_demo %&gt;% pivot_longer(cols = !(country:year), # all columns aside from country to year\n                          names_to = c(\"gender\", \"age\"), #new columns named age and gender\n                          names_sep = \"_\",#current gender and age are a single variable separated by _\n                          values_to = \"cases\") #use the cases column for the values\n\n# A tibble: 84 × 5\n   country      year gender age   cases\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;\n 1 Afghanistan  1999 m      014       8\n 2 Afghanistan  1999 m      1524     55\n 3 Afghanistan  1999 m      2534     55\n 4 Afghanistan  1999 m      3544     47\n 5 Afghanistan  1999 m      4554     34\n 6 Afghanistan  1999 m      5564     21\n 7 Afghanistan  1999 m      65        8\n 8 Afghanistan  1999 f      014      25\n 9 Afghanistan  1999 f      1524    139\n10 Afghanistan  1999 f      2534    160\n# ℹ 74 more rows\n\n\n\n\nExample: Column Names Contain Variable Names And Values\nSo far we have seen examples where the column names contain variable values. But what if they contain names AND values?\nLet’s have a look at the household dataset (loaded with the tidyr package), which has the date of birth and names of two children in families. Let’s say that we wanted to investigate how children names relate to their date of birth.\n\nhead(household)\n\n# A tibble: 5 × 5\n  family dob_child1 dob_child2 name_child1 name_child2\n   &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;      \n1      1 1998-11-26 2000-01-29 Susan       Jose       \n2      2 1996-06-22 NA         Mark        &lt;NA&gt;       \n3      3 2002-07-11 2004-04-05 Sam         Seth       \n4      4 2004-10-10 2009-08-27 Craig       Khai       \n5      5 2000-12-05 2005-02-28 Parker      Gracie     \n\n\nWe are trying to learn about the population from which these children belong; it is hard to say precisely what that is without having more information about how this data was collected, but it is likely something like “all children living in a particular place in a particular year”. The units in this population are children. So to tidy this data, we’d want “date of birth” and “name” to be two variables/columns associated with an observation/row (a child). We know we want to use pivot_longer(), because we want to make household longer by creating new variables. But wait! The names of the “date of birth”/“name” variables AND the values of the “child” variable are BOTH in the column names of household!\nInspecting the documentation for pivot_longer() very carefully reveals that you can use a special specification of the names_to argument to resolve this problem.\n\nhousehold %&gt;% pivot_longer(cols = -family, # all columns except family\n                           names_to = c(\".value\", \"child\"), #change column names, .value is a placeholder\n                           names_sep = \"_\") # dob and child are currently separated by _ in one single variable\n\n# A tibble: 10 × 4\n   family child  dob        name  \n    &lt;int&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt; \n 1      1 child1 1998-11-26 Susan \n 2      1 child2 2000-01-29 Jose  \n 3      2 child1 1996-06-22 Mark  \n 4      2 child2 NA         &lt;NA&gt;  \n 5      3 child1 2002-07-11 Sam   \n 6      3 child2 2004-04-05 Seth  \n 7      4 child1 2004-10-10 Craig \n 8      4 child2 2009-08-27 Khai  \n 9      5 child1 2000-12-05 Parker\n10      5 child2 2005-02-28 Gracie\n\n\nThe special \".value\" specification says that we want to use the first component of the pivoted column name as a variable name, and make a new column with values coming from the second component of the pivoted column name. The second thing we pass into names_to names that new column.\nThis process is best described by Figure 6.7 from R4DS.\nBut wait! Row 4 is a bunch of NAs! Does that mean this data isn’t tidy??\nThe fact that there is an NA does not necessarily mean that this data is untidy. To be clear: for the purpose of the tidy data definition, an indicator for a missing value is a value.\nWhether this data is untidy depends on the data context. Essentially, the question we should ask is: “Is row 4 an observation that we are missing information about? Or is it simply an artifact of our pivoting procedure?”\nSuppose this study was designed to only sample families with two children. Then, row 4 could be a real observation that we are missing information about: family 2 should have only been included if they had two children. Perhaps this reflects family 2 filling out a survey that asks them the number of children (in which they listed 2), but then getting distracted and forgetting to fill out the information for their second child. In this case, our data is tidy, and the tidy data format is a real advantage: it reveals missing information in our data set that was not obvious from the original untidy format.\nNow suppose this study just samples families at large. We know from experience about the world that some families have one children, some families have two, and some families have more. Then, it seems possible that row 4 is not a real observation: family 2 might just have a single child. In this case, we have a row for something that is not an observation, so we would like to tidy up by dropping it. We could actually have done this by altering our original pivot_wider() call as follows:\n\nhousehold %&gt;% pivot_longer(cols = -family, \n                           names_to = c(\".value\", \"child\"), \n                           names_sep = \"_\", \n                           values_drop_na = TRUE) #remove NAs\n\n# A tibble: 9 × 4\n  family child  dob        name  \n   &lt;int&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt; \n1      1 child1 1998-11-26 Susan \n2      1 child2 2000-01-29 Jose  \n3      2 child1 1996-06-22 Mark  \n4      3 child1 2002-07-11 Sam   \n5      3 child2 2004-04-05 Seth  \n6      4 child1 2004-10-10 Craig \n7      4 child2 2009-08-27 Khai  \n8      5 child1 2000-12-05 Parker\n9      5 child2 2005-02-28 Gracie\n\n\nThis discussion highlights the importance of knowing the context in which your data is collected for tidying (and for your analysis at large). Here and elsewhere, it really pays to be in close contact with the people who generated your data."
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#separating-and-uniting",
-    "href": "webpages/lectures_i/lec5_tidydata.html#separating-and-uniting",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#separating-and-uniting",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#separating-and-uniting",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Separating and Uniting",
-    "text": "Separating and Uniting\nSometimes data has multiple pieces of information stored in a single column. To separate them into two distinct columns, we can use the separate() function from the tidyverse (technically, a package within tidyverse called tidyr.\nseparate(): separates information within a column. It involves three arguments:\n\ncol: specifies the column we want to separate\ninto: specifies the names of the new columns.\nsep: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves regular expressions, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )\n\nConversely, unite() combines information from two or more columns into one. Involves:\n\ncol: name of the new column\n...: the names of columns to be united\nsep: specifies the separator to use between values (i.e., “-”)\n\n\ntable3 &lt;- tibble(country = c(\"Afghanistan\", \"Afghanistan\", \"Brazil\", \"Brazil\", \"China\", \"China\"),\n                 year = c(1999, 2000, 1999, 2000, 1999, 2000),\n                 rate = c(\"745/19987071\", \"2666/20595360\", \"37737/172006362\", \n                          \"80488/174504898\", \"212258/1272915272\", \"213766/1280428583\"))\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\nThe rate column contains the values of two variables: case counts and population counts. We would like to snip it apart at the “/” character to create two columns:\n\ntable5 &lt;- table3 %&gt;% separate(col = rate, \n                    into = c(\"cases\", \"population\"))\ntable5\n\n# A tibble: 6 × 4\n  country      year cases  population\n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     \n1 Afghanistan  1999 745    19987071  \n2 Afghanistan  2000 2666   20595360  \n3 Brazil       1999 37737  172006362 \n4 Brazil       2000 80488  174504898 \n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\nThe col argument specifies the column we want to separate, and the into argument specifies the names of the new columns. The sep argument (not specified here) specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves regular expressions, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Separating and Uniting\nSometimes data has multiple pieces of information stored in a single column. To separate them into two distinct columns, we can use the separate() function from the tidyverse (technically, a package within tidyverse called tidyr.\nseparate(): separates information within a column. It involves three arguments:\n\ncol: specifies the column we want to separate\ninto: specifies the names of the new columns.\nsep: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves regular expressions, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )\n\nConversely, unite() combines information from two or more columns into one. Involves:\n\ncol: name of the new column\n...: the names of columns to be united\nsep: specifies the separator to use between values (i.e., “-”)\n\n\ntable3 &lt;- tibble(country = c(\"Afghanistan\", \"Afghanistan\", \"Brazil\", \"Brazil\", \"China\", \"China\"),\n                 year = c(1999, 2000, 1999, 2000, 1999, 2000),\n                 rate = c(\"745/19987071\", \"2666/20595360\", \"37737/172006362\", \n                          \"80488/174504898\", \"212258/1272915272\", \"213766/1280428583\"))\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\nThe rate column contains the values of two variables: case counts and population counts. We would like to snip it apart at the “/” character to create two columns:\n\ntable5 &lt;- table3 %&gt;% separate(col = rate, \n                    into = c(\"cases\", \"population\"))\ntable5\n\n# A tibble: 6 × 4\n  country      year cases  population\n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     \n1 Afghanistan  1999 745    19987071  \n2 Afghanistan  2000 2666   20595360  \n3 Brazil       1999 37737  172006362 \n4 Brazil       2000 80488  174504898 \n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\nThe col argument specifies the column we want to separate, and the into argument specifies the names of the new columns. The sep argument (not specified here) specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves regular expressions, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#the-merits-of-untidy-data",
-    "href": "webpages/lectures_i/lec5_tidydata.html#the-merits-of-untidy-data",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#the-merits-of-untidy-data",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#the-merits-of-untidy-data",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "The Merits of Untidy Data",
-    "text": "The Merits of Untidy Data\nAs we’ve seen, tidy data is often very helpful. But there are also times when untidy data is good. Here are a few reasons:\n\nThe format that lends itself best to fast computations might not be tidy. Case Study: Tidy Genomics.\nUntidy data is often easier for humans to interpret and edit. See Untidy Data: The Unreasonable Effectiveness of Tables.\nWe could lose important information about the context in which the data was collected by cleaning and tidying raw data. This can have important ethical implications; see Chapter 5 of the book “Data Feminism” by Catherine D’Ignazio and Lauren F. Klein.\n\nIn summary, tidiness is a very useful concept, and tidying data is often useful. But we should remember that absolutes are few and far between in data science and statistics. Just because tidying data is often useful, doesn’t mean it’s always useful.",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "The Merits of Untidy Data\nAs we’ve seen, tidy data is often very helpful. But there are also times when untidy data is good. Here are a few reasons:\n\nThe format that lends itself best to fast computations might not be tidy. Case Study: Tidy Genomics.\nUntidy data is often easier for humans to interpret and edit. See Untidy Data: The Unreasonable Effectiveness of Tables.\nWe could lose important information about the context in which the data was collected by cleaning and tidying raw data. This can have important ethical implications; see Chapter 5 of the book “Data Feminism” by Catherine D’Ignazio and Lauren F. Klein.\n\nIn summary, tidiness is a very useful concept, and tidying data is often useful. But we should remember that absolutes are few and far between in data science and statistics. Just because tidying data is often useful, doesn’t mean it’s always useful."
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#case-study-optional",
-    "href": "webpages/lectures_i/lec5_tidydata.html#case-study-optional",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#case-study-optional",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#case-study-optional",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Case Study (Optional)",
-    "text": "Case Study (Optional)\nIf you’d like to see a worked-through example of tidying data, check out this case study on the Great British Bakeoff",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Case Study (Optional)\nIf you’d like to see a worked-through example of tidying data, check out this case study on the Great British Bakeoff"
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#worksheet-a4",
-    "href": "webpages/lectures_i/lec5_tidydata.html#worksheet-a4",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#worksheet-a4",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#worksheet-a4",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Worksheet A4",
-    "text": "Worksheet A4\nSpend the rest of this class and next class working through Worksheet A4.\n\nFinished attempting all of the questions? Then do the optional R4DS Tidying reading, and maybe even do some of the exercises for extra practice.",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Worksheet A4\nSpend the rest of this class and next class working through Worksheet A4.\n\nFinished attempting all of the questions? Then do the optional R4DS Tidying reading, and maybe even do some of the exercises for extra practice."
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#resources",
-    "href": "webpages/lectures_i/lec5_tidydata.html#resources",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#resources",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#resources",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Resources",
-    "text": "Resources\n\nVideo Lecture: tidyr for Pivoting and Tidy Data\nTo learn how to use the pivot_*() functions, consult tidyr’s pivot vignette.\nTo get a better understanding of the concept of tidy data:\n\nHadley Wickham’s paper on Tidy Data is the gold standard treatment of tidy data.\nA “code heavy” version of the tidy data paper is tidyr’s “Tidy Data” vignette.",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Resources\n\nVideo Lecture: tidyr for Pivoting and Tidy Data\nTo learn how to use the pivot_*() functions, consult tidyr’s pivot vignette.\nTo get a better understanding of the concept of tidy data:\n\nHadley Wickham’s paper on Tidy Data is the gold standard treatment of tidy data.\nA “code heavy” version of the tidy data paper is tidyr’s “Tidy Data” vignette."
   },
   {
-    "objectID": "webpages/lectures_i/lec5_tidydata.html#attribution",
-    "href": "webpages/lectures_i/lec5_tidydata.html#attribution",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/lectures_i/lec5a_tidydata.html#attribution",
+    "href": "webpages/lectures_i/lec5a_tidydata.html#attribution",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Attribution",
-    "text": "Attribution\nAlbert Y. Kim inspired the in-class exercises using the drinks data set from fivethirtyeight. Allison Horst and Julia Lowndes created the illustrated tidy data series.",
-    "crumbs": [
-      "Lecture 5: Tidy Data and the Tidyverse"
-    ]
+    "text": "Attribution\nAlbert Y. Kim inspired the in-class exercises using the drinks data set from fivethirtyeight. Allison Horst and Julia Lowndes created the illustrated tidy data series."
   },
   {
     "objectID": "webpages/lectures_i/lec3_versioncontrol.html",
@@ -2813,154 +2753,109 @@
     ]
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html",
+    "title": "Lecture 5B: Model Fitting",
     "section": "",
-    "text": "Lecture 6a - Model Fitting Slides",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Lecture 5B - Model Fitting Slides"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#lecture-slides",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#lecture-slides",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#lecture-slides",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#lecture-slides",
+    "title": "Lecture 5B: Model Fitting",
     "section": "",
-    "text": "Lecture 6a - Model Fitting Slides",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Lecture 5B - Model Fitting Slides"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#video-lecture",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#video-lecture",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#video-lecture",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#video-lecture",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Video Lecture",
-    "text": "Video Lecture",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Video Lecture"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#learning-objectives",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#learning-objectives",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#learning-objectives",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#learning-objectives",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nFrom today’s class, students are anticipated to be able to:\n\nmake a model object in R, using lm() as an example.\nwrite a formula in R.\npredict on a model object with the broom::augment() and predict() functions.\nextract information from a model object using broom::tidy(), broom::glance(), and traditional means.\n\nNote that there is a new tidyverse-like framework of packages to help with modelling. It’s called tidymodels.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Learning Objectives\nFrom today’s class, students are anticipated to be able to:\n\nmake a model object in R, using lm() as an example.\nwrite a formula in R.\npredict on a model object with the broom::augment() and predict() functions.\nextract information from a model object using broom::tidy(), broom::glance(), and traditional means.\n\nNote that there is a new tidyverse-like framework of packages to help with modelling. It’s called tidymodels."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#set-up",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#set-up",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#set-up",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#set-up",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Set-up",
-    "text": "Set-up\nThe following packages will be used throughout this lecture:\n\n# install.packages(c(\"tidyverse\", \"tidymodels\", \"gapminder\")) #uncomment if not already installed\n\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(gapminder)",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Set-up\nThe following packages will be used throughout this lecture:\n\n# install.packages(c(\"tidyverse\", \"tidymodels\", \"gapminder\")) #uncomment if not already installed\n\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(gapminder)"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#model-fitting-in-r",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#model-fitting-in-r",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#model-fitting-in-r",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#model-fitting-in-r",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Model Fitting in R",
-    "text": "Model Fitting in R\nData wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example, we cannot rely only on plotting to:\n\nInvestigate the relationship between two or more variables\nPredict the outcome of a variable given information about other variables\n\nThese typically involve fitting models, as opposed to simple computations than can be done with tidyverse packages like dplyr.\nThis lecture is not about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value. The focus of this lecture will be on how we fit models in R.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Model Fitting in R\nData wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example, we cannot rely only on plotting to:\n\nInvestigate the relationship between two or more variables\nPredict the outcome of a variable given information about other variables\n\nThese typically involve fitting models, as opposed to simple computations than can be done with tidyverse packages like dplyr.\nThis lecture is not about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value. The focus of this lecture will be on how we fit models in R."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#example-linear-model",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#example-linear-model",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#example-linear-model",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#example-linear-model",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Example: Linear Model",
-    "text": "Example: Linear Model\nA linear model describes a relationship between an outcome y and a variable(s) (or covariate(s), predictor(s), dependent variable(s)) x. In the case where only one variable is included in the model, a linear model (or linear regression) is a “(straight) line of best fit”. This line describes the linear relationship between x and y, and can be used for both inference and prediction.\nHere are a couple questions that a linear model could be used to answer:\n\nWhat is the predicted fuel efficiency (mpg) for a 4000lb car?\nDoes the weight of a car influence its mpg?\nHow many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?\n\nA simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the mtcars dataset in the datasets package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.\n\nggplot(mtcars, aes(wt, mpg)) + #initialise plot\n  geom_point() + #scatterplot\n  labs(x = \"Weight (1000's of lbs)\") + #x axis label\n  geom_smooth(method = \"lm\", se = FALSE) + #add a smooth trend line\n  theme_minimal() \n\n\n\n\n\n\n\n\nWhile you can plot a linear model using ggplot2’s geom_smooth() layer, you can’t really do much else in terms of the linear model, like inference. Because of this, we will explicitly fit linear models outside of ggplot.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Example: Linear Model\nA linear model describes a relationship between an outcome y and a variable(s) (or covariate(s), predictor(s), dependent variable(s)) x. In the case where only one variable is included in the model, a linear model (or linear regression) is a “(straight) line of best fit”. This line describes the linear relationship between x and y, and can be used for both inference and prediction.\nHere are a couple questions that a linear model could be used to answer:\n\nWhat is the predicted fuel efficiency (mpg) for a 4000lb car?\nDoes the weight of a car influence its mpg?\nHow many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?\n\nA simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the mtcars dataset in the datasets package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.\n\nggplot(mtcars, aes(wt, mpg)) + #initialise plot\n  geom_point() + #scatterplot\n  labs(x = \"Weight (1000's of lbs)\") + #x axis label\n  geom_smooth(method = \"lm\", se = FALSE) + #add a smooth trend line\n  theme_minimal() \n\n\n\n\n\n\n\n\nWhile you can plot a linear model using ggplot2’s geom_smooth() layer, you can’t really do much else in terms of the linear model, like inference. Because of this, we will explicitly fit linear models outside of ggplot."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#fitting-a-model-in-r",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#fitting-a-model-in-r",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#fitting-a-model-in-r",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#fitting-a-model-in-r",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Fitting a Model in R",
-    "text": "Fitting a Model in R\nFitting a model in R typically involves using a function in the following format:\nmethod(formula, data, options)\nMethod: A function such as:\n\nLinear Regression: lm\nGeneralized Linear Regression: glm\nLocal regression: loess\nQuantile regression: quantreg::rq\n…\n\nFormula: In R, takes the form y ~ x1 + x2 + ... + xp (use column names in your data frame), where y here means the outcome variable you’re interested in viewing in relation to other variables x1, x2, …\nData: The data frame or tibble. Can omit, if variables in the formula are defined in environment\nOptions: Specific to the method, and include ways to customize the model.\nRunning the code returns an object – usually a special type of list – that you can then work with to extract results.\nFor example, let’s fit a linear regression model on a car’s mileage per gallon (mpg, “Y” variable) from the car’s weight (wt, “X” variable). Notice that no special options are needed for lm().\n\nmy_lm &lt;- lm(mpg ~ wt, data = mtcars) #mpg is the outcome/dependent (Y) variable, wt is an independent variable (X)\n\nmy_lm\n\n\nCall:\nlm(formula = mpg ~ wt, data = mtcars)\n\nCoefficients:\n(Intercept)           wt  \n     37.285       -5.344  \n\n\nPrinting the model to the screen might lead you to incorrectly conclude that the model object my_lm only contains the above text. The reality is, my_lm contains a lot more, but special instructions have been given to R to only print out a special digested version of the object. This behaviour tends to be true with model objects in general, not just for lm(). Let’s",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Fitting a Model in R\nFitting a model in R typically involves using a function in the following format:\nmethod(formula, data, options)\nMethod: A function such as:\n\nLinear Regression: lm\nGeneralized Linear Regression: glm\nLocal regression: loess\nQuantile regression: quantreg::rq\n…\n\nFormula: In R, takes the form y ~ x1 + x2 + ... + xp (use column names in your data frame), where y here means the outcome variable you’re interested in viewing in relation to other variables x1, x2, …\nData: The data frame or tibble. Can omit, if variables in the formula are defined in environment\nOptions: Specific to the method, and include ways to customize the model.\nRunning the code returns an object – usually a special type of list – that you can then work with to extract results.\nFor example, let’s fit a linear regression model on a car’s mileage per gallon (mpg, “Y” variable) from the car’s weight (wt, “X” variable). Notice that no special options are needed for lm().\n\nmy_lm &lt;- lm(mpg ~ wt, data = mtcars) #mpg is the outcome/dependent (Y) variable, wt is an independent variable (X)\n\nmy_lm\n\n\nCall:\nlm(formula = mpg ~ wt, data = mtcars)\n\nCoefficients:\n(Intercept)           wt  \n     37.285       -5.344  \n\n\nPrinting the model to the screen might lead you to incorrectly conclude that the model object my_lm only contains the above text. The reality is, my_lm contains a lot more, but special instructions have been given to R to only print out a special digested version of the object. This behaviour tends to be true with model objects in general, not just for lm(). Let’s"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#summarizing-the-model-with-broom",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#summarizing-the-model-with-broom",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#summarizing-the-model-with-broom",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#summarizing-the-model-with-broom",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Summarizing the Model with broom",
-    "text": "Summarizing the Model with broom\nNow that you have the model object, there are typically three ways in which it’s useful to probe and use the model object. The broom package has three crown functions that make it easy to extract each piece of information by converting your model into a tibble:\n\ntidy: extract statistical summaries about each “component” of the model.\naugment: add columns to the original data frame containing predictions.\nglance: extract statistical summaries about the model as a whole (a 1-row tibble).\n\n\ntidy()\nUse the tidy() function for a statistical summary of each component of your model, where each component gets a row in the output tibble. For lm(), tidy() gives one row per regression coefficient (slope and intercept).\n\ntidy(my_lm)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    37.3      1.88      19.9  8.24e-19\n2 wt             -5.34     0.559     -9.56 1.29e-10\n\n\ntidy() only works if it makes sense to talk about model “components”.\n\n\naugment()\nUse the augment() function to make predictions on a dataset by augmenting predictions as a new column to your data. By default, augment() uses the dataset that was used to fit the model.\n\naugment(my_lm) %&gt;%\n  print(n = 5)\n\n# A tibble: 32 × 9\n  .rownames           mpg    wt .fitted .resid   .hat .sigma  .cooksd .std.resid\n  &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Mazda RX4          21    2.62    23.3 -2.28  0.0433   3.07  1.33e-2    -0.766 \n2 Mazda RX4 Wag      21    2.88    21.9 -0.920 0.0352   3.09  1.72e-3    -0.307 \n3 Datsun 710         22.8  2.32    24.9 -2.09  0.0584   3.07  1.54e-2    -0.706 \n4 Hornet 4 Drive     21.4  3.22    20.1  1.30  0.0313   3.09  3.02e-3     0.433 \n5 Hornet Sportabout  18.7  3.44    18.9 -0.200 0.0329   3.10  7.60e-5    -0.0668\n# ℹ 27 more rows\n\n\nWe can also predict on new datasets. Here are predictions of mpg for cars weighing 3, 4, and 5 thousand lbs. In the following code, we make a predictor for wt = 3, 4, and 5.\n\naugment(my_lm, newdata = tibble(wt = 3:5))\n\n# A tibble: 3 × 2\n     wt .fitted\n  &lt;int&gt;   &lt;dbl&gt;\n1     3    21.3\n2     4    15.9\n3     5    10.6\n\n\nNotice that only the “X” variables are needed in the input tibble (wt), and that since the “Y” variable (mpg) wasn’t provided, augment() couldn’t calculate anything besides a prediction\n\n\nglance()\nUse the glance() function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit.\n\nglance(my_lm)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.753         0.745  3.05      91.4 1.29e-10     1  -80.0  166.  170.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Summarizing the Model with broom\nNow that you have the model object, there are typically three ways in which it’s useful to probe and use the model object. The broom package has three crown functions that make it easy to extract each piece of information by converting your model into a tibble:\n\ntidy: extract statistical summaries about each “component” of the model.\naugment: add columns to the original data frame containing predictions.\nglance: extract statistical summaries about the model as a whole (a 1-row tibble).\n\n\ntidy()\nUse the tidy() function for a statistical summary of each component of your model, where each component gets a row in the output tibble. For lm(), tidy() gives one row per regression coefficient (slope and intercept).\n\ntidy(my_lm)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)    37.3      1.88      19.9  8.24e-19\n2 wt             -5.34     0.559     -9.56 1.29e-10\n\n\ntidy() only works if it makes sense to talk about model “components”.\n\n\naugment()\nUse the augment() function to make predictions on a dataset by augmenting predictions as a new column to your data. By default, augment() uses the dataset that was used to fit the model.\n\naugment(my_lm) %&gt;%\n  print(n = 5)\n\n# A tibble: 32 × 9\n  .rownames           mpg    wt .fitted .resid   .hat .sigma  .cooksd .std.resid\n  &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Mazda RX4          21    2.62    23.3 -2.28  0.0433   3.07  1.33e-2    -0.766 \n2 Mazda RX4 Wag      21    2.88    21.9 -0.920 0.0352   3.09  1.72e-3    -0.307 \n3 Datsun 710         22.8  2.32    24.9 -2.09  0.0584   3.07  1.54e-2    -0.706 \n4 Hornet 4 Drive     21.4  3.22    20.1  1.30  0.0313   3.09  3.02e-3     0.433 \n5 Hornet Sportabout  18.7  3.44    18.9 -0.200 0.0329   3.10  7.60e-5    -0.0668\n# ℹ 27 more rows\n\n\nWe can also predict on new datasets. Here are predictions of mpg for cars weighing 3, 4, and 5 thousand lbs. In the following code, we make a predictor for wt = 3, 4, and 5.\n\naugment(my_lm, newdata = tibble(wt = 3:5))\n\n# A tibble: 3 × 2\n     wt .fitted\n  &lt;int&gt;   &lt;dbl&gt;\n1     3    21.3\n2     4    15.9\n3     5    10.6\n\n\nNotice that only the “X” variables are needed in the input tibble (wt), and that since the “Y” variable (mpg) wasn’t provided, augment() couldn’t calculate anything besides a prediction\n\n\nglance()\nUse the glance() function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit.\n\nglance(my_lm)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.753         0.745  3.05      91.4 1.29e-10     1  -80.0  166.  170.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#summarizing-the-model-without-broom",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#summarizing-the-model-without-broom",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#summarizing-the-model-without-broom",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#summarizing-the-model-without-broom",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Summarizing the Model Without broom",
-    "text": "Summarizing the Model Without broom\nIn order for a model to work with the broom package, someone has to go out of their way to contribute to the broom package for that model. While this has happened for many common models, many others remain without broom compatibility.\nHere’s how to work with these model objects in that case.\n\nPrediction\nIf broom::augment() doesn’t work, then the developer of the model almost surely made it so that the predict() function works (not part of the broom package). The predict() function typically takes the same format of the augment() function, but usually doesn’t return a tibble.\nHere are the first 5 predictions of mpg on the my_lm object, defaulting to predictions made on the original data:\n\npredict(my_lm) %&gt;% #do prediction on all values in the original dataset\n  unname() %&gt;% #remove colnames\n  head(5) #look at first 5 values\n\n[1] 23.28261 21.91977 24.88595 20.10265 18.90014\n\n\nHere are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:\n\npredict(my_lm, newdata = tibble(wt = 3:5)) %&gt;% \n  unname()\n\n[1] 21.25171 15.90724 10.56277\n\n\nChecking the documentation of the predict() function for your model isn’t obvious, because the predict() function is a “generic” function. Your best bet is to append the model name after a dot. For example:\n\nFor a model fit with lm(), try ?predict.lm\nFor a model fit with rq(), try ?predict.rq (from the quantreg package)\n\nIf that doesn’t work, just google it: \"Predict function for rq\"\n\n\nInference\nWe can extract model information using summary() on the linear model:\n\nsummary(my_lm)\n\n\nCall:\nlm(formula = mpg ~ wt, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.5432 -2.3647 -0.1252  1.4096  6.8727 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  37.2851     1.8776  19.858  &lt; 2e-16 ***\nwt           -5.3445     0.5591  -9.559 1.29e-10 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.046 on 30 degrees of freedom\nMultiple R-squared:  0.7528,    Adjusted R-squared:  0.7446 \nF-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10\n\n\nThere’s a lot of information here. To extract a specific piece, we use $. For example,\n\nsummary(my_lm)$coefficients\n\n             Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 37.285126   1.877627 19.857575 8.241799e-19\nwt          -5.344472   0.559101 -9.559044 1.293959e-10\n\n\nThis outputs a data frame of some of the model output regarding the regression coefficients. There are a ton of other items we can access, and to see them we can call names()\n\nnames(summary(my_lm))\n\n [1] \"call\"          \"terms\"         \"residuals\"     \"coefficients\" \n [5] \"aliased\"       \"sigma\"         \"df\"            \"r.squared\"    \n [9] \"adj.r.squared\" \"fstatistic\"    \"cov.unscaled\" \n\n\nFor another example, wo see the adjusted R-squared valued of the model we can use\n\nsummary(my_lm)$adj.r.squared\n\n[1] 0.7445939",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Summarizing the Model Without broom\nIn order for a model to work with the broom package, someone has to go out of their way to contribute to the broom package for that model. While this has happened for many common models, many others remain without broom compatibility.\nHere’s how to work with these model objects in that case.\n\nPrediction\nIf broom::augment() doesn’t work, then the developer of the model almost surely made it so that the predict() function works (not part of the broom package). The predict() function typically takes the same format of the augment() function, but usually doesn’t return a tibble.\nHere are the first 5 predictions of mpg on the my_lm object, defaulting to predictions made on the original data:\n\npredict(my_lm) %&gt;% #do prediction on all values in the original dataset\n  unname() %&gt;% #remove colnames\n  head(5) #look at first 5 values\n\n[1] 23.28261 21.91977 24.88595 20.10265 18.90014\n\n\nHere are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:\n\npredict(my_lm, newdata = tibble(wt = 3:5)) %&gt;% \n  unname()\n\n[1] 21.25171 15.90724 10.56277\n\n\nChecking the documentation of the predict() function for your model isn’t obvious, because the predict() function is a “generic” function. Your best bet is to append the model name after a dot. For example:\n\nFor a model fit with lm(), try ?predict.lm\nFor a model fit with rq(), try ?predict.rq (from the quantreg package)\n\nIf that doesn’t work, just google it: \"Predict function for rq\"\n\n\nInference\nWe can extract model information using summary() on the linear model:\n\nsummary(my_lm)\n\n\nCall:\nlm(formula = mpg ~ wt, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.5432 -2.3647 -0.1252  1.4096  6.8727 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  37.2851     1.8776  19.858  &lt; 2e-16 ***\nwt           -5.3445     0.5591  -9.559 1.29e-10 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 3.046 on 30 degrees of freedom\nMultiple R-squared:  0.7528,    Adjusted R-squared:  0.7446 \nF-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10\n\n\nThere’s a lot of information here. To extract a specific piece, we use $. For example,\n\nsummary(my_lm)$coefficients\n\n             Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 37.285126   1.877627 19.857575 8.241799e-19\nwt          -5.344472   0.559101 -9.559044 1.293959e-10\n\n\nThis outputs a data frame of some of the model output regarding the regression coefficients. There are a ton of other items we can access, and to see them we can call names()\n\nnames(summary(my_lm))\n\n [1] \"call\"          \"terms\"         \"residuals\"     \"coefficients\" \n [5] \"aliased\"       \"sigma\"         \"df\"            \"r.squared\"    \n [9] \"adj.r.squared\" \"fstatistic\"    \"cov.unscaled\" \n\n\nFor another example, wo see the adjusted R-squared valued of the model we can use\n\nsummary(my_lm)$adj.r.squared\n\n[1] 0.7445939"
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#plotting-models-in-ggplot2",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#plotting-models-in-ggplot2",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#plotting-models-in-ggplot2",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#plotting-models-in-ggplot2",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Plotting Models in ggplot2",
-    "text": "Plotting Models in ggplot2\nWe can plot models (with one predictor/ X variable) using ggplot2 through the geom_smooth() layer. Specifying method=\"lm\" gives us the linear regression fit (but only visually – very difficult to extract model components!):\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n    geom_point() +\n    geom_smooth(method = \"lm\", se = F) #se = F removes the confidence interval bands\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nExample: gapminder\nLet’s visualize some relationships in the gapminder dataset.\nLet’s inspect Zimbabwe, which has a unique behavior in the lifeExp and year relationship.\n\ngapminder_Zimbabwe &lt;- gapminder %&gt;% \n  filter(country == \"Zimbabwe\")\n\ngapminder_Zimbabwe %&gt;% \n  ggplot(aes(year, lifeExp)) + \n  geom_point() #add scatter plot\n\n\n\n\n\n\n\n\nNow, let’s try fitting a linear model to this relationship\n\nggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +\n  geom_point() + #add the scatter plots\n  geom_smooth(method = \"lm\", se = F) #add a linear regression line\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nNot a great fit. Now we will try to fit a second degree polynomial and see what would that look like.\n\nggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +\n  geom_point() +\n  geom_smooth(method = \"lm\",\n              formula = y ~ poly(x,2), #second degree polynomial (quadratic)\n              se = F)\n\n\n\n\n\n\n\n\nThat’s a better fit. Visualizing data is a really good way to inform what types of models we should use in our analysis.\nWhile this lecture only focused on two-dimensonal data (one y and one x), more sophisticaed statistical models can certainly handle more complexity and higher-dimensional data. If you’re interested, head to the Resources section at the end of this page to learn more.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Plotting Models in ggplot2\nWe can plot models (with one predictor/ X variable) using ggplot2 through the geom_smooth() layer. Specifying method=\"lm\" gives us the linear regression fit (but only visually – very difficult to extract model components!):\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n    geom_point() +\n    geom_smooth(method = \"lm\", se = F) #se = F removes the confidence interval bands\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nExample: gapminder\nLet’s visualize some relationships in the gapminder dataset.\nLet’s inspect Zimbabwe, which has a unique behavior in the lifeExp and year relationship.\n\ngapminder_Zimbabwe &lt;- gapminder %&gt;% \n  filter(country == \"Zimbabwe\")\n\ngapminder_Zimbabwe %&gt;% \n  ggplot(aes(year, lifeExp)) + \n  geom_point() #add scatter plot\n\n\n\n\n\n\n\n\nNow, let’s try fitting a linear model to this relationship\n\nggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +\n  geom_point() + #add the scatter plots\n  geom_smooth(method = \"lm\", se = F) #add a linear regression line\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nNot a great fit. Now we will try to fit a second degree polynomial and see what would that look like.\n\nggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +\n  geom_point() +\n  geom_smooth(method = \"lm\",\n              formula = y ~ poly(x,2), #second degree polynomial (quadratic)\n              se = F)\n\n\n\n\n\n\n\n\nThat’s a better fit. Visualizing data is a really good way to inform what types of models we should use in our analysis.\nWhile this lecture only focused on two-dimensonal data (one y and one x), more sophisticaed statistical models can certainly handle more complexity and higher-dimensional data. If you’re interested, head to the Resources section at the end of this page to learn more."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#summary",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#summary",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#summary",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#summary",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Summary",
-    "text": "Summary\n\nfunction(formula, data, options) - most models in R follow this structure.\nbroom::augment() - uses a fitted model to obtain predictions. Puts this in a new column in existing tibble. Equivalent base-r function is predict().\nbroom::tidy() - used to extract statistical information on each component of a model. Equivalent is coef(summary(lm_object)).\nbroom::glance() - used to extract statistical summaries on the whole model. Always returns a 1-row tibble.\ngeom_smooth() - used to add geom_layer that shows a fitted line to the data. method and formula arguments can be used to customize model.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Summary\n\nfunction(formula, data, options) - most models in R follow this structure.\nbroom::augment() - uses a fitted model to obtain predictions. Puts this in a new column in existing tibble. Equivalent base-r function is predict().\nbroom::tidy() - used to extract statistical information on each component of a model. Equivalent is coef(summary(lm_object)).\nbroom::glance() - used to extract statistical summaries on the whole model. Always returns a 1-row tibble.\ngeom_smooth() - used to add geom_layer that shows a fitted line to the data. method and formula arguments can be used to customize model."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#fev-case-study",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#fev-case-study",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#fev-case-study",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#fev-case-study",
+    "title": "Lecture 5B: Model Fitting",
     "section": "FEV Case study",
-    "text": "FEV Case study\nWhile this is not a modelling class, let’s get a sense of where modelling would fit into a real data analysis by working through the final part of the FEV case study.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "FEV Case study\nWhile this is not a modelling class, let’s get a sense of where modelling would fit into a real data analysis by working through the final part of the FEV case study."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#worksheet-a4",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#worksheet-a4",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#worksheet-a4",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#worksheet-a4",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Worksheet A4",
-    "text": "Worksheet A4\nWe will now spend some time attempting questions on the last part of Worksheet A4.",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Worksheet A4\nWe will now spend some time attempting questions on the last part of Worksheet A4."
   },
   {
-    "objectID": "webpages/lectures_i/lec6a_modelfitting.html#resources",
-    "href": "webpages/lectures_i/lec6a_modelfitting.html#resources",
-    "title": "Lecture 6A: Model Fitting",
+    "objectID": "webpages/lectures_i/lec5b_modelfitting.html#resources",
+    "href": "webpages/lectures_i/lec5b_modelfitting.html#resources",
+    "title": "Lecture 5B: Model Fitting",
     "section": "Resources",
-    "text": "Resources\n\nVideo Lecture: The Model-Fitting Paradigm in R\nThe broom vignette\nU Chicago Tutorial on model fitting in R (just the linear regression part).\nAn Introduction to Statistical Learning\nMike Marin’s R playlist on YouTube",
-    "crumbs": [
-      "Lecture 6A: Model Fitting"
-    ]
+    "text": "Resources\n\nVideo Lecture: The Model-Fitting Paradigm in R\nThe broom vignette\nU Chicago Tutorial on model fitting in R (just the linear regression part).\nAn Introduction to Statistical Learning\nMike Marin’s R playlist on YouTube"
   },
   {
     "objectID": "webpages/lectures_i/lec7a_readwritedata.html",
@@ -3307,7 +3202,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 14\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 26\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 8\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 15\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 20\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 9\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]
@@ -3966,281 +3861,281 @@
     "text": "Resources\nToday’s class is a digest of the following resources:\n\nOnline tutorials:\n\nThe basic version control workflow (without branching): Happy git w R: Chapter 20.\nStarting with GitHub: Chapter 15: New project, GitHub first\nStarting with files on your computer, and didn’t set up git: Chapter 16: Existing project, GitHub first\nStarting with files on your computer, and did set up git: Chapter 17: Existing project, GitHub Last\n\n\nSome additional resources that you might find useful:\n\nRead the Understanding the GitHub flow to get a sense of branching."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#todays-goals",
-    "href": "webpages/slides/lec5_tidydata_slides.html#todays-goals",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#todays-goals",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#todays-goals",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Today’s Goals",
     "text": "Today’s Goals\n\nrecognize whether a given data set is ‘tidy’ or ‘untidy’ for their analysis\nunderstand why ‘tidy’ data can be useful\nreshape a data set between ‘long’ and ‘wide’ formats, using tidyr::pivot_longer() and tidyr::pivot_wider()\nunderstand how to grapple with explicit missing values created by pivoting\n\nQuick links:\n\nLecture Video"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#required-packages",
-    "href": "webpages/slides/lec5_tidydata_slides.html#required-packages",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#required-packages",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#required-packages",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Required Packages",
     "text": "Required Packages\nInstall (if necessary) and load in the following packages:"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#the-tidyverse",
-    "href": "webpages/slides/lec5_tidydata_slides.html#the-tidyverse",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#the-tidyverse",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#the-tidyverse",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "The Tidyverse",
     "text": "The Tidyverse\n\na “meta”-package that contains a bunch of packages related to tidy data!\nincludes dplyr, ggplot2, tidyr (today’s topic) and more"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#what-is-tidy-data",
-    "href": "webpages/slides/lec5_tidydata_slides.html#what-is-tidy-data",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#what-is-tidy-data",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#what-is-tidy-data",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "What is “Tidy Data”?",
     "text": "What is “Tidy Data”?\nTidy data is defined as data where\n\neach variables form a column,\neach observation forms a row, and\neach cell is a single measurement\n\nWhat constitutes a variable, observation, and measurement will depend on the goal of your analysis!\nWhen we have tidy data, it makes our lives easier."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#what-is-tidy-data-1",
-    "href": "webpages/slides/lec5_tidydata_slides.html#what-is-tidy-data-1",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#what-is-tidy-data-1",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#what-is-tidy-data-1",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "What is “Tidy Data”?",
     "text": "What is “Tidy Data”?\n\nArtwork by Allison Horst (@allisonhorst)"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#why-tidy-data",
-    "href": "webpages/slides/lec5_tidydata_slides.html#why-tidy-data",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#why-tidy-data",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#why-tidy-data",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Why Tidy Data?",
     "text": "Why Tidy Data?\n\nArtwork by Allison Horst (@allisonhorst)"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#untidy-real-data-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#untidy-real-data-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#untidy-real-data-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#untidy-real-data-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Untidy Real Data Example",
     "text": "Untidy Real Data Example\n\n\n\nOwner\nPet 1\nPet 2\n\n\n\n\nAsfar\nCosmo (Orange Cat)\nZuko (Grey Dog)\n\n\nGrace\nDorito (Brown Chipmunk)\n\n\n\nZifu\nBooger (Black and White Dog)\n\n\n\nFlora\nMimi (White Cat)\n\n\n\nYvette\nMia (Beige and White Cat)\n\n\n\nAlexandra\nBambi (Black and White Dog)\n\n\n\nErick\nMaisy (Brown Cat)\n\n\n\nSolana\nSuki (White and Brown Cat)\n\n\n\nDanielle\nEnzo (Black Cat)\n\n\n\nKisa\nRio (Multicoloured Parrot)"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#tidy-data-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#tidy-data-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#tidy-data-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#tidy-data-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Tidy Data Example",
     "text": "Tidy Data Example\nInstead, a tidy version of this data set may look like this:\n\n\n\nPet Name\nType\nOwner\nColour\n\n\n\n\nCosmo\nCat\nAsfar\nOrange\n\n\nZuko\nDog\nAsfar\nGrey\n\n\nDorito\nChipmunk\nGrace\nBrown\n\n\nBooger\nDog\nZifu\nBlack and White\n\n\nMimi\nCat\nFlora\nWhite\n\n\nMia\nCat\nYvette\nBeige and White\n\n\nBambi\nDog\nAlexandra\nBlack and White\n\n\nMaisy\nCat\nErick\nBrown\n\n\nEnzo\nCat\nDanielle\nBlack\n\n\nRio\nParrot\nKisa\nMulticoloured"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#discussion-1-drinks",
-    "href": "webpages/slides/lec5_tidydata_slides.html#discussion-1-drinks",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#discussion-1-drinks",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#discussion-1-drinks",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Discussion #1: Drinks",
     "text": "Discussion #1: Drinks\nThe fivethirtyeight R package contains a dataset called drinks. This dataset was compiled as part of a FiveThirtyEight article that explored (among other things) which countries consumes the most alcohol. Let’s look at a subset of the data:\n\n\n\n\n\n\n\n\nIf we wanted to compare consumption across countries by drink type, is the data tidy?\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#discussion-2-drinks",
-    "href": "webpages/slides/lec5_tidydata_slides.html#discussion-2-drinks",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#discussion-2-drinks",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#discussion-2-drinks",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Discussion #2: Drinks",
     "text": "Discussion #2: Drinks\nThe following graphic was made from the same drinks dataset.\n\nWithout transforming the data (on previous slide), would we be able to plot this?\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#basic-pivoting",
-    "href": "webpages/slides/lec5_tidydata_slides.html#basic-pivoting",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#basic-pivoting",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#basic-pivoting",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Basic Pivoting",
     "text": "Basic Pivoting\nOnce you have figured out what’s tidy for you, you may come to realize that your data is not tidy. As we have discussed, it will typically save you time and frustration to tidy it before moving on in your analysis.\nVery often this will involve using “pivoting” type functions. For example, the tidyr package in the tidyverse has two main pivoting functions:\n\npivot_longer() makes datasets longer: it moves some information in the columns into new rows, thereby increasing the number of rows of the dataset.\npivot_wider() makes datasets wider: it moves some information in the rows into new columns, thereby decreasing the number of rows of the dataset."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-wider",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-wider",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-wider",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-wider",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Wider",
     "text": "Pivoting Wider\nHere is an example of (artificial) data that is currently in “long” format, looking grades before and after active learning was incorporated into their math and science lectures:\n\n\n\n\n\n\n\n\nSometimes, we require data involving time to have row for each observation, and one column for each time point (i.e., wide data). While this isn’t our “standard” definition of tidy, sometimes this is what is required for longitudinal data (i.e., data involving measures repeated over time). Nevertheless, let’s try to pivot this table!"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-wider-1",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-wider-1",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-wider-1",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-wider-1",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Wider",
     "text": "Pivoting Wider\npivot_wider needs three pieces of information:\n\nWhat is a set of columns that uniquely identifies each observation? Put their names in the id_cols argument.\nWhere should the names for the new columns come from? Put the name of the column you want to take the new variable names from in the names_from argument.\nWhat values should the new columns contain? Put the name of the columns you want to take the values from to values_from in the values_from argument.\n\nNote that if you don’t specify an id_cols argument, pivot_wider will assume that you want it to be every column except those in names_from and values_from. Further, any columns not included in id_cols, names_from, and values_from (e.g., ep_id) will simply be dropped."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-wider-grades-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-wider-grades-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-wider-grades-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-wider-grades-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Wider: Grades Example",
     "text": "Pivoting Wider: Grades Example\nRecall the structure of grades_long:\n\n\n\n\n\n\n\n\nCan you pivot this table wider so that we have a columns “Scores_Before” and “Scores_After” for each student_id and subject?"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Longer",
     "text": "Pivoting Longer\nHere is a snippet of WHO data on the number of tuberculosis cases in different years in different countries.\n\n\n\n\n\n\n\n\nIf we wanted to compare tuberculosis cases over time by country (e.g. by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. there should be one observation per unit within each population (country-years).\nIn this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.\nTidy Format: variables (the year, the country, and the case counts) on the columns. There are 6 rows, one for each unique country-year combination. In this example, the tidy format is longer. That means to produce it using who_wide, we need to lengthen it by moving some information in the column names (the info about the measurement year) into new rows."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-1",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-1",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-1",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-1",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Longer",
     "text": "Pivoting Longer\npivot_longer needs three pieces of information:\n\nWhich are the columns that we want to expand into more rows? Put their names in the cols argument.\nWe want to save the information in the names of those columns as values in new column(s) of our dataset. What should we name these new column(s)? This is the names_to argument.\nWe also want to preserve the information in the values of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the values_to argument."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-who-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-who-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-who-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-who-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Longer: WHO Example",
     "text": "Pivoting Longer: WHO Example\n\n\n\n\n\n\n\n\nNow we’ve got tidy data!"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-grades-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-grades-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-grades-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-grades-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Longer: Grades Example",
     "text": "Pivoting Longer: Grades Example\nChallenge yourself to transform grades_wide back to grades_long. Rename your new dataset grades_long_pivoted and compare the two long forms."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Longer with Multiple Variables: WHO Example",
     "text": "Pivoting Longer with Multiple Variables: WHO Example\nExample: Column Names Contain Multiple Variable Values\nHere’s a more realistic (but still simplified) look at the WHO Tuberculosis data.\n\n\n\n\n\n\n\n\nThis time, cases are broken down by gender (f or m only considered in this study) and by age range (014 (0 - 14), 1524 (15 - 24), 2534 (25 - 34), and so on)\nSuppose now that we are interested in comparing tuberculosis rates over time across (potentially) gender, age, and country. Then the most granular population we are trying to describe is a country, gender, age, and year combination, and like in the last example, we have no measured sub-units within that population, so an observation is a unique combination of country, gender, age, and year. (What a mouthful!)"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example-1",
-    "href": "webpages/slides/lec5_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example-1",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example-1",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#pivoting-longer-with-multiple-variables-who-example-1",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Pivoting Longer with Multiple Variables: WHO Example",
     "text": "Pivoting Longer with Multiple Variables: WHO Example\nVariables of interest: country, year, gender, age range, and case count.\nValues for gender and age range are currently located in the column names of who_demo, and values for case count are currently spread across multiple columns. So to tidy who_demo up, we need to use pivot_longer() to move the info in the columns into new rows.\n\n\n\n\n\n\n\n\nPhew!"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#separating-and-uniting",
-    "href": "webpages/slides/lec5_tidydata_slides.html#separating-and-uniting",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#separating-and-uniting",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#separating-and-uniting",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Separating and Uniting",
     "text": "Separating and Uniting\nSometimes data has multiple pieces of information stored in a single column. To separate them into two distinct columns, we can use the separate() function from the tidyverse (technically, a package within tidyverse called tidyr.\nseparate(): separates information within a column. It involves three arguments:\n\ncol: specifies the column we want to separate\ninto: specifies the names of the new columns.\nsep: specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves regular expressions, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#separating-and-uniting-1",
-    "href": "webpages/slides/lec5_tidydata_slides.html#separating-and-uniting-1",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#separating-and-uniting-1",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#separating-and-uniting-1",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Separating and Uniting",
     "text": "Separating and Uniting\nConversely, unite() combines information from two or more columns into one. Involves:\n\ncol: name of the new column\n...: the names of columns to be united\nsep: specifies the separator to use between values (i.e., “-”)"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#separating-and-uniting-who-example",
-    "href": "webpages/slides/lec5_tidydata_slides.html#separating-and-uniting-who-example",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#separating-and-uniting-who-example",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#separating-and-uniting-who-example",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Separating and Uniting: WHO Example",
     "text": "Separating and Uniting: WHO Example\nThe tidyr package has a function for gluing columns together (unite) and for cutting columns apart (separate). Why might this help us tidy? Here is another snippet of WHO Tuberculosis data.\n\n\n\n\n\n\n\n\nThe rate column contains the values of two variables: case counts and population counts. We would like to snip it apart at the “/” character to create two columns:"
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#untidy-data",
-    "href": "webpages/slides/lec5_tidydata_slides.html#untidy-data",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#untidy-data",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#untidy-data",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Untidy Data",
     "text": "Untidy Data\nAs we’ve seen, tidy data is often very helpful. But there are also times when untidy data is good. Here are a few reasons:\n\nThe format that lends itself best to fast computations might not be tidy. Case Study: Tidy Genomics.\nUntidy data is often easier for humans to interpret and edit. See Untidy Data: The Unreasonable Effectiveness of Tables.\nWe could lose important information about the context in which the data was collected by cleaning and tidying raw data. This can have important ethical implications; see Chapter 5 of the book “Data Feminism” by Catherine D’Ignazio and Lauren F. Klein.\n\nIn summary, tidiness is a very useful concept, and tidying data is often useful. But we should remember that absolutes are few and far between in data science and statistics. Just because tidying data is often useful, doesn’t mean it’s always useful."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#worksheet-a4",
-    "href": "webpages/slides/lec5_tidydata_slides.html#worksheet-a4",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#worksheet-a4",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#worksheet-a4",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "Worksheet A4",
     "text": "Worksheet A4\nWe will spend the remainder of this class working through Worksheet A4."
   },
   {
-    "objectID": "webpages/slides/lec5_tidydata_slides.html#to-save-these-slides-with-your-code",
-    "href": "webpages/slides/lec5_tidydata_slides.html#to-save-these-slides-with-your-code",
-    "title": "Lecture 5: Tidy Data and the Tidyverse",
+    "objectID": "webpages/slides/lec5a_tidydata_slides.html#to-save-these-slides-with-your-code",
+    "href": "webpages/slides/lec5a_tidydata_slides.html#to-save-these-slides-with-your-code",
+    "title": "Lecture 5A: Tidy Data and the Tidyverse",
     "section": "To Save These Slides With Your Code",
     "text": "To Save These Slides With Your Code\nTo Print to PDF (with your code!), do the following:\n\nOpen the in-browser print dialog CMD/CTRL + P or Right click &gt; Print\nChange the Destination setting to Save as PDF.\nChange the Layout to Landscape.\nChange the Margins to None. Enable the Background graphics option.\nClick Save 🎉\n\nIn all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will not be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#learning-outcomes",
-    "href": "webpages/slides/lec6b_factors_slides.html#learning-outcomes",
+    "objectID": "webpages/slides/lec6_factors_slides.html#learning-outcomes",
+    "href": "webpages/slides/lec6_factors_slides.html#learning-outcomes",
     "title": "Lecture 6b: Factors",
     "section": "Learning Outcomes",
     "text": "Learning Outcomes\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles\n\nVideo Lecture\nCourse Notes"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#set-up",
-    "href": "webpages/slides/lec6b_factors_slides.html#set-up",
+    "objectID": "webpages/slides/lec6_factors_slides.html#set-up",
+    "href": "webpages/slides/lec6_factors_slides.html#set-up",
     "title": "Lecture 6b: Factors",
     "section": "Set-up",
     "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#factors",
-    "href": "webpages/slides/lec6b_factors_slides.html#factors",
+    "objectID": "webpages/slides/lec6_factors_slides.html#factors",
+    "href": "webpages/slides/lec6_factors_slides.html#factors",
     "title": "Lecture 6b: Factors",
     "section": "Factors",
     "text": "Factors\n\nFactors represent categorical variables: variables that take on a fixed number of known values\nExample, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#factors-coded-as-numbers",
-    "href": "webpages/slides/lec6b_factors_slides.html#factors-coded-as-numbers",
+    "objectID": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers",
+    "href": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers",
     "title": "Lecture 6b: Factors",
     "section": "Factors coded as Numbers",
     "text": "Factors coded as Numbers\nSuppose in the penguins data set than instead of their names, species had levels:\n\n“1” for Gentoo,\n“2” for Adelie, and\n3 for Chinstrap penguins\n\n\n\n\n\n\n\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. This means, R assumes “species” can take on any numeric value, such as 1.5, 2.567, or 5 (which doesn’t make sense for this variable!)"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#factors-coded-as-numbers-1",
-    "href": "webpages/slides/lec6b_factors_slides.html#factors-coded-as-numbers-1",
+    "objectID": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers-1",
+    "href": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers-1",
     "title": "Lecture 6b: Factors",
     "section": "Factors coded as Numbers",
     "text": "Factors coded as Numbers\nTo ensure R knows that species is categorical, we can use:\n\n\n\n\n\n\n\n\nNow we see that species is a factor with three levels!\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse."
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#reordering-factor-levels",
-    "href": "webpages/slides/lec6b_factors_slides.html#reordering-factor-levels",
+    "objectID": "webpages/slides/lec6_factors_slides.html#reordering-factor-levels",
+    "href": "webpages/slides/lec6_factors_slides.html#reordering-factor-levels",
     "title": "Lecture 6b: Factors",
     "section": "Reordering Factor Levels",
     "text": "Reordering Factor Levels\n\nBy default, factors are ordered alphabetically or numerically.\nHowever, in many cases factors have a logical ordering they should follow (i.e., elementary, secondary, post-secondary, graduate).\nReordering data can be useful for both data visualization and model fitting.\n\nTo see the current ordering of a factor variable, we can call levels().\n\n\n\n\n\n\n\n\nWe see here, the levels of the factor are ordered alphabetically."
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-manually",
-    "href": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-manually",
+    "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-manually",
+    "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-manually",
     "title": "Lecture 6b: Factors",
     "section": "Reordering Levels of a Factors Manually",
     "text": "Reordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\n\n\n\n\n\n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
-    "href": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
+    "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
+    "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
     "title": "Lecture 6b: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nLet’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\n\n\n\n\n\n\n\nNotice that the ordering is alphabetical What would be a more effective ordering?\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
-    "href": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
+    "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
+    "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
     "title": "Lecture 6b: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nLet’s order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common.\nTwo approaches:\n\nedit the original tibble to have new factor ordering, or\norder the factors directly in the ggplot2 call so that the original tibble isn’t overwritten."
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
-    "href": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
+    "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
+    "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
     "title": "Lecture 6b: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble:\n\n\n\n\n\n\n\n\nWe can then plot our data using penguins4:"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
-    "href": "webpages/slides/lec6b_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
+    "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
+    "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
     "title": "Lecture 6b: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors."
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#expanding-factor-levels",
-    "href": "webpages/slides/lec6b_factors_slides.html#expanding-factor-levels",
+    "objectID": "webpages/slides/lec6_factors_slides.html#expanding-factor-levels",
+    "href": "webpages/slides/lec6_factors_slides.html#expanding-factor-levels",
     "title": "Lecture 6b: Factors",
     "section": "Expanding Factor Levels",
     "text": "Expanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data."
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#removing-factor-levels",
-    "href": "webpages/slides/lec6b_factors_slides.html#removing-factor-levels",
+    "objectID": "webpages/slides/lec6_factors_slides.html#removing-factor-levels",
+    "href": "webpages/slides/lec6_factors_slides.html#removing-factor-levels",
     "title": "Lecture 6b: Factors",
     "section": "Removing Factor Levels",
     "text": "Removing Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:"
   },
   {
-    "objectID": "webpages/slides/lec6b_factors_slides.html#worksheet-a5",
-    "href": "webpages/slides/lec6b_factors_slides.html#worksheet-a5",
+    "objectID": "webpages/slides/lec6_factors_slides.html#worksheet-a5",
+    "href": "webpages/slides/lec6_factors_slides.html#worksheet-a5",
     "title": "Lecture 6b: Factors",
     "section": "Worksheet A5",
     "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice."

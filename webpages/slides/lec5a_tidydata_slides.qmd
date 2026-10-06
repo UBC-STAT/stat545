@@ -1,5 +1,5 @@
 ---
-title: "Lecture 5: Tidy Data and the Tidyverse"
+title: "Lecture 5A: Tidy Data and the Tidyverse"
 subtitle: "STAT 545 - Fall 2026"
 format: 
   live-revealjs:
