@@ -57,9 +57,9 @@ Here, we are using the word “tidy” in a technical sense - we’re not talkin
 
 So why do we want to use it?
 
-[![Artwork by Allison Horst (\@allisonhorst)](/webpages/slides/slidefiles/images/tidydata_2.jpg){fig-alt="The standard structure of tidy data means that all tidy datasets are alike... by every messy dataset is messy in its own way"}](https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork)
+[![Artwork by Allison Horst (\@allisonhorst)](images/tidydata_2.jpg){fig-alt="The standard structure of tidy data means that all tidy datasets are alike... by every messy dataset is messy in its own way"}](https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork)
 
-[![Artwork by Allison Horst (\@allisonhorst)](/webpages/slides/slidefiles/images/tidydata_3.jpg){fig-alt="When working with tidy data, we can use the same tools in similar ways for each data set. But working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse."}](https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork)
+[![Artwork by Allison Horst (\@allisonhorst)](images/tidydata_3.jpg){fig-alt="When working with tidy data, we can use the same tools in similar ways for each data set. But working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse."}](https://github.com/allisonhorst/stats-illustrations/tree/main/rstats-artwork)
 
 For example, the following data set containing cat and dog names by family is [not tidy.]{.underline} We have multiple observations per row (a cat, and a dog observation):
 

@@ -45,8 +45,6 @@ Quick links:
 
 -   [Lecture Video](https://www.youtube.com/watch?v=pO-dgdfMRZw)
 
--   [Lecture Notes](../../lectures_i/lec5_tidydata.qmd)
-
 ## Required Packages
 
 Install (if necessary) and load in the following packages:
@@ -85,7 +83,37 @@ When we have tidy data, it makes our lives easier.
 
 ## Untidy Real Data Example
 
+| Owner     | Pet 1                        | Pet 2           |
+|-----------|------------------------------|-----------------|
+| Asfar     | Cosmo (Orange Cat)           | Zuko (Grey Dog) |
+| Grace     | Dorito (Brown Chipmunk)      |                 |
+| Zifu      | Booger (Black and White Dog) |                 |
+| Flora     | Mimi (White Cat)             |                 |
+| Yvette    | Mia (Beige and White Cat)    |                 |
+| Alexandra | Bambi (Black and White Dog)  |                 |
+| Erick     | Maisy (Brown Cat)            |                 |
+| Solana    | Suki (White and Brown Cat)   |                 |
+| Danielle  | Enzo (Black Cat)             |                 |
+| Kisa      | Rio (Multicoloured Parrot)   |                 |
+
 ## Tidy Data Example
+
+Instead, a tidy version of this data set may look like this:
+
+| Pet Name | Type     | Owner     | Colour          |
+|----------|----------|-----------|-----------------|
+| Cosmo    | Cat      | Asfar     | Orange          |
+| Zuko     | Dog      | Asfar     | Grey            |
+| Dorito   | Chipmunk | Grace     | Brown           |
+| Booger   | Dog      | Zifu      | Black and White |
+| Mimi     | Cat      | Flora     | White           |
+| Mia      | Cat      | Yvette    | Beige and White |
+| Bambi    | Dog      | Alexandra | Black and White |
+| Maisy    | Cat      | Erick     | Brown           |
+| Enzo     | Cat      | Danielle  | Black           |
+| Rio      | Parrot   | Kisa      | Multicoloured   |
+
+
 
 ## Discussion #1: Drinks
 
