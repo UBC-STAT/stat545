@@ -329,7 +329,7 @@ In summary, tidiness is a very useful concept, and tidying data is often useful.
 
 ## Worksheet A4
 
-We will spend the remainder of this class and Thursday's class (TAs only) working through Worksheet A4.
+We will spend the remainder of this class working through Worksheet A4.
 
 ## To Save These Slides With Your Code
 
