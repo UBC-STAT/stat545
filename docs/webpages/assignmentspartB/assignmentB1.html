@@ -208,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Assignment B1: Making a Function in R</h1>
-<p class="subtitle lead">Due: Tuesday November 4th, 2025 at 11:59pm</p>
+<p class="subtitle lead">Due: Tuesday November 5th, 2026 at 11:59pm</p>
 </div>
 
 
@@ -230,8 +230,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <ol type="1">
-<li><p>Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish, so long as it’s informative.</p></li>
-<li><p>Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a <em>github_document</em></p></li>
+<li><p>Create a new repository in our organization <a href="https://github.com/UBC-STAT545-F2026">https://github.com/UBC-STAT545-F2026</a>. Set the owner as UBC-STAT545-F2026 and name your repository <code>assignmentB1-FIRSTNAME-LASTNAME</code>.</p>
+<ul>
+<li><em>New to the course and don’t have access to our organization? Please let the instructor know ASAP!</em></li>
+</ul></li>
+<li><p>Clone the repository to your computer. Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a <em>github_document</em></p></li>
 </ol>
 </section>
 <section id="exercise-1-make-a-function-25-points" class="level2">
@@ -240,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Function Ideas</strong></p>
 <ul>
 <li><p>Did you repeat any code for a data analysis in STAT 545A? If so, consider making a function for this action.</p></li>
-<li><p>Consider bundling a specific dplyr workfly (like<code>group_by() %&gt;% summarise()</code>)</p></li>
+<li><p>Consider bundling a specific dplyr workflow (like<code>group_by() %&gt;% summarise()</code>)</p></li>
 <li><p>Write a <em>wrapper</em> around an existing function.</p>
 <ul>
 <li><p>For example, perhaps accepting a narrower range of inputs (like not allowing logical vectors), or providing a different output.</p></li>
@@ -263,15 +266,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="exercise-2-document-your-function-20-points" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-document-your-function-20-points">Exercise 2: Document your Function (20 points)</h2>
 <p>In the same code chunk where you made your function, document the function using <a href="https://roxygen2.r-lib.org/articles/rd-formatting.html">roxygen2 tags</a>. Be sure to include:</p>
-<ol type="1">
-<li><p>Title.</p></li>
-<li><p>Function description: In 1-2 brief sentences, describe what the function does.</p></li>
-<li><p>Document each argument with the <code>@param</code> tag, <em>making sure to justify why you named the parameter as you did</em>.</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Title.</label></p></li>
+<li><p><label><input type="checkbox">Function description: In 1-2 brief sentences, describe what the function does.</label></p></li>
+<li><p><label><input type="checkbox">Document each argument with the <code>@param</code> tag, <em>making sure to justify why you named the parameter as you did</em>.</label></p>
 <ul>
 <li>(Justification for naming is not often needed, but we want to hear your reasoning.)</li>
 </ul></li>
-<li><p>What the function returns, using the <code>@return</code> tag.</p></li>
-</ol>
+<li><p><label><input type="checkbox">What the function returns, using the <code>@return</code> tag.</label></p></li>
+</ul>
 </section>
 <section id="exercise-3-include-examples-15-points" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-include-examples-15-points">Exercise 3: Include examples (15 points)</h2>
@@ -280,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="exercise-4-test-the-function-25-points" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-test-the-function-25-points">Exercise 4: Test the Function (25 points)</h2>
-<p>Write formal tests for your function. You should use at least three non-redundant uses of an <code>expect_*()</code> function from the <code>testthat</code> package, and they should be contained in a <code>test_that()</code> function (or more than one). They should all pass.</p>
+<p>Write formal tests for your function. You should use at least <strong>three</strong> non-redundant uses of an <code>expect_*()</code> function from the <code>testthat</code> package, and they should be contained in a <code>test_that()</code> function (or more than one). They should all pass.</p>
 <p>You can use the same <code>expect_*()</code> function multiple times so long as they test different cases.</p>
 <p>Example of non-redundant inputs in the dice rolling example from class:</p>
 <ul>
@@ -299,12 +302,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="tidy-submission-15-points" class="level2">
 <h2 class="anchored" data-anchor-id="tidy-submission-15-points">Tidy Submission (15 points)</h2>
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
-<ol type="1">
-<li><p>Make a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.</p></li>
-<li><p>Knit your .Rmd file to a .md file. Keep both in your repository.</p></li>
-<li><p>Tag a release in your GitHub repository corresponding to your submission before the deadline.</p></li>
-<li><p>Grab the URL corresponding to your tagged release, and submit that to canvas.</p></li>
-</ol>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Make a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.</label></p></li>
+<li><p><label><input type="checkbox">Knit your .Rmd file to a .md file. Keep both in your repository.</label></p></li>
+<li><p><label><input type="checkbox">Tag a release in your GitHub repository corresponding to your submission before the deadline.</label></p></li>
+<li><p><label><input type="checkbox">Grab the URL corresponding to your tagged release, and submit that to canvas.</label></p></li>
+</ul>
 <p>See Rubric on Canvas for more details on grading.</p>
 
 

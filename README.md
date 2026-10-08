@@ -2,9 +2,11 @@
 
 ## About this Repo
 
-This repo contains student-facing materials for STAT545A/B at UBC, and generates the website at [https://ubc-stat.github.io/STAT545](https://ubc-stat.github.io/stat545).
+This repo contains student-facing materials for STAT545A/B at UBC, and generates the website at [https://ubc-stat.github.io/stat545](https://ubc-stat.github.io/stat545).
 
-Worksheets and other materials can be found in
-`content/`.
+This **repo is public**. 
 
-**Instructors: see stat-545-instructor for instructor facing material and guides**
+
+## Note for Instructors
+
+The instructor repo is `stat-545-instructor`. You can generate worksheets here. 

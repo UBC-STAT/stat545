@@ -1,6 +1,6 @@
 ---
 title: "Assignment B2: Making an R Package"
-subtitle: "Due: Wednesday November 19, 2025 at 11:59pm"
+subtitle: "Due: Wednesday November 17, 2026 at 11:59pm"
 ---
 
 **Total Points**: 100
@@ -33,23 +33,21 @@ If you like, you can choose to write a new function - not used in Assignment B1 
 
 ## Setup
 
-1.  Accept the assignment in GitHub classroom (link in Assignment B-2 Description [here](https://canvas.ubc.ca/courses/170035/assignments/2242182)))
+1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB2-FIRSTNAME-LASTNAME`. 
 
-2.  Rename your repository to match the name of your package (go to your repository Settings and edit the repository name there)
-
-3.  Open an RStudio session
+2.  Open an RStudio session
 
     1.  Run `library(devtools)` in the console
 
     2.  Run `create_package("path/package_name")` replacing "path" with the path to where you'd like your package to live on your computer, and "package_name" with the name of your package.
 
-4.  Initialize Git
+3.  Initialize Git
 
     1.  In the RStudio window that just opened, run `git init` in your **Terminal**
 
-5.  Connect to GitHub
+4.  Connect to GitHub
 
-    1.  In the Terminal, run `git remote add origin https://github.com/[username]/[repository_name].git` replacing the link with the link to your URL (you can find this on the green CODE button on your repository)
+    1.  In the Terminal, run `git remote add origin [LINK]` replacing the [LINK] with the link to your repository URL (you can find this on the green CODE button on your repository)
 
     2.  Stage, commit, and push the changes to GitHub from RStudio. In the Terminal, run:
 
@@ -67,15 +65,15 @@ Include a function in your package (see above options).
 
 You should include documentation for the:
 
-1.  title
+-   [ ]  title
 
-2.  description
+-   [ ] description
 
-3.  parameter descriptions
+-   [ ]  parameter descriptions
 
-4.  outputs
+-   [ ]  outputs
 
-5.  examples
+-   [ ]  examples
 
 Be sure to also include the `@export` tag to make your function(s) available to users (unless you want the function to be strictly internal)
 
@@ -85,13 +83,13 @@ Render the documentation for all of the functions/objects in your package using 
 
 **What we’re looking for**:
 
--   You followed the above instructions.
+-   [ ]  You followed the above instructions.
 
--   You should have `.Rd` files automatically generated in your `man/` folder. Don’t touch these files.
+-   [ ]  You should have `.Rd` files automatically generated in your `man/` folder. Don’t touch these files.
 
--   Functions intended to be used by a package user are deliberately listed under “exports” in the NAMESPACE file (this should happen automatically after running `document()` and having `@export` tags with your functions).
+-   [ ]  Functions intended to be used by a package user are deliberately listed under “exports” in the NAMESPACE file (this should happen automatically after running `document()` and having `@export` tags with your functions).
 
--   Documentation for each function should load after executing `?function` after loading your package.
+-   [ ]  Documentation for each function should load after executing `?function` after loading your package.
 
 ## Exercise 2: High-level documentation (20 points)
 
@@ -111,9 +109,9 @@ Create documentation for your R package at a high level.
 
 **What we’re looking for**:
 
--   The above instructions were followed.
+-   [ ]  The above instructions were followed.
 
--   The documentation is clear, simple, and effective.
+-   [ ] The documentation is clear, simple, and effective.
 
 ## Exercise 3: DESCRIPTION file (20 points)
 
@@ -141,13 +139,13 @@ Create unit tests for your package using `use_testthat()` (see [lecture notes](h
 
 **What we’re looking for**:
 
--   The extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package.
+-   [ ]  The extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package.
 
--   Your tests should all pass after running `devtools::test()`.
+-   [ ]  Your tests should all pass after running `devtools::test()`.
 
--   All tests use `testthat`
+-   [ ]   All tests use `testthat`
 
--   If you create an object in a test script, you clean up after yourself using `rm('name_of_object')` (not needed if the objects are created *within* a `test_that()` function.)
+-   [ ]  If you create an object in a test script, you clean up after yourself using `rm('name_of_object')` (not needed if the objects are created *within* a `test_that()` function.)
 
 ## Tidy Submission (20 points)
 

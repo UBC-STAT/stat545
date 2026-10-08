@@ -1,6 +1,6 @@
 ---
 title: "Assignment B3: Shiny App"
-subtitle: "Due: Friday Dec 5, 2025 at 11:59pm"
+subtitle: "Due: Friday Dec 4, 2026 at 11:59pm"
 ---
 
 
@@ -13,7 +13,9 @@ Note that we aren’t expecting a complex app for this assignment – a simple o
 
 ## Setup
 
-Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-3 on Canvas. Name your repository as you wish, so long as it’s informative. Clone the repository.
+1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB3-FIRSTNAME-LASTNAME`. 
+
+2. Clone your repository onto your computer. 
 
 ## Part A) Create a Shiny App (80 points)
 
@@ -43,21 +45,13 @@ See [the Appendix](#appendix) at the end of this assignment for some ideas for y
 
 ## Part C) Statement on Gen AI use (10 points) {#genAI}
 
-I *encourage you* to use Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, there is additional documentation you must provide.
+I *encourage you* to explore the use of Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, this is completely optional. You may create your shiny app without Generative AI. You will not lose marks for doing so. 
+
 
 You may ***not*** ask Gen AI to build a shiny app from scratch. Use it as an additional tool to help you with the assignment.
 
--   [ ] Provide the Gen AI Chat Prompts
-    -   You must provide a **list of prompts/questions provided to the Gen AI chat bot**. For example:
+-   [ ] Fill out the usual Gen AI statement template, and include it in your README.md file. 
 
-        -   "I'm trying to build a Shiny app but I keep getting this error: [insert error]. What does this mean?"
-        -   "I'm building a Shiny app that creates a plot. Here is my code: [insert code]. Can you help me add a second slider that adjusts the transparency of the points?
-
-    -   You do not have to provide the responses or any follow-up questions.
-
-    -   You can provide the list of statements in a Word, .Rmd, or .txt file. Just be sure we can read it and include it in your repository.
-
-    -   **If you did not use Gen AI,** provide some links to any resources you used instead (i.e., StackExchange).
 -   [ ] Provide a Reflection
     -   Within the same document, you must provide a **short reflection on how you felt the use of Gen AI contributed to your learning**. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). **Write this in your own words**. It can be brief.
     -   **If you did not use Gen AI**, provide a brief statement (a sentence or two) on why you chose not to use it.

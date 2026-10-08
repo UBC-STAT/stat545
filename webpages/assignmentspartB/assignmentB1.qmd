@@ -1,6 +1,6 @@
 ---
 title: "Assignment B1: Making a Function in R"
-subtitle: 'Due: Tuesday November 4th, 2025 at 11:59pm'
+subtitle: 'Due: Tuesday November 5th, 2026 at 11:59pm'
 ---
 
 
@@ -10,9 +10,11 @@ This assignment covers making a function in R, documenting it, and testing it.
 
 ## Setup
 
-1.  Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish, so long as it’s informative.
+1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB1-FIRSTNAME-LASTNAME`. 
 
-2.  Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a *github_document*
+    -  *New to the course and don't have access to our organization? Please let the instructor know ASAP!*
+
+2.  Clone the repository to your computer. Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a *github_document*
 
 ## Exercise 1: Make a Function (25 points)
 
@@ -22,7 +24,7 @@ Create an R Function! It doesn't need to be overly complicated, but it also shou
 
 -   Did you repeat any code for a data analysis in STAT 545A? If so, consider making a function for this action.
 
--   Consider bundling a specific dplyr workfly (like`group_by() %>% summarise()`)
+-   Consider bundling a specific dplyr workflow (like`group_by() %>% summarise()`)
 
 -   Write a *wrapper* around an existing function.
 
@@ -50,15 +52,16 @@ Create an R Function! It doesn't need to be overly complicated, but it also shou
 
 In the same code chunk where you made your function, document the function using [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html). Be sure to include:
 
-1.  Title.
+-   [ ] Title.
 
-2.  Function description: In 1-2 brief sentences, describe what the function does.
+-   [ ] Function description: In 1-2 brief sentences, describe what the function does.
 
-3.  Document each argument with the `@param` tag, *making sure to justify why you named the parameter as you did*.
+-   [ ] Document each argument with the `@param` tag, *making sure to justify why you named the parameter as you did*.
 
     -   (Justification for naming is not often needed, but we want to hear your reasoning.)
 
-4.  What the function returns, using the `@return` tag.
+-   [ ] What the function returns, using the `@return` tag.
+
 
 ## Exercise 3: Include examples (15 points)
 
@@ -68,7 +71,7 @@ Note: If you want to deliberately show an error, you can use `error = TRUE` in y
 
 ## Exercise 4: Test the Function (25 points)
 
-Write formal tests for your function. You should use at least three non-redundant uses of an `expect_*()` function from the `testthat` package, and they should be contained in a `test_that()` function (or more than one). They should all pass.
+Write formal tests for your function. You should use at least **three** non-redundant uses of an `expect_*()` function from the `testthat` package, and they should be contained in a `test_that()` function (or more than one). They should all pass.
 
 You can use the same `expect_*()` function multiple times so long as they test different cases.
 
@@ -92,12 +95,12 @@ Example of redundant inputs:
 
 Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
-1.  Make a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.
+-   [ ] Make a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.
 
-2.  Knit your .Rmd file to a .md file. Keep both in your repository.
+-   [ ]  Knit your .Rmd file to a .md file. Keep both in your repository.
 
-3.  Tag a release in your GitHub repository corresponding to your submission before the deadline.
+-   [ ] Tag a release in your GitHub repository corresponding to your submission before the deadline.
 
-4.  Grab the URL corresponding to your tagged release, and submit that to canvas.
+-   [ ] Grab the URL corresponding to your tagged release, and submit that to canvas.
 
 See Rubric on Canvas for more details on grading.
