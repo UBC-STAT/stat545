@@ -1,5 +1,5 @@
 ---
-title: "Lecture 6B: Factors"
+title: "Lecture 6: Factors"
 subtitle: "October 9, 2025"
 date-modified: last-modified
 ---
@@ -7,7 +7,7 @@ date-modified: last-modified
 
 ## Lecture Slides
 
-[Lecture 6b Slides](../slides/lec6b_factors_slides.qmd)
+[Lecture 6 Slides](../slides/lec6_factors_slides.qmd)
 
 ## Video Lecture
 

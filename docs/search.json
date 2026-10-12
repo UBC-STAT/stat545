@@ -1635,49 +1635,49 @@
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html",
     "href": "webpages/lectures_i/lec6_factorsanddates.html",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "",
-    "text": "Lecture 6b Slides"
+    "text": "Lecture 6 Slides"
   },
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html#lecture-slides",
     "href": "webpages/lectures_i/lec6_factorsanddates.html#lecture-slides",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "",
-    "text": "Lecture 6b Slides"
+    "text": "Lecture 6 Slides"
   },
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html#video-lecture",
     "href": "webpages/lectures_i/lec6_factorsanddates.html#video-lecture",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Video Lecture",
     "text": "Video Lecture\n\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles"
   },
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html#set-up",
     "href": "webpages/lectures_i/lec6_factorsanddates.html#set-up",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Set-up",
     "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:\n\nlibrary(tidyverse) #also loads forcats!\nlibrary(palmerpenguins)\nlibrary(gapminder)"
   },
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html#factors",
     "href": "webpages/lectures_i/lec6_factorsanddates.html#factors",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Factors",
     "text": "Factors\n\n“There is no other object that creates as much trouble as factors.” - Patrick Burns, “The R Inferno”.\n\nIn R, we use factors to represent categorical variables: variables that take on a fixed number of known values (i.e. levels). For example, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:\n\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nor we can explicitly look at the class and levels of the variable of interest by:\n\nclass(penguins$species)\n\n[1] \"factor\"\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nUnder the hood, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.\nThis is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:\n\nset.seed(100) #make reproducible (more on this later)\n\npenguins %&gt;% \n  slice_sample(n=10) %&gt;% #take 10 random rows\n  pull(species) #output the species only\n\n [1] Gentoo    Adelie    Gentoo    Adelie    Chinstrap Chinstrap Adelie   \n [8] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\nThis dual nature of factors creates a whole slew of hidden traps and headaches, especially for new R users!\n\n\n\n\n\n\nCaution\n\n\n\nSometimes factors are coded (i.e., written) in the data as integers. Without explicitly telling R, R will assume any numeric data are just regular old numbers.\nAlways ensure that factors are explicit in your code!\n\n\nFor example, suppose in the penguins data set than instead of their names, species had levels “1”, “2”, and “3’ where”1” could represent Gentoo, “2” Adelie, and 3 “Chinstrap” penguins. So, instead of having the names of penguin species as strings, they are coded as numeric values.\n\npenguins2 &lt;- penguins %&gt;%\n  mutate(species = recode(species, \"Gentoo\" = 1, \"Adelie\" = 2, \"Chinstrap\" = 3))\n\nstr(penguins2)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : num [1:344] 2 2 2 2 2 2 2 2 2 2 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. To ensure R knows that species is categorical, we can use:\n\npenguins2 &lt;- penguins2 %&gt;% #overwrite existing tibble\n  mutate(species = as.factor(species)) #overwrite species to be a factor using as.factor\n\nstr(penguins2)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"1\",\"2\",\"3\": 2 2 2 2 2 2 2 2 2 2 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\nNow we see that species is a factor with three levels!\nNevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either ggplot2 or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse.\n\nReordering Factor Levels\nBy default, factors are ordered alphabetically or numerically. However, in many cases factors have a logical ordering they should follow. For example, you may have an education variable dictating the level of schooling a student is currently in (i.e., elementary, secondary, post-secondary, graduate). It is natural to order the factor in this way. In other cases, you may just want to reorder the levels of a factor so that it plots a certain way. Reordering data can be useful for both data visualization and model fitting.\nTo see the current ordering of a factor variable, we can call levels().\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\nWe see here, the levels of the factor are ordered alphabetically.\n\nReordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\npenguins3 &lt;- penguins %&gt;%\n  mutate(species = ordered(species, levels = c(\"Gentoo\", \"Chinstrap\", \"Adelie\"))) #change species to an ordered factor with the specified ordering\n\nlevels(penguins3$species) #see the levels of species\n\n[1] \"Gentoo\"    \"Chinstrap\" \"Adelie\"   \n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:\n\nstr(penguins3)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Ord.factor w/ 3 levels \"Gentoo\"&lt;\"Chinstrap\"&lt;..: 3 3 3 3 3 3 3 3 3 3 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...\n\n\n\n\nReordering Levels of a Factors Based on a Condition Using forcats\nPerhaps we want to reorder levels based on some condition, perhaps the ordering levels by frequency, or perhaps by the another summary statistic (which could be useful for effective data visualization!). We can easily do so using the forcats package. Let’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\nggplot(penguins, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend\n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nThis data visualization is fine. But there’s one step we can do to make it even better: order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common. This is especially useful when the number of levels is large!\nWe can do this in two ways: edit the original tibble to have new factor ordering, or order the factors directly in the ggplot2 call so that the original tibble isn’t overwritted. We will show both ways. We will use the forcats package in both examples.\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble, we can use fct_reorder():\n\npenguins4 &lt;- penguins %&gt;% #initialize a new dataset \n  mutate(species = fct_infreq(species))\n\nlevels(penguins4$species)\n\n[1] \"Adelie\"    \"Gentoo\"    \"Chinstrap\"\n\n\nWe see the ordering is Adelie, Gentoo, and then Chinstrap. If you look at the previous plot, you’ll see that these are ordered from smallest to largest frequencies. The original ordering was alphabetical.\nTo order from smallest to largest, we had fct_rev() to the chain:\n\npenguins4 &lt;- penguins %&gt;% #initialize a new dataset \n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;%\n           fct_rev())\n\n\nlevels(penguins4$species)\n\n[1] \"Chinstrap\" \"Gentoo\"    \"Adelie\"   \n\n\nNow the levels are reversed!\nWe can then plot our data using penguins4:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") #add a title\n\n\n\n\n\n\n\n\nOf course, an even better visualization would involve flipping the axes:\n\nggplot(penguins4, aes(x = species, fill = species)) + #use species variable (no y needed)\n  geom_bar() + #draw a bar chart \n  theme(legend.position = \"none\")  + #remove redundant legend  \n  xlab(\"Species\") + #add x axis label\n  ylab(\"Count\") + # add y axis label\n  ggtitle(\"Penguin Species Frequencies\") + #add a title\n  coord_flip()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIt may look like they are ordered from largest to smallest, but they are actually ordered from smallest to largest. When flipped, ggplot puts the first level on the bottom.\n\n\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_infreq() %&gt;% #order by frequency\n           fct_rev()) %&gt;%  #reverse ordering\n  ggplot( aes(x = species, fill = species)) + #no longer specify the data set in ggplot() as this is passed in by the pipe %&gt;%\n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip()\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors.\n\nlevels(penguins$species)\n\n[1] \"Adelie\"    \"Chinstrap\" \"Gentoo\"   \n\n\n\n\n\n\n\n\nWarningExercise\n\n\n\nThe gapminder dataset contains information on GDP per capita (gdpPercap) by country. Add to the following ggplot to visualize the GDP per capita, ordered by GDP per capita, for countries in Asia in 2007. Copy the code block to edit and run it in R.\nlibrary(gapminder)\nlibrary(tidyverse)\n\ngapminder %&gt;%\n  filter( ) %&gt;% #FILL THIS IN: filter by countries in Asia\n  mutate() %&gt;% #FILL THIS IN: change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n  \n\n\nAnswer below! No peaking until you’ve attempted this problem!\n\ngapminder %&gt;%\n  filter(continent == \"Asia\", year == 2007) %&gt;% #filter by countries in Asia\n  mutate(country = fct_reorder(country, gdpPercap)) %&gt;% #change ordering of country by gdpPercap\n  ggplot(aes(country, gdpPercap)) + \n    geom_point() + \n    coord_flip() + \n    scale_y_continuous(\"GDP per Capita, 2007\", labels = scales::dollar_format()) + \n    xlab(\"Country\")\n\n\n\n\n\n\n\n\n\n\n\nExpanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n           fct_expand(\"King\", \"Emperor\") %&gt;% #NEW: expand levels to include king and emperor\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data.\n\nRemoving Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:\n\npenguins_no_gentoo &lt;- penguins %&gt;%\n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;%\n  droplevels()\n\nlevels(penguins_no_gentoo$species)\n\n[1] \"Adelie\"    \"Chinstrap\"\n\n\nWe can also do this along with the ggplot call by:\n\npenguins %&gt;% #this is the original data frame with alphabetical ordering\n  mutate(species = species %&gt;%\n\n           fct_infreq() %&gt;% \n           fct_rev()\n           ) %&gt;%  \n  filter(species %in% c(\"Adelie\", \"Chinstrap\")) %&gt;% #NEW: filter only these species\n  droplevels() %&gt;% #NEW: drop if not adelie or chinstrap species\n  ggplot( aes(x = species, fill = species)) + \n    geom_bar() + \n    theme(legend.position = \"none\")  +\n    xlab(\"Species\") + \n    ylab(\"Count\") + \n    ggtitle(\"Penguin Species Frequencies\") + \n    coord_flip() + \n    scale_x_discrete(drop = FALSE) #NEW: do not drop empty factor levels"
   },
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html#worksheet-a5",
     "href": "webpages/lectures_i/lec6_factorsanddates.html#worksheet-a5",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Worksheet A5",
     "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice."
   },
   {
     "objectID": "webpages/lectures_i/lec6_factorsanddates.html#additional-resources",
     "href": "webpages/lectures_i/lec6_factorsanddates.html#additional-resources",
-    "title": "Lecture 6B: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Additional Resources",
     "text": "Additional Resources\n\nVideo lecture: Special Data Types in R: Dates, Times, and Factors\nChapter IV of https://stat545.com/\nThe forcats package page and reference guide on page."
   },
@@ -3202,7 +3202,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 16\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 17\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 13\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 8\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 15\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 6\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]
@@ -4045,98 +4045,147 @@
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#learning-outcomes",
     "href": "webpages/slides/lec6_factors_slides.html#learning-outcomes",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles\n\nVideo Lecture\nCourse Notes"
+    "text": "Learning Outcomes\nFrom today’s class, students are anticipated to be able to:\n\nReorder levels within factors according to various principles\nThink critically about the levels of a categorical variable"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#set-up",
     "href": "webpages/slides/lec6_factors_slides.html#set-up",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Set-up",
     "text": "Set-up\nThroughout this lecture, we will be using functions from the following packages:"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#factors",
     "href": "webpages/slides/lec6_factors_slides.html#factors",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Factors",
     "text": "Factors\n\nFactors represent categorical variables: variables that take on a fixed number of known values\nExample, in the penguins data set, species is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”. We can see this by looking at the str() (structure) of the tibble:"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers",
     "href": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Factors coded as Numbers",
     "text": "Factors coded as Numbers\nSuppose in the penguins data set than instead of their names, species had levels:\n\n“1” for Gentoo,\n“2” for Adelie, and\n3 for Chinstrap penguins\n\n\n\n\n\n\n\n\n\nWe see here that R assumes that species is a numeric variable, not a categorical variable. This means, R assumes “species” can take on any numeric value, such as 1.5, 2.567, or 5 (which doesn’t make sense for this variable!)"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers-1",
     "href": "webpages/slides/lec6_factors_slides.html#factors-coded-as-numbers-1",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Factors coded as Numbers",
     "text": "Factors coded as Numbers\nTo ensure R knows that species is categorical, we can use:\n\n\n\n\n\n\n\n\nNow we see that species is a factor with three levels!\nTo make our lives easier, we will work with factors through the forcats package loaded as part of the tidyverse."
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#reordering-factor-levels",
     "href": "webpages/slides/lec6_factors_slides.html#reordering-factor-levels",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Reordering Factor Levels",
     "text": "Reordering Factor Levels\n\nBy default, factors are ordered alphabetically or numerically.\nHowever, in many cases factors have a logical ordering they should follow (i.e., elementary, secondary, post-secondary, graduate).\nReordering data can be useful for both data visualization and model fitting.\n\nTo see the current ordering of a factor variable, we can call levels().\n\n\n\n\n\n\n\n\nWe see here, the levels of the factor are ordered alphabetically."
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-manually",
     "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-manually",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Reordering Levels of a Factors Manually",
     "text": "Reordering Levels of a Factors Manually\nThere are many ways to reorder the levels of a factor in R. To reorder the levels of the factor, we can use built in R functions such as ordered():\n\n\n\n\n\n\n\n\nNow, when we call str() on the penguins data, we see that the factor is explicitly ordered, with out new ordering:"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
     "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nLet’s look again at the original penguins data set and look at the frequency of each species using ggplot:\n\n\n\n\n\n\n\n\nNotice that the ordering is alphabetical What would be a more effective ordering?\n\nNotes:"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
     "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-1",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nLet’s order bars by largest to smallest (or smallest to largest) so readers can easily spot which species is the most common.\nTwo approaches:\n\nedit the original tibble to have new factor ordering, or\norder the factors directly in the ggplot2 call so that the original tibble isn’t overwritten."
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
     "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-2",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nOption A: Reorder Tibble Directly\nTo reorder the factor levels according to the frequency in the tibble:\n\n\n\n\n\n\n\n\nWe can then plot our data using penguins4:"
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
     "href": "webpages/slides/lec6_factors_slides.html#reordering-levels-of-a-factors-based-on-a-condition-using-forcats-3",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Reordering Levels of a Factors Based on a Condition Using forcats",
     "text": "Reordering Levels of a Factors Based on a Condition Using forcats\nOption B: Reorder the Factor in the ggplot Call\nWe can do these steps directly in ggplot without overwriting or making a new tibble!\n\n\n\n\n\n\n\n\nWe get the exact same plot with a single chunk of code! And, the original tibble penguins remains unchanged with the alphabetical ordering of the species factors."
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#expanding-factor-levels",
     "href": "webpages/slides/lec6_factors_slides.html#expanding-factor-levels",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Expanding Factor Levels",
     "text": "Expanding Factor Levels\nPerhaps we may want to visualize that in our data set, there are no Emperor or King penguins. To do so, we can add “Emperor” and “King” as possible factor levels for species in our penguins data set. We do so by fct_expand()\n\n\n\n\n\n\n\n\nNow we add to the visualization that there were no King or Emperor penguins collected in the data."
   },
   {
     "objectID": "webpages/slides/lec6_factors_slides.html#removing-factor-levels",
     "href": "webpages/slides/lec6_factors_slides.html#removing-factor-levels",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Removing Factor Levels",
     "text": "Removing Factor Levels\nLet’s suppose we were only interested in comparing Adelie and Chinstrap penguins. We could drop the Gentoo level using forcats by:"
   },
   {
+    "objectID": "webpages/slides/lec6_factors_slides.html#factors-with-many-levels",
+    "href": "webpages/slides/lec6_factors_slides.html#factors-with-many-levels",
+    "title": "Lecture 6: Factors",
+    "section": "Factors with many levels",
+    "text": "Factors with many levels\n\nSome categorical variables, like birthplace, can have a lot of unique levels.\n\nConsider the case where we have data on 100 individuals with 30 different birthplaces.\nIf we tried to analyze the relationship between birthplace and another variable (say, income), we may run into issues where we do not have enough data in some groups to identify meaningful differences between birthplaces.\n\nThere is no universally agreed upon rule as to what constitutes having “too many levels” in a categorical variable, as it often depends on the method(s) being used.\nSome statisticians argue that you must have &gt;10 observations per level (in our example, this means having 10 or more people in each birthplace)"
+  },
+  {
+    "objectID": "webpages/slides/lec6_factors_slides.html#factors-with-many-levels-1",
+    "href": "webpages/slides/lec6_factors_slides.html#factors-with-many-levels-1",
+    "title": "Lecture 6: Factors",
+    "section": "Factors with many levels",
+    "text": "Factors with many levels\nSo… how can you overcome this issue?\n\nReduce the number of levels, for example:\n\n\nUse domain knowledge to combine similar levels\nGroup categories with low frequency together\nUse a statistical method to combine similar levels\n\n\n(Advanced) Use a regularization technique\n(Advanced: for hierarchical data) Use the levels as a random effect"
+  },
+  {
+    "objectID": "webpages/slides/lec6_factors_slides.html#discussion-race-and-ethnicity-in-data-analysis",
+    "href": "webpages/slides/lec6_factors_slides.html#discussion-race-and-ethnicity-in-data-analysis",
+    "title": "Lecture 6: Factors",
+    "section": "Discussion: Race and Ethnicity in Data Analysis",
+    "text": "Discussion: Race and Ethnicity in Data Analysis\nVariables related to race and ethnicity are often collected for studies involving human data.\n\n\n\n\n\n\nDefinition\n\n\nRace: a group of people who are arbitrarily categorized according to common physical characteristics, regardless of language, culture or nationality, as per Statistics Canada.\nEthnicity: the shared cultural, linguistic or religious characteristics of a group of people having a common history, heritage or ancestry. While these terms are often used interchangeably, there is a distinct difference which we emphasize here."
+  },
+  {
+    "objectID": "webpages/slides/lec6_factors_slides.html#categorical-variables-race-and-ethnicity",
+    "href": "webpages/slides/lec6_factors_slides.html#categorical-variables-race-and-ethnicity",
+    "title": "Lecture 6: Factors",
+    "section": "Categorical Variables: Race and Ethnicity",
+    "text": "Categorical Variables: Race and Ethnicity\n\nThere are a lot of unique races and ethnicities that one can collect information on\nOftentimes, these categories are coarsened to have a more reasonable number of possible levels\n\nDoing so can omit complex racial and ethnic identities which are grouped into broader categories.\nCoarsening the levels may also not acknowledge the unique lived experiences of smaller or mixed-race identities.\n\nSuch simplifications may lead marginalized groups to be underrepresented in studies, furthering the feeling of invisibility and a lack of belonging."
+  },
+  {
+    "objectID": "webpages/slides/lec6_factors_slides.html#categorical-variables-discussion",
+    "href": "webpages/slides/lec6_factors_slides.html#categorical-variables-discussion",
+    "title": "Lecture 6: Factors",
+    "section": "Categorical Variables: Discussion",
+    "text": "Categorical Variables: Discussion\n\n\n\n\n\n\nDiscussion\n\n\nIn Canada, Métis have typically been recognized as a “mixed-descent identity” in studies source. How might this affect the Métis population?\n\n\n\nPossible answer:\n\nThis undermines the Métis Nation as a self-governing Indigenous nation with associated rights and unique cultural experiences\nFor a summary on how Indigenous Peoples were represented in the Canadian Census from 1870 to 2021, see this paper."
+  },
+  {
+    "objectID": "webpages/slides/lec6_factors_slides.html#categorical-variables-discussion-1",
+    "href": "webpages/slides/lec6_factors_slides.html#categorical-variables-discussion-1",
+    "title": "Lecture 6: Factors",
+    "section": "Categorical Variables: Discussion",
+    "text": "Categorical Variables: Discussion\nWhen plotting or creating tables of demographic variables, an ordering needs to be decided on.\n\n\n\n\n\n\nDiscussion\n\n\nWhite or Caucasian is frequently shown at the top of tables listing race and ethnicity, and is typically used as a reference group to which other groups are compared source.\nDiscuss in a small group how this may impact marginalized populations.\n\n\n\nPossible answer:\n\nPlacing White at the top of a table or treating it as a reference category can reinforce ideas of white supremacy, stemming from Colonization."
+  },
+  {
+    "objectID": "webpages/slides/lec6_factors_slides.html#categorical-variables-discussion-2",
+    "href": "webpages/slides/lec6_factors_slides.html#categorical-variables-discussion-2",
+    "title": "Lecture 6: Factors",
+    "section": "Categorical Variables: Discussion",
+    "text": "Categorical Variables: Discussion\n\nThere have been ongoing discussions on how to appropriately include considerations of race and ethnicity into studies, including a guide for researchers in British Columbia..\nUse your best judgement, and consider these impacts when handling data on race and ethnicity.\nConsider consulting with Indigenous data stewards, ensuring you are respecting the principals of OCAP® and Data Sovereignty."
+  },
+  {
     "objectID": "webpages/slides/lec6_factors_slides.html#worksheet-a5",
     "href": "webpages/slides/lec6_factors_slides.html#worksheet-a5",
-    "title": "Lecture 6b: Factors",
+    "title": "Lecture 6: Factors",
     "section": "Worksheet A5",
     "text": "Worksheet A5\nTry your hand at using factors by working through the factors portion of Worksheet A5.\nFinished attempting all of the questions? Then do the optional R4DS Factors reading, and maybe even do some of the exercises for extra practice."
   },

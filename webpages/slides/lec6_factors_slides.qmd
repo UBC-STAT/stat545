@@ -1,6 +1,6 @@
 ---
-title: "Lecture 6b: Factors"
-subtitle: "STAT 545 - Fall 2025"
+title: "Lecture 6: Factors"
+subtitle: "STAT 545 - Fall 2026"
 format: 
   live-revealjs:
     scrollable: true
@@ -36,9 +36,8 @@ From today’s class, students are anticipated to be able to:
 
 -   Reorder levels within factors according to various principles
 
-[Video Lecture](https://www.youtube.com/watch?v=DgFox3T2FaM)
+-  Think critically about the levels of a categorical variable
 
-[Course Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec6b_factorsanddates.html)
 
 ## Set-up
 
@@ -240,6 +239,130 @@ penguins_no_gentoo <- penguins %>%
 
 levels(penguins_no_gentoo$species)
 ```
+
+
+
+
+## Factors with many levels
+
+-  Some categorical variables, like birthplace, can have a lot of unique levels.  
+
+    -  Consider the case where we have data on 100 individuals with 30 different birthplaces. 
+    -  If we tried to analyze the relationship between birthplace and another variable (say, income), we may run into issues where we do not have enough data in some groups to identify meaningful differences between birthplaces. 
+
+-  There is no universally agreed upon rule as to what constitutes having "too many levels" in a categorical variable, as it often depends on the method(s) being used. 
+
+-  Some statisticians argue that you must have >10 observations per level (in our example, this means having 10 or more people in each birthplace)
+
+## Factors with many levels
+
+So... how can you overcome this issue? 
+
+1. Reduce the number of levels, for example:
+
+  -  Use domain knowledge to combine similar levels
+  
+  -  Group categories with low frequency together
+  
+  -  Use a statistical method to combine similar levels
+  
+
+2.  (Advanced) Use a regularization technique
+
+
+3.  (Advanced: for hierarchical data) Use the levels as a random effect 
+
+
+
+
+## Discussion: Race and Ethnicity in Data Analysis
+
+Variables related to race and ethnicity are often collected for studies involving human data.
+
+
+::: callout-note
+
+### Definition
+
+**Race:** a group of people who are arbitrarily categorized according to common physical characteristics, regardless of language, culture or nationality, as per Statistics Canada.
+
+**Ethnicity**: the shared cultural, linguistic or religious characteristics of a group of people having a common history, heritage or ancestry. While these terms are often used interchangeably, there is a distinct difference which we emphasize here.
+
+:::
+
+
+## Categorical Variables: Race and Ethnicity
+
+
+-  There are a lot of unique races and ethnicities that one can collect information on
+
+-  Oftentimes, these categories are coarsened to have a more reasonable number of possible levels
+
+    -  **Doing so can omit complex racial and ethnic identities** which are grouped into broader categories. 
+    
+    -  Coarsening the levels may also not acknowledge the **unique** lived experiences of smaller or mixed-race identities. 
+    
+-  Such simplifications may lead marginalized groups to be underrepresented in studies, furthering the feeling of invisibility and a lack of belonging.
+
+
+
+## Categorical Variables: Discussion
+
+::: callout-tip
+
+### Discussion
+
+In Canada, Métis have typically been recognized as a "mixed-descent identity" in studies [source](https://www.anticolonialresearchlibrary.org/wp-content/uploads/2023/08/Indigenous-StatisticsA-Quantitative-Research-Methodology-.pdf). How might this affect the Métis population?
+
+:::
+
+::: incremental
+Possible answer: 
+
+-  This undermines the Métis Nation as a self-governing Indigenous nation with associated rights and unique cultural experiences
+
+-  For a summary on how Indigenous Peoples were represented in the Canadian Census from 1870 to 2021, see [this paper](https://go.exlibris.link/VHTBWp2V).
+
+:::
+
+
+## Categorical Variables: Discussion
+
+When plotting or creating tables of demographic variables, an ordering needs to be decided on.  
+
+::: callout-tip
+
+### Discussion
+
+White or Caucasian is frequently shown at the top of tables listing race and ethnicity, and is typically used as a reference group to which other groups are compared [source](https://pmc.ncbi.nlm.nih.gov/articles/PMC11626588/). 
+
+Discuss in a small group how this may impact marginalized populations. 
+
+:::
+
+::: incremental
+Possible answer: 
+
+-  Placing White at the top of a table or treating it as a reference category can reinforce ideas of white supremacy, stemming from Colonization.
+
+:::
+
+
+
+
+
+
+## Categorical Variables: Discussion
+
+-  There have been ongoing discussions on how to appropriately include considerations of race and ethnicity into studies, including [a guide for researchers in British Columbia.](https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/multiculturalism-anti-racism/anti-racism/anti-racism-hub/anti-racism-stats-and-research/arda_categoricalraceethnicityvariables2023.pdf). 
+
+-  Use your best judgement, and consider these impacts when handling data on race and ethnicity.
+
+-  Consider consulting with Indigenous data stewards, ensuring you are respecting the [principals of OCAP® and Data Sovereignty](https://grcetmpk.github.io/indigenizing-stat-ed/subtopics/datasov/datasov.html). 
+
+
+
+
 
 ## Worksheet A5
 

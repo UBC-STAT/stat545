@@ -12,7 +12,7 @@
 <link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT545 – Lecture 6b: Factors</title>
+  <title>STAT545 – Lecture 6: Factors</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -132,8 +132,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 6b: Factors</h1>
-  <p class="subtitle">STAT 545 - Fall 2025</p>
+  <h1 class="title">Lecture 6: Factors</h1>
+  <p class="subtitle">STAT 545 - Fall 2026</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -143,10 +143,9 @@
 <h2>Learning Outcomes</h2>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li>Reorder levels within factors according to various principles</li>
+<li><p>Reorder levels within factors according to various principles</p></li>
+<li><p>Think critically about the levels of a categorical variable</p></li>
 </ul>
-<p><a href="https://www.youtube.com/watch?v=DgFox3T2FaM">Video Lecture</a></p>
-<p><a href="https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_i/lec6b_factorsanddates.html">Course Notes</a></p>
 </section>
 <section id="set-up" class="slide level2">
 <h2>Set-up</h2>
@@ -367,6 +366,115 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicGVuZ3VpbnNfbm9fZ2VudG9v
 </script>
 </div>
 </div>
+</section>
+<section id="factors-with-many-levels" class="slide level2">
+<h2>Factors with many levels</h2>
+<ul>
+<li><p>Some categorical variables, like birthplace, can have a lot of unique levels.</p>
+<ul>
+<li>Consider the case where we have data on 100 individuals with 30 different birthplaces.</li>
+<li>If we tried to analyze the relationship between birthplace and another variable (say, income), we may run into issues where we do not have enough data in some groups to identify meaningful differences between birthplaces.</li>
+</ul></li>
+<li><p>There is no universally agreed upon rule as to what constitutes having “too many levels” in a categorical variable, as it often depends on the method(s) being used.</p></li>
+<li><p>Some statisticians argue that you must have &gt;10 observations per level (in our example, this means having 10 or more people in each birthplace)</p></li>
+</ul>
+</section>
+<section id="factors-with-many-levels-1" class="slide level2 scrollable">
+<h2>Factors with many levels</h2>
+<p>So… how can you overcome this issue?</p>
+<ol type="1">
+<li>Reduce the number of levels, for example:</li>
+</ol>
+<ul>
+<li><p>Use domain knowledge to combine similar levels</p></li>
+<li><p>Group categories with low frequency together</p></li>
+<li><p>Use a statistical method to combine similar levels</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p>(Advanced) Use a regularization technique</p></li>
+<li><p>(Advanced: for hierarchical data) Use the levels as a random effect</p></li>
+</ol>
+</section>
+<section id="discussion-race-and-ethnicity-in-data-analysis" class="slide level2">
+<h2>Discussion: Race and Ethnicity in Data Analysis</h2>
+<p>Variables related to race and ethnicity are often collected for studies involving human data.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Race:</strong> a group of people who are arbitrarily categorized according to common physical characteristics, regardless of language, culture or nationality, as per Statistics Canada.</p>
+<p><strong>Ethnicity</strong>: the shared cultural, linguistic or religious characteristics of a group of people having a common history, heritage or ancestry. While these terms are often used interchangeably, there is a distinct difference which we emphasize here.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="categorical-variables-race-and-ethnicity" class="slide level2">
+<h2>Categorical Variables: Race and Ethnicity</h2>
+<ul>
+<li><p>There are a lot of unique races and ethnicities that one can collect information on</p></li>
+<li><p>Oftentimes, these categories are coarsened to have a more reasonable number of possible levels</p>
+<ul>
+<li><p><strong>Doing so can omit complex racial and ethnic identities</strong> which are grouped into broader categories.</p></li>
+<li><p>Coarsening the levels may also not acknowledge the <strong>unique</strong> lived experiences of smaller or mixed-race identities.</p></li>
+</ul></li>
+<li><p>Such simplifications may lead marginalized groups to be underrepresented in studies, furthering the feeling of invisibility and a lack of belonging.</p></li>
+</ul>
+</section>
+<section id="categorical-variables-discussion" class="slide level2">
+<h2>Categorical Variables: Discussion</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Discussion</strong></p>
+</div>
+<div class="callout-content">
+<p>In Canada, Métis have typically been recognized as a “mixed-descent identity” in studies <a href="https://www.anticolonialresearchlibrary.org/wp-content/uploads/2023/08/Indigenous-StatisticsA-Quantitative-Research-Methodology-.pdf">source</a>. How might this affect the Métis population?</p>
+</div>
+</div>
+</div>
+<p>Possible answer:</p>
+<ul>
+<li class="fragment"><p>This undermines the Métis Nation as a self-governing Indigenous nation with associated rights and unique cultural experiences</p></li>
+<li class="fragment"><p>For a summary on how Indigenous Peoples were represented in the Canadian Census from 1870 to 2021, see <a href="https://go.exlibris.link/VHTBWp2V">this paper</a>.</p></li>
+</ul>
+</section>
+<section id="categorical-variables-discussion-1" class="slide level2">
+<h2>Categorical Variables: Discussion</h2>
+<p>When plotting or creating tables of demographic variables, an ordering needs to be decided on.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Discussion</strong></p>
+</div>
+<div class="callout-content">
+<p>White or Caucasian is frequently shown at the top of tables listing race and ethnicity, and is typically used as a reference group to which other groups are compared <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11626588/">source</a>.</p>
+<p>Discuss in a small group how this may impact marginalized populations.</p>
+</div>
+</div>
+</div>
+<p>Possible answer:</p>
+<ul>
+<li class="fragment">Placing White at the top of a table or treating it as a reference category can reinforce ideas of white supremacy, stemming from Colonization.</li>
+</ul>
+</section>
+<section id="categorical-variables-discussion-2" class="slide level2">
+<h2>Categorical Variables: Discussion</h2>
+<ul>
+<li><p>There have been ongoing discussions on how to appropriately include considerations of race and ethnicity into studies, including <a href="https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/multiculturalism-anti-racism/anti-racism/anti-racism-hub/anti-racism-stats-and-research/arda_categoricalraceethnicityvariables2023.pdf">a guide for researchers in British Columbia.</a>.</p></li>
+<li><p>Use your best judgement, and consider these impacts when handling data on race and ethnicity.</p></li>
+<li><p>Consider consulting with Indigenous data stewards, ensuring you are respecting the <a href="https://grcetmpk.github.io/indigenizing-stat-ed/subtopics/datasov/datasov.html">principals of OCAP® and Data Sovereignty</a>.</p></li>
+</ul>
 </section>
 <section id="worksheet-a5" class="slide level2">
 <h2>Worksheet A5</h2>

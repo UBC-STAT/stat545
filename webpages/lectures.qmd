@@ -48,3 +48,6 @@ All due dates are at 11:59pm PT (local time, Vancouver).
 |  | Thurs Dec 03 |  | Worksheet B3 |
 |  | ... |  |  |
 |  | Tues Dec 15 |  | Assignment 4 (Website) |
+
+
+Optional topic: [Automation](lectures_ii/lec11_automation.qmd)
