@@ -164,9 +164,8 @@ Two approaches:
 To reorder the factor levels according to the frequency in the tibble:
 
 ```{webr}
-penguins4 <- penguins #initialize a new dataset we will overwrite, save original
-penguins4$species <- penguins$species %>% #overwrite species in penguins4
-  [FILLTHISIN] #relevel the factor by frequency
+penguins4 <-  penguins %>% #overwrite species in penguins4
+  mutate(species = [FILLTHISIN]) #relevel the factor by frequency using fct_infreq
 
 levels(penguins4$species)
 

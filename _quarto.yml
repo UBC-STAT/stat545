@@ -62,9 +62,9 @@ website:
         - webpages/lectures_i/lec2b_reproducibility.qmd
         - webpages/lectures_i/lec3_versioncontrol.qmd
         - webpages/lectures_i/lec4_datavis.qmd
-        - webpages/lectures_i/lec5_tidydata.qmd
-        - webpages/lectures_i/lec6a_modelfitting.qmd
-        - webpages/lectures_i/lec6b_factorsanddates.qmd
+        - webpages/lectures_i/lec5a_tidydata.qmd
+        - webpages/lectures_i/lec5b_modelfitting.qmd
+        - webpages/lectures_i/lec6_factorsanddates.qmd
         - webpages/lectures_i/lec7a_readwritedata.qmd
         - webpages/lectures_i/lec7b_joiningtibbles.qmd
         
