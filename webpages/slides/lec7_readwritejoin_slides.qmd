@@ -1,6 +1,6 @@
 ---
 title: "Lecture 7: Reading, Writing, and Joining Tibbles"
-subtitle: "STAT 545 - Fall 2025"
+subtitle: "STAT 545 - Fall 2026"
 format: 
   live-revealjs:
     scrollable: true
