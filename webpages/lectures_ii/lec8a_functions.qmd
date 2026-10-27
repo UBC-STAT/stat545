@@ -33,7 +33,7 @@ set.seed(100)
 
 ## Lecture Slides
 
--   [Lecture 8A - Functions](../slides/slidefiles/lec8A_functions_slides.qmd)
+-   [Lecture 8A - Functions](../slides/lec8A_functions_slides.qmd)
 
 ## Self-made R Functions
 

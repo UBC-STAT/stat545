@@ -28,7 +28,7 @@ website:
       - href: webpages/worksheets/index.qmd
         text: "Worksheets"
       - sidebar:assignmentsA
-#      - sidebar:assignmentsB
+      - sidebar:assignmentsB
       - href: webpages/faq.qmd
         text: "FAQ"
         
@@ -94,14 +94,14 @@ website:
         - webpages/assignmentspartA/mda_deliverable2.qmd
 
         
-    # - id: assignmentsB
-    #   title: "Assessments (Part B)"
-    #   style: "docked"
-    #   background: light
-    #   collapse-level: 2
-    #   contents: 
-    #      - webpages/assignmentspartA/collabproj/collabproj_deliverable1.qmd
-    # 
+    - id: assignmentsB
+      title: "Assessments (Part B)"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - webpages/assignmentspartB/assignmentB1.qmd
+     
    
 format:
   html:

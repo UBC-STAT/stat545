@@ -27,7 +27,6 @@ All due dates are at 11:59pm PT (local time, Vancouver).
 |  | Thurs Oct 15 |  | Worksheet A4 |
 | 7 | Tues Oct 20 | [Reading/Writing](lectures_i/lec7a_readwritedata.qmd) , [Tibble Joins](lectures_i/lec7b_joiningtibbles.qmd) |  |
 |  | Thurs Oct 22 |  | Worksheet A5 |
-|  | Tuesday Oct 27 |  | Mini Data Analysis II |
 |  |  |  |  |
 
 **STAT 545 B**
