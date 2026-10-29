@@ -1,8 +1,17 @@
 ---
 title: "Lecture 8A: Functions"
-subtitle: "October 21, 2025"
 date-modified: last-modified
 ---
+
+## Lecture Slides
+
+-   [Lecture 8A - Functions](../slides/lec8A_functions_slides.qmd)
+
+## Video Lecture
+
+{{< video https://www.youtube.com/watch?v=LqlxC661Pag >}}
+
+
 
 From this lecture, students are expected to be able to:
 
@@ -27,13 +36,7 @@ library(testthat)
 set.seed(100)
 ```
 
-## Video Lecture
 
-{{< video https://www.youtube.com/watch?v=LqlxC661Pag >}}
-
-## Lecture Slides
-
--   [Lecture 8A - Functions](../slides/lec8A_functions_slides.qmd)
 
 ## Self-made R Functions
 

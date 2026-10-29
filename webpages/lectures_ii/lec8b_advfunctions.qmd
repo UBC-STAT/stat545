@@ -1,8 +1,22 @@
 ---
 title: "Lecture 8b: Advanced Functions"
-subtitle: "October 23, 2025"
 date-modified: last-modified
 ---
+
+
+## Lecture Slides
+
+-   [Lecture 8B - Advanced Functions](../slides/lec8b_advfunctions_slides.qmd)
+
+
+
+## Video Lecture
+
+{{< video https://www.youtube.com/watch?v=Xu6QR-ptogQ >}}
+
+
+
+
 
 We will learn about a couple of advanced topics:
 
@@ -23,14 +37,6 @@ library(palmerpenguins)
 library(tidyverse)
 library(gapminder)
 ```
-
-## Video Lecture
-
-{{< video https://www.youtube.com/watch?v=Xu6QR-ptogQ >}}
-
-## Lecture Slides
-
--   [Lecture 8B - Advanced Functions](../slides/slidefiles/lec8b_advfunctions_slides.qmd)
 
 ## Data-masking and the Curly-Curly `{{}}`
 
