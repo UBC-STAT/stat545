@@ -4,6 +4,17 @@ subtitle: "October 28, 2025"
 date-modified: last-modified
 ---
 
+
+
+
+## Lecture Slides
+
+-   [Lecture 9 - R Packages](../slides/lec9_rpackages_slides.qmd)
+
+## Video Lecture
+
+{{< video https://youtu.be/4Y1OphsZSl0 >}}
+
 From this topic, students are anticipated to be able to build a basic R package, especially using the `devtools` package.
 
 -   Write a DESCRIPTION file
@@ -20,13 +31,7 @@ From this topic, students are anticipated to be able to build a basic R package,
 
 -   Develop and build informative vignettes and a package README.
 
-## Video Lecture
 
-{{< video https://youtu.be/4Y1OphsZSl0 >}}
-
-## Lecture Slides
-
--   [Lecture 9 - R Packages](../slides/slidefiles/lec9_rpackages_slides.qmd)
 
 ## Why R Packages?
 
