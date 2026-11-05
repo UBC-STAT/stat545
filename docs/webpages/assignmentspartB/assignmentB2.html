@@ -267,11 +267,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <ol type="1">
-<li><p>Create a new repository in our organization <a href="https://github.com/UBC-STAT545-F2026">https://github.com/UBC-STAT545-F2026</a>. Set the owner as UBC-STAT545-F2026 and name your repository <code>assignmentB2-FIRSTNAME-LASTNAME</code>.</p></li>
+<li><p>Create a new repository in our organization <a href="https://github.com/UBC-STAT545-F2026">https://github.com/UBC-STAT545-F2026</a>. Set the owner as UBC-STAT545-F2026 and name your repository <code>assignmentB2FirstnameLastname</code>. <strong>YOU CANNOT ADD HYPHENS OR UNDERSCORES IN THE PACKAGE NAME!</strong></p></li>
 <li><p>Open an RStudio session</p>
 <ol type="1">
 <li><p>Run <code>library(devtools)</code> in the console</p></li>
-<li><p>Run <code>create_package("path/package_name")</code> replacing “path” with the path to where you’d like your package to live on your computer, and “package_name” with the name of your package.</p></li>
+<li><p>Run <code>create_package("path/assignmentB2FirstnameLastname")</code> replacing “path” with the path to where you’d like your package to live on your computer, and “package_name” with the name of your package.</p></li>
 </ol></li>
 <li><p>Initialize Git</p>
 <ol type="1">
@@ -316,13 +316,13 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="exercise-2-high-level-documentation-20-points">Exercise 2: High-level documentation (20 points)</h2>
 <p>Create documentation for your R package at a high level.</p>
 <ol type="1">
-<li><p>Fill out a <code>README.Rmd</code> file, being sure to include the package description, installation instructions, and demonstrated usage. Knit to <code>README.md</code> using <code>devtools::build_readme()</code>, and don’t ever touch the <code>README.md</code> file.</p></li>
+<li><p>Fill out a <code>README.Rmd</code> file, being sure to include the package description, installation instructions, and demonstrated usage. Build the README.md file.</p></li>
 <li><p>In the <code>DESCRIPTION</code> file, update the package title and description fields (you can use the same description as you did in your README).</p></li>
 </ol>
 <p><strong>Tips:</strong></p>
 <ul>
 <li><p>When writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.</p></li>
-<li><p>Use the README boilerplate that comes with running <code>usethis::use_readme_rmd()</code>.</p></li>
+<li><p>To generate the README, use a function that will generate it for you (see lecture notes).</p></li>
 <li><p>Installation instructions: should be as simple as running, for example, <code>install_github("org/repo", ref = "0.1.0")</code> (change the version number to your own).</p></li>
 </ul>
 <p><strong>What we’re looking for</strong>:</p>

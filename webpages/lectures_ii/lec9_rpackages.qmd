@@ -259,7 +259,7 @@ To include data with the R package that exists within an R package, use `use_dat
 
 ### Release your package:
 
-```         
+   
 -   Make a NEWS.md file with `use_news_md()` and add the main development notes.
 
 -   Commit changes (in Terminal on RStudio)
@@ -289,7 +289,7 @@ To include data with the R package that exists within an R package, use `use_dat
         5.  Do **not** check off “This is a pre-release”.
 
         6.  Click “Publish Release”.
-```
+
 
 ::: {.callout-warning appearance="minimal" icon="false"}
 ### Exercise

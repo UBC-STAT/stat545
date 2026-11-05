@@ -33,13 +33,13 @@ If you like, you can choose to write a new function - not used in Assignment B1 
 
 ## Setup
 
-1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB2-FIRSTNAME-LASTNAME`. 
+1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB2FirstnameLastname`. **YOU CANNOT ADD HYPHENS OR UNDERSCORES IN THE PACKAGE NAME!** 
 
 2.  Open an RStudio session
 
     1.  Run `library(devtools)` in the console
 
-    2.  Run `create_package("path/package_name")` replacing "path" with the path to where you'd like your package to live on your computer, and "package_name" with the name of your package.
+    2.  Run `create_package("path/assignmentB2FirstnameLastname")` replacing "path" with the path to where you'd like your package to live on your computer, and "package_name" with the name of your package.
 
 3.  Initialize Git
 
@@ -91,11 +91,12 @@ Render the documentation for all of the functions/objects in your package using 
 
 -   [ ]  Documentation for each function should load after executing `?function` after loading your package.
 
+
 ## Exercise 2: High-level documentation (20 points)
 
 Create documentation for your R package at a high level.
 
-1.  Fill out a `README.Rmd` file, being sure to include the package description, installation instructions, and demonstrated usage. Knit to `README.md` using `devtools::build_readme()`, and don’t ever touch the `README.md` file.
+1.  Fill out a `README.Rmd` file, being sure to include the package description, installation instructions, and demonstrated usage. Build the README.md file. 
 
 2.  In the `DESCRIPTION` file, update the package title and description fields (you can use the same description as you did in your README).
 
@@ -103,7 +104,7 @@ Create documentation for your R package at a high level.
 
 -   When writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.
 
--   Use the README boilerplate that comes with running `usethis::use_readme_rmd()`.
+-   To generate the README, use a function that will generate it for you (see lecture notes).
 
 -   Installation instructions: should be as simple as running, for example, `install_github("org/repo", ref = "0.1.0")` (change the version number to your own).
 
