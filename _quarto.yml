@@ -101,6 +101,8 @@ website:
       collapse-level: 2
       contents: 
         - webpages/assignmentspartB/assignmentB1.qmd
+        - webpages/assignmentspartB/assignmentB2.qmd
+
      
    
 format:
