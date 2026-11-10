@@ -1126,130 +1126,67 @@
     "text": "To Save These Slides With Your Code\nTo Print to PDF (with your code!), do the following:\n\nOpen the in-browser print dialog CMD/CTRL + P or Right click &gt; Print\nChange the Destination setting to Save as PDF.\nChange the Layout to Landscape.\nChange the Margins to None. Enable the Background graphics option.\nClick Save 🎉\n\nIn all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will not be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#learning-outcomes",
-    "href": "webpages/slides/lec12_characterdata_slides.html#learning-outcomes",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\n\nManipulate a character vector in R using the stringr package.\nWrite simple regular expressions (regex).\nApply stringr and regular expressions to manipulate data in tibbles.\n\nWritten Notes\n(No video lecture this week!)"
+    "objectID": "webpages/slides/lec10_shiny_slides.html#learning-goals",
+    "href": "webpages/slides/lec10_shiny_slides.html#learning-goals",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file).\n\nLecture Notes\nYouTubeVideo"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#required-packages",
-    "href": "webpages/slides/lec12_characterdata_slides.html#required-packages",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Required Packages",
-    "text": "Required Packages\nWe will require the following packages:\n\nlibrary(tidyverse) #stringr is automatically downloaded with tidyverse"
+    "objectID": "webpages/slides/lec10_shiny_slides.html#why-dashboards",
+    "href": "webpages/slides/lec10_shiny_slides.html#why-dashboards",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Why Dashboards?",
+    "text": "Why Dashboards?\nDashboards allow users to get real time (and often customizable) overviews of information. Dashboards can be used for monitoring, measuring, analyzing, and presenting data."
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#strings",
-    "href": "webpages/slides/lec12_characterdata_slides.html#strings",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Strings",
-    "text": "Strings\nYou’ve used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by \", you’ve been making a string: a storage format for text. In R, they are of type “character”.\n\n\n\n\n\n\n\n\nTwo places where you’ll often want to manipulate these in data analysis:\n\nCleaning up column/variable names\nCleaning up character column values"
+    "objectID": "webpages/slides/lec10_shiny_slides.html#r-shiny",
+    "href": "webpages/slides/lec10_shiny_slides.html#r-shiny",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "R Shiny",
+    "text": "R Shiny\nShiny is an open-source R package that allows users to create interactive web applications directly from R without needing to learn traditional web development languages like HTML, CSS, or JavaScript.\nHere are some examples of R Shiny Dashboards:\n\nhttp://ShowMeShiny.com\nhttp://letsrun.com/shoes\nhttp://daattali.com/shiny/cancer-data/"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#escape-characters",
-    "href": "webpages/slides/lec12_characterdata_slides.html#escape-characters",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Escape Characters",
-    "text": "Escape Characters\n\nTry running quote &lt;- \"\"\" below.\nIt won’t work, because the \" symbol is interpreted as you trying to make a string! To literally include a quote symbol in a string, you can use the \\ character to “escape” it:\n\n\n\n\n\n\n\n\n\nYou can see more examples of special characters and how to escape them in R4DS Chapter 15.2."
+    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app",
+    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Initialize the Shiny App",
+    "text": "Initialize the Shiny App\nTo use Shiny, install it in your R Console with install.packages(\"shiny\").\nThere are three basic components to a Shiny app:\n\nthe user interface (UI) (the appearance of the app)\na server (which does the app’s computations)\nthe app (assembles the app combining the UI and the server)"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#working-with-strings",
-    "href": "webpages/slides/lec12_characterdata_slides.html#working-with-strings",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Working with Strings",
-    "text": "Working with Strings\n\nWe will focus on the stringr package (loaded with tidyverse) paired with regular expressions (also called regex).\n\nWe’ll be going through a few examples with the enron dataset, which you can download on Github. Enron is a database of 270,087 Enron emails, taken from the May 7, 2015 version of the dataset. Data was extracted from CMU. There are three columns in enron.csv:\n\nperson: The person associated with the email.\nmail_num: Identifier for each person’s email.\nemail: Each entry is a line in an email, including the email’s metadata (like subject, who it was sent to, etc.)"
+    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-1",
+    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-1",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Initialize the Shiny App",
+    "text": "Initialize the Shiny App\nA basic Shiny app may take the following form:\nlibrary(shiny)\n\nui &lt;- fluidPage()\n\nserver &lt;- function(input, output) {\n  \n}\n\n\nshinyApp(ui = ui, server = server) #do not include code past this point"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#working-with-strings-1",
-    "href": "webpages/slides/lec12_characterdata_slides.html#working-with-strings-1",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Working with Strings",
-    "text": "Working with Strings\nLet’s load in the data:\n\n\n\n\n\n\n\n\nFor each email sent in this data set (mail_num), we have the sender (person) along with the lines of the email in separate entries in the data frame (email). For now, we’ll focus on the contents of the email, in the email column."
+    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-2",
+    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-2",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Initialize the Shiny App",
+    "text": "Initialize the Shiny App\nTo generate a Shiny App, you can either go to “File” &gt; “New File” &gt; “Shiny Web App” in RStudio which will generate a template for you with a working example, or you can save the above code in a single file called “app.R”.\nIf you generated the template using R Studio, the following code will appear:\n\nlibrary(shiny)\n\n# Define UI for application that draws a histogram\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Old Faithful Geyser Data\"),\n\n    # Sidebar with a slider input for number of bins \n    sidebarLayout(\n        sidebarPanel(\n            sliderInput(\"bins\",\n                        \"Number of bins:\",\n                        min = 1,\n                        max = 50,\n                        value = 30)\n        ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"distPlot\")\n        )\n    )\n)\n\n# Define server logic required to draw a histogram\nserver &lt;- function(input, output) {\n\n    output$distPlot &lt;- renderPlot({\n        # generate bins based on input$bins from ui.R\n        x    &lt;- faithful[, 2]\n        bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)\n\n        # draw the histogram with the specified number of bins\n        hist(x, breaks = bins, col = 'darkgray', border = 'white',\n             xlab = 'Waiting time to next eruption (in mins)',\n             main = 'Histogram of waiting times')\n    })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)\nYou can click the “Run App” button to explore the demo. We see that there is a slider which the user can manipulate which changes the number of bins used to produce a histogram, which is updated live!"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation",
-    "href": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Non-regex String Manipulation",
-    "text": "Non-regex String Manipulation\nWe’ll first go through some stringr functions that don’t require regular expressions.\nstr_detect() and str_subset()\nLet’s filter only on entries that contain emails. We can do this by calling str_detect() and finding entries that contain “From:”:\n\n\n\n\n\n\n\n\nstr_detect actually returns a logical vector showing whether or not “@” was found in the email contents! To get the subset, we can use str_subset():"
+    "objectID": "webpages/slides/lec10_shiny_slides.html#build-the-ui",
+    "href": "webpages/slides/lec10_shiny_slides.html#build-the-ui",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Build the UI",
+    "text": "Build the UI\nInside of the fluidPage() function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:\n# Define UI for application that draws a histogram\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Old Faithful Geyser Data\"),\n\n    # Sidebar with a slider input for number of bins \n    sidebarLayout(\n        sidebarPanel(\n            sliderInput(\"bins\",\n                        \"Number of bins:\",\n                        min = 1,\n                        max = 50,\n                        value = 30)\n        ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"distPlot\")\n        )\n    )\n)\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation-1",
-    "href": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation-1",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Non-regex String Manipulation",
-    "text": "Non-regex String Manipulation\nstr_split()\nLet’s say we wanted to count the number of times the word “important” was written in an email. To do this, we can split every email line into its individual words using the str_split() function. Let’s split by spaces to get each individual word.\n\n\n\n\n\n\n\n\nWe get a list! This is because we don’t know how many words each entry will contain, so a list is the most flexible option."
+    "objectID": "webpages/slides/lec10_shiny_slides.html#generate-the-app",
+    "href": "webpages/slides/lec10_shiny_slides.html#generate-the-app",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Generate the App",
+    "text": "Generate the App\nThe final part of the code is\n# Run the application \nshinyApp(ui = ui, server = server)\nwhich combines everything together and allows you to interact with the app!\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation-2",
-    "href": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation-2",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Non-regex String Manipulation",
-    "text": "Non-regex String Manipulation\nstr_split() with unlist()\nIf we really wanted a vector of all of the individual words (which, we do!), we can unlist() the list:"
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation-3",
-    "href": "webpages/slides/lec12_characterdata_slides.html#non-regex-string-manipulation-3",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Non-regex String Manipulation",
-    "text": "Non-regex String Manipulation\nstr_subset() for “important” emails\nNow, we can subset by which words contain “important”, and count the number of entries!\n\n\n\n\n\n\n\n\n\n91 times! But unfortunately, str_subset() is case sensitive… See:\n\n\n\n\n\n\n\n\nand…\n\n\n\n\n\n\n\n\nThis is where regular expressions will come in handy! We’ll discuss this in the following section."
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\nRegular expressions provide a powerful tool to extract character data through patterns! In regexes, specific characters and constructs take on special meaning in order to match multiple strings.\nWe will go through a few common regex special characters, but refer readers to this Cheat Sheet by Ian Kopacka for a more in-depth review.\nLet’s consider a simple vector of words:"
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-1",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-1",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\n. (match any letter)\nThe . in regex allows us to match any character (i.e., a number, letter, symbol (aside from a new line)) in an expression.\nFor example, the pattern .at would match any word that has at least three characters, where we have some character followed by “at”."
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-2",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-2",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\n$, ^ (anchors)\nAnchors can be included in an expression to indicate where the expression must occur in a string. ^ indicates that the string must start with the phrase, and $ indicates the string must end with it.\n\n\n\n\n\n\n\n\nNotice how we did not select “attic”,“kittycat” or “doormats”\n\n\n\n\n\n\n\n\nNotice how we only selected words ending in &lt;some character&gt;at."
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-3",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-3",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\n\\b and \\B (boundaries and not a word boundary)\n\\b indicates a word boundary, and \\B indicates NOT a word boundary. To see what we mean, see the following:\n\n\n\n\n\n\n\n\nThis selected words that were separated by either a “-” or space.\n\n\n\n\n\n\n\n\nThis selected words that did not have any separation between them."
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-4",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-4",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\n*, +, ? (quantifiers)\nWe can specify regex to match any number of characters\n\n\n\n\n\n\n\n\n\nQuantifier\nNumber of Characters\nRange to Match\nMeaning\n\n\n\n\n*\n0 or more\n{n}\nexactly n\n\n\n+\n1 or more\n{n,}\nat least n\n\n\n?\n0 or 1\n{,m}\nat most m\n\n\n\n\n{n,m}\nbetween n and m, inclusive\n\n\n\nFor example, let’s match words that have 0 or more characters before “at”.\n\n\n\n\n\n\n\n\nAll of our words contain “at” somewhere so they are all matched."
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-5",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-5",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\n*, +, ? (quantifiers)\nWhat about strictly one or more characters before “at”?\n\n\n\n\n\n\n\n\nAll but attic. Makes sense!"
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-6",
-    "href": "webpages/slides/lec12_characterdata_slides.html#regular-expressions-regex-6",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Regular Expressions (regex)",
-    "text": "Regular Expressions (regex)\n*, +, ? (quantifiers)\nWe can also match on specific letters. Let’s select words with one or more “o”’s in it:"
-  },
-  {
-    "objectID": "webpages/slides/lec12_characterdata_slides.html#worksheet-b2",
-    "href": "webpages/slides/lec12_characterdata_slides.html#worksheet-b2",
-    "title": "Lecture 12: Character Data and ReGeX",
-    "section": "Worksheet B2",
-    "text": "Worksheet B2\nOf course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out Chapter 11 of the STAT545 Textbook and the STAT545 video lecture. We will also learn more as we work through Worksheet B2."
+    "objectID": "webpages/slides/lec10_shiny_slides.html#demo-bc-liquor-store-prices",
+    "href": "webpages/slides/lec10_shiny_slides.html#demo-bc-liquor-store-prices",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Demo: BC Liquor Store Prices",
+    "text": "Demo: BC Liquor Store Prices\nWe will now follow along with this tutorial by Dean Attali that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny."
   },
   {
     "objectID": "webpages/lectures_ii/lec9_rpackages.html",
@@ -3110,61 +3047,61 @@
   {
     "objectID": "webpages/lectures_ii/lec10_characterdata.html",
     "href": "webpages/lectures_ii/lec10_characterdata.html",
-    "title": "Lecture 12: StringR and Regular Expressions",
+    "title": "Lecture 10: StringR and Regular Expressions",
     "section": "",
     "text": "From this topic, students are anticipated to be able to:\nWe will require the following packages:\nlibrary(tidyverse) #stringr is automatically downloaded with tidyverse",
     "crumbs": [
-      "Lecture 12: StringR and Regular Expressions"
+      "Lecture 10: StringR and Regular Expressions"
     ]
   },
   {
     "objectID": "webpages/lectures_ii/lec10_characterdata.html#lecture-slides",
     "href": "webpages/lectures_ii/lec10_characterdata.html#lecture-slides",
-    "title": "Lecture 12: StringR and Regular Expressions",
+    "title": "Lecture 10: StringR and Regular Expressions",
     "section": "Lecture Slides",
-    "text": "Lecture Slides\n\nLecture 12 - R Character Data",
+    "text": "Lecture Slides\n\nLecture 10 - R Character Data",
     "crumbs": [
-      "Lecture 12: StringR and Regular Expressions"
+      "Lecture 10: StringR and Regular Expressions"
     ]
   },
   {
     "objectID": "webpages/lectures_ii/lec10_characterdata.html#strings",
     "href": "webpages/lectures_ii/lec10_characterdata.html#strings",
-    "title": "Lecture 12: StringR and Regular Expressions",
+    "title": "Lecture 10: StringR and Regular Expressions",
     "section": "Strings",
     "text": "Strings\nYou’ve used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by \", you’ve been making a string: a storage format for text. In R, they are of type “character”.\n\nsample_string &lt;- \"This is a string\" \ntypeof(sample_string)\n\n[1] \"character\"\n\n\nTwo places where you’ll often want to manipulate these in data analysis:\n\nCleaning up column/variable names\nCleaning up character column values\n\nGood to know: Constructing strings out of characters and numbers is intuitive, but there’s a gotcha involving particular symbols with special meaning in R. For example, try running quote &lt;- \"\"\" in R; it won’t work, because the \" symbol is interpreted as you trying to make a string! To literally include a quote in a string, you can use the \\ character to “escape” it:\n\nsingle_quote &lt;- \"\\\"\"\ncat(single_quote)\n\n\"\n\n\nYou can see more examples of special characters and how to escape them in R4DS Chapter 15.2.",
     "crumbs": [
-      "Lecture 12: StringR and Regular Expressions"
+      "Lecture 10: StringR and Regular Expressions"
     ]
   },
   {
     "objectID": "webpages/lectures_ii/lec10_characterdata.html#working-with-strings",
     "href": "webpages/lectures_ii/lec10_characterdata.html#working-with-strings",
-    "title": "Lecture 12: StringR and Regular Expressions",
+    "title": "Lecture 10: StringR and Regular Expressions",
     "section": "Working with Strings",
     "text": "Working with Strings\nOur main tools for working with strings will be the powerful stringr package in the tidyverse paired with regular expressions (also called regex).\nWe’ll be going through a few examples with the enron dataset, which you can download on Github. Enron is a database of 270,087 Enron emails, taken from the May 7, 2015 version of the dataset. Data was extracted from CMU. There are three columns in enron.csv:\n\nperson: The person associated with the email.\nmail_num: Identifier for each person’s email.\nemail: Each entry is a line in an email, including the email’s metadata (like subject, who it was sent to, etc.)\n\nLet’s load in the data:\n\nenron &lt;- read_csv(\"datasets/enron.csv\")\nhead(enron)\n\n# A tibble: 6 × 3\n  mail_num person  email                                                    \n     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;                                                    \n1        1 allen-p Message-ID: &lt;18782981.1075855378110.JavaMail.evans@thyme&gt;\n2        1 allen-p Date: Mon, 14 May 2001 16:39:00 -0700 (PDT)              \n3        1 allen-p From: phillip.allen@enron.com                            \n4        1 allen-p To: tim.belden@enron.com                                 \n5        1 allen-p Subject:                                                 \n6        1 allen-p Mime-Version: 1.0                                        \n\n\nFor each email sent in this data set (mail_num), we have the sender (person) along with the lines of the email in separate entries in the data frame (email). For now, we’ll focus on the contents of the email, in the email column.\n\nenron_email &lt;- enron$email\n\n\nNon-regex String Manipulation\nWe’ll first go through some stringr functions that don’t require regular expressions.\n\nstr_detect() and str_subset()\nLet’s filter only on entries that contain emails. We can do this by calling str_detect() and finding entries that contain “From:”:\n\nenron_email_at&lt;- str_detect(enron_email, \"@\") # find all entries with \"@\" in the email column\n\nhead(enron_email_at)\n\n[1]  TRUE FALSE  TRUE  TRUE FALSE FALSE\n\n\nstr_detect actually returns a logical vector showing whether or not “@” was found in the email contents! To get the subset, we can use str_subset():\n\nenron_email_at &lt;- str_subset(enron_email, \"@\") #overwrite:\nhead(enron_email_at)\n\n[1] \"Message-ID: &lt;18782981.1075855378110.JavaMail.evans@thyme&gt;\"\n[2] \"From: phillip.allen@enron.com\"                            \n[3] \"To: tim.belden@enron.com\"                                 \n[4] \"X-To: Tim Belden &lt;Tim Belden/Enron@EnronXGate&gt;\"           \n[5] \"Message-ID: &lt;15464986.1075855378456.JavaMail.evans@thyme&gt;\"\n[6] \"From: phillip.allen@enron.com\"                            \n\n\n\n\nstr_split()\nLet’s say we wanted to count the number of times the word “important” was written in an email. To do this, we can split every email line into its individual words using the str_split() function. Let’s split by spaces to get each individual word.\n\nenron_email_words &lt;- str_split(enron_email, \" \")\n\nhead(enron_email_words)\n\n[[1]]\n[1] \"Message-ID:\"                                  \n[2] \"&lt;18782981.1075855378110.JavaMail.evans@thyme&gt;\"\n\n[[2]]\n[1] \"Date:\"    \"Mon,\"     \"14\"       \"May\"      \"2001\"     \"16:39:00\" \"-0700\"   \n[8] \"(PDT)\"   \n\n[[3]]\n[1] \"From:\"                   \"phillip.allen@enron.com\"\n\n[[4]]\n[1] \"To:\"                  \"tim.belden@enron.com\"\n\n[[5]]\n[1] \"Subject:\"\n\n[[6]]\n[1] \"Mime-Version:\" \"1.0\"          \n\n\nWe get a list! This is because we don’t know how many words each entry will contain, so a list is the most flexible option. If we really wanted a vector of all of the individual words (which, we do!), we can unlist() the list:\n\nenron_email_words &lt;- unlist(enron_email_words)\n\nhead(enron_email_words)\n\n[1] \"Message-ID:\"                                  \n[2] \"&lt;18782981.1075855378110.JavaMail.evans@thyme&gt;\"\n[3] \"Date:\"                                        \n[4] \"Mon,\"                                         \n[5] \"14\"                                           \n[6] \"May\"                                          \n\n\nNow, we can subset by which words contain “important”, and count the number of entries!\n\n\nenron_emails_important &lt;- str_subset(enron_email_words, \"important\")\nlength(enron_emails_important)\n\n[1] 91\n\n\n91 times! But unfortunately, str_subset() is case sensitive… See:\n\nenron_emails_important &lt;- str_subset(enron_email_words, \"Important\")\nlength(enron_emails_important)\n\n[1] 9\n\n\nand…\n\nenron_emails_important &lt;- str_subset(enron_email_words, \"IMPORTANT\")\nlength(enron_emails_important)\n\n[1] 5\n\n\nThis is where regular expressions will come in handy! We’ll discuss this in the following section.\n\n\n\nRegular Expressions (regex)\nRegular expressions provide a powerful tool to extract character data through patterns! In regexes, specific characters and constructs take on special meaning in order to match multiple strings.\nWe will go through a few common regex special characters, but refer readers to this Cheat Sheet by Ian Kopacka for a more in-depth review.\nLet’s consider a simple vector of words:\n\n\nwords &lt;- c(\"bat\", \"cat\", \"5at\", \"rats\", \"?at\", \"kittycat\", \"doormats\", \"attic\", \"matchstick\", \"hat-trick\", \"hattrick\", \"hat trick\")\n\n\n. (match any letter)\nThe . in regex allows us to match any character (i.e., a number, letter, symbol (aside from a new line)) in an expression.\nFor example, the pattern .at would match any word that has at least three characters, where we have some character followed by “at”.\n\nstr_subset(words, pattern = \".at\")\n\n [1] \"bat\"        \"cat\"        \"5at\"        \"rats\"       \"?at\"       \n [6] \"kittycat\"   \"doormats\"   \"matchstick\" \"hat-trick\"  \"hattrick\"  \n[11] \"hat trick\" \n\n\n\n\n$, ^ (anchors)\nAnchors can be included in an expression to indicate where the expression must occur in a string. ^ indicates that the string must start with the phrase, and $ indicates the string must end with it.\n\nstr_subset(words, pattern = \"^.at\")\n\n[1] \"bat\"        \"cat\"        \"5at\"        \"rats\"       \"?at\"       \n[6] \"matchstick\" \"hat-trick\"  \"hattrick\"   \"hat trick\" \n\n\nNotice how we did not select “attic”,“kittycat” or “doormats”\n\nstr_subset(words, pattern = \".at$\")\n\n[1] \"bat\"      \"cat\"      \"5at\"      \"?at\"      \"kittycat\"\n\n\nNotice how we only selected words ending in &lt;some character&gt;at.\n\n\n\\b and \\B (boundaries and not a word boundary)\n\\b indicates a word boundary, and \\B indicates NOT a word boundary. To see what we mean, see the following:\n\nstr_subset(words, pattern = \"\\\\btrick\")\n\n[1] \"hat-trick\" \"hat trick\"\n\n\nThis selected words that were separated by either a “-” or space.\n\nstr_subset(words, pattern = \"\\\\Btrick\")\n\n[1] \"hattrick\"\n\n\nThis selected words that did not have any separation between them.\n\n\n*, +, ? (quantifiers)\nWe can specify regex to match any number of characters\n\n\n\n\n\n\n\n\n\nQuantifier\nNumber of Characters\nRange to Match\nMeaning\n\n\n\n\n*\n0 or more\n{n}\nexactly n\n\n\n+\n1 or more\n{n,}\nat least n\n\n\n?\n0 or 1\n{,m}\nat most m\n\n\n\n\n{n,m}\nbetween n and m, inclusive\n\n\n\nFor example, let’s match words that have 0 or more characters before “at”.\n\nstr_subset(words, pattern = \".*at\")\n\n [1] \"bat\"        \"cat\"        \"5at\"        \"rats\"       \"?at\"       \n [6] \"kittycat\"   \"doormats\"   \"attic\"      \"matchstick\" \"hat-trick\" \n[11] \"hattrick\"   \"hat trick\" \n\n\nAll of our words contain “at” somewhere so they are all matched. What about strictly one or more characters before “at”?\n\nstr_subset(words, pattern = \".+at\")\n\n [1] \"bat\"        \"cat\"        \"5at\"        \"rats\"       \"?at\"       \n [6] \"kittycat\"   \"doormats\"   \"matchstick\" \"hat-trick\"  \"hattrick\"  \n[11] \"hat trick\" \n\n\nAll but attic. Makes sense!\nWe can also match on specific letters. Let’s select words with one or more “o”’s in it:\n\nstr_subset(words, pattern = \"o+\")\n\n[1] \"doormats\"\n\n\nOf course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out Chapter 11 of the STAT545 Textbookand the STAT545 video lecture. We will also learn more as we work through Worksheet B2.",
     "crumbs": [
-      "Lecture 12: StringR and Regular Expressions"
+      "Lecture 10: StringR and Regular Expressions"
     ]
   },
   {
     "objectID": "webpages/lectures_ii/lec10_characterdata.html#example-back-to-the-emails",
     "href": "webpages/lectures_ii/lec10_characterdata.html#example-back-to-the-emails",
-    "title": "Lecture 12: StringR and Regular Expressions",
+    "title": "Lecture 10: StringR and Regular Expressions",
     "section": "Example: Back to the Emails",
     "text": "Example: Back to the Emails\nSo, how do we select emails that contain the word “important” without it being case sensitive? There are a few ways. The easiest is to leverage stringr and wrap the regular expression in the regex() function and use ignore_case = T:\n\nenron_emails_important &lt;- str_subset(enron_email_words, regex(\"important\", ignore_case = T))\nlength(enron_emails_important)\n\n[1] 105",
     "crumbs": [
-      "Lecture 12: StringR and Regular Expressions"
+      "Lecture 10: StringR and Regular Expressions"
     ]
   },
   {
     "objectID": "webpages/lectures_ii/lec10_characterdata.html#resources",
     "href": "webpages/lectures_ii/lec10_characterdata.html#resources",
-    "title": "Lecture 12: StringR and Regular Expressions",
+    "title": "Lecture 10: StringR and Regular Expressions",
     "section": "Resources",
     "text": "Resources\nVideo lecture:\n\nRegular Expressions and stringr for Text Data (only labelled as “age restricted” because it looks at real emails within the Enron company.)\n\nWritten material:\n\nOverview tutorials similar to our worksheet:\n\nstat545.com Chapter 11: character vectors\nR4DS Chapter 15: strings.\nR4DS Chapter 16: regular expressions.\n\nThe stat545.com Chapter 11 on character vectors has an elaborate discussion on useful resources for learning more about strings.\nRegex cheat sheet",
     "crumbs": [
-      "Lecture 12: StringR and Regular Expressions"
+      "Lecture 10: StringR and Regular Expressions"
     ]
   },
   {
@@ -3362,7 +3299,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 8\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 10\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 11\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 16\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 27\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 8\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]
@@ -3398,67 +3335,130 @@
     ]
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#learning-goals",
-    "href": "webpages/slides/lec10_shiny_slides.html#learning-goals",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Learning Goals",
-    "text": "Learning Goals\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file).\n\nLecture Notes\nYouTubeVideo"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#learning-outcomes",
+    "href": "webpages/slides/lec10_characterdata_slides.html#learning-outcomes",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\n\nManipulate a character vector in R using the stringr package.\nWrite simple regular expressions (regex).\nApply stringr and regular expressions to manipulate data in tibbles.\n\nWritten Notes\n(No video lecture this week!)"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#why-dashboards",
-    "href": "webpages/slides/lec10_shiny_slides.html#why-dashboards",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Why Dashboards?",
-    "text": "Why Dashboards?\nDashboards allow users to get real time (and often customizable) overviews of information. Dashboards can be used for monitoring, measuring, analyzing, and presenting data."
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#required-packages",
+    "href": "webpages/slides/lec10_characterdata_slides.html#required-packages",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Required Packages",
+    "text": "Required Packages\nWe will require the following packages:\n\nlibrary(tidyverse) #stringr is automatically downloaded with tidyverse"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#r-shiny",
-    "href": "webpages/slides/lec10_shiny_slides.html#r-shiny",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "R Shiny",
-    "text": "R Shiny\nShiny is an open-source R package that allows users to create interactive web applications directly from R without needing to learn traditional web development languages like HTML, CSS, or JavaScript.\nHere are some examples of R Shiny Dashboards:\n\nhttp://ShowMeShiny.com\nhttp://letsrun.com/shoes\nhttp://daattali.com/shiny/cancer-data/"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#strings",
+    "href": "webpages/slides/lec10_characterdata_slides.html#strings",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Strings",
+    "text": "Strings\nYou’ve used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by \", you’ve been making a string: a storage format for text. In R, they are of type “character”.\n\n\n\n\n\n\n\n\nTwo places where you’ll often want to manipulate these in data analysis:\n\nCleaning up column/variable names\nCleaning up character column values"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app",
-    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Initialize the Shiny App",
-    "text": "Initialize the Shiny App\nTo use Shiny, install it in your R Console with install.packages(\"shiny\").\nThere are three basic components to a Shiny app:\n\nthe user interface (UI) (the appearance of the app)\na server (which does the app’s computations)\nthe app (assembles the app combining the UI and the server)"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#escape-characters",
+    "href": "webpages/slides/lec10_characterdata_slides.html#escape-characters",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Escape Characters",
+    "text": "Escape Characters\n\nTry running quote &lt;- \"\"\" below.\nIt won’t work, because the \" symbol is interpreted as you trying to make a string! To literally include a quote symbol in a string, you can use the \\ character to “escape” it:\n\n\n\n\n\n\n\n\n\nYou can see more examples of special characters and how to escape them in R4DS Chapter 15.2."
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-1",
-    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-1",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Initialize the Shiny App",
-    "text": "Initialize the Shiny App\nA basic Shiny app may take the following form:\nlibrary(shiny)\n\nui &lt;- fluidPage()\n\nserver &lt;- function(input, output) {\n  \n}\n\n\nshinyApp(ui = ui, server = server) #do not include code past this point"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#working-with-strings",
+    "href": "webpages/slides/lec10_characterdata_slides.html#working-with-strings",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Working with Strings",
+    "text": "Working with Strings\n\nWe will focus on the stringr package (loaded with tidyverse) paired with regular expressions (also called regex).\n\nWe’ll be going through a few examples with the enron dataset, which you can download on Github. Enron is a database of 270,087 Enron emails, taken from the May 7, 2015 version of the dataset. Data was extracted from CMU. There are three columns in enron.csv:\n\nperson: The person associated with the email.\nmail_num: Identifier for each person’s email.\nemail: Each entry is a line in an email, including the email’s metadata (like subject, who it was sent to, etc.)"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-2",
-    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-2",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Initialize the Shiny App",
-    "text": "Initialize the Shiny App\nTo generate a Shiny App, you can either go to “File” &gt; “New File” &gt; “Shiny Web App” in RStudio which will generate a template for you with a working example, or you can save the above code in a single file called “app.R”.\nIf you generated the template using R Studio, the following code will appear:\n\nlibrary(shiny)\n\n# Define UI for application that draws a histogram\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Old Faithful Geyser Data\"),\n\n    # Sidebar with a slider input for number of bins \n    sidebarLayout(\n        sidebarPanel(\n            sliderInput(\"bins\",\n                        \"Number of bins:\",\n                        min = 1,\n                        max = 50,\n                        value = 30)\n        ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"distPlot\")\n        )\n    )\n)\n\n# Define server logic required to draw a histogram\nserver &lt;- function(input, output) {\n\n    output$distPlot &lt;- renderPlot({\n        # generate bins based on input$bins from ui.R\n        x    &lt;- faithful[, 2]\n        bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)\n\n        # draw the histogram with the specified number of bins\n        hist(x, breaks = bins, col = 'darkgray', border = 'white',\n             xlab = 'Waiting time to next eruption (in mins)',\n             main = 'Histogram of waiting times')\n    })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)\nYou can click the “Run App” button to explore the demo. We see that there is a slider which the user can manipulate which changes the number of bins used to produce a histogram, which is updated live!"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#working-with-strings-1",
+    "href": "webpages/slides/lec10_characterdata_slides.html#working-with-strings-1",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Working with Strings",
+    "text": "Working with Strings\nLet’s load in the data:\n\n\n\n\n\n\n\n\nFor each email sent in this data set (mail_num), we have the sender (person) along with the lines of the email in separate entries in the data frame (email). For now, we’ll focus on the contents of the email, in the email column."
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#build-the-ui",
-    "href": "webpages/slides/lec10_shiny_slides.html#build-the-ui",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Build the UI",
-    "text": "Build the UI\nInside of the fluidPage() function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:\n# Define UI for application that draws a histogram\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Old Faithful Geyser Data\"),\n\n    # Sidebar with a slider input for number of bins \n    sidebarLayout(\n        sidebarPanel(\n            sliderInput(\"bins\",\n                        \"Number of bins:\",\n                        min = 1,\n                        max = 50,\n                        value = 30)\n        ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"distPlot\")\n        )\n    )\n)\n\nNotes:"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation",
+    "href": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Non-regex String Manipulation",
+    "text": "Non-regex String Manipulation\nWe’ll first go through some stringr functions that don’t require regular expressions.\nstr_detect() and str_subset()\nLet’s filter only on entries that contain emails. We can do this by calling str_detect() and finding entries that contain “From:”:\n\n\n\n\n\n\n\n\nstr_detect actually returns a logical vector showing whether or not “@” was found in the email contents! To get the subset, we can use str_subset():"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#generate-the-app",
-    "href": "webpages/slides/lec10_shiny_slides.html#generate-the-app",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Generate the App",
-    "text": "Generate the App\nThe final part of the code is\n# Run the application \nshinyApp(ui = ui, server = server)\nwhich combines everything together and allows you to interact with the app!\n\nNotes:"
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation-1",
+    "href": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation-1",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Non-regex String Manipulation",
+    "text": "Non-regex String Manipulation\nstr_split()\nLet’s say we wanted to count the number of times the word “important” was written in an email. To do this, we can split every email line into its individual words using the str_split() function. Let’s split by spaces to get each individual word.\n\n\n\n\n\n\n\n\nWe get a list! This is because we don’t know how many words each entry will contain, so a list is the most flexible option."
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#demo-bc-liquor-store-prices",
-    "href": "webpages/slides/lec10_shiny_slides.html#demo-bc-liquor-store-prices",
-    "title": "Lecture 10: Dashboards with R Shiny",
-    "section": "Demo: BC Liquor Store Prices",
-    "text": "Demo: BC Liquor Store Prices\nWe will now follow along with this tutorial by Dean Attali that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny."
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation-2",
+    "href": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation-2",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Non-regex String Manipulation",
+    "text": "Non-regex String Manipulation\nstr_split() with unlist()\nIf we really wanted a vector of all of the individual words (which, we do!), we can unlist() the list:"
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation-3",
+    "href": "webpages/slides/lec10_characterdata_slides.html#non-regex-string-manipulation-3",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Non-regex String Manipulation",
+    "text": "Non-regex String Manipulation\nstr_subset() for “important” emails\nNow, we can subset by which words contain “important”, and count the number of entries!\n\n\n\n\n\n\n\n\n\n91 times! But unfortunately, str_subset() is case sensitive… See:\n\n\n\n\n\n\n\n\nand…\n\n\n\n\n\n\n\n\nThis is where regular expressions will come in handy! We’ll discuss this in the following section."
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\nRegular expressions provide a powerful tool to extract character data through patterns! In regexes, specific characters and constructs take on special meaning in order to match multiple strings.\nWe will go through a few common regex special characters, but refer readers to this Cheat Sheet by Ian Kopacka for a more in-depth review.\nLet’s consider a simple vector of words:"
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-1",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-1",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\n. (match any letter)\nThe . in regex allows us to match any character (i.e., a number, letter, symbol (aside from a new line)) in an expression.\nFor example, the pattern .at would match any word that has at least three characters, where we have some character followed by “at”."
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-2",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-2",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\n$, ^ (anchors)\nAnchors can be included in an expression to indicate where the expression must occur in a string. ^ indicates that the string must start with the phrase, and $ indicates the string must end with it.\n\n\n\n\n\n\n\n\nNotice how we did not select “attic”,“kittycat” or “doormats”\n\n\n\n\n\n\n\n\nNotice how we only selected words ending in &lt;some character&gt;at."
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-3",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-3",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\n\\b and \\B (boundaries and not a word boundary)\n\\b indicates a word boundary, and \\B indicates NOT a word boundary. To see what we mean, see the following:\n\n\n\n\n\n\n\n\nThis selected words that were separated by either a “-” or space.\n\n\n\n\n\n\n\n\nThis selected words that did not have any separation between them."
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-4",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-4",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\n*, +, ? (quantifiers)\nWe can specify regex to match any number of characters\n\n\n\n\n\n\n\n\n\nQuantifier\nNumber of Characters\nRange to Match\nMeaning\n\n\n\n\n*\n0 or more\n{n}\nexactly n\n\n\n+\n1 or more\n{n,}\nat least n\n\n\n?\n0 or 1\n{,m}\nat most m\n\n\n\n\n{n,m}\nbetween n and m, inclusive\n\n\n\nFor example, let’s match words that have 0 or more characters before “at”.\n\n\n\n\n\n\n\n\nAll of our words contain “at” somewhere so they are all matched."
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-5",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-5",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\n*, +, ? (quantifiers)\nWhat about strictly one or more characters before “at”?\n\n\n\n\n\n\n\n\nAll but attic. Makes sense!"
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-6",
+    "href": "webpages/slides/lec10_characterdata_slides.html#regular-expressions-regex-6",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Regular Expressions (regex)",
+    "text": "Regular Expressions (regex)\n*, +, ? (quantifiers)\nWe can also match on specific letters. Let’s select words with one or more “o”’s in it:"
+  },
+  {
+    "objectID": "webpages/slides/lec10_characterdata_slides.html#worksheet-b2",
+    "href": "webpages/slides/lec10_characterdata_slides.html#worksheet-b2",
+    "title": "Lecture 10: Character Data and ReGeX",
+    "section": "Worksheet B2",
+    "text": "Worksheet B2\nOf course, regular expressions can be combined together to make powerful search tools, as well.\nFor more on regular expressions, check out Chapter 11 of the STAT545 Textbook and the (previous) STAT545 video lecture. We will also learn more as we work through Worksheet B2."
   },
   {
     "objectID": "webpages/slides/lec13_purrr_slides.html#learning-outcomes",

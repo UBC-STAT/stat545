@@ -1,6 +1,5 @@
 ---
-title: "Lecture 12: StringR and Regular Expressions"
-subtitle: "November 18, 2025"
+title: "Lecture 10: StringR and Regular Expressions"
 date-modified: last-modified
 ---
 
@@ -20,7 +19,7 @@ library(tidyverse) #stringr is automatically downloaded with tidyverse
 
 ## Lecture Slides
 
--   [Lecture 12 - R Character Data](../slides/slidefiles/lec12_characterdata_slides.qmd)
+-   [Lecture 10 - R Character Data](../slides/lec10_characterdata_slides.qmd)
 
 
 ## Strings

@@ -1,6 +1,5 @@
 ---
-title: "Lecture 12: Character Data and ReGeX"
-subtitle: "STAT 545 - Fall 2025"
+title: "Lecture 10: Character Data and ReGeX"
 format: 
   live-revealjs:
     scrollable: true
@@ -31,7 +30,7 @@ engine: webr
 
 -   Apply `stringr` and regular expressions to manipulate data in tibbles.
 
-[Written Notes](../../lectures_ii/lec12_characterdata.qmd)
+[Written Notes](../../lectures_ii/lec10_characterdata.qmd)
 
 (No video lecture this week!)
 
@@ -284,4 +283,6 @@ str_subset(words, pattern = ...)
 
 ## Worksheet B2
 
-Of course, regular expressions can be combined together to make powerful search tools, as well. For more on regular expressions, check out [Chapter 11 of the STAT545 Textbook](https://stat545.com/character-vectors.html) and the [STAT545 video lecture](https://www.youtube.com/watch?v=I0dJ1zpxAtU). We will also learn more as we work through Worksheet B2.
+Of course, regular expressions can be combined together to make powerful search tools, as well. 
+
+For more on regular expressions, check out [Chapter 11 of the STAT545 Textbook](https://stat545.com/character-vectors.html) and the [(previous) STAT545 video lecture](https://www.youtube.com/watch?v=I0dJ1zpxAtU). We will also learn more as we work through Worksheet B2.
