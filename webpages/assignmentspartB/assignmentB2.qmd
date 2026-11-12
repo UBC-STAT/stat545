@@ -33,7 +33,8 @@ If you like, you can choose to write a new function - not used in Assignment B1 
 
 ## Setup
 
-1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB2FirstnameLastname`. **YOU CANNOT ADD HYPHENS OR UNDERSCORES IN THE PACKAGE NAME!** 
+1.  Create a new repository in our organization [https://github.com/UBC-STAT545-F2026](https://github.com/UBC-STAT545-F2026). Set the owner as UBC-STAT545-F2026 and name your repository `assignmentB2FirstnameLastname`. **YOU CANNOT ADD HYPHENS OR UNDERSCORES IN THE PACKAGE NAME!** Make it public. 
+
 
 2.  Open an RStudio session
 
@@ -147,6 +148,11 @@ Create unit tests for your package using `use_testthat()` (see [lecture notes](h
 -   [ ]   All tests use `testthat`
 
 -   [ ]  If you create an object in a test script, you clean up after yourself using `rm('name_of_object')` (not needed if the objects are created *within* a `test_that()` function.)
+
+
+## Repository Visability
+
+Ensure your repository is public at this stage! Go to the settings, scroll down to the "danger zone", and change it to public. 
 
 ## Tidy Submission (20 points)
 

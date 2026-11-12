@@ -182,7 +182,7 @@ This is where *regular expressions* will come in handy! We'll discuss this in th
 
 Regular expressions provide a powerful tool to extract character data through patterns! In regexes, specific characters and constructs take on special meaning in order to match multiple strings.
 
-We will go through a few common regex special characters, but refer readers to [this Cheat Sheet](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://rstudio.github.io/cheatsheets/regex.pdf) by Ian Kopacka for a more in-depth review.
+We will go through a few common regex special characters, but refer readers to [this Cheat Sheet](https://rstudio.github.io/cheatsheets/regex.pdf) by Ian Kopacka for a more in-depth review.
 
 Let's consider a simple vector of words:
 

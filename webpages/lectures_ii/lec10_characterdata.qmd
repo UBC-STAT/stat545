@@ -250,4 +250,4 @@ Written material:
 
 -   The stat545.com Chapter 11 on character vectors [has an elaborate discussion on useful resources](https://stat545.com/character-vectors.html#resources-3) for learning more about strings.
 
--   [Regex cheat sheet](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://rstudio.github.io/cheatsheets/regex.pdf)
+-   [Regex cheat sheet](https://rstudio.github.io/cheatsheets/regex.pdf)
