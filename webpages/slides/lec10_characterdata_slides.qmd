@@ -30,7 +30,7 @@ engine: webr
 
 -   Apply `stringr` and regular expressions to manipulate data in tibbles.
 
-[Written Notes](../../lectures_ii/lec10_characterdata.qmd)
+[Written Notes](../lectures_ii/lec10_characterdata.qmd)
 
 (No video lecture this week!)
 
