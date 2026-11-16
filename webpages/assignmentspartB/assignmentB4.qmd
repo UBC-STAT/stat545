@@ -1,0 +1,139 @@
+---
+title: "Assignment B4: Quarto Webpage"
+subtitle: "Due: Tuesday Dec 15, 2026 at 11:59pm"
+---
+
+
+**Total Points**: 100
+
+For this assignment, you will create a Quarto website app and deploy it.
+
+## Part A) Setup
+
+### Install Quarto
+
+Before continuing, ensure that you've installed Quarto [these directions](https://quarto.org/docs/get-started/).
+
+### Initial Website Set-up
+
+**This assignment will exist on your personal GitHub account, not the STAT545 organization.**
+
+[**Step 1:**]{.underline} In RStudio, create a New Project.
+
+-   Select "New Directory" and then find "Quarto Website".
+
+-   If given an option for version control, select Git. A simple build of a two paged website will generate.
+
+-   Name the project "yourusername.github.io" if you want a personal website, or any other project name.
+
+    -   NOTE: if you do not use "yourusername.github.io", the website will be at "yourusername.github.io/yourprojectname" by default.
+
+[**Step 2:**]{.underline} In the Terminal, run `touch .nojekyll` (Mac OS) or `copy NUL .nojekyll` to disable Jekyll.
+
+[**Step 3:**]{.underline} Within the RStudio project, navigate to the `_quarto.yml` file in your files (right hand pane). Under the `project:` preamble, add `output-dir: docs`.
+
+[**Step 4:**]{.underline} Navigate back to `index.qmd`. Save and click the Render button. A local version of this simple website will appear.
+
+Now, we should send this to GitHub so we can host our website on GitHub and make changes both locally and through GitHub. To do so, we need to connect this R Project with Github.
+
+[**Step 5:**]{.underline} When you made this project, you should have selected to use Git as a version control. If not, head to Tools \> Version control \> Project Setup and select Git as your version control. At this time, origin should be set to `none`.
+
+[**Step 6:**]{.underline} In the Console:
+
+-   Load in the `usethis` package with `library(usethis)`
+
+-   Run `use_git()` and select the option that will commit all changes
+
+-   Run `use_github()` to create a github repository with the same name as your R Project.
+
+[**Step 7:**]{.underline} Now will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the "Git" tab in RStudio to stage, commit, and push changes.
+
+-   SAVE ALL FILES. In the Terminal (beside the Console in RStudio)
+
+-   Run `git add .`
+
+-   Then, commit the changes of our website to Git. Type `git commit -m "initial commit"`
+
+    -   The `-m "<description>"` part adds the \<description\> of your changes.
+
+-   Push the changes using `git push origin main`. Head back to github to see new files added to your repository.
+
+[**Step 8:**]{.underline} See your new website
+
+-   Navigate to your repository on Github and click the three dots and head to the repository settings.
+
+-   Navigate to `pages` on the lefthand side menu.
+
+-   Under `branch`, select `main` as your branch and `/docs` as the folder. Select save.
+
+-   Give it a few minutes and refresh if you don't see a success message pointing to the website.
+
+-   Head to \<yourreponame\>.github.io to see if it worked!
+
+**Step 9:** Edit your website and push the changes
+
+-   Edit your version locally, and render and save.
+
+-   Then, in the terminal:
+
+    -   Run `git add .`
+
+    -   Run `git commit -m "<description of your changes>"`
+
+    -   Run `git push origin main`
+
+
+
+## Part B) Create a Website (80 points)
+
+You can create any sort of website you'd like. The easiest thing to make is probably a professional (or perhaps a not-so-professional, fake) profile like what we demonstrated in class, but I won't limit your creativity here. 
+
+While we don't care *too* much about aesthetics, there will be five points devoted to the overall organization/cleanliness of the webpage. Avoid neon backgrounds and hard-to-read fonts.
+
+Your website **must** include:
+
+-   [ ] A home page that uses a [template](https://quarto.org/docs/websites/website-about.html), which includes a photo.
+
+-   [ ] A navigation bar, with at least one drop-down menu
+
+-   [ ] A nicely formatted table (anywhere)
+
+-   [ ] Titles and subheaders (on all pages, with subheaders where needed)
+
+-   [ ] A [call-out block](https://quarto.org/docs/authoring/callouts.html)
+
+-   [ ] A website theme, different from the default
+
+-   [ ] A favicon
+
+-   [ ] A page containing [listings](https://quarto.org/docs/websites/website-listings.html). The listings contain at least two pages (for example, [https://grcetmpk.github.io/workshops/](https://grcetmpk.github.io/workshops/))
+
+
+
+## Part C) Deploy the Website (10 points)
+
+-   [ ] Deploy the app to GitHub Pages. Make sure it is up to date! 
+
+
+*Having issues? Make sure you `quarto render` your website before staging, committing, and pushing changes.*
+
+
+
+## Part D) GitHub Repository (10 points)
+
+-   [ ] Ensure all files required to reproduce your app exist in your repository
+
+-   [ ] Include a README file in your repository that describes the purpose of your website, and a link to the website page. You do not need to list files this time. 
+
+   
+
+## Submission
+
+-   [ ] Submit a link to a Tagged Release of your repository on Canvas.
+
+## Grading
+
+The rubric can be found on Canvas. 
+
+
+

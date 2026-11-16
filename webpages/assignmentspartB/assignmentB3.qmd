@@ -1,8 +1,7 @@
 ---
 title: "Assignment B3: Shiny App"
-subtitle: "Due: Friday Dec 4, 2026 at 11:59pm"
+subtitle: "Due: Tuesday Dec 1, 2026 at 11:59pm"
 ---
-
 
 
 **Total Points**: 100
@@ -41,20 +40,23 @@ See [the Appendix](#appendix) at the end of this assignment for some ideas for y
 
 ## Part B) Deploy the App to Shinyapps.io (10 points)
 
--   [ ] Deploy the app to Shinyapps.io [(instructions here)](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec10_shiny.html#deploy-the-app-to-shinyapps.io)
+-   [ ] Deploy the app to Shinyapps.io [(instructions here)](https://ubc-stat.github.io/stat545/webpages/lectures_ii/lec10_shiny.html#deploy-the-app-to-shinyapps.io)
 
 ## Part C) Statement on Gen AI use (10 points) {#genAI}
 
 I *encourage you* to explore the use of Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, this is completely optional. You may create your shiny app without Generative AI. You will not lose marks for doing so. 
 
-
 You may ***not*** ask Gen AI to build a shiny app from scratch. Use it as an additional tool to help you with the assignment.
 
--   [ ] Fill out the usual Gen AI statement template, and include it in your README.md file. 
+-   [ ] Fill out the usual Gen AI statement template in a `reflection.md` file, which will be in your repository. 
 
 -   [ ] Provide a Reflection
-    -   Within the same document, you must provide a **short reflection on how you felt the use of Gen AI contributed to your learning**. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). **Write this in your own words**. It can be brief.
+
+    -   Within the same markdown document, you must provide a **short reflection on how you felt the use of Gen AI contributed to your learning**. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). **Write this in your own words**. It can be brief.
+
     -   **If you did not use Gen AI**, provide a brief statement (a sentence or two) on why you chose not to use it.
+
+-   [ ] (Optional) Provide consent for the instructor to use/share your **anonymized** reflection outside of this class by adding "I consent to the use of this anonymized reflection outside of this assignment" at the end of your markdown file. If not given explicit consent, I will assume you are not comfortable with this. This will not affect your grade. :-) 
 
 ## Part D) GitHub Repository
 

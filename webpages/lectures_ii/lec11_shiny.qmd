@@ -1,8 +1,16 @@
 ---
 title: "Lecture 11: Dashboards with R Shiny"
-subtitle: "November 4, 2025"
 date-modified: last-modified
 ---
+
+## Video Lecture
+
+{{< video https://www.youtube.com/watch?v=VTI84Pqk3SI >}}
+
+## Lecture Slides
+
+-   [Lecture 10 - Dashboards with R Shiny](../slides/slidefiles/lec10_shiny_slides.qmd)
+
 
 This topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:
 
@@ -20,15 +28,8 @@ And possibly:
 
 -   Make an interactive data table with the `DT` package
 
-We will spend two classes creating a Shiny dashboard together.
 
-## Video Lecture
 
-{{< video https://www.youtube.com/watch?v=VTI84Pqk3SI >}}
-
-## Lecture Slides
-
--   [Lecture 10 - Dashboards with R Shiny](../slides/slidefiles/lec10_shiny_slides.qmd)
 
 ## Why Dashboards?
 
@@ -244,6 +245,7 @@ On your shinyapps.io profile, you should see a dashboard of your apps, and see t
 
 ## Additional Resources
 
+-   Shiny Assistant: [https://gallery.shinyapps.io/assistant/](https://gallery.shinyapps.io/assistant/)
 -   Video lecture: [How to Make a Shiny App in R](https://www.youtube.com/watch?v=rB4SJGyaGls)
 -   [“Mastering Shiny”](https://mastering-shiny.org/) by Hadley Wickham gives a more comprehensive treatment.
 -   The [official shiny site](https://shiny.rstudio.com/) has tutorials, a gallery, and other goodies.

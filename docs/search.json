@@ -1189,6 +1189,13 @@
     "text": "Demo: BC Liquor Store Prices\nWe will now follow along with this tutorial by Dean Attali that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny."
   },
   {
+    "objectID": "webpages/slides/lec10_shiny_slides.html#resources",
+    "href": "webpages/slides/lec10_shiny_slides.html#resources",
+    "title": "Lecture 10: Dashboards with R Shiny",
+    "section": "Resources",
+    "text": "Resources\n\nShiny Assistant: https://gallery.shinyapps.io/assistant/\n“Mastering Shiny” by Hadley Wickham gives a more comprehensive treatment.\nThe official shiny site has tutorials, a gallery, and other goodies."
+  },
+  {
     "objectID": "webpages/lectures_ii/lec9_rpackages.html",
     "href": "webpages/lectures_ii/lec9_rpackages.html",
     "title": "Lecture 9: R Packages",
@@ -2146,114 +2153,206 @@
     "text": "Are they any prerequisites?\nThere are no official pre-requisites for STAT 545A, but most students will have had at least one prior statistics course or comparable experience.\nSTAT 545B requires STAT 545A."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html",
-    "href": "webpages/assignmentspartB/assignmentB2.html",
-    "title": "Assignment B2: Making an R Package",
+    "objectID": "webpages/assignmentspartB/assignmentB3.html",
+    "href": "webpages/assignmentspartB/assignmentB3.html",
+    "title": "Assignment B3: Shiny App",
     "section": "",
-    "text": "Total Points: 100\nIn Assignment B-1, you practiced writing a function. This time, we’ll be evaluating your ability to wrap that function (or something else!) in an R package.\nNeed some help? Checkout chapter 2 of the “R packages” book.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "text": "Total Points: 100\nFor this assignment, you will create a Shiny app with three features, deploy it, and include a statement on AI use (see Part C below).\nNote that we aren’t expecting a complex app for this assignment – a simple one is all we’re expecting."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#options-for-what-function-to-wrap-into-a-package",
-    "href": "webpages/assignmentspartB/assignmentB2.html#options-for-what-function-to-wrap-into-a-package",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Options for what function to wrap into a package",
-    "text": "Options for what function to wrap into a package\n\nOption 1: The function you made in Assignment B1\nYou can turn the function you made in Assignment B1 into a package for Assignment B2.\nThe work in Assignment B1 was deliberately designed to make it easier for you to convert it into a package down the line.\nHowever, note that the deadlines for Assignments B1 and B2 are close together as they are on sequential topics, and so you are not guaranteed feedback before the B2 deadline.\n\n\nOption 2: “Pre-baked” function\nA documented function with tests written by the instructional team will be released to Canvas; you can choose to make that into a package for Assignment B2.(Note that the download links on that page won’t work until after the Assignment B1 deadline.)\nThe pre-baked function is available on Canvas under Assignment B2.\nNote: If you take this option, then you may modify the documentation or the tests in any way you see fit. This “pre-baked” function is simply intended to serve as a clean starting point for this assignment that doesn’t depend on your personal success level in Assignment B1.\n\n\nOption 3: Something new!\nIf you like, you can choose to write a new function - not used in Assignment B1 - for Assignment B2.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
-  },
-  {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#setup",
-    "href": "webpages/assignmentspartB/assignmentB2.html#setup",
-    "title": "Assignment B2: Making an R Package",
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#setup",
+    "href": "webpages/assignmentspartB/assignmentB3.html#setup",
+    "title": "Assignment B3: Shiny App",
     "section": "Setup",
-    "text": "Setup\n\nCreate a new repository in our organization https://github.com/UBC-STAT545-F2026. Set the owner as UBC-STAT545-F2026 and name your repository assignmentB2FirstnameLastname. YOU CANNOT ADD HYPHENS OR UNDERSCORES IN THE PACKAGE NAME! Make it public.\nOpen an RStudio session\n\nRun library(devtools) in the console\nRun create_package(\"path/assignmentB2FirstnameLastname\") replacing “path” with the path to where you’d like your package to live on your computer, and “package_name” with the name of your package.\n\nInitialize Git\n\nIn the RStudio window that just opened, run git init in your Terminal\n\nConnect to GitHub\n\nIn the Terminal, run git remote add origin [LINK] replacing the [LINK] with the link to your repository URL (you can find this on the green CODE button on your repository)\nStage, commit, and push the changes to GitHub from RStudio. In the Terminal, run:\n\ngit add .\ngit commit -m \"initial commit\"\ngit push origin main (OR git push origin master if an error occurs)\n\n\n\nYour files should now appear on GitHub, and you can commit and push changes as you work through the project.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "text": "Setup\n\nCreate a new repository in our organization https://github.com/UBC-STAT545-F2026. Set the owner as UBC-STAT545-F2026 and name your repository assignmentB3-FIRSTNAME-LASTNAME.\nClone your repository onto your computer."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-1-functions-20-points",
-    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-1-functions-20-points",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Exercise 1: Function(s) (20 points)",
-    "text": "Exercise 1: Function(s) (20 points)\nInclude a function in your package (see above options).\nYou should include documentation for the:\n\ntitle\ndescription\nparameter descriptions\noutputs\nexamples\n\nBe sure to also include the @export tag to make your function(s) available to users (unless you want the function to be strictly internal)\nRender the documentation for all of the functions/objects in your package using document().\nHint: if you’re using the same function as in Assignment B-1, you should only need to put your function in an R script in the R/ folder with the specified additions to your roxygen2 documentation. Then, run document() after loading the devtools package.\nWhat we’re looking for:\n\nYou followed the above instructions.\nYou should have .Rd files automatically generated in your man/ folder. Don’t touch these files.\nFunctions intended to be used by a package user are deliberately listed under “exports” in the NAMESPACE file (this should happen automatically after running document() and having @export tags with your functions).\nDocumentation for each function should load after executing ?function after loading your package.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#part-a-create-a-shiny-app-80-points",
+    "href": "webpages/assignmentspartB/assignmentB3.html#part-a-create-a-shiny-app-80-points",
+    "title": "Assignment B3: Shiny App",
+    "section": "Part A) Create a Shiny App (80 points)",
+    "text": "Part A) Create a Shiny App (80 points)\nYou can create any sort of app using any sort of data (aside from the BC Liquor data)! If you’d like, it may be natural to create an app that relates to your Mini Data Analysis, or a data set you’ve enjoyed working with throughout this course.\nWhile we don’t care too much about aesthetics, there will be two points devoted to the overall organization/cleanliness of the app. Avoid neon backgrounds and hard-to-read fonts.\nYour Shiny app must include:\n\nA title\nA brief description of its purpose with some instructions to the user\nA plot that dynamically updates with some user input\nA table that dynamically updates with some user input\nAny other feature/functionality that is not a table nor a plot.\n\nSee the Appendix at the end of this assignment for some ideas for your third feature!\nWe used the BC Liquor App as a running example of feature ideas for concreteness. You cannot use this data set for your project."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-2-high-level-documentation-20-points",
-    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-2-high-level-documentation-20-points",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Exercise 2: High-level documentation (20 points)",
-    "text": "Exercise 2: High-level documentation (20 points)\nCreate documentation for your R package at a high level.\n\nFill out a README.Rmd file, being sure to include the package description, installation instructions, and demonstrated usage. Build the README.md file.\nIn the DESCRIPTION file, update the package title and description fields (you can use the same description as you did in your README).\n\nTips:\n\nWhen writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.\nTo generate the README, use a function that will generate it for you (see lecture notes).\nInstallation instructions: should be as simple as running, for example, install_github(\"org/repo\", ref = \"0.1.0\") (change the version number to your own).\n\nWhat we’re looking for:\n\nThe above instructions were followed.\nThe documentation is clear, simple, and effective.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#part-b-deploy-the-app-to-shinyapps.io-10-points",
+    "href": "webpages/assignmentspartB/assignmentB3.html#part-b-deploy-the-app-to-shinyapps.io-10-points",
+    "title": "Assignment B3: Shiny App",
+    "section": "Part B) Deploy the App to Shinyapps.io (10 points)",
+    "text": "Part B) Deploy the App to Shinyapps.io (10 points)\n\nDeploy the app to Shinyapps.io (instructions here)"
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-3-description-file-20-points",
-    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-3-description-file-20-points",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Exercise 3: DESCRIPTION file (20 points)",
-    "text": "Exercise 3: DESCRIPTION file (20 points)\n\nEnsure a license is in place, and found in the DESCRIPTION file. We suggest usethis::use_mit_license() as an open-source-friendly license.\nEnsure package dependencies are listed in the DESCRIPTION file, and are effectively chosen (probably listed under “Imports”).\n\nIf your function relies on other packages, like dplyr, they should be included here\nIf your function relies on a dataset from another package (like steamgames from datateachr, include them here)\nPackages that come pre-loaded upon opening R are candidates to be listed here, too, such as the datasets and stats packages (but not the base package).\nIf your package does not rely on anything\n\nEnsure all calls to functions from external packages are called using the form package::function() (only in very rare situations will you not need to use ::).\nEnsure all other mechanical structure of the DESCRIPTION file is in place, i.e., passes a check().",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#genAI",
+    "href": "webpages/assignmentspartB/assignmentB3.html#genAI",
+    "title": "Assignment B3: Shiny App",
+    "section": "Part C) Statement on Gen AI use (10 points)",
+    "text": "Part C) Statement on Gen AI use (10 points)\nI encourage you to explore the use of Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, this is completely optional. You may create your shiny app without Generative AI. You will not lose marks for doing so.\nYou may not ask Gen AI to build a shiny app from scratch. Use it as an additional tool to help you with the assignment.\n\nFill out the usual Gen AI statement template in a reflection.md file, which will be in your repository.\nProvide a Reflection\n\nWithin the same markdown document, you must provide a short reflection on how you felt the use of Gen AI contributed to your learning. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). Write this in your own words. It can be brief.\nIf you did not use Gen AI, provide a brief statement (a sentence or two) on why you chose not to use it.\n\n(Optional) Provide consent for the instructor to use/share your anonymized reflection outside of this class by adding “I consent to the use of this anonymized reflection outside of this assignment” at the end of your markdown file. If not given explicit consent, I will assume you are not comfortable with this. This will not affect your grade. :-)"
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-4-tests-20-points",
-    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-4-tests-20-points",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Exercise 4: Tests (20 points)",
-    "text": "Exercise 4: Tests (20 points)\nCreate unit tests for your package using use_testthat() (see lecture notes)\nHint: if you’re using the same function as in Assignment B-1, you should only need to copy and paste your test_that calls after creating a test file using usethis::use_test(...).\nWhat we’re looking for:\n\nThe extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package.\nYour tests should all pass after running devtools::test().\nAll tests use testthat\nIf you create an object in a test script, you clean up after yourself using rm('name_of_object') (not needed if the objects are created within a test_that() function.)",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#part-d-github-repository",
+    "href": "webpages/assignmentspartB/assignmentB3.html#part-d-github-repository",
+    "title": "Assignment B3: Shiny App",
+    "section": "Part D) GitHub Repository",
+    "text": "Part D) GitHub Repository\n\nEnsure all files required to reproduce your app exist in your repository\nEnsure you have the Part C Reflection document somewhere in your repository\nInclude a README file in your repository that describes the app, and explicitly defines what three features were used. For example:\n This R Shiny called [my title] app does [description]\n\n There are three main features of this app:\n\n - FEATURE 1: Plot showing [something] that updates with [some user input]\n - FEATURE 2: Table showing [something] that updates with [some user input]\n - FEATURE 3: [A description of the third feature]\n\n You can test out the app for yourself at [link_to_shinyapp.io](link_to_shinyapp.io)"
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#repository-visability",
-    "href": "webpages/assignmentspartB/assignmentB2.html#repository-visability",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Repository Visability",
-    "text": "Repository Visability\nEnsure your repository is public at this stage! Go to the settings, scroll down to the “danger zone”, and change it to public.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#submission",
+    "href": "webpages/assignmentspartB/assignmentB3.html#submission",
+    "title": "Assignment B3: Shiny App",
+    "section": "Submission",
+    "text": "Submission\n\nSubmit a link to a Tagged Release of your repository on Canvas.\n\nThe rubric can be found on Canvas."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB2.html#tidy-submission-20-points",
-    "href": "webpages/assignmentspartB/assignmentB2.html#tidy-submission-20-points",
-    "title": "Assignment B2: Making an R Package",
-    "section": "Tidy Submission (20 points)",
-    "text": "Tidy Submission (20 points)\nFollow these steps once you’re ready to submit your work.\n\nIncrease the version number in the DESCRIPTION file, using semantic versioning conventions. You should not have a trailing .9000.\n\nSummary of convention: MAJOR.MINOR.PATCH, where initial development starts at 0.1.0, and then increment the minor version for each subsequent release\n\nOnly release 1.0.0 if your package is being used in production and ready for public use.\ne.g., 0.1.0 -&gt; 0.1.1 -&gt; 0.1.X -&gt; 1.0.0 -&gt; 1.0.1 -&gt; 1.0.X -&gt; 1.1.0\n\nYour release versioning is especially important if you will be choosing to develop your package further.\n\nTag a release in your GitHub repository corresponding to your submission before the deadline, using the package version as your tag.\nGrab the URL corresponding to your tagged release, and submit that to canvas\n\nSee Rubric on Canvas for more details on how the package will be graded.",
-    "crumbs": [
-      "Assignment B2: Making an R Package"
-    ]
+    "objectID": "webpages/assignmentspartB/assignmentB3.html#appendix",
+    "href": "webpages/assignmentspartB/assignmentB3.html#appendix",
+    "title": "Assignment B3: Shiny App",
+    "section": "Appendix: Ideas",
+    "text": "Appendix: Ideas\n\nTables\n\nAdd an option to sort the table by one of your variables. For example, in the BC Liquor App, sorting the results by price.\n\nHint: Use checkboxInput() to get TRUE/FALSE values from the user.\n\nUse the DT package to turn a static table into an interactive table.\n\nHint: Install the DT package, replace tableOutput() with DT::dataTableOutput() and replace renderTable() with DT::renderDataTable().\n\nShow the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines $20 - $40, show the text “We found 122 options for you”.\n\nHint: Add a textOutput() to the UI, and in its corresponding renderText() use the number of rows in the filtered() object.\n\nAllow the user to search for multiple entries simultaneously; for example, in the BC Liquor app, allow the user to search for multiple alcohol types at once instead of wine/beer/etc, one at a time.\n\nHint: There are two approaches to do this. Either change the typeInput radio buttons into checkboxes (checkboxGroupInput()) since checkboxes support choosing multiple items, or change typeInput into a select box (selectInput()) with the argument multiple = TRUE to support choosing multiple options.\n\n\n\n\nPlots\n\nAdd parameters to the plot.\n\nHint: You will need to add input functions that will be used as parameters for the plot. You could use shinyjs::colourInput() to let the user decide on the colours of the bars in the plot.\n\nAllow the user to save/export the plot\n\n\n\nOther Features\n\nAny other feature that is not a table or a plot.\nNeed some ideas? Check this out or use one of the following options:\n\nAdd a button that allows the user to download your table as a .csv file, or plot as a .png file.\nHint: Look into the downloadButton() and downloadHandler() functions.\nAdd an image to the UI. For example, in the BC Liquor app, add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!\n\nHint: Place the image in a folder named www, and use img(src = \"imagename.png\") to add the image.\n\nIf you know CSS, add CSS to make your app look nicer.\n\nHint: Add a CSS file under the www folder and use the function includeCSS() to use it in your app.\n\nExperiment with packages that add extra features to Shiny, such as shinyjs, leaflet, shinydashboard, shinythemes, ggvis.\n\nHint: Each package is unique and has a different purpose, so you need to read the documentation of each package in order to know what it provides and how to use it.\n\nIf you have both a plot and a table, place them in separate tabs.\n\nHint: Use tabsetPanel() to create an interface with multiple tabs."
   },
   {
-    "objectID": "webpages/assignmentspartA/mda_deliverable2.html",
-    "href": "webpages/assignmentspartA/mda_deliverable2.html",
-    "title": "Mini Data Analysis: Deliverable 2",
+    "objectID": "webpages/assignmentspartB/assignmentB1.html",
+    "href": "webpages/assignmentspartB/assignmentB1.html",
+    "title": "Assignment B1: Making a Function in R",
     "section": "",
-    "text": "Warning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.\n\n\nDownload the following file and add it to your Mini Data Analysis Repository (the same one you used for Deliverable 1). Follow the directions in the file!\n\n\n\n Download .Rmd File",
+    "text": "Total Points: 100\nThis assignment covers making a function in R, documenting it, and testing it.",
     "crumbs": [
-      "Mini Data Analysis: Deliverable 2"
+      "Assignment B1: Making a Function in R"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartA/mda_deliverable2.html#deliverable-2-will-be-due-on-october-27nd-2026-at-1159pm-pt",
-    "href": "webpages/assignmentspartA/mda_deliverable2.html#deliverable-2-will-be-due-on-october-27nd-2026-at-1159pm-pt",
-    "title": "Mini Data Analysis: Deliverable 2",
-    "section": "",
-    "text": "Warning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.\n\n\nDownload the following file and add it to your Mini Data Analysis Repository (the same one you used for Deliverable 1). Follow the directions in the file!\n\n\n\n Download .Rmd File",
+    "objectID": "webpages/assignmentspartB/assignmentB1.html#setup",
+    "href": "webpages/assignmentspartB/assignmentB1.html#setup",
+    "title": "Assignment B1: Making a Function in R",
+    "section": "Setup",
+    "text": "Setup\n\nCreate a new repository in our organization https://github.com/UBC-STAT545-F2026. Set the owner as UBC-STAT545-F2026 and name your repository assignmentB1-FIRSTNAME-LASTNAME.\n\nNew to the course and don’t have access to our organization? Please let the instructor know ASAP!\n\nClone the repository to your computer. Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a github_document",
     "crumbs": [
-      "Mini Data Analysis: Deliverable 2"
+      "Assignment B1: Making a Function in R"
     ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-1-make-a-function-25-points",
+    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-1-make-a-function-25-points",
+    "title": "Assignment B1: Making a Function in R",
+    "section": "Exercise 1: Make a Function (25 points)",
+    "text": "Exercise 1: Make a Function (25 points)\nCreate an R Function! It doesn’t need to be overly complicated, but it also shouldn’t be completely trivial (i.e., my function &lt;- function(x){ print(x)})\nFunction Ideas\n\nDid you repeat any code for a data analysis in STAT 545A? If so, consider making a function for this action.\nConsider bundling a specific dplyr workflow (likegroup_by() %&gt;% summarise())\nWrite a wrapper around an existing function.\n\nFor example, perhaps accepting a narrower range of inputs (like not allowing logical vectors), or providing a different output.\nIt’s usually better to narrow a function’s focus than to broaden, so that a function doesn’t end up doing too much.\n\nMake a special plot that you’d want to repeat when exploring your data\n\nGuidelines\n\nYour function should not rely on anything from your working environment. Try clearing it to ensure your function works as intended.\nYour function should not rely on “magic numbers” – pre-selected numbers (or options) that appear inside the function that can’t be accessed by a user of the function.\n\nFor example, maybe quantile(x, type = 1, ...) appears in your function. The choice of 1 is arbitrary – unless you’re making a function like quantile_type_1().\n\nYour function should be reasonably flexible on its inputs. Here is an example of a function that is not reasonably flexible: a function called count_missing_values_by_group() that only works when the data frame has columns that are all of type fct.\nThe output is consistent – for example, always gives a list. An example of inconsistent output: sapply(1:3, seq_len) gives a list, and sapply(1:3, sqrt) gives an (atomic) vector.\nYour function includes appropriate arguments. (Do you handle NA’s appropriately? Are you using the ellipsis properly? etc.)",
+    "crumbs": [
+      "Assignment B1: Making a Function in R"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-2-document-your-function-20-points",
+    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-2-document-your-function-20-points",
+    "title": "Assignment B1: Making a Function in R",
+    "section": "Exercise 2: Document your Function (20 points)",
+    "text": "Exercise 2: Document your Function (20 points)\nIn the same code chunk where you made your function, document the function using roxygen2 tags. Be sure to include:\n\nTitle.\nFunction description: In 1-2 brief sentences, describe what the function does.\nDocument each argument with the @param tag, making sure to justify why you named the parameter as you did.\n\n(Justification for naming is not often needed, but we want to hear your reasoning.)\n\nWhat the function returns, using the @return tag.",
+    "crumbs": [
+      "Assignment B1: Making a Function in R"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-3-include-examples-15-points",
+    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-3-include-examples-15-points",
+    "title": "Assignment B1: Making a Function in R",
+    "section": "Exercise 3: Include examples (15 points)",
+    "text": "Exercise 3: Include examples (15 points)\nDemonstrate the usage of your function with a few examples. Use one or more new code chunks, describing what you’re doing.\nNote: If you want to deliberately show an error, you can use error = TRUE in your code chunk option.",
+    "crumbs": [
+      "Assignment B1: Making a Function in R"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-4-test-the-function-25-points",
+    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-4-test-the-function-25-points",
+    "title": "Assignment B1: Making a Function in R",
+    "section": "Exercise 4: Test the Function (25 points)",
+    "text": "Exercise 4: Test the Function (25 points)\nWrite formal tests for your function. You should use at least three non-redundant uses of an expect_*() function from the testthat package, and they should be contained in a test_that() function (or more than one). They should all pass.\nYou can use the same expect_*() function multiple times so long as they test different cases.\nExample of non-redundant inputs in the dice rolling example from class:\n\nRolling a positive integer number of dice\nRolling no dice\nRolling a negative number of dice\nRolling half a dice\n\nExample of redundant inputs:\n\nRolling 1 die\nRolling 3 dice\nRolling 100 dice",
+    "crumbs": [
+      "Assignment B1: Making a Function in R"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB1.html#tidy-submission-15-points",
+    "href": "webpages/assignmentspartB/assignmentB1.html#tidy-submission-15-points",
+    "title": "Assignment B1: Making a Function in R",
+    "section": "Tidy Submission (15 points)",
+    "text": "Tidy Submission (15 points)\nFollow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.\n\nMake a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.\nKnit your .Rmd file to a .md file. Keep both in your repository.\nTag a release in your GitHub repository corresponding to your submission before the deadline.\nGrab the URL corresponding to your tagged release, and submit that to canvas.\n\nSee Rubric on Canvas for more details on grading.",
+    "crumbs": [
+      "Assignment B1: Making a Function in R"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartA/mda_deliverable1.html",
+    "href": "webpages/assignmentspartA/mda_deliverable1.html",
+    "title": "Mini Data Analysis: Deliverable 1",
+    "section": "",
+    "text": "This project includes two deliverables, each with explicit tasks.\nEach deliverable will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. While the two deliverables will be submitted as independent assessments, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. Here is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!\n\n\n\n\n\n\nWarning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.",
+    "crumbs": [
+      "Mini Data Analysis: Deliverable 1"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartA/mda_deliverable1.html#deliverable-1-will-be-due-on-tuesday-october-13th-2026-at-1159pm-pt.",
+    "href": "webpages/assignmentspartA/mda_deliverable1.html#deliverable-1-will-be-due-on-tuesday-october-13th-2026-at-1159pm-pt.",
+    "title": "Mini Data Analysis: Deliverable 1",
+    "section": "",
+    "text": "This project includes two deliverables, each with explicit tasks.\nEach deliverable will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. While the two deliverables will be submitted as independent assessments, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. Here is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!\n\n\n\n\n\n\nWarning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.",
+    "crumbs": [
+      "Mini Data Analysis: Deliverable 1"
+    ]
+  },
+  {
+    "objectID": "privacy/privacy.html",
+    "href": "privacy/privacy.html",
+    "title": "Privacy Policy",
+    "section": "",
+    "text": "Your privacy is important to us. This policy outlines how this website collects, uses, and protects your information."
+  },
+  {
+    "objectID": "privacy/privacy.html#information-collection-and-use",
+    "href": "privacy/privacy.html#information-collection-and-use",
+    "title": "Privacy Policy",
+    "section": "Information Collection and Use",
+    "text": "Information Collection and Use\nWe use Google Analytics, a web analytics service provided by Google, LLC. (“Google”). Google Analytics uses cookies to help analyze how people interact with this content, including tracking which sections are accessed most frequently. Information generated by cookies about your use of our website (including IP address) will be transmitted to and stored by Google on servers in the United States.\nGoogle will use this information solely for evaluating webpage usage, compiling usage reports to enhance the educational effectiveness of the content, and providing related services.\nYou may refuse the use of cookies by selecting the appropriate settings in your browser."
+  },
+  {
+    "objectID": "privacy/privacy.html#personal-information",
+    "href": "privacy/privacy.html#personal-information",
+    "title": "Privacy Policy",
+    "section": "Personal Information",
+    "text": "Personal Information\nWe do not collect personally identifiable information through Google Analytics. Any personally identifiable information, such as your name and email address, would only be collected if voluntarily submitted for specific educational purposes (e.g., feedback or course-related inquiries). We will never sell or distribute your personal information to third parties.\nFor any questions or concerns, please contact grace&lt;-at-&gt;stat.ubc.ca."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
+    "section": "👋 Welcome!",
+    "text": "👋 Welcome!\nWelcome to STAT 545 at the University of British Columbia! Whether you’re a student enrolled in STAT 545 or simply someone looking to learn how to write reproducible and collaborative data analyses, it is our hope that this website will serve as a great resource for learning these new skills!\nIn short, this course will enable you to confidently write clean and modern data analyses in R using version control software (GitHub), and creating reports using R Markdown. The primary focus will be on using these technologies to conduct analyses with daily workflow, rather than the statistical theory and methods for analysis.\nThis course is divided into two parts. In Part I (STAT545 A), we will introduce\n\nR and RStudio,\nReport generation with R Markdown,\nProject organization, workflow, and coding style,\nData management with dataframes and tibbles using tidyverse,\nData visualization with ggplot2, and\nVersion control using Git and Github.\n\nIn Part II (STAT545 B), we will dive deeper into\n\nWriting functions in R,\nAdvanced computations on data,\nFunctional programming with purrr,\nR packages,\nInteractive pages, apps, and graphics with RShiny, and\nWebsite development using Quarto.\n\nIf you are a student enrolling in this course for credit at UBC, you MUST take STAT 545 A to enroll in STAT545 B. There are no exceptions to this rule."
+  },
+  {
+    "objectID": "index.html#your-teaching-team-2025",
+    "href": "index.html#your-teaching-team-2025",
+    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
+    "section": "👩‍🏫 Your Teaching Team (2025)",
+    "text": "👩‍🏫 Your Teaching Team (2025)\nMy name is Grace Tompkins (she/her) and I’ll be your course instructor. I’m a Biostatistician and recent PhD graduate passionate about teaching! I’m excited to be guiding you throughout this course.\n\n\n\nInstructor: Grace Tompkins\n\n\nI am joined by a wonderful group of TAs:\n\nAsfar\nMario\nErick\n\nPlease reach out if you have any concerns or questions at grace&lt;at&gt;stat.ubc.ca, or through our Slack channel!\nI am slowly adding content to a NEW YouTube channel for STAT 545! Feel free to check out the content there under the @ProfTompkins account."
+  },
+  {
+    "objectID": "index.html#course-communications",
+    "href": "index.html#course-communications",
+    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
+    "section": "📲 Course Communications",
+    "text": "📲 Course Communications\nOur course communications will occur on a dedicated Slack Channel. If you’re enrolled in STAT545 at UBC, head to Canvas for the invite link. Please email the instructor if you have any issues registering.\nAnnouncements, weekly summaries, and other important information will be in the #announcements channel. We’ll also have dedicated channels for the course topics, worksheets, and other assessments.\nThe STAT 545 team will be actively monitoring Slack during regular working hours (9am to 5pm PT, Monday to Friday). You are free to ask questions outside of this window but please keep in mind that there are no expectations for the team to answer questions outside of working hours or on weekends or holidays.\nTo make the most out of Slack, please\n\nUse the #general channel for clarifications, asking about course organization, or clarifying instructions. Things you post on the #general channel will be seen by everyone, so please do not provide information that gives away answers to assignments.\nMake a group chat with our TAs when you need more personalized help, or have an issue with grading. They may direct you to the #general channel when appropriate, or direct you to the instructor.\nDirect message the instructor if there is a concern that is more personal (i.e., you need to self declare an absence) or if you have already talked to the TAs about an issue and are unsatisfied. You can also direct message the instructor if you are having issues with a group member in any group-related assignments.\nPost in the #random channel if you find things related to the course that you’d like to share"
+  },
+  {
+    "objectID": "index.html#ℹ-course-information",
+    "href": "index.html#ℹ-course-information",
+    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
+    "section": "ℹ Course Information",
+    "text": "ℹ Course Information\nAll course information is in the Syllabus (STAT 545 A or STAT 545 B).\nNot seeing what you’re looking for? Check out the Frequently Asked Questions (FAQs) or try searching a topic or keyword in the top right-hand corner of this website!"
+  },
+  {
+    "objectID": "index.html#attributions",
+    "href": "index.html#attributions",
+    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
+    "section": "📝 Attributions",
+    "text": "📝 Attributions\nMany thanks to those who have contributed to the materials for STAT545 over the years. Content has been created by Albina Gibadullina, Vincenzo Coia, Jenny Bryan, Lucy Gao, Grace Tompkins, Katie Burak, Victor Yuan, and other members of the Instructional Team."
   },
   {
     "objectID": "webpages/assignmentspartA/collaborativeproject.html",
@@ -2366,206 +2465,163 @@
     ]
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
-    "section": "👋 Welcome!",
-    "text": "👋 Welcome!\nWelcome to STAT 545 at the University of British Columbia! Whether you’re a student enrolled in STAT 545 or simply someone looking to learn how to write reproducible and collaborative data analyses, it is our hope that this website will serve as a great resource for learning these new skills!\nIn short, this course will enable you to confidently write clean and modern data analyses in R using version control software (GitHub), and creating reports using R Markdown. The primary focus will be on using these technologies to conduct analyses with daily workflow, rather than the statistical theory and methods for analysis.\nThis course is divided into two parts. In Part I (STAT545 A), we will introduce\n\nR and RStudio,\nReport generation with R Markdown,\nProject organization, workflow, and coding style,\nData management with dataframes and tibbles using tidyverse,\nData visualization with ggplot2, and\nVersion control using Git and Github.\n\nIn Part II (STAT545 B), we will dive deeper into\n\nWriting functions in R,\nAdvanced computations on data,\nFunctional programming with purrr,\nR packages,\nInteractive pages, apps, and graphics with RShiny, and\nWebsite development using Quarto.\n\nIf you are a student enrolling in this course for credit at UBC, you MUST take STAT 545 A to enroll in STAT545 B. There are no exceptions to this rule."
-  },
-  {
-    "objectID": "index.html#your-teaching-team-2025",
-    "href": "index.html#your-teaching-team-2025",
-    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
-    "section": "👩‍🏫 Your Teaching Team (2025)",
-    "text": "👩‍🏫 Your Teaching Team (2025)\nMy name is Grace Tompkins (she/her) and I’ll be your course instructor. I’m a Biostatistician and recent PhD graduate passionate about teaching! I’m excited to be guiding you throughout this course.\n\n\n\nInstructor: Grace Tompkins\n\n\nI am joined by a wonderful group of TAs:\n\nAsfar\nMario\nErick\n\nPlease reach out if you have any concerns or questions at grace&lt;at&gt;stat.ubc.ca, or through our Slack channel!\nI am slowly adding content to a NEW YouTube channel for STAT 545! Feel free to check out the content there under the @ProfTompkins account."
-  },
-  {
-    "objectID": "index.html#course-communications",
-    "href": "index.html#course-communications",
-    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
-    "section": "📲 Course Communications",
-    "text": "📲 Course Communications\nOur course communications will occur on a dedicated Slack Channel. If you’re enrolled in STAT545 at UBC, head to Canvas for the invite link. Please email the instructor if you have any issues registering.\nAnnouncements, weekly summaries, and other important information will be in the #announcements channel. We’ll also have dedicated channels for the course topics, worksheets, and other assessments.\nThe STAT 545 team will be actively monitoring Slack during regular working hours (9am to 5pm PT, Monday to Friday). You are free to ask questions outside of this window but please keep in mind that there are no expectations for the team to answer questions outside of working hours or on weekends or holidays.\nTo make the most out of Slack, please\n\nUse the #general channel for clarifications, asking about course organization, or clarifying instructions. Things you post on the #general channel will be seen by everyone, so please do not provide information that gives away answers to assignments.\nMake a group chat with our TAs when you need more personalized help, or have an issue with grading. They may direct you to the #general channel when appropriate, or direct you to the instructor.\nDirect message the instructor if there is a concern that is more personal (i.e., you need to self declare an absence) or if you have already talked to the TAs about an issue and are unsatisfied. You can also direct message the instructor if you are having issues with a group member in any group-related assignments.\nPost in the #random channel if you find things related to the course that you’d like to share"
-  },
-  {
-    "objectID": "index.html#ℹ-course-information",
-    "href": "index.html#ℹ-course-information",
-    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
-    "section": "ℹ Course Information",
-    "text": "ℹ Course Information\nAll course information is in the Syllabus (STAT 545 A or STAT 545 B).\nNot seeing what you’re looking for? Check out the Frequently Asked Questions (FAQs) or try searching a topic or keyword in the top right-hand corner of this website!"
-  },
-  {
-    "objectID": "index.html#attributions",
-    "href": "index.html#attributions",
-    "title": "STAT545 A/B: Exploratory Data Analysis (Fall 2026)",
-    "section": "📝 Attributions",
-    "text": "📝 Attributions\nMany thanks to those who have contributed to the materials for STAT545 over the years. Content has been created by Albina Gibadullina, Vincenzo Coia, Jenny Bryan, Lucy Gao, Grace Tompkins, Katie Burak, Victor Yuan, and other members of the Instructional Team."
-  },
-  {
-    "objectID": "privacy/privacy.html",
-    "href": "privacy/privacy.html",
-    "title": "Privacy Policy",
+    "objectID": "webpages/assignmentspartA/mda_deliverable2.html",
+    "href": "webpages/assignmentspartA/mda_deliverable2.html",
+    "title": "Mini Data Analysis: Deliverable 2",
     "section": "",
-    "text": "Your privacy is important to us. This policy outlines how this website collects, uses, and protects your information."
-  },
-  {
-    "objectID": "privacy/privacy.html#information-collection-and-use",
-    "href": "privacy/privacy.html#information-collection-and-use",
-    "title": "Privacy Policy",
-    "section": "Information Collection and Use",
-    "text": "Information Collection and Use\nWe use Google Analytics, a web analytics service provided by Google, LLC. (“Google”). Google Analytics uses cookies to help analyze how people interact with this content, including tracking which sections are accessed most frequently. Information generated by cookies about your use of our website (including IP address) will be transmitted to and stored by Google on servers in the United States.\nGoogle will use this information solely for evaluating webpage usage, compiling usage reports to enhance the educational effectiveness of the content, and providing related services.\nYou may refuse the use of cookies by selecting the appropriate settings in your browser."
-  },
-  {
-    "objectID": "privacy/privacy.html#personal-information",
-    "href": "privacy/privacy.html#personal-information",
-    "title": "Privacy Policy",
-    "section": "Personal Information",
-    "text": "Personal Information\nWe do not collect personally identifiable information through Google Analytics. Any personally identifiable information, such as your name and email address, would only be collected if voluntarily submitted for specific educational purposes (e.g., feedback or course-related inquiries). We will never sell or distribute your personal information to third parties.\nFor any questions or concerns, please contact grace&lt;-at-&gt;stat.ubc.ca."
-  },
-  {
-    "objectID": "webpages/assignmentspartA/mda_deliverable1.html",
-    "href": "webpages/assignmentspartA/mda_deliverable1.html",
-    "title": "Mini Data Analysis: Deliverable 1",
-    "section": "",
-    "text": "This project includes two deliverables, each with explicit tasks.\nEach deliverable will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. While the two deliverables will be submitted as independent assessments, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. Here is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!\n\n\n\n\n\n\nWarning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.",
+    "text": "Warning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.\n\n\nDownload the following file and add it to your Mini Data Analysis Repository (the same one you used for Deliverable 1). Follow the directions in the file!\n\n\n\n Download .Rmd File",
     "crumbs": [
-      "Mini Data Analysis: Deliverable 1"
+      "Mini Data Analysis: Deliverable 2"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartA/mda_deliverable1.html#deliverable-1-will-be-due-on-tuesday-october-13th-2026-at-1159pm-pt.",
-    "href": "webpages/assignmentspartA/mda_deliverable1.html#deliverable-1-will-be-due-on-tuesday-october-13th-2026-at-1159pm-pt.",
-    "title": "Mini Data Analysis: Deliverable 1",
+    "objectID": "webpages/assignmentspartA/mda_deliverable2.html#deliverable-2-will-be-due-on-october-27nd-2026-at-1159pm-pt",
+    "href": "webpages/assignmentspartA/mda_deliverable2.html#deliverable-2-will-be-due-on-october-27nd-2026-at-1159pm-pt",
+    "title": "Mini Data Analysis: Deliverable 2",
     "section": "",
-    "text": "This project includes two deliverables, each with explicit tasks.\nEach deliverable will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. While the two deliverables will be submitted as independent assessments, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. Here is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!\n\n\n\n\n\n\nWarning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.",
+    "text": "Warning\n\n\n\nIn this course, Generative AI can be used in the following ways:\n\nto clarify concepts discussed in class\nas an “advanced search engine” (i.e., searching error codes)\ndebugging code that students wrote and attempted to debug on their own\n\nGenerative AI CANNOT be used to generate text or code (including comments) from scratch.\nAny use of Generative AI must be disclosed.\nTo disclose your use, please copy and paste the following template into the README of your GitHub Repository and fill out the relevant details [in square brackets]. BE SPECIFIC. Saying you used it to debug your code is not enough. Explicitly describe where you got stuck\nHere is an example of a specific, explicit debug:\n\n“I had the error attempt to apply non-function after running my code. I used Claude to help me identify that this error was due to me attempting to multiply two numbers together without the use of a *, i.e. (2)(3) instead of 2*3.”\n\n\n## Generative AI Statement \n\nGenerative AI (through [LIST MODELS USED, i.e. ChatGPT, CoPilot)] was used to \nhelp me complete  this assignment in the following ways. \n\n1. [Describe here]\n\n2. [Describe here]\n\n...\n\nI affirm that Generative AI was not used to generate text, code, or comments for \nmy assessments. \nIf you did not use Generative AI, please include the following in your README:\n\n## Generative AI Statement \n\nGenerative AI was not used in any way throughout this assignment.\nAssessments suspected of having AI-generated text and/or code, or assignments where the Generative AI use was not disclosed, will be flagged and temporarily assigned a grade of zero. Students will be required to meet with the instructor to receive a grade.\nFill out Task 3.4 as you go through your assignment if you do opt to use Generative AI.\n\n\nDownload the following file and add it to your Mini Data Analysis Repository (the same one you used for Deliverable 1). Follow the directions in the file!\n\n\n\n Download .Rmd File",
     "crumbs": [
-      "Mini Data Analysis: Deliverable 1"
+      "Mini Data Analysis: Deliverable 2"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html",
-    "href": "webpages/assignmentspartB/assignmentB1.html",
-    "title": "Assignment B1: Making a Function in R",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html",
+    "href": "webpages/assignmentspartB/assignmentB2.html",
+    "title": "Assignment B2: Making an R Package",
     "section": "",
-    "text": "Total Points: 100\nThis assignment covers making a function in R, documenting it, and testing it.",
+    "text": "Total Points: 100\nIn Assignment B-1, you practiced writing a function. This time, we’ll be evaluating your ability to wrap that function (or something else!) in an R package.\nNeed some help? Checkout chapter 2 of the “R packages” book.",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html#setup",
-    "href": "webpages/assignmentspartB/assignmentB1.html#setup",
-    "title": "Assignment B1: Making a Function in R",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#options-for-what-function-to-wrap-into-a-package",
+    "href": "webpages/assignmentspartB/assignmentB2.html#options-for-what-function-to-wrap-into-a-package",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Options for what function to wrap into a package",
+    "text": "Options for what function to wrap into a package\n\nOption 1: The function you made in Assignment B1\nYou can turn the function you made in Assignment B1 into a package for Assignment B2.\nThe work in Assignment B1 was deliberately designed to make it easier for you to convert it into a package down the line.\nHowever, note that the deadlines for Assignments B1 and B2 are close together as they are on sequential topics, and so you are not guaranteed feedback before the B2 deadline.\n\n\nOption 2: “Pre-baked” function\nA documented function with tests written by the instructional team will be released to Canvas; you can choose to make that into a package for Assignment B2.(Note that the download links on that page won’t work until after the Assignment B1 deadline.)\nThe pre-baked function is available on Canvas under Assignment B2.\nNote: If you take this option, then you may modify the documentation or the tests in any way you see fit. This “pre-baked” function is simply intended to serve as a clean starting point for this assignment that doesn’t depend on your personal success level in Assignment B1.\n\n\nOption 3: Something new!\nIf you like, you can choose to write a new function - not used in Assignment B1 - for Assignment B2.",
+    "crumbs": [
+      "Assignment B2: Making an R Package"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#setup",
+    "href": "webpages/assignmentspartB/assignmentB2.html#setup",
+    "title": "Assignment B2: Making an R Package",
     "section": "Setup",
-    "text": "Setup\n\nCreate a new repository in our organization https://github.com/UBC-STAT545-F2026. Set the owner as UBC-STAT545-F2026 and name your repository assignmentB1-FIRSTNAME-LASTNAME.\n\nNew to the course and don’t have access to our organization? Please let the instructor know ASAP!\n\nClone the repository to your computer. Make a new RMarkdown (.Rmd) file containing all of your code. Be sure to use some dialogue between code chunks. Set the output to be a github_document",
+    "text": "Setup\n\nCreate a new repository in our organization https://github.com/UBC-STAT545-F2026. Set the owner as UBC-STAT545-F2026 and name your repository assignmentB2FirstnameLastname. YOU CANNOT ADD HYPHENS OR UNDERSCORES IN THE PACKAGE NAME! Make it public.\nOpen an RStudio session\n\nRun library(devtools) in the console\nRun create_package(\"path/assignmentB2FirstnameLastname\") replacing “path” with the path to where you’d like your package to live on your computer, and “package_name” with the name of your package.\n\nInitialize Git\n\nIn the RStudio window that just opened, run git init in your Terminal\n\nConnect to GitHub\n\nIn the Terminal, run git remote add origin [LINK] replacing the [LINK] with the link to your repository URL (you can find this on the green CODE button on your repository)\nStage, commit, and push the changes to GitHub from RStudio. In the Terminal, run:\n\ngit add .\ngit commit -m \"initial commit\"\ngit push origin main (OR git push origin master if an error occurs)\n\n\n\nYour files should now appear on GitHub, and you can commit and push changes as you work through the project.",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-1-make-a-function-25-points",
-    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-1-make-a-function-25-points",
-    "title": "Assignment B1: Making a Function in R",
-    "section": "Exercise 1: Make a Function (25 points)",
-    "text": "Exercise 1: Make a Function (25 points)\nCreate an R Function! It doesn’t need to be overly complicated, but it also shouldn’t be completely trivial (i.e., my function &lt;- function(x){ print(x)})\nFunction Ideas\n\nDid you repeat any code for a data analysis in STAT 545A? If so, consider making a function for this action.\nConsider bundling a specific dplyr workflow (likegroup_by() %&gt;% summarise())\nWrite a wrapper around an existing function.\n\nFor example, perhaps accepting a narrower range of inputs (like not allowing logical vectors), or providing a different output.\nIt’s usually better to narrow a function’s focus than to broaden, so that a function doesn’t end up doing too much.\n\nMake a special plot that you’d want to repeat when exploring your data\n\nGuidelines\n\nYour function should not rely on anything from your working environment. Try clearing it to ensure your function works as intended.\nYour function should not rely on “magic numbers” – pre-selected numbers (or options) that appear inside the function that can’t be accessed by a user of the function.\n\nFor example, maybe quantile(x, type = 1, ...) appears in your function. The choice of 1 is arbitrary – unless you’re making a function like quantile_type_1().\n\nYour function should be reasonably flexible on its inputs. Here is an example of a function that is not reasonably flexible: a function called count_missing_values_by_group() that only works when the data frame has columns that are all of type fct.\nThe output is consistent – for example, always gives a list. An example of inconsistent output: sapply(1:3, seq_len) gives a list, and sapply(1:3, sqrt) gives an (atomic) vector.\nYour function includes appropriate arguments. (Do you handle NA’s appropriately? Are you using the ellipsis properly? etc.)",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-1-functions-20-points",
+    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-1-functions-20-points",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Exercise 1: Function(s) (20 points)",
+    "text": "Exercise 1: Function(s) (20 points)\nInclude a function in your package (see above options).\nYou should include documentation for the:\n\ntitle\ndescription\nparameter descriptions\noutputs\nexamples\n\nBe sure to also include the @export tag to make your function(s) available to users (unless you want the function to be strictly internal)\nRender the documentation for all of the functions/objects in your package using document().\nHint: if you’re using the same function as in Assignment B-1, you should only need to put your function in an R script in the R/ folder with the specified additions to your roxygen2 documentation. Then, run document() after loading the devtools package.\nWhat we’re looking for:\n\nYou followed the above instructions.\nYou should have .Rd files automatically generated in your man/ folder. Don’t touch these files.\nFunctions intended to be used by a package user are deliberately listed under “exports” in the NAMESPACE file (this should happen automatically after running document() and having @export tags with your functions).\nDocumentation for each function should load after executing ?function after loading your package.",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-2-document-your-function-20-points",
-    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-2-document-your-function-20-points",
-    "title": "Assignment B1: Making a Function in R",
-    "section": "Exercise 2: Document your Function (20 points)",
-    "text": "Exercise 2: Document your Function (20 points)\nIn the same code chunk where you made your function, document the function using roxygen2 tags. Be sure to include:\n\nTitle.\nFunction description: In 1-2 brief sentences, describe what the function does.\nDocument each argument with the @param tag, making sure to justify why you named the parameter as you did.\n\n(Justification for naming is not often needed, but we want to hear your reasoning.)\n\nWhat the function returns, using the @return tag.",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-2-high-level-documentation-20-points",
+    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-2-high-level-documentation-20-points",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Exercise 2: High-level documentation (20 points)",
+    "text": "Exercise 2: High-level documentation (20 points)\nCreate documentation for your R package at a high level.\n\nFill out a README.Rmd file, being sure to include the package description, installation instructions, and demonstrated usage. Build the README.md file.\nIn the DESCRIPTION file, update the package title and description fields (you can use the same description as you did in your README).\n\nTips:\n\nWhen writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.\nTo generate the README, use a function that will generate it for you (see lecture notes).\nInstallation instructions: should be as simple as running, for example, install_github(\"org/repo\", ref = \"0.1.0\") (change the version number to your own).\n\nWhat we’re looking for:\n\nThe above instructions were followed.\nThe documentation is clear, simple, and effective.",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-3-include-examples-15-points",
-    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-3-include-examples-15-points",
-    "title": "Assignment B1: Making a Function in R",
-    "section": "Exercise 3: Include examples (15 points)",
-    "text": "Exercise 3: Include examples (15 points)\nDemonstrate the usage of your function with a few examples. Use one or more new code chunks, describing what you’re doing.\nNote: If you want to deliberately show an error, you can use error = TRUE in your code chunk option.",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-3-description-file-20-points",
+    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-3-description-file-20-points",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Exercise 3: DESCRIPTION file (20 points)",
+    "text": "Exercise 3: DESCRIPTION file (20 points)\n\nEnsure a license is in place, and found in the DESCRIPTION file. We suggest usethis::use_mit_license() as an open-source-friendly license.\nEnsure package dependencies are listed in the DESCRIPTION file, and are effectively chosen (probably listed under “Imports”).\n\nIf your function relies on other packages, like dplyr, they should be included here\nIf your function relies on a dataset from another package (like steamgames from datateachr, include them here)\nPackages that come pre-loaded upon opening R are candidates to be listed here, too, such as the datasets and stats packages (but not the base package).\nIf your package does not rely on anything\n\nEnsure all calls to functions from external packages are called using the form package::function() (only in very rare situations will you not need to use ::).\nEnsure all other mechanical structure of the DESCRIPTION file is in place, i.e., passes a check().",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html#exercise-4-test-the-function-25-points",
-    "href": "webpages/assignmentspartB/assignmentB1.html#exercise-4-test-the-function-25-points",
-    "title": "Assignment B1: Making a Function in R",
-    "section": "Exercise 4: Test the Function (25 points)",
-    "text": "Exercise 4: Test the Function (25 points)\nWrite formal tests for your function. You should use at least three non-redundant uses of an expect_*() function from the testthat package, and they should be contained in a test_that() function (or more than one). They should all pass.\nYou can use the same expect_*() function multiple times so long as they test different cases.\nExample of non-redundant inputs in the dice rolling example from class:\n\nRolling a positive integer number of dice\nRolling no dice\nRolling a negative number of dice\nRolling half a dice\n\nExample of redundant inputs:\n\nRolling 1 die\nRolling 3 dice\nRolling 100 dice",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#exercise-4-tests-20-points",
+    "href": "webpages/assignmentspartB/assignmentB2.html#exercise-4-tests-20-points",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Exercise 4: Tests (20 points)",
+    "text": "Exercise 4: Tests (20 points)\nCreate unit tests for your package using use_testthat() (see lecture notes)\nHint: if you’re using the same function as in Assignment B-1, you should only need to copy and paste your test_that calls after creating a test file using usethis::use_test(...).\nWhat we’re looking for:\n\nThe extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package.\nYour tests should all pass after running devtools::test().\nAll tests use testthat\nIf you create an object in a test script, you clean up after yourself using rm('name_of_object') (not needed if the objects are created within a test_that() function.)",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB1.html#tidy-submission-15-points",
-    "href": "webpages/assignmentspartB/assignmentB1.html#tidy-submission-15-points",
-    "title": "Assignment B1: Making a Function in R",
-    "section": "Tidy Submission (15 points)",
-    "text": "Tidy Submission (15 points)\nFollow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.\n\nMake a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.\nKnit your .Rmd file to a .md file. Keep both in your repository.\nTag a release in your GitHub repository corresponding to your submission before the deadline.\nGrab the URL corresponding to your tagged release, and submit that to canvas.\n\nSee Rubric on Canvas for more details on grading.",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#repository-visability",
+    "href": "webpages/assignmentspartB/assignmentB2.html#repository-visability",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Repository Visability",
+    "text": "Repository Visability\nEnsure your repository is public at this stage! Go to the settings, scroll down to the “danger zone”, and change it to public.",
     "crumbs": [
-      "Assignment B1: Making a Function in R"
+      "Assignment B2: Making an R Package"
     ]
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html",
-    "href": "webpages/assignmentspartB/assignmentB3.html",
-    "title": "Assignment B3: Shiny App",
+    "objectID": "webpages/assignmentspartB/assignmentB2.html#tidy-submission-20-points",
+    "href": "webpages/assignmentspartB/assignmentB2.html#tidy-submission-20-points",
+    "title": "Assignment B2: Making an R Package",
+    "section": "Tidy Submission (20 points)",
+    "text": "Tidy Submission (20 points)\nFollow these steps once you’re ready to submit your work.\n\nIncrease the version number in the DESCRIPTION file, using semantic versioning conventions. You should not have a trailing .9000.\n\nSummary of convention: MAJOR.MINOR.PATCH, where initial development starts at 0.1.0, and then increment the minor version for each subsequent release\n\nOnly release 1.0.0 if your package is being used in production and ready for public use.\ne.g., 0.1.0 -&gt; 0.1.1 -&gt; 0.1.X -&gt; 1.0.0 -&gt; 1.0.1 -&gt; 1.0.X -&gt; 1.1.0\n\nYour release versioning is especially important if you will be choosing to develop your package further.\n\nTag a release in your GitHub repository corresponding to your submission before the deadline, using the package version as your tag.\nGrab the URL corresponding to your tagged release, and submit that to canvas\n\nSee Rubric on Canvas for more details on how the package will be graded.",
+    "crumbs": [
+      "Assignment B2: Making an R Package"
+    ]
+  },
+  {
+    "objectID": "webpages/assignmentspartB/assignmentB4.html",
+    "href": "webpages/assignmentspartB/assignmentB4.html",
+    "title": "Assignment B4: Quarto Webpage",
     "section": "",
-    "text": "Total Points: 100\nFor this assignment, you will create a Shiny app with three features, deploy it, and include a statement on AI use (see Part C below).\nNote that we aren’t expecting a complex app for this assignment – a simple one is all we’re expecting."
+    "text": "Total Points: 100\nFor this assignment, you will create a Quarto website app and deploy it."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#setup",
-    "href": "webpages/assignmentspartB/assignmentB3.html#setup",
-    "title": "Assignment B3: Shiny App",
-    "section": "Setup",
-    "text": "Setup\n\nCreate a new repository in our organization https://github.com/UBC-STAT545-F2026. Set the owner as UBC-STAT545-F2026 and name your repository assignmentB3-FIRSTNAME-LASTNAME.\nClone your repository onto your computer."
+    "objectID": "webpages/assignmentspartB/assignmentB4.html#part-a-setup",
+    "href": "webpages/assignmentspartB/assignmentB4.html#part-a-setup",
+    "title": "Assignment B4: Quarto Webpage",
+    "section": "Part A) Setup",
+    "text": "Part A) Setup\n\nInstall Quarto\nBefore continuing, ensure that you’ve installed Quarto these directions.\n\n\nInitial Website Set-up\nThis assignment will exist on your personal GitHub account, not the STAT545 organization.\nStep 1: In RStudio, create a New Project.\n\nSelect “New Directory” and then find “Quarto Website”.\nIf given an option for version control, select Git. A simple build of a two paged website will generate.\nName the project “yourusername.github.io” if you want a personal website, or any other project name.\n\nNOTE: if you do not use “yourusername.github.io”, the website will be at “yourusername.github.io/yourprojectname” by default.\n\n\nStep 2: In the Terminal, run touch .nojekyll (Mac OS) or copy NUL .nojekyll to disable Jekyll.\nStep 3: Within the RStudio project, navigate to the _quarto.yml file in your files (right hand pane). Under the project: preamble, add output-dir: docs.\nStep 4: Navigate back to index.qmd. Save and click the Render button. A local version of this simple website will appear.\nNow, we should send this to GitHub so we can host our website on GitHub and make changes both locally and through GitHub. To do so, we need to connect this R Project with Github.\nStep 5: When you made this project, you should have selected to use Git as a version control. If not, head to Tools &gt; Version control &gt; Project Setup and select Git as your version control. At this time, origin should be set to none.\nStep 6: In the Console:\n\nLoad in the usethis package with library(usethis)\nRun use_git() and select the option that will commit all changes\nRun use_github() to create a github repository with the same name as your R Project.\n\nStep 7: Now will be working in the terminal to give commands to our computer to connect with Github. You can equivalently use the “Git” tab in RStudio to stage, commit, and push changes.\n\nSAVE ALL FILES. In the Terminal (beside the Console in RStudio)\nRun git add .\nThen, commit the changes of our website to Git. Type git commit -m \"initial commit\"\n\nThe -m \"&lt;description&gt;\" part adds the &lt;description&gt; of your changes.\n\nPush the changes using git push origin main. Head back to github to see new files added to your repository.\n\nStep 8: See your new website\n\nNavigate to your repository on Github and click the three dots and head to the repository settings.\nNavigate to pages on the lefthand side menu.\nUnder branch, select main as your branch and /docs as the folder. Select save.\nGive it a few minutes and refresh if you don’t see a success message pointing to the website.\nHead to &lt;yourreponame&gt;.github.io to see if it worked!\n\nStep 9: Edit your website and push the changes\n\nEdit your version locally, and render and save.\nThen, in the terminal:\n\nRun git add .\nRun git commit -m \"&lt;description of your changes&gt;\"\nRun git push origin main"
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#part-a-create-a-shiny-app-80-points",
-    "href": "webpages/assignmentspartB/assignmentB3.html#part-a-create-a-shiny-app-80-points",
-    "title": "Assignment B3: Shiny App",
-    "section": "Part A) Create a Shiny App (80 points)",
-    "text": "Part A) Create a Shiny App (80 points)\nYou can create any sort of app using any sort of data (aside from the BC Liquor data)! If you’d like, it may be natural to create an app that relates to your Mini Data Analysis, or a data set you’ve enjoyed working with throughout this course.\nWhile we don’t care too much about aesthetics, there will be two points devoted to the overall organization/cleanliness of the app. Avoid neon backgrounds and hard-to-read fonts.\nYour Shiny app must include:\n\nA title\nA brief description of its purpose with some instructions to the user\nA plot that dynamically updates with some user input\nA table that dynamically updates with some user input\nAny other feature/functionality that is not a table nor a plot.\n\nSee the Appendix at the end of this assignment for some ideas for your third feature!\nWe used the BC Liquor App as a running example of feature ideas for concreteness. You cannot use this data set for your project."
+    "objectID": "webpages/assignmentspartB/assignmentB4.html#part-b-create-a-website-80-points",
+    "href": "webpages/assignmentspartB/assignmentB4.html#part-b-create-a-website-80-points",
+    "title": "Assignment B4: Quarto Webpage",
+    "section": "Part B) Create a Website (80 points)",
+    "text": "Part B) Create a Website (80 points)\nYou can create any sort of website you’d like. The easiest thing to make is probably a professional (or perhaps a not-so-professional, fake) profile like what we demonstrated in class, but I won’t limit your creativity here.\nWhile we don’t care too much about aesthetics, there will be five points devoted to the overall organization/cleanliness of the webpage. Avoid neon backgrounds and hard-to-read fonts.\nYour website must include:\n\nA home page that uses a template, which includes a photo.\nA navigation bar, with at least one drop-down menu\nA nicely formatted table (anywhere)\nTitles and subheaders (on all pages, with subheaders where needed)\nA call-out block\nA website theme, different from the default\nA favicon\nA page containing listings. The listings contain at least two pages (for example, https://grcetmpk.github.io/workshops/)"
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#part-b-deploy-the-app-to-shinyapps.io-10-points",
-    "href": "webpages/assignmentspartB/assignmentB3.html#part-b-deploy-the-app-to-shinyapps.io-10-points",
-    "title": "Assignment B3: Shiny App",
-    "section": "Part B) Deploy the App to Shinyapps.io (10 points)",
-    "text": "Part B) Deploy the App to Shinyapps.io (10 points)\n\nDeploy the app to Shinyapps.io (instructions here)"
+    "objectID": "webpages/assignmentspartB/assignmentB4.html#part-c-deploy-the-website-10-points",
+    "href": "webpages/assignmentspartB/assignmentB4.html#part-c-deploy-the-website-10-points",
+    "title": "Assignment B4: Quarto Webpage",
+    "section": "Part C) Deploy the Website (10 points)",
+    "text": "Part C) Deploy the Website (10 points)\n\nDeploy the app to GitHub Pages. Make sure it is up to date!\n\nHaving issues? Make sure you quarto render your website before staging, committing, and pushing changes."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#genAI",
-    "href": "webpages/assignmentspartB/assignmentB3.html#genAI",
-    "title": "Assignment B3: Shiny App",
-    "section": "Part C) Statement on Gen AI use (10 points)",
-    "text": "Part C) Statement on Gen AI use (10 points)\nI encourage you to explore the use of Generative AI software (ChatGPT, Gemini, CoPilot, etc) to help you create your Shiny app. However, this is completely optional. You may create your shiny app without Generative AI. You will not lose marks for doing so.\nYou may not ask Gen AI to build a shiny app from scratch. Use it as an additional tool to help you with the assignment.\n\nFill out the usual Gen AI statement template, and include it in your README.md file.\nProvide a Reflection\n\nWithin the same document, you must provide a short reflection on how you felt the use of Gen AI contributed to your learning. Write a few sentences about how Gen AI helped you with the assignment, and how it impacted your learning (could be positive or negative). Write this in your own words. It can be brief.\nIf you did not use Gen AI, provide a brief statement (a sentence or two) on why you chose not to use it."
+    "objectID": "webpages/assignmentspartB/assignmentB4.html#part-d-github-repository-10-points",
+    "href": "webpages/assignmentspartB/assignmentB4.html#part-d-github-repository-10-points",
+    "title": "Assignment B4: Quarto Webpage",
+    "section": "Part D) GitHub Repository (10 points)",
+    "text": "Part D) GitHub Repository (10 points)\n\nEnsure all files required to reproduce your app exist in your repository\nInclude a README file in your repository that describes the purpose of your website, and a link to the website page. You do not need to list files this time."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#part-d-github-repository",
-    "href": "webpages/assignmentspartB/assignmentB3.html#part-d-github-repository",
-    "title": "Assignment B3: Shiny App",
-    "section": "Part D) GitHub Repository",
-    "text": "Part D) GitHub Repository\n\nEnsure all files required to reproduce your app exist in your repository\nEnsure you have the Part C Reflection document somewhere in your repository\nInclude a README file in your repository that describes the app, and explicitly defines what three features were used. For example:\n This R Shiny called [my title] app does [description]\n\n There are three main features of this app:\n\n - FEATURE 1: Plot showing [something] that updates with [some user input]\n - FEATURE 2: Table showing [something] that updates with [some user input]\n - FEATURE 3: [A description of the third feature]\n\n You can test out the app for yourself at [link_to_shinyapp.io](link_to_shinyapp.io)"
-  },
-  {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#submission",
-    "href": "webpages/assignmentspartB/assignmentB3.html#submission",
-    "title": "Assignment B3: Shiny App",
+    "objectID": "webpages/assignmentspartB/assignmentB4.html#submission",
+    "href": "webpages/assignmentspartB/assignmentB4.html#submission",
+    "title": "Assignment B4: Quarto Webpage",
     "section": "Submission",
-    "text": "Submission\n\nSubmit a link to a Tagged Release of your repository on Canvas.\n\nThe rubric can be found on Canvas."
+    "text": "Submission\n\nSubmit a link to a Tagged Release of your repository on Canvas."
   },
   {
-    "objectID": "webpages/assignmentspartB/assignmentB3.html#appendix",
-    "href": "webpages/assignmentspartB/assignmentB3.html#appendix",
-    "title": "Assignment B3: Shiny App",
-    "section": "Appendix: Ideas",
-    "text": "Appendix: Ideas\n\nTables\n\nAdd an option to sort the table by one of your variables. For example, in the BC Liquor App, sorting the results by price.\n\nHint: Use checkboxInput() to get TRUE/FALSE values from the user.\n\nUse the DT package to turn a static table into an interactive table.\n\nHint: Install the DT package, replace tableOutput() with DT::dataTableOutput() and replace renderTable() with DT::renderDataTable().\n\nShow the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines $20 - $40, show the text “We found 122 options for you”.\n\nHint: Add a textOutput() to the UI, and in its corresponding renderText() use the number of rows in the filtered() object.\n\nAllow the user to search for multiple entries simultaneously; for example, in the BC Liquor app, allow the user to search for multiple alcohol types at once instead of wine/beer/etc, one at a time.\n\nHint: There are two approaches to do this. Either change the typeInput radio buttons into checkboxes (checkboxGroupInput()) since checkboxes support choosing multiple items, or change typeInput into a select box (selectInput()) with the argument multiple = TRUE to support choosing multiple options.\n\n\n\n\nPlots\n\nAdd parameters to the plot.\n\nHint: You will need to add input functions that will be used as parameters for the plot. You could use shinyjs::colourInput() to let the user decide on the colours of the bars in the plot.\n\nAllow the user to save/export the plot\n\n\n\nOther Features\n\nAny other feature that is not a table or a plot.\nNeed some ideas? Check this out or use one of the following options:\n\nAdd a button that allows the user to download your table as a .csv file, or plot as a .png file.\nHint: Look into the downloadButton() and downloadHandler() functions.\nAdd an image to the UI. For example, in the BC Liquor app, add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!\n\nHint: Place the image in a folder named www, and use img(src = \"imagename.png\") to add the image.\n\nIf you know CSS, add CSS to make your app look nicer.\n\nHint: Add a CSS file under the www folder and use the function includeCSS() to use it in your app.\n\nExperiment with packages that add extra features to Shiny, such as shinyjs, leaflet, shinydashboard, shinythemes, ggvis.\n\nHint: Each package is unique and has a different purpose, so you need to read the documentation of each package in order to know what it provides and how to use it.\n\nIf you have both a plot and a table, place them in separate tabs.\n\nHint: Use tabsetPanel() to create an interface with multiple tabs."
+    "objectID": "webpages/assignmentspartB/assignmentB4.html#grading",
+    "href": "webpages/assignmentspartB/assignmentB4.html#grading",
+    "title": "Assignment B4: Quarto Webpage",
+    "section": "Grading",
+    "text": "Grading\nThe rubric can be found on Canvas."
   },
   {
     "objectID": "webpages/lectures.html",
@@ -3115,31 +3171,11 @@
     ]
   },
   {
-    "objectID": "webpages/lectures_ii/lec11_shiny.html",
-    "href": "webpages/lectures_ii/lec11_shiny.html",
-    "title": "Lecture 11: Dashboards with R Shiny",
-    "section": "",
-    "text": "This topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:\nAnd possibly:\nWe will spend two classes creating a Shiny dashboard together.",
-    "crumbs": [
-      "Lecture 11: Dashboards with R Shiny"
-    ]
-  },
-  {
-    "objectID": "webpages/lectures_ii/lec11_shiny.html#video-lecture",
-    "href": "webpages/lectures_ii/lec11_shiny.html#video-lecture",
-    "title": "Lecture 11: Dashboards with R Shiny",
-    "section": "Video Lecture",
-    "text": "Video Lecture",
-    "crumbs": [
-      "Lecture 11: Dashboards with R Shiny"
-    ]
-  },
-  {
     "objectID": "webpages/lectures_ii/lec11_shiny.html#lecture-slides",
     "href": "webpages/lectures_ii/lec11_shiny.html#lecture-slides",
     "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Lecture Slides",
-    "text": "Lecture Slides\n\nLecture 10 - Dashboards with R Shiny",
+    "text": "Lecture Slides\n\nLecture 10 - Dashboards with R Shiny\n\nThis topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file).\n\nAnd possibly:\n\nMake an interactive plot with plotly\nMake an interactive data table with the DT package",
     "crumbs": [
       "Lecture 11: Dashboards with R Shiny"
     ]
@@ -3189,7 +3225,7 @@
     "href": "webpages/lectures_ii/lec11_shiny.html#additional-resources",
     "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Additional Resources",
-    "text": "Additional Resources\n\nVideo lecture: How to Make a Shiny App in R\n“Mastering Shiny” by Hadley Wickham gives a more comprehensive treatment.\nThe official shiny site has tutorials, a gallery, and other goodies.\nFor deploying shiny apps, check out https://www.shinyapps.io/\nFor shiny documents (= R Markdown + shiny), see Chapter 19 of Yihui’s R Markdown book.\nFor testing your shiny app, check out the shinytest and reactlog packages.\nFor further cutting down on code repetition by “functionizing” your shiny app, check out Emily Riederer’s beginner’s guide to Shiny modules for a gentle introduction and Chapter 19 of the “Mastering Shiny” book for a full treatment.\n\nOther dashboard tools besides Shiny (but not in R):\n\nWith python: plotly dash. Check out the main website, or this Medium post introducing the tool.\nWith javascript: D3, a tremendously powerful tool with a steep learning curve (especially if you don’t know javascript).",
+    "text": "Additional Resources\n\nShiny Assistant: https://gallery.shinyapps.io/assistant/\nVideo lecture: How to Make a Shiny App in R\n“Mastering Shiny” by Hadley Wickham gives a more comprehensive treatment.\nThe official shiny site has tutorials, a gallery, and other goodies.\nFor deploying shiny apps, check out https://www.shinyapps.io/\nFor shiny documents (= R Markdown + shiny), see Chapter 19 of Yihui’s R Markdown book.\nFor testing your shiny app, check out the shinytest and reactlog packages.\nFor further cutting down on code repetition by “functionizing” your shiny app, check out Emily Riederer’s beginner’s guide to Shiny modules for a gentle introduction and Chapter 19 of the “Mastering Shiny” book for a full treatment.\n\nOther dashboard tools besides Shiny (but not in R):\n\nWith python: plotly dash. Check out the main website, or this Medium post introducing the tool.\nWith javascript: D3, a tremendously powerful tool with a steep learning curve (especially if you don’t know javascript).",
     "crumbs": [
       "Lecture 11: Dashboards with R Shiny"
     ]
@@ -3309,7 +3345,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 11\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 24\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 8\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 6\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 19\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 12\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]
