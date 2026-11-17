@@ -9,7 +9,7 @@ date-modified: last-modified
 
 ## Lecture Slides
 
--   [Lecture 11 - Dashboards with R Shiny](../slides/lec10_shiny_slides.qmd)
+-   [Lecture 11 - Dashboards with R Shiny](../slides/lec11_shiny_slides.qmd)
 
 
 This topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:
