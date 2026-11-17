@@ -1126,72 +1126,72 @@
     "text": "To Save These Slides With Your Code\nTo Print to PDF (with your code!), do the following:\n\nOpen the in-browser print dialog CMD/CTRL + P or Right click &gt; Print\nChange the Destination setting to Save as PDF.\nChange the Layout to Landscape.\nChange the Margins to None. Enable the Background graphics option.\nClick Save 🎉\n\nIn all cases, ensure the code chunks don’t get cut off (i.e., a line is too long). You will not be able to edit these from the PDF directly (though you could open the slides again and copy-and-paste to re-run the code!)"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#learning-goals",
-    "href": "webpages/slides/lec10_shiny_slides.html#learning-goals",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#learning-goals",
+    "href": "webpages/slides/lec11_shiny_slides.html#learning-goals",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Learning Goals",
-    "text": "Learning Goals\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file).\n\nLecture Notes\nYouTubeVideo"
+    "text": "Learning Goals\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file)."
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#why-dashboards",
-    "href": "webpages/slides/lec10_shiny_slides.html#why-dashboards",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#why-dashboards",
+    "href": "webpages/slides/lec11_shiny_slides.html#why-dashboards",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Why Dashboards?",
     "text": "Why Dashboards?\nDashboards allow users to get real time (and often customizable) overviews of information. Dashboards can be used for monitoring, measuring, analyzing, and presenting data."
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#r-shiny",
-    "href": "webpages/slides/lec10_shiny_slides.html#r-shiny",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#r-shiny",
+    "href": "webpages/slides/lec11_shiny_slides.html#r-shiny",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "R Shiny",
     "text": "R Shiny\nShiny is an open-source R package that allows users to create interactive web applications directly from R without needing to learn traditional web development languages like HTML, CSS, or JavaScript.\nHere are some examples of R Shiny Dashboards:\n\nhttp://ShowMeShiny.com\nhttp://letsrun.com/shoes\nhttp://daattali.com/shiny/cancer-data/"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app",
-    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#initialize-the-shiny-app",
+    "href": "webpages/slides/lec11_shiny_slides.html#initialize-the-shiny-app",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Initialize the Shiny App",
     "text": "Initialize the Shiny App\nTo use Shiny, install it in your R Console with install.packages(\"shiny\").\nThere are three basic components to a Shiny app:\n\nthe user interface (UI) (the appearance of the app)\na server (which does the app’s computations)\nthe app (assembles the app combining the UI and the server)"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-1",
-    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-1",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#initialize-the-shiny-app-1",
+    "href": "webpages/slides/lec11_shiny_slides.html#initialize-the-shiny-app-1",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Initialize the Shiny App",
     "text": "Initialize the Shiny App\nA basic Shiny app may take the following form:\nlibrary(shiny)\n\nui &lt;- fluidPage()\n\nserver &lt;- function(input, output) {\n  \n}\n\n\nshinyApp(ui = ui, server = server) #do not include code past this point"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-2",
-    "href": "webpages/slides/lec10_shiny_slides.html#initialize-the-shiny-app-2",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#initialize-the-shiny-app-2",
+    "href": "webpages/slides/lec11_shiny_slides.html#initialize-the-shiny-app-2",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Initialize the Shiny App",
     "text": "Initialize the Shiny App\nTo generate a Shiny App, you can either go to “File” &gt; “New File” &gt; “Shiny Web App” in RStudio which will generate a template for you with a working example, or you can save the above code in a single file called “app.R”.\nIf you generated the template using R Studio, the following code will appear:\n\nlibrary(shiny)\n\n# Define UI for application that draws a histogram\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Old Faithful Geyser Data\"),\n\n    # Sidebar with a slider input for number of bins \n    sidebarLayout(\n        sidebarPanel(\n            sliderInput(\"bins\",\n                        \"Number of bins:\",\n                        min = 1,\n                        max = 50,\n                        value = 30)\n        ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"distPlot\")\n        )\n    )\n)\n\n# Define server logic required to draw a histogram\nserver &lt;- function(input, output) {\n\n    output$distPlot &lt;- renderPlot({\n        # generate bins based on input$bins from ui.R\n        x    &lt;- faithful[, 2]\n        bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)\n\n        # draw the histogram with the specified number of bins\n        hist(x, breaks = bins, col = 'darkgray', border = 'white',\n             xlab = 'Waiting time to next eruption (in mins)',\n             main = 'Histogram of waiting times')\n    })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)\nYou can click the “Run App” button to explore the demo. We see that there is a slider which the user can manipulate which changes the number of bins used to produce a histogram, which is updated live!"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#build-the-ui",
-    "href": "webpages/slides/lec10_shiny_slides.html#build-the-ui",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#build-the-ui",
+    "href": "webpages/slides/lec11_shiny_slides.html#build-the-ui",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Build the UI",
     "text": "Build the UI\nInside of the fluidPage() function, you can define and format different elements that will be used to build your Shiny app. For example, in the pre-generated example provided by R Studio, we have the following:\n# Define UI for application that draws a histogram\nui &lt;- fluidPage(\n\n    # Application title\n    titlePanel(\"Old Faithful Geyser Data\"),\n\n    # Sidebar with a slider input for number of bins \n    sidebarLayout(\n        sidebarPanel(\n            sliderInput(\"bins\",\n                        \"Number of bins:\",\n                        min = 1,\n                        max = 50,\n                        value = 30)\n        ),\n\n        # Show a plot of the generated distribution\n        mainPanel(\n           plotOutput(\"distPlot\")\n        )\n    )\n)\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#generate-the-app",
-    "href": "webpages/slides/lec10_shiny_slides.html#generate-the-app",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#generate-the-app",
+    "href": "webpages/slides/lec11_shiny_slides.html#generate-the-app",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Generate the App",
     "text": "Generate the App\nThe final part of the code is\n# Run the application \nshinyApp(ui = ui, server = server)\nwhich combines everything together and allows you to interact with the app!\n\nNotes:"
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#demo-bc-liquor-store-prices",
-    "href": "webpages/slides/lec10_shiny_slides.html#demo-bc-liquor-store-prices",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#demo-bc-liquor-store-prices",
+    "href": "webpages/slides/lec11_shiny_slides.html#demo-bc-liquor-store-prices",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Demo: BC Liquor Store Prices",
     "text": "Demo: BC Liquor Store Prices\nWe will now follow along with this tutorial by Dean Attali that creates a dashboard exploring alcohol prices and alcohol content. We will be slowly building this app from scratch to get a better sense of Shiny."
   },
   {
-    "objectID": "webpages/slides/lec10_shiny_slides.html#resources",
-    "href": "webpages/slides/lec10_shiny_slides.html#resources",
-    "title": "Lecture 10: Dashboards with R Shiny",
+    "objectID": "webpages/slides/lec11_shiny_slides.html#resources",
+    "href": "webpages/slides/lec11_shiny_slides.html#resources",
+    "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Resources",
     "text": "Resources\n\nShiny Assistant: https://gallery.shinyapps.io/assistant/\n“Mastering Shiny” by Hadley Wickham gives a more comprehensive treatment.\nThe official shiny site has tutorials, a gallery, and other goodies."
   },
@@ -3175,7 +3175,7 @@
     "href": "webpages/lectures_ii/lec11_shiny.html#lecture-slides",
     "title": "Lecture 11: Dashboards with R Shiny",
     "section": "Lecture Slides",
-    "text": "Lecture Slides\n\nLecture 10 - Dashboards with R Shiny\n\nThis topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file).\n\nAnd possibly:\n\nMake an interactive plot with plotly\nMake an interactive data table with the DT package",
+    "text": "Lecture Slides\n\nLecture 11 - Dashboards with R Shiny\n\nThis topic aims to provide you with a foundation for making a shiny app. From this topic, students are anticipated to be able to:\n\ndevelop the user interface of a shiny app from scratch,\ndevelop interactivity using widgets in a shiny app,\ndeploy a shiny app to shinyapps.io,\ncreate interactive Shiny R Markdown documents (embed shiny features within an Rmd file).\n\nAnd possibly:\n\nMake an interactive plot with plotly\nMake an interactive data table with the DT package",
     "crumbs": [
       "Lecture 11: Dashboards with R Shiny"
     ]
@@ -3345,7 +3345,7 @@
     "href": "webpages/lectures_ii/lec8b_advfunctions.html#default-parameters",
     "title": "Lecture 8b: Advanced Functions",
     "section": "Default Parameters",
-    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 6\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 19\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 12\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
+    "text": "Default Parameters\nRecall the dice-rolling example from the previous lecture. Sometimes you want to use a function frequently without re-writing the same parameters over and over again. Let’s make a more flexible function that allows us to change the number of faces on the dice being rolled.\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides, num_dice) { \n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nNotice now that in this function, there are two parameters (the new one is n_sides). We now sample from 1:nsides (instead of 1:10) to make the function more flexible. I also renamed the function to roll_dice as we are not necessarily rolling 10 sided dice.\nSo to roll two 10-sided dice, I can call:\n\nroll_dice(n_sides = 10, num_dice = 2)\n\n[1] 11\n\n\nNow, perhaps I often want to roll ten-sided dice. To avoid having to type n_sides = 10, I can simply make the default number of sides to 10!\n\n#' @details\n#' Simulates rolling `num_dice` number of dice with `n_sides` sides and outputs the sum. Note: no seed is used so the function will return a dice combination each time it is run\n#'\n#' @param num_dice integer representing number of dice to be rolled\n#' @param n_sides integer representing the number of sides of each dice. Default is 10.\n#' @return the sum of the dice rolled\n  \nroll_dice &lt;- function(n_sides = 10, num_dice) { #NEW: n_sides default is 10\n  \n    # throw an error if num_dice (the input) is not an integer\n  \n    if(num_dice %% 1 != 0){ #if num_dice mod 1 is NOT 0\n      stop(\"num_dice must be an integer\") #throw this error message and stop the function\n    }\n  \n    #if the num_dice is an integer, continue with the function:\n    sum(sample(1:n_sides, num_dice, replace=TRUE)) #sample two numbers from one to n_sides with replacement, return sum\n}\n\nWe have set n_sides = 10 as the default. This means the function will assume we have a 10 sided dice unless otherwise specified. Let’s roll 3 dice using 10 sided dice (the default):\n\nroll_dice(num_dice = 3)\n\n[1] 14\n\n\nI didn’t need to include n_sides = 10 in my function call! But I can if I want to change it to a number other than 10. Let’s roll 3 standard 6-sided dice\n\nroll_dice(n_sides = 6, num_dice = 3)\n\n[1] 11\n\n\n\n\n\n\n\n\nWarningExercise: Default Values\n\n\n\nMake a new argument for the summarizeby_fun() we made previously called columns that allows you to input a vector containing which columns you wish to look at missing values for (these can be written as strings). Set the default to everything().\n\n\n\n\n\n\n\n\nWarningClick to reveal the solution!\n\n\n\n\n\n\nsummarizeby_fun &lt;- function(data, groups, columns = everything()){\n  data %&gt;%\n    group_by({{groups}}) %&gt;%\n    summarize(across(columns, ~ sum(is.na(.x))))\n}\n\nsummarizeby_fun(penguins, species)\n\nWarning: There was 1 warning in `summarize()`.\nℹ In argument: `across(columns, ~sum(is.na(.x)))`.\nCaused by warning:\n! Using an external vector in selections was deprecated in tidyselect 1.1.0.\nℹ Please use `all_of()` or `any_of()` instead.\n  # Was:\n  data %&gt;% select(columns)\n\n  # Now:\n  data %&gt;% select(all_of(columns))\n\nSee &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.\n\n\n# A tibble: 3 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;      &lt;int&gt;          &lt;int&gt;         &lt;int&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie         0              1             1                 1           1\n2 Chinstrap      0              0             0                 0           0\n3 Gentoo         0              1             1                 1           1\n# ℹ 2 more variables: sex &lt;int&gt;, year &lt;int&gt;\n\nsummarizeby_fun(penguins, species, c(\"bill_length_mm\", \"sex\"))\n\n# A tibble: 3 × 3\n  species   bill_length_mm   sex\n  &lt;fct&gt;              &lt;int&gt; &lt;int&gt;\n1 Adelie                 1     6\n2 Chinstrap              0     0\n3 Gentoo                 1     5",
     "crumbs": [
       "Lecture 8b: Advanced Functions"
     ]

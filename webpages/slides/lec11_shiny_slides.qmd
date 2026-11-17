@@ -1,5 +1,5 @@
 ---
-title: "Lecture 10: Dashboards with R Shiny"
+title: "Lecture 11: Dashboards with R Shiny"
 format: 
   live-revealjs:
     scrollable: true
@@ -32,9 +32,6 @@ engine: webr
 
 -   create interactive Shiny R Markdown documents (embed shiny features within an Rmd file).
 
-[Lecture Notes](https://ubc-stat.github.io/STAT545.github.io/webpages/lectures_ii/lec10_shiny.html)
-
-[YouTube](https://www.youtube.com/watch?v=4Y1OphsZSl0&t=2s)Video
 
 ## Why Dashboards?
 
