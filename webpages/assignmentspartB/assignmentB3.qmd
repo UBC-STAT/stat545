@@ -40,7 +40,7 @@ See [the Appendix](#appendix) at the end of this assignment for some ideas for y
 
 ## Part B) Deploy the App to Shinyapps.io (10 points)
 
--   [ ] Deploy the app to Shinyapps.io [(instructions here)](https://ubc-stat.github.io/stat545/webpages/lectures_ii/lec10_shiny.html#deploy-the-app-to-shinyapps.io)
+-   [ ] Deploy the app to Shinyapps.io [(instructions here)](https://ubc-stat.github.io/stat545/webpages/lectures_ii/lec11_shiny.html#deploy-the-app-to-shinyapps.io)
 
 ## Part C) Statement on Gen AI use (10 points) {#genAI}
 
